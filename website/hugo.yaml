@@ -1,0 +1,141 @@
+baseURL: /
+title: "MedPup — Affordable Veterinary Surgery. A Short Trip Away."
+locale: en-us
+theme: stack
+copyright: "MedPup Veterinary Concierge, LLC"
+enableEmoji: true
+enableGitInfo: false
+hasCJKLanguage: false
+permalinks:
+  post: /blog/:slug/
+
+# Hugo module config
+module:
+  hugoVersion:
+    extended: true
+    min: "0.157.0"
+
+# Build config
+build:
+  writeStats: true
+
+# Output formats
+outputs:
+  home: [HTML]
+  page: [HTML]
+
+# Menu configuration
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: how-it-works
+      name: How It Works
+      url: /how-it-works/
+      weight: 2
+    - identifier: destinations
+      name: Destinations
+      url: /destinations/
+      weight: 3
+    - identifier: procedures
+      name: Procedures
+      url: /procedures/
+      weight: 4
+    - identifier: pricing
+      name: Pricing
+      url: /pricing/
+      weight: 5
+    - identifier: faq
+      name: FAQ
+      url: /faq/
+      weight: 6
+    - identifier: contact
+      name: Get Started
+      url: /contact/
+      weight: 7
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 8
+
+params:
+  mainSections: ["post"]
+  rssFullContent: true
+  description: "Save 50-80% on TPLO, dental, and specialty veterinary surgery. MedPup organizes safe, stress-free trips from Florida to accredited clinics in the Bahamas and Mexico."
+  
+  footer:
+    since: 2026
+    customText: "MedPup is a veterinary logistics concierge, not a veterinary practice."
+
+  sidebar:
+    compact: false
+    avatar: ""  # No avatar for business site
+    subtitle: "Florida-based pet medical concierge"
+    emoji: ""
+  
+  article:
+    headingAnchor: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: false
+
+  widgets:
+    homepage: []
+    page: []
+
+  colorScheme:
+    toggle: true
+    default: "auto"
+
+  comments:
+    enabled: false
+
+  opengraph:
+    twitter:
+      site: "@medpup"
+      card: "summary_large_image"
+
+  imageProcessing:
+    content:
+      enabled: true
+      widths: [800, 1200]
+    thumbnail:
+      enabled: false
+
+# Markdown configuration
+markup:
+  goldmark:
+    renderer:
+      unsafe: true  # Allow HTML in markdown (for tables, buttons, etc.)
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+
+# Sitemap
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+
+# Privacy
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: true
+  instagram:
+    disable: true
+  x:
+    disable: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: true
+
+# Security
+security:
+  enableInlineShortcodes: false

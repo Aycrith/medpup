@@ -28,6 +28,7 @@ yarn-error.log*
 
 # Hugo (future site builds)
 public/
+website/public/
 resources/
 
 # Docker (for self-hosted tools)
