@@ -1,165 +1,111 @@
-# MedPup — Business Name Exploration
+# MedPup — Business Name Exploration (v3)
 
-> **Goal:** Find a short, clever, modern name that wordplays on:
-> Pets + Medical + Travel/Ferry + Savings/Value + Florida/Cross-Border
-
----
-
-## TOP 10 (Recommended Shortlist)
-
-### 1. PassPaws
-**Why:** "Pass" does triple duty — passport (border crossing), passage (ferry journey), and "it'll pass" (health issue resolved). One syllable each, five letters total. Rolls off the tongue. Logo writes itself: a paw print inside a passport stamp circle.
-
-### 2. PawsPort
-**Why:** Paws + Passport + Port (departure harbor). Says "international pet travel" in a single word. The port/harbor connection grounds it in the Florida geography. Professional but warm.
-
-### 3. PawsLess
-**Why:** Triple-wordplay: (1) Paws + (2) "pay less" + (3) "flawless." You save money *and* get premium service. Clever enough to make people smile, confident enough to build trust. Short, punchy, memorable.
-
-### 4. Vetrip
-**Why:** Vet + Trip. Four letters, one concept. Instantly communicates what you do. Modern startup naming style (think: E*trade, Petco, Carvana). No explanation needed — people will get it immediately.
-
-### 5. BonVet
-**Why:** "Bon voyage" + Vet. Warm, sophisticated, international. "Bon" means "good" in French — good vet, good journey, good value. Evokes the Bahamas/Caribbean connection naturally. Short (6 letters).
-
-### 6. AnchorPaws
-**Why:** Anchor = safety, stability, maritime. Paws = animals. Evokes "safe harbor" for pet health. Emotionally warm (anchor is a protective symbol). The ferry to Freeport literally docks at a harbor. Trust-first branding.
-
-### 7. Vetbound
-**Why:** Vet + Homeward Bound + Cross-boundary. "Bound" implies destination and direction — exactly what a concierge trip is. Evokes "The Incredible Journey" warmth. Action-oriented: "We're vetbound."
-
-### 8. PassVet
-**Why:** Pass(port) + Vet + "Pass" as in "this will pass" (health problem solved). Also: "pass" as in a mountain pass (crossing). Cleaner/more professional alternative to PassPaws. Sounds like a legitimate medical service.
-
-### 9. FairPaws
-**Why:** Fair pricing + Fair treatment + Paws. One word communicates the entire value proposition: affordable care that treats your pet right. The double meaning is immediately satisfying. Brandable as an adjective: "That's so FairPaws."
-
-### 10. Pawsage
-**Why:** Paws + Passage + Cabotage (maritime: coastal shipping). The deepest wordplay on the list — it rewards people who think about it. "Passage" evokes journey, transformation, and the ferry crossing. Unique name nobody else will have.
+> **Constraint:** No words with subconscious death/negative associations.  
+> **Goal:** Clever wordplay — portmanteaus, double meanings, not just smashing words together.
 
 ---
 
-## RUNNERS-UP (11-25)
+## TOP 10 — Real Wordplay
 
-### Voyage / Journey Names
-11. **VoyageVet** — Professional, clear. Sounds like an established company.
-12. **PawsVoyage** — Softer, warmer version of above.
-13. **HealVoyage** — The healing journey. Emotional, memorable.
-14. **Vetway** — Vet + Pathway + "away" as in "take the cost away." Clean, modern, short.
-15. **PawsCross** — Cross-border + cross (as in traverse). Action-oriented.
+### 1. PawsPort
+**Paws + Port (harbor) + Port (border crossing) + Implied Passport.**
+The word "port" does triple duty: a port is where ferries dock (Freeport), a port is where you cross borders (passport checkpoint), and it implies "passport" without the negative word "pass." "Port" = safe harbor, safe arrival — not departure. Extremely clean wordplay that rewards thinking about it. Short, punchy, brandable.
+**Logo:** Paw print + anchor circle = passport stamp.  
+**Tagline:** *"Your pet's port to affordable care."*
 
-### Value / Savings Names
-16. **CareSaver** — Clear value prop. Trusted tone. Less punny, very direct.
-17. **WorthPaws** — "Worth it" + Paws. Emotional: your pet is worth it.
-18. **ValueVet** — Transparent. Professional. E-commerce style.
-19. **PawsValue** — Softer version of above.
-20. **PetSaver** — Clear but generic.
+### 2. Pawtient
+**Paw + Patient.** A portmanteau that rearranges letters to create a new word. "Your pawtient is in good paws." Six letters. A name that makes people smile when they get it. Shows you're clever, not corporate. Works as a brand name on its own (like Casper, Warby Parker).
+**Logo:** Paw print with a medical cross inside.  
+**Tagline:** *"Every pawtient deserves world-class care."*
 
-### Maritime / Harbor Names
-21. **PetPort** — Port of call for pet health. Short, professional.
-22. **HarborVet** — Safe harbor + Vet. Trust + professionalism.
-23. **FerryVet** — Extremely specific. Tells you exactly how it works.
-24. **SailPaws** — Nautical + pet. Evokes adventure.
-25. **TidePaws** — Tide + Paws. Rhythmic, calming, natural.
+### 3. PawsCove
+**Paws + Cove (sheltered harbor).** A cove is a small, sheltered bay — safe, protected, natural. Warmest emotional register of any maritime name. "Cove" = safety, not travel. Your pet is in a safe harbor, not on a risky journey. The word "cove" itself is beautiful and calming.
+**Logo:** Paw print nestled inside a crescent shape (cove).  
+**Tagline:** *"A safe cove for every paw."*
 
-### Connection / Bridge Names
-26. **VetBridge** — Bridging the cost gap + Bridging borders. Clean metaphor.
-27. **PawsLink** — Connecting pets to affordable care.
-28. **VetLink** — More professional version.
-29. **CareBridge** — Warm, trusted. Less pet-specific.
-30. **PathPaws** — The path to affordable care + paws.
+### 4. WagsWell
+**Wags (happy tail) + Get Well.** The tail wag is the universal sign of a happy dog. "Wags Well" = they wag again, they get well. Pure positive outcome. No possible negative reading. A name that feels like a smile.
+**Logo:** A tail making a W shape + a heart.  
+**Tagline:** *"Healthy again. Wags back."*
 
-### Modern / Short Names
-31. **VitalPaws** — Vital care + Paws. Professional, health-focused.
-32. **Vetica** — Vet + America + Clinica. "La clinica" — taps into the Mexico connection.
-33. **Petrica** — Pet + America + Clinica. Softer version.
-34. **PawsWell** — Pet wellness. Clean, standard.
-35. **WellPaws** — Wellness + Paws. Gentle, positive.
-36. **MendPaws** — Mend + Paws. Simple, warm, trustworthy.
-37. **FixPaws** — More direct. Less premium.
-38. **PawsSure** — Paws + Sure (confident/insured). Trust play.
-39. **TruePaws** — Authenticity. Honest pricing.
-40. **Fleet** — Fleet of ferries + Fleet as in "fast/quick" + Fleet as in a fleet of animals. One word, many meanings. Very modern startup name.
+### 5. VetWay
+**Vet + Way + Waterway.** "Way" = pathway, direction, solution. "Way" as in "we'll find a way." "Waterway" = the ferry route to Freeport. A name that says "we provide the path to affordable care." Short, professional, directional.
+**Logo:** Arrow made of a paw print pointing east.  
+**Tagline:** *"The way to world-class care."*
 
-### Florida / Sun Names
-41. **FloVet** — Florida + Vet. Hyper-local. Clear.
-42. **GulfCare** — Gulf of Mexico + Care. Geographic anchor.
-43. **SunVet** — Sunshine State + Vet. Warm, positive.
-44. **CoastVet** — Coast-to-care + Florida coasts.
-45. **BayVet** — Tampa Bay / Biscayne Bay + Vet.
+### 6. PawsGold
+**Paws + Gold (value, worth, precious).** "Worth their weight in gold." "Gold standard of care." Gold = valuable, premium, high-quality — but also implies you're getting it at a good price. "Gold" is universally positive in every context. No negatives.
+**Logo:** Paw print in gold (warm amber color).  
+**Tagline:** *"Gold-standard care. Pawsitively affordable."*
 
-### Cross-Border / Passport Names
-46. **BorderPaws** — Direct. Tells you it's cross-border.
-47. **CrossCare** — Cross-border + cross (as in hybrid model).
-48. **PawsAway** — Get away + paws. Playful. Less professional.
-49. **GoPaws** — Action-oriented. App-like.
-50. **PawsGo** — Alternative ordering.
+### 7. PawsUp
+**Paws Up (celebration) + Paws on your pet (attention).** "Paws up" is what dogs do when they're happy — paws on your chest, tail wagging. It's also "hands up" for a job well done. And "we've got our paws on it" = we're handling everything. Triple meaning, all positive.
+**Logo:** Two paw prints raised in celebration.  
+**Tagline:** *"Paws up for affordable care."*
 
-### Braver / Riskier Names
-51. **BonVoyPaws** — Too long but captures the spirit.
-52. **Pawsada** — Paws + Pasada (Spanish: passage). Bilingual. Clever but may confuse.
-53. **ViaVet** — Via (by way of) + Vet. Short, sophisticated.
-54. **ViatPaws** — Viat (French: travel) + Paws. International feel.
-55. **Menda** — Mend + -a suffix. Clean, non-obvious brand name. May not communicate the business.
+### 8. WagsSave
+**Wags (happy tail) + Save (money + pet).** A tail wagging because you saved money AND saved your pet. Direct benefit statement wrapped in a happy image. Two syllables, memorable, action-oriented.
+**Logo:** Tail wag + savings symbol.  
+**Tagline:** *"Wags come standard. Savings too."*
+
+### 9. PawsGood
+**"Good paws" + "It's all good."** Two words, one simple statement of quality. "Good" = quality, trustworthy, reliable. "Good paws" = your pet is in good hands (paws). The tagline writes itself: "PawsGood — care you can feel good about."
+**Logo:** Paw print with a thumbs up inside.  
+**Tagline:** *"Good paws. Good care. Good value."*
+
+### 10. VetGold
+**Vet + Gold (standard + value).** More professional version of PawsGold. Better for B2B/vet-to-vet contexts. "Gold" = the standard of care + the value you get. Sounds established and prestigious.
+**Logo:** Veterinary caduceus + gold bar/star.  
+**Tagline:** *"Gold-standard veterinary care. For less."*
 
 ---
 
-## Category Breakdown
+## RUNNERS-UP (11-20)
 
-| Theme | Best Name | Why |
-|-------|-----------|-----|
-| **Passport/Border** | **PassPaws** | Clearest travel wordplay |
-| **Savings** | **PawsLess** | Smartest value communication |
-| **Maritime/Harbor** | **AnchorPaws** | Warmest emotional resonance |
-| **Journey** | **Vetrip** | Shortest, most direct |
-| **Medical** | **BonVet** | Most sophisticated |
-| **Trust** | **FairPaws** | Best dual-meaning |
-| **Connection** | **VetBridge** | Clearest metaphor |
-| **Florida-specific** | **FloVet** | Most local |
+### Portmanteaus (New Words)
+11. **VetCove** — Vet + Cove. Professional + safe harbor.
+12. **CareCove** — Care + Cove. Warm + safe. Less pet-specific.
+13. **WagWell** — Wag + Well. Shorter than WagsWell.
+14. **WagWard** — Wag + Homeward. But "ward" is medical.
+15. **PawsWay** — Paws + Way + Waterway. Softer than VetWay.
+16. **PawsPrime** — Prime = best, premium. Amazon word.
 
----
+### Compound Names (Two Words, One Concept)
+17. **WellWags** — Wellness + Wags. Same happy energy reversed.
+18. **TrueWags** — True + Wags. Authentic happiness.
+19. **SureWags** — Sure + Wags. Guaranteed happiness.
+20. **GoldWags** — Gold + Wags. Your pet's happiness is gold.
 
-## Domain Availability
-
-Checked May 2026. See `brand-names-domain-check.sh` for verification method.
-
-| Name | .com | .vet | .co | .io |
-|------|------|------|-----|-----|
-| **PassPaws** | ❌ Taken | ✅ **Available!** | ✅ Available | ⚠️ Check |
-| **PawsPort** | ❌ Taken | ✅ Available | ✅ Available | ⚠️ Check |
-| **PawsLess** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **Vetrip** | ❌ Taken | ✅ Available | ✅ Available | ⚠️ Check |
-| **BonVet** | ❌ Taken | ✅ Available | ✅ Available | ✅ Available! |
-| **AnchorPaws** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **Vetbound** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **PassVet** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **FairPaws** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **Pawsage** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-| **FleetVet** | ✅ **Available!** | ⚠️ Check | — | ⚠️ Check |
-| **PawsBound** | ✅ **Available!** | ⚠️ Check | ✅ Available | ⚠️ Check |
-| **VoyageVet** | ❌ Taken | ⚠️ Check | ⚠️ Check | ⚠️ Check |
-
-**Best available domains:**
-1. `passpaws.vet` — Top pick, relevant TLD for veterinary service
-2. `fleetvet.com` — Only .com available in the top 10
-3. `bonvet.io` — Modern, tech-forward
-4. `vetrip.co` — Clean, short
-5. `pawsport.co` — Great alternative
-6. `pawsbound.com` — Warm, action-oriented
+### Fresh Angles
+21. **BestPaw** — Best + Paw + "Best Paw Forward." Positive direction.
+22. **PawForward** — "Best paw forward." Optimistic, action-oriented.
+23. **HappyBay** — Happy + Bay (Florida, safe water). Geographic + emotional.
+24. **BrightBay** — Bright future + Bright sunshine + Bay waters.
+25. **SunnyPaw** — Florida + positivity + pet.
 
 ---
 
-## My Pick: PassPaws (Available as passpaws.vet)
+## Domain Availability (Top 10)
 
-**Why it wins:**
-1. **One word, two syllables, five letters per word** — extremely short
-2. **Triple meaning:** Pass(port) + Paws + Pass(age) — it's about border crossing, pets, and the ferry journey
-3. **Visual identity:** A paw print inside a passport stamp circle — instantly iconic
-4. **Domain availability** (likely): passpaws.com is probably available
-5. **International:** Works in any language. No cultural confusion
-6. **Tone:** Neither too cute (PawsLess) nor too clinical (Vetrip). Hits the sweet spot between warm and professional
-7. **MemoMENtrability:** You hear it once, you remember it
+| Name | .com | .vet | .co | Notes |
+|------|------|------|-----|-------|
+| **PawsPort** | ❌ Taken | ⚠️ Check | ⚠️ Check | Strongest name |
+| **Pawtient** | ✅ **Available** | ⚠️ Check | ⚠️ Check | Only .com in top! |
+| **PawsCove** | ❌ Taken | ⚠️ Check | ⚠️ Check | Very warm |
+| **WagsWell** | ❌ Taken | ⚠️ Check | ⚠️ Check | Happy energy |
+| **VetWay** | ❌ Taken | ⚠️ Check | ⚠️ Check | Professional |
+| **PawsGold** | ❌ Taken | ⚠️ Check | ⚠️ Check | Premium value |
+| **PawsUp** | ❌ Taken | ⚠️ Check | ⚠️ Check | Celebration |
+| **WagsSave** | ❌ Taken | ⚠️ Check | ⚠️ Check | Direct savings |
+| **PawsGood** | ❌ Taken | ⚠️ Check | ⚠️ Check | Warm trust |
+| **VetGold** | ❌ Taken | ⚠️ Check | ⚠️ Check | B2B option |
 
-**Tagline:** "Passport to affordable care" or "Your pet's passport to healing."
+---
 
-**Honorable mention — PawsLess** if you want the savings angle front and center. It's more clever wordplay but slightly less professional tone.
+## My Top 3
+
+| Rank | Name | Wordplay | Vibe |
+|------|------|----------|------|
+| **1** | **PawsPort** | Port (harbor) + Port (border) + Passport (implied) | Clever + professional |
+| **2** | **Pawtient** | Paw + Patient — original portmanteau | Warm + witty |
+| **3** | **PawsCove** | Cove = sheltered harbor, safe haven | Calm + nurturing |
