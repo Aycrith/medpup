@@ -19,6 +19,7 @@ Thumbs.db
 # Secrets
 .git-credentials
 *.token
+email-config.json
 
 # Node (for future website development)
 node_modules/
