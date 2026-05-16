@@ -1,0 +1,402 @@
+{
+  "business": {
+    "name": "MedPup",
+    "legal_structure": "Florida LLC operating as Management Services Organization (MSO) with a separate Professional Corporation (PC) owned by a licensed veterinarian for clinical services",
+    "model": "dual-hub cross-border veterinary concierge",
+    "hubs": [
+      {
+        "name": "Freeport, Grand Bahama",
+        "type": "day-trip pharmaceutical arbitrage and Tier 2/3 procedures",
+        "travel_mode": "3-hour passenger ferry from Fort Lauderdale",
+        "primary_procedures": ["dental extractions", "mass removals", "spay/neuter", "fracture repair", "FHO surgery", "chronic medication pickup"],
+        "key_advantages": ["CareCredit accepted directly at partner clinic", "Hawksbill Creek Agreement FTZ tax-free status until 2054", "no USDA endorsement required", "no screwworm certificate", "no CDC rabies high-risk designation"]
+      },
+      {
+        "name": "Cancun, Mexico",
+        "type": "complex orthopedic and specialty surgical hub",
+        "travel_mode": "1.5-hour group charter flight or empty-leg private aviation",
+        "primary_procedures": ["TPLO/ACL", "IVDD spinal", "oncology", "BOAS correction", "cataract surgery", "MRI/CT diagnostics"],
+        "key_advantages": ["largest US-facing veterinary infrastructure", "60-80% cost savings", "proven volume (36,670 dogs crossed border in 2025)"],
+        "regulatory_requirements": ["USDA-endorsed health certificate", "screwworm certificate within 5 days of return"]
+      }
+    ],
+    "phases": {
+      "phase_0": "data compilation and validation",
+      "phase_1": "legal incorporation, MSO-PC setup, partner contracting, Freeport pilot",
+      "phase_2": "Cancun group flights, installment loan product, branded insurance rider"
+    }
+  },
+
+  "market_data": {
+    "pet_ownership": {
+      "households_with_pets_2025": "77.5 million (58.6%)",
+      "dog_population": "87.3 million",
+      "family_members_consideration": "79.5% of dog owners, 70.4% of cat owners",
+      "gap_regular_vet_vs_visit": "14% (83.4% have vet, only 69.4% visited in past year)"
+    },
+    "affordability_crisis": {
+      "vet_cost_increase_since_2020": "47.15%",
+      "annual_inflation_rate_vet": "6.65%",
+      "general_inflation_rate": "3.92%",
+      "owners_stressed_by_250_bill_or_less": "26%",
+      "owners_forgone_necessary_care": "over 50%",
+      "optional_surgery_rejected": "16%",
+      "medications_skipped": "11%",
+      "turned_down_surgical_interventions": "7%",
+      "vet_bill_500_to_2500_impossible": "53%",
+      "32_percent_unaffordable_2500": "32%"
+    },
+    "pet_insurance_penetration": "4.6% of pet-owning households",
+    "average_premium_dog_annual": 640,
+    "average_premium_cat_annual": 380,
+    "average_veterinary_expenditure_2025": 1480,
+    "pet_travel_services_market": {
+      "global_value_2025": "2.25 billion",
+      "projected_2030": "3.68 billion",
+      "cagr": "10.5%",
+      "north_america_outbound_medical_tourism_2026": "153.1 billion",
+      "projected_2033": "750.71 billion",
+      "cagr_medical_tourism": "17.4%"
+    },
+    "cross_border_demand": {
+      "dogs_to_mexico_2025": 36670,
+      "yoy_increase": "11.6%",
+      "mexivet_weekly_volume": 80,
+      "mexivet_employees": 15,
+      "mexivet_dedicated_drivers": 7,
+      "baja_california_medical_tourists_annual": "4.2 million",
+      "projected_2030": "7.2 million"
+    },
+    "hispanic_pet_ownership_growth": {
+      "latino_pet_owners_increase_2008_to_2018": "44%",
+      "hispanic_dog_ownership_increase": "59%",
+      "cat_ownership_increase": "50%",
+      "latinx_pet_ownership_rate": "77%",
+      "annual_vet_visit_rate": "90%"
+    },
+    "carecredit_stats": {
+      "cardholders": "over 12 million",
+      "new_accounts_monthly": 205000,
+      "enrolled_locations": "285,000+",
+      "vet_universities_acceptance": "100% of public",
+      "usage_frequency_per_year": 5.5,
+      "postponed_without_carecredit": "54%",
+      "minimum_credit_score": 600
+    }
+  },
+
+  "destinations": {
+    "freeport_grand_bahama": {
+      "travel_time_from_florida": "2.5-3 hours (ferry)",
+      "ferry_operator": "Balearia Caribbean",
+      "ferry_cost_roundtrip_per_person": "approx $250",
+      "regulatory": {
+        "usda_endorsement_required": false,
+        "screwworm_affected": false,
+        "cdc_rabies_high_risk": false,
+        "import_permit_required": true,
+        "import_permit_system": "Click2Clear ePermit",
+        "import_permit_fee": "11.20 USD (10 + 12% VAT)",
+        "processing_time": "same-day with 100% approval guarantee"
+      },
+      "unique_structural_moat": {
+        "hawksbill_creek_agreement": {
+          "valid_through": 2054,
+          "tax_benefits": [
+            "no taxes on profits, capital gains, inheritance, income, earnings, distributions",
+            "no excise taxes, stamp duties, most customs duties",
+            "no import/export duties on goods",
+            "zero corporate income taxes"
+          ],
+          "goods_import_form": "C-14 Form",
+          "vat_exemption": "supplies between Licensees and imports into Port Area are VAT-free"
+        }
+      },
+      "vet_infrastructure": [
+        {
+          "name": "Freeport Veterinary Hospital",
+          "capabilities": ["soft tissue surgery", "orthopedic surgery", "dental surgery", "diagnostic imaging"],
+          "carecredit_accepted": true,
+          "google_rating": 5.0
+        },
+        {
+          "name": "Caribbean Veterinary Health & Healing Center (Lucaya)",
+          "rating": 4.7,
+          "reviews": 88
+        }
+      ],
+      "procedure_costs_estimated": {
+        "tplo": "1,500 - 2,500 USD",
+        "dental_extractions": "200 - 350 USD",
+        "spay_neuter_large_dog": "200 - 350 USD",
+        "mass_removal": "250 - 500 USD",
+        "consultation": "40 - 60 USD"
+      }
+    },
+    "cancun_mexico": {
+      "travel_time_from_miami": "1.5 hours (air)",
+      "regulatory": {
+        "usda_endorsement_required": true,
+        "screwworm_affected": true,
+        "screwworm_rule_date": "2024-11-22",
+        "screwworm_certificate_validity": "5 days before return",
+        "cdc_rabies_high_risk": false
+      },
+      "vet_infrastructure": {
+        "tijuana_border_clinics": "high volume, many specialty hospitals",
+        "cancun_specialty": "board-certified surgeons, robotic suites",
+        "mexico_city": "oncology, ophthalmology, advanced diagnostics"
+      },
+      "procedure_costs": {
+        "tplo": "1,200 USD (Vet Playas published rate)",
+        "dental_extractions": "150 - 250 USD",
+        "spay_large_dog": "90 - 120 USD",
+        "consultation": "15 - 40 USD",
+        "mri": "300 USD (human-grade lab)",
+        "ct_scan": "400 - 800 USD"
+      },
+      "market_volume": "36,670 dogs crossed border in 2025, +11.6% YoY"
+    },
+    "kingston_jamaica": {
+      "travel_time": "1.5 hours (air)",
+      "cdc_rabies_high_risk": false,
+      "screwworm_affected": false,
+      "entry_restrictions": "pets must enter only through Kingston or Palisadoes Airport",
+      "language_advantage": "English-speaking",
+      "vet_clinics": ["Noah's Ark Veterinary Centre", "Animalcare Veterinary Hospital"],
+      "estimated_savings": "50-75%"
+    },
+    "havana_cuba": {
+      "travel_time": "45 min (air)",
+      "cdc_rabies_high_risk": true,
+      "requirements": "rabies vaccination certificate, microchip, CDC Dog Import Form, potential serology titer",
+      "ofac_restrictions": "12 authorized categories only; pet medical tourism not explicitly defined",
+      "viability": "non-viable for short-stay model"
+    },
+    "panama_city": {
+      "travel_time": "2.5 hours (air)",
+      "colon_ftz": "second-largest FTZ globally, pharma major import",
+      "quarantine": "mandatory 40-day home quarantine, $130 fee",
+      "viability": "non-viable for short-stay surgery; pharma-only courier possible"
+    },
+    "caracas_venezuela": {
+      "cdc_rabies_high_risk": true,
+      "political_risk": "high, hyperinflation, supply chain instability",
+      "cost": "lowest absolute procedure costs",
+      "viability": "non-viable"
+    }
+  },
+
+  "procedures": {
+    "tplo": {
+      "us_cost_range": "4,000 - 6,000 USD (standard); complex up to 10,000",
+      "mexico_cost_published": "1,200 USD (Vet Playas)",
+      "freeport_estimated": "1,500 - 2,500 USD"
+    },
+    "ivdd_spinal_surgery": {
+      "us_cost": "10,000 - 15,000 USD",
+      "mexico_cost_estimated": "2,500 - 5,000 USD",
+      "nicaragua_estimated": "under 5,000 USD"
+    },
+    "dental_with_extractions": {
+      "us_cost": "1,000 - 2,000 USD",
+      "mexico_cost": "150 - 250 USD",
+      "freeport_cost": "200 - 350 USD"
+    },
+    "mass_removal_soft_tissue": {
+      "us_cost": "500 - 2,000+ USD",
+      "mexico_cost": "250 - 1,000 USD",
+      "freeport_cost": "250 - 500 USD"
+    },
+    "boas_correction": {
+      "us_cost": "2,000 - 5,000 USD",
+      "mexico_cost_estimated": "800 - 1,500 USD"
+    },
+    "cataract_surgery_per_eye": {
+      "us_cost": "2,700 - 5,000 USD",
+      "mexico_cost": "250 - 750 USD"
+    },
+    "consultation": {
+      "us_cost": "100 - 250 USD",
+      "mexico_cost": "15 - 40 USD",
+      "freeport_cost": "40 - 60 USD"
+    },
+    "insulin_10ml_vial_u40": {
+      "us_cost_average": "79.99 USD",
+      "mexico_cost": "16 - 45 USD",
+      "uk_cost": "44.60 USD (Pet Drugs Online)"
+    },
+    "carecredit_eligible_procedures": "all medical procedures at enrolled clinics"
+  },
+
+  "competitors": [
+    {
+      "name": "MexiVet Express",
+      "founded": 2018,
+      "founder": "Anna Ginsky",
+      "model": "land shuttle across San Diego-Tijuana border",
+      "scale": "80 pets/week, 15 full-time staff, 7 drivers",
+      "geographic_focus": "California only",
+      "financing_integration": "none",
+      "group_pooling": "no",
+      "pricing": "transport fee starting ~$125"
+    },
+    {
+      "name": "PetMex International",
+      "origin": "former MexiVet employees",
+      "model": "similar land shuttle, premium positioning",
+      "scale": "smaller"
+    },
+    {
+      "name": "FareVet",
+      "model": "AI-powered cost comparison platform only",
+      "logistics": "none"
+    }
+  ],
+
+  "regulatory_framework": {
+    "usda_aphis": {
+      "screwworm_cfr": "9 CFR 93.600",
+      "certificate_requirement": "signed by full-time salaried veterinary official of region of origin within 5 days preceding shipment",
+      "healthy_dog_importation_act_hr3349": "pending legislation for electronic documentation",
+      "aphis_efile_processing_days": 7,
+      "bahamas_exception": "health certificates for dogs/cats do not require APHIS endorsement"
+    },
+    "cdc_rabies_high_risk_countries": ["Cuba", "Venezuela", "many others"],
+    "florida_cpom": {
+      "statute": 474.201,
+      "requirement": "veterinary practices must be owned by licensed veterinarians",
+      "workaround": "MSO-PC model, management fee at Fair Market Value, clinical control retained by PC"
+    },
+    "carecredit_provider_agreement": {
+      "prohibited": "billing for services sold by a third party",
+      "network": "domestic-only closed network",
+      "merchant_code": "0742 (Veterinary Services)"
+    },
+    "bahamas_import_permit": {
+      "system": "Click2Clear ePermit",
+      "fee": "11.20 USD",
+      "processing": "same-day"
+    }
+  },
+
+  "financial_models": {
+    "freeport_daytrip_5_pets": {
+      "revenue": 4500,
+      "ferry_transport": 1250,
+      "ground_transport_freeport": 400,
+      "staff_travel": 250,
+      "import_permits": 75,
+      "marketing_allocation": 300,
+      "total_costs": 2275,
+      "net_profit": 2225,
+      "margin": "49%"
+    },
+    "cancun_group_flight_6_pets": {
+      "revenue": 9000,
+      "charter_flight": 3500,
+      "villa_3_nights": 1200,
+      "ground_transport": 400,
+      "screwworm_compliance": 690,
+      "staff_travel_expenses": 800,
+      "marketing_allocation": 500,
+      "total_costs": 7090,
+      "net_profit": 1910,
+      "margin": "21%"
+    },
+    "concierge_fees": {
+      "freeport_per_pet": 900,
+      "cancun_per_pet": 1500
+    }
+  },
+
+  "operational_checklists": {
+    "freeport_day_trip": [
+      "Verify valid rabies vaccination certificate",
+      "Submit Bahamian import permit via Click2Clear",
+      "Book ferry passage Balearia Caribbean",
+      "Confirm appointment and CareCredit acceptance at Freeport Veterinary Hospital",
+      "Arrange ground transport",
+      "Pre-travel wellness check (MSO-coordinated, PC-performed)",
+      "Document trip with photos/video",
+      "Post-trip follow-up Day 3, 7, 30"
+    ],
+    "cancun_surgical_trip": [
+      "Verify rabies vaccination certificate",
+      "Obtain USDA-endorsed health certificate",
+      "Book group charter flight or empty-leg",
+      "Schedule screwworm inspection within 5 days of return",
+      "Book recovery villa",
+      "Schedule post-op telehealth check-in",
+      "Execute screwworm certificate",
+      "Execute return flight and documentation"
+    ],
+    "regulatory_monitoring_automated": [
+      "Check USDA APHIS updates weekly",
+      "Check CDC rabies high-risk list changes",
+      "Monitor CareCredit provider terms",
+      "Verify partner clinic licensing status quarterly"
+    ]
+  },
+
+  "marketing": {
+    "keywords": {
+      "problem_aware": [
+        "can't afford TPLO surgery",
+        "dog dental surgery too expensive",
+        "cheap vet surgery Florida alternatives",
+        "affordable dog orthopedic surgery near Florida"
+      ],
+      "solution_aware": [
+        "pet medical tourism Mexico",
+        "cross-border vet care",
+        "vet care in Bahamas from Florida",
+        "international veterinary surgery for dogs"
+      ],
+      "brand_aware": ["MedPup", "MedPup reviews", "MedPup cost"],
+      "local_intent": ["vet surgery Florida", "dog surgery Miami cost", "affordable vet Tampa"]
+    },
+    "eeat_requirements": {
+      "experience": "content must demonstrate first-hand cross-border pet care experience",
+      "expertise": "author credentials; vet-reviewed content",
+      "authoritativeness": "backlinks from authoritative vet domains",
+      "trust": "transparent pricing, clear TOS, privacy policy"
+    },
+    "content_inventory": {
+      "service_pages": "8-12",
+      "destination_pages": "4-6",
+      "blog_posts": "30+",
+      "case_studies": "5+",
+      "faq_schema": "50+",
+      "videos": "8-10",
+      "email_sequences": "12+",
+      "social_posts": "100+",
+      "lead_magnet_pdf": "Destination & Pricing Guide"
+    }
+  },
+
+  "insurance": {
+    "travel_insurance_with_pet_medical": [
+      "AXA Travel Protection Plans",
+      "ManyPets (UK-based) with travel cover"
+    ],
+    "medpup_planned_products": [
+      "Travel Rider for international surgical complications",
+      "White-labeled installment loan product for travel packages"
+    ]
+  },
+
+  "agent_skills_required": {
+    "hard": [
+      "medical terminology literacy",
+      "regulatory interpretation (USDA, CDC, FDA)",
+      "Spanish language proficiency",
+      "financial modeling"
+    ],
+    "soft_simulated": [
+      "clinical tone communication",
+      "trust-building language patterns",
+      "crisis communication templates"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "project": "Florida Animal Aid Access Project",
+  "artifact": "Phase 0 Operating Folder",
+  "created_date": "2026-04-28",
+  "files": [
+    "00_PROJECT_INDEX.md",
+    "01_MISSION.md",
+    "02_SERVICE_BOUNDARY_POLICY.md",
+    "03_PILOT_ZONE.md",
+    "04_EMERGENCY_ESCALATION_POLICY.md",
+    "05_TRIAGE_LEVELS.md",
+    "06_INTAKE_FORM_SPEC.md",
+    "07_CASE_BOARD_SCHEMA.md",
+    "08_RESOURCE_DIRECTORY_SCHEMA.md",
+    "09_TRANSPORT_PROTOCOL.md",
+    "10_PARTNER_OUTREACH_TRACKER_SCHEMA.md",
+    "11_FIELD_SAFETY_CHECKLIST.md",
+    "12_LAUNCH_CHECKLIST.md",
+    "13_AGENT_HANDOFF_PROMPT.md",
+    "README.md"
+  ]
+}
