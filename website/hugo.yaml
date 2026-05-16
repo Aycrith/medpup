@@ -67,7 +67,7 @@ params:
   
   footer:
     since: 2026
-    customText: "MedPup is a veterinary logistics concierge, not a veterinary practice."
+    customText: "MedPup is a veterinary logistics concierge, not a veterinary practice. </br><a href='/privacy/'>Privacy Policy</a> | <a href='/terms/'>Terms of Service</a>"
 
   sidebar:
     compact: false
