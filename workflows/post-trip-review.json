@@ -1,0 +1,137 @@
+{
+  "name": "MedPup: Post-Trip Review Request",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "value": 2
+            }
+          ]
+        },
+        "entityType": "Lead"
+      },
+      "name": "EspoCRM Trigger (2 Days Post-Trip)",
+      "type": "n8n-nodes-base.espocrmTrigger",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "credentials": {
+        "espocrm": "EspoCRM API"
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.status}}",
+              "operation": "equals",
+              "value2": "Trip Completed"
+            }
+          ]
+        }
+      },
+      "name": "Filter: Completed Trips Only",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.review_requested}}",
+              "operation": "notEqual",
+              "value2": "true"
+            }
+          ]
+        }
+      },
+      "name": "Filter: Not Yet Requested",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [550, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "={{$json.emailAddress}}",
+        "subject": "How was your MedPup experience? Leave a review!",
+        "text": "Hi {{$json.firstName}},\n\nWe hope {{$json.pet_name}} is recovering well! We would be so grateful if you could take 2 minutes to leave us a Google review about your MedPup experience.\n\nYour review helps other pet owners discover affordable veterinary surgery options when they need it most.\n\nLeave a review: [Google Review Link]\n\nThank you for trusting us with {{$json.pet_name}}'s care.\n\nThe MedPup Team\n\nP.S. If you capture any cute recovery photos, tag us @MedPupOfficial!"
+      },
+      "name": "Send Review Request Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [700, 300],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "entityType": "Lead",
+        "leadId": "={{$json.id}}",
+        "fields": {
+          "review_requested": "true"
+        }
+      },
+      "name": "Mark Review Requested in CRM",
+      "type": "n8n-nodes-base.espocrm",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "espocrm": "EspoCRM API"
+      }
+    }
+  ],
+  "connections": {
+    "EspoCRM Trigger (2 Days Post-Trip)": {
+      "main": [
+        [
+          {
+            "node": "Filter: Completed Trips Only",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Completed Trips Only": {
+      "main": [
+        [
+          {
+            "node": "Filter: Not Yet Requested",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Not Yet Requested": {
+      "main": [
+        [
+          {
+            "node": "Send Review Request Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Review Request Email": {
+      "main": [
+        [
+          {
+            "node": "Mark Review Requested in CRM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

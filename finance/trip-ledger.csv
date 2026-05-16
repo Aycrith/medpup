@@ -1,0 +1,9 @@
+Trip Date,Trip ID,Destination,Pets,Concierge Fee Revenue ($),Surgery Revenue to Clinic ($) - Not MedPup,Ferry/Charter Cost ($),Permit Cost ($),Concierge Pay ($),Villa (Cancun only) ($),Misc Cost ($),Total Direct Cost ($),Trip Gross Profit ($),Trip Margin (%),Notes
+2026-06-14,FP-001,Freeport,4,1140,0,1250,44.80,200,0,50,1544.80,-404.80,-35.5%,"Pilot trip - low volume, learning"
+2026-06-28,FP-002,Freeport,5,1425,0,1250,56.00,200,0,25,1531.00,-106.00,-7.4%,Second trip
+2026-07-12,FP-003,Freeport,5,1425,0,1250,56.00,200,0,25,1531.00,-106.00,-7.4%,Third trip
+2026-07-26,FP-004,Freeport,6,1710,0,1250,67.20,200,0,25,1542.20,167.80,9.8%,"First profitable trip - 6 pets"
+2026-08-09,FP-005,Freeport,6,1710,0,1250,67.20,200,0,25,1542.20,167.80,9.8%,Testing weekly cadence
+2026-08-23,FP-006,Freeport,8,2280,0,1250,89.60,300,0,25,1664.60,615.40,27.0%,"8 pets - scaling up"
+2026-09-06,FP-007,Freeport,8,2280,0,1250,89.60,300,0,25,1664.60,615.40,27.0%,Steady state
+2026-09-06,CN-001,Cancun,4,6000,0,3500,0,400,1200,200,5300,700,11.7%,"First Cancun trip - 4 pets"

@@ -1,0 +1,109 @@
+{
+  "name": "MedPup: Intake Form to CRM Lead",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "medpup-intake",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "entityType": "Lead",
+        "fields": {
+          "firstName": "={{$json.body.owner_name.split(' ')[0]}}",
+          "lastName": "={{$json.body.owner_name.split(' ').slice(1).join(' ')}}",
+          "emailAddress": "={{$json.body.email}}",
+          "phoneNumber": "={{$json.body.phone}}",
+          "pet_name": "={{$json.body.pet_name}}",
+          "species": "={{$json.body.species}}",
+          "breed": "={{$json.body.breed}}",
+          "age": "={{$json.body.age}}",
+          "weight": "={{$json.body.weight}}",
+          "procedure": "={{$json.body.procedure}}",
+          "condition_details": "={{$json.body.condition_details}}",
+          "has_diagnosis": "={{$json.body.has_diagnosis}}",
+          "vet_info": "={{$json.body.vet_info}}",
+          "us_quote": "={{$json.body.us_quote}}",
+          "destination": "={{$json.body.destination}}",
+          "referral_source": "={{$json.body.referral_source}}",
+          "comments": "={{$json.body.comments}}",
+          "source": "Website Intake Form"
+        }
+      },
+      "name": "EspoCRM Create Lead",
+      "type": "n8n-nodes-base.espocrm",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "espocrm": "EspoCRM API"
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "={{$json.body.email}}",
+        "subject": "We received your MedPup inquiry",
+        "text": "Hi {{$json.body.owner_name.split(' ')[0]}},\n\nThank you for reaching out to MedPup! We have received your information and will be in touch within 24 hours to schedule your free consultation.\n\nIn the meantime, here are some resources:\n- How It Works: https://medpup.com/how-it-works/\n- Pricing: https://medpup.com/pricing/\n- FAQ: https://medpup.com/faq/\n\nIf you have immediate questions, reply to this email or call us at [phone number].\n\nBest,\nThe MedPup Team"
+      },
+      "name": "Send Confirmation Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "notifications@medpup.com",
+        "subject": "NEW LEAD: {{$json.body.owner_name}} - {{$json.body.procedure}}",
+        "text": "New MedPup Lead\n\nClient: {{$json.body.owner_name}}\nEmail: {{$json.body.email}}\nPhone: {{$json.body.phone}}\nPet: {{$json.body.pet_name}} ({{$json.body.breed}}, {{$json.body.age}}, {{$json.body.weight}}lbs)\nProcedure: {{$json.body.procedure}}\nU.S. Quote: ${{$json.body.us_quote}}\nDestination: {{$json.body.destination}}\n\nSubmitted at: {{$json.body.submitted_at}}"
+      },
+      "name": "Notify Team of New Lead",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [650, 500],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "EspoCRM Create Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EspoCRM Create Lead": {
+      "main": [
+        [
+          {
+            "node": "Send Confirmation Email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Team of New Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

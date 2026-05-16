@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MedPup Client Intake Form",
+  "description": "Schema for client intake submissions from website and manual entry",
+  "type": "object",
+  "required": ["owner_name", "email", "pet_name", "procedure"],
+  "properties": {
+    "owner_name": {
+      "type": "string",
+      "description": "Full name of pet owner"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Client email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Client phone number"
+    },
+    "pet_name": {
+      "type": "string",
+      "description": "Name of the pet"
+    },
+    "species": {
+      "type": "string",
+      "enum": ["dog", "cat", "other"],
+      "default": "dog"
+    },
+    "breed": {
+      "type": "string",
+      "description": "Pet breed"
+    },
+    "age": {
+      "type": "string",
+      "description": "Pet age (years or months)"
+    },
+    "weight": {
+      "type": "string",
+      "description": "Pet weight in pounds"
+    },
+    "procedure": {
+      "type": "string",
+      "enum": [
+        "tplo",
+        "dental",
+        "mass-removal",
+        "spay-neuter",
+        "ivdd",
+        "oncology",
+        "boas",
+        "diagnostic",
+        "medication",
+        "other"
+      ],
+      "description": "Type of procedure needed"
+    },
+    "condition_details": {
+      "type": "string",
+      "description": "Additional details about the pet's condition"
+    },
+    "has_diagnosis": {
+      "type": "string",
+      "enum": ["yes", "no", "unsure"],
+      "description": "Does the pet have a formal veterinary diagnosis?"
+    },
+    "vet_info": {
+      "type": "string",
+      "description": "Name and contact of the pet's current veterinarian"
+    },
+    "us_quote": {
+      "type": "string",
+      "description": "U.S. veterinary quote amount if available"
+    },
+    "destination": {
+      "type": "string",
+      "enum": ["freeport", "cancun", "unsure"],
+      "description": "Preferred destination if known"
+    },
+    "referral_source": {
+      "type": "string",
+      "description": "How the client heard about MedPup"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Free text for additional information or questions"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of form submission"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["website", "phone", "email", "referral", "manual"],
+      "description": "How the intake was submitted"
+    }
+  }
+}

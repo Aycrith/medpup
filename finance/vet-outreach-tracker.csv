@@ -1,0 +1,5 @@
+Clinic Name,Vet Name,Email,Phone,City,State,Date Contacted,Response,Follow-Up Date,Status,Notes
+Sunrise Animal Hospital,Dr. Martinez,dr.martinez@sunrisevet.com,305-555-0101,Miami,FL,2026-06-01,Interested - scheduled call,2026-06-04,In Progress,Call on Friday 2pm
+Palm Beach Vet Clinic,Dr. Chen,chen@palmbeachvet.com,561-555-0202,West Palm Beach,FL,2026-06-01,Not interested,2026-09-01,Closed,"Said 'not comfortable with overseas referral'"
+Tampa Bay Animal Care,Dr. Rodriguez,rodriguez@tampabayvet.com,813-555-0303,Tampa,FL,2026-06-02,No response,,Open,Left voicemail
+Orlando Family Vet,Dr. Kim,kim@orlandofamilyvet.com,407-555-0404,Orlando,FL,2026-06-02,Requested info packet,2026-06-05,In Progress,Sent one-pager and inspection report

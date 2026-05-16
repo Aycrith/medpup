@@ -1,0 +1,205 @@
+{
+  "name": "MedPup: Document Reminder Sequence",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "value": 12
+            }
+          ]
+        },
+        "entityType": "Lead"
+      },
+      "name": "EspoCRM Trigger (Every 12h)",
+      "type": "n8n-nodes-base.espocrmTrigger",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "credentials": {
+        "espocrm": "EspoCRM API"
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.status}}",
+              "operation": "equals",
+              "value2": "Pre-Trip"
+            }
+          ]
+        }
+      },
+      "name": "Filter: Active Pre-Trip Clients",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.days_until_trip}}",
+              "operation": "equals",
+              "value2": "14"
+            }
+          ]
+        }
+      },
+      "name": "Filter: 14 Days to Trip",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [550, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.days_until_trip}}",
+              "operation": "equals",
+              "value2": "7"
+            }
+          ]
+        }
+      },
+      "name": "Filter: 7 Days to Trip",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [550, 350]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.days_until_trip}}",
+              "operation": "equals",
+              "value2": "3"
+            }
+          ]
+        }
+      },
+      "name": "Filter: 3 Days to Trip",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [550, 500]
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "={{$json.emailAddress}}",
+        "subject": "2 Weeks to Go: Here's What You Need for Your MedPup Trip",
+        "text": "Hi {{$json.firstName}},\n\nYour MedPup trip is 2 weeks away! Here's what you need to arrange:\n\n1. Schedule your USDA health certificate appointment with an accredited vet\n2. Confirm your pet's rabies vaccination is current\n3. Read the Pre-Trip Checklist attached to your onboarding packet\n\nQuestions? Reply to this email or call [concierge phone].\n\nBest,\nThe MedPup Team"
+      },
+      "name": "Send 14-Day Reminder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [700, 200],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "={{$json.emailAddress}}",
+        "subject": "1 Week Out: MedPup Trip Checklist",
+        "text": "Hi {{$json.firstName}},\n\nYour trip is 1 week away! Final reminders:\n\n[ ] Pick up USDA health certificate (original copy)\n[ ] Pack: leash, carrier, poop bags, regular meds\n[ ] Confirm ferry/flight timing with concierge\n[ ] No food after midnight the night before — water until 6 AM is fine\n\nYour concierge, [Name], will meet you at the terminal. They'll be wearing a bright blue MedPup polo.\n\nSee you soon!\nThe MedPup Team"
+      },
+      "name": "Send 7-Day Reminder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [700, 350],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@medpup.com",
+        "toEmail": "={{$json.emailAddress}}",
+        "subject": "3 Days to Go! MedPup Pre-Flight Check",
+        "text": "Hi {{$json.firstName}},\n\nJust 3 days until your MedPup trip! A few final checks:\n\n[ ] Double-check you have the original USDA health certificate and rabies certificate\n[ ] Pack: poop bags, a small blanket for the ferry, regular medications\n[ ] No food after midnight the night before\n[ ] Arrive at [terminal/airport] by [time] sharp\n\nYour concierge will be waiting. They'll handle everything from check-in onward.\n\nQuestions? Call: [concierge phone]\n\nThe MedPup Team"
+      },
+      "name": "Send 3-Day Reminder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [700, 500],
+      "credentials": {
+        "smtp": "MedPup SMTP"
+      }
+    }
+  ],
+  "connections": {
+    "EspoCRM Trigger (Every 12h)": {
+      "main": [
+        [
+          {
+            "node": "Filter: Active Pre-Trip Clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Active Pre-Trip Clients": {
+      "main": [
+        [
+          {
+            "node": "Filter: 14 Days to Trip",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter: 7 Days to Trip",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter: 3 Days to Trip",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: 14 Days to Trip": {
+      "main": [
+        [
+          {
+            "node": "Send 14-Day Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: 7 Days to Trip": {
+      "main": [
+        [
+          {
+            "node": "Send 7-Day Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: 3 Days to Trip": {
+      "main": [
+        [
+          {
+            "node": "Send 3-Day Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

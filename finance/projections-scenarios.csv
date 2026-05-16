@@ -1,0 +1,5 @@
+Scenario,Trips per Month,Pets per Month,Monthly Revenue ($),Monthly Direct Costs ($),Monthly Overhead ($),Monthly Net Profit ($),Annual Net Profit ($)
+Conservative (Freeport bi-weekly),2,10,2850,1540,1417,-107,-1284
+Moderate (Freeport weekly),4,24,6840,3180,1417,2243,26916
+Growth (Freeport weekly + Cancun monthly),5,28,8400,4700,1417,2283,27396
+Scale (2x Freeport/week + 2x Cancun/month),10,56,16800,9400,2500,4900,58800
