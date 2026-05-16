@@ -1,10 +1,6 @@
 ---
 title: "Procedures"
 description: "MedPup offers affordable veterinary surgery for common and complex procedures — from dental cleanings to TPLO and spinal surgery."
-menu:
-    main:
-        name: Procedures
-        weight: 4
 ---
 
 MedPup coordinates surgery for a wide range of veterinary procedures. Each is performed by licensed, credentialed surgeons at our inspected partner clinics in Freeport, Grand Bahama and Cancun, Mexico.

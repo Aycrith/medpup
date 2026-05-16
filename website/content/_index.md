@@ -1,12 +1,3 @@
----
-menu:
-    main:
-        name: Home
-        weight: 1
-        params:
-            icon: home
----
-
 <style>
 .hero-section {
     text-align: center;
@@ -102,9 +93,9 @@ menu:
 # Your dog deserves the best care.
 ## It shouldn't require a second mortgage.
 
-**The reality:** Veterinary surgical costs in the U.S. have risen nearly 50% since 2020.
-**The result:** Over half of pet owners have delayed or skipped necessary care because they simply couldn't afford it.
-**There is another way.**
+<div class="savings-box">
+<strong>U.S. veterinary costs have risen 47% since 2020.</strong> Over half of pet owners have delayed care because they couldn't afford it. <strong>There is another way.</strong>
+</div>
 
 </div>
 

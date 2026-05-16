@@ -66,7 +66,11 @@ menu:
 
 # Start with a Free Consultation
 
-Tell us about your pet and we'll provide a transparent cost estimate within 24 hours. No obligation, no pressure.
+<span class="price-highlight">Save 50-80%</span> on your dog's surgery. Get a transparent all-in cost estimate within 24 hours.
+
+<div class="savings-box">
+<strong>Fill out the form below.</strong> We'll review your pet's needs and call you within 24 hours to discuss options. No obligation, no pressure — just answers.
+</div>
 
 <div class="form-container">
 

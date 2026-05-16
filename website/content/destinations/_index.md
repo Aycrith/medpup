@@ -1,10 +1,6 @@
 ---
 title: "Destinations"
 description: "MedPup serves two destinations: Freeport, Grand Bahama for day-trip procedures and Cancun, Mexico for complex surgeries."
-menu:
-    main:
-        name: Destinations
-        weight: 3
 ---
 
 MedPup's dual-hub model gives you the best option for your pet's specific needs — from a quick day-trip for dental work to a short stay for advanced orthopedic surgery.
