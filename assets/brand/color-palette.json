@@ -1,0 +1,58 @@
+{
+  "brand": {
+    "name": "MedPup",
+    "tagline": "World-class veterinary care. A short trip away.",
+    "voice": "Compassionate, knowledgeable, transparent, reassuring"
+  },
+  "colors": {
+    "primary": {
+      "name": "Deep Blue",
+      "hex": "#1A365D",
+      "rgb": "26, 54, 93",
+      "usage": "Trust, professionalism, stability"
+    },
+    "secondary": {
+      "name": "Teal",
+      "hex": "#319795",
+      "rgb": "49, 151, 149",
+      "usage": "Health, vitality, growth"
+    },
+    "accent": {
+      "name": "Warm Gold",
+      "hex": "#D69E2E",
+      "rgb": "214, 158, 46",
+      "usage": "Care, value, warmth"
+    },
+    "background": {
+      "name": "Light",
+      "hex": "#F7FAFC",
+      "rgb": "247, 250, 252",
+      "usage": "Clean, calm backgrounds"
+    },
+    "white": {
+      "hex": "#FFFFFF",
+      "usage": "Text on dark, card interiors"
+    },
+    "text": {
+      "name": "Dark Text",
+      "hex": "#2D3748",
+      "usage": "Body text"
+    }
+  },
+  "typography": {
+    "primary": {
+      "name": "Inter",
+      "source": "https://fonts.google.com/specimen/Inter",
+      "weights": [300, 400, 600, 700]
+    },
+    "legal": {
+      "name": "Times New Roman",
+      "usage": "Legal documents only"
+    }
+  },
+  "logo": {
+    "primary": "assets/brand/logo.svg",
+    "favicon": "assets/brand/favicon.svg",
+    "clearance": "20px minimum"
+  }
+}

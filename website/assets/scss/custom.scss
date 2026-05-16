@@ -1,0 +1,94 @@
+/* MedPup Brand Customizations */
+
+/* ===== Brand Colors ===== */
+:root {
+    --medpup-blue: #1A365D;
+    --medpup-teal: #319795;
+    --medpup-gold: #D69E2E;
+    --medpup-light: #F7FAFC;
+}
+
+/* ===== Header / Navigation ===== */
+.navbar {
+    background-color: var(--medpup-blue) !important;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+/* ===== Logo sizing ===== */
+.navbar .site-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Buttons ===== */
+.button,
+.button-primary,
+.btn,
+.cta-button {
+    background-color: var(--medpup-teal);
+    border-color: var(--medpup-teal);
+}
+
+.button:hover,
+.button-primary:hover {
+    background-color: #2C7A7B;
+    border-color: #2C7A7B;
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--medpup-teal);
+}
+
+a:hover {
+    color: #2C7A7B;
+}
+
+/* ===== Article / Card Titles ===== */
+.article-title a {
+    color: var(--medpup-blue);
+}
+
+/* ===== Price highlights ===== */
+.price-highlight {
+    color: var(--medpup-gold);
+    font-weight: 700;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background-color: var(--medpup-blue);
+    color: white;
+}
+
+.footer a {
+    color: var(--medpup-teal);
+}
+
+/* ===== Section separators ===== */
+.section-title {
+    border-bottom: 2px solid var(--medpup-teal);
+    padding-bottom: 0.5rem;
+}
+
+/* ===== Savings callout boxes ===== */
+.savings-box {
+    background-color: rgba(49, 151, 149, 0.08);
+    border-left: 4px solid var(--medpup-teal);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+/* ===== Trust badges row ===== */
+.trust-row .trust-item {
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background: var(--card-background);
+}
