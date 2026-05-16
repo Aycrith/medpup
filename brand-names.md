@@ -1,111 +1,111 @@
-# MedPup — Business Name Exploration (v3)
+# MedPup — Business Name Exploration (v4 — Internet Slang)
 
-> **Constraint:** No words with subconscious death/negative associations.  
-> **Goal:** Clever wordplay — portmanteaus, double meanings, not just smashing words together.
-
----
-
-## TOP 10 — Real Wordplay
-
-### 1. PawsPort
-**Paws + Port (harbor) + Port (border crossing) + Implied Passport.**
-The word "port" does triple duty: a port is where ferries dock (Freeport), a port is where you cross borders (passport checkpoint), and it implies "passport" without the negative word "pass." "Port" = safe harbor, safe arrival — not departure. Extremely clean wordplay that rewards thinking about it. Short, punchy, brandable.
-**Logo:** Paw print + anchor circle = passport stamp.  
-**Tagline:** *"Your pet's port to affordable care."*
-
-### 2. Pawtient
-**Paw + Patient.** A portmanteau that rearranges letters to create a new word. "Your pawtient is in good paws." Six letters. A name that makes people smile when they get it. Shows you're clever, not corporate. Works as a brand name on its own (like Casper, Warby Parker).
-**Logo:** Paw print with a medical cross inside.  
-**Tagline:** *"Every pawtient deserves world-class care."*
-
-### 3. PawsCove
-**Paws + Cove (sheltered harbor).** A cove is a small, sheltered bay — safe, protected, natural. Warmest emotional register of any maritime name. "Cove" = safety, not travel. Your pet is in a safe harbor, not on a risky journey. The word "cove" itself is beautiful and calming.
-**Logo:** Paw print nestled inside a crescent shape (cove).  
-**Tagline:** *"A safe cove for every paw."*
-
-### 4. WagsWell
-**Wags (happy tail) + Get Well.** The tail wag is the universal sign of a happy dog. "Wags Well" = they wag again, they get well. Pure positive outcome. No possible negative reading. A name that feels like a smile.
-**Logo:** A tail making a W shape + a heart.  
-**Tagline:** *"Healthy again. Wags back."*
-
-### 5. VetWay
-**Vet + Way + Waterway.** "Way" = pathway, direction, solution. "Way" as in "we'll find a way." "Waterway" = the ferry route to Freeport. A name that says "we provide the path to affordable care." Short, professional, directional.
-**Logo:** Arrow made of a paw print pointing east.  
-**Tagline:** *"The way to world-class care."*
-
-### 6. PawsGold
-**Paws + Gold (value, worth, precious).** "Worth their weight in gold." "Gold standard of care." Gold = valuable, premium, high-quality — but also implies you're getting it at a good price. "Gold" is universally positive in every context. No negatives.
-**Logo:** Paw print in gold (warm amber color).  
-**Tagline:** *"Gold-standard care. Pawsitively affordable."*
-
-### 7. PawsUp
-**Paws Up (celebration) + Paws on your pet (attention).** "Paws up" is what dogs do when they're happy — paws on your chest, tail wagging. It's also "hands up" for a job well done. And "we've got our paws on it" = we're handling everything. Triple meaning, all positive.
-**Logo:** Two paw prints raised in celebration.  
-**Tagline:** *"Paws up for affordable care."*
-
-### 8. WagsSave
-**Wags (happy tail) + Save (money + pet).** A tail wagging because you saved money AND saved your pet. Direct benefit statement wrapped in a happy image. Two syllables, memorable, action-oriented.
-**Logo:** Tail wag + savings symbol.  
-**Tagline:** *"Wags come standard. Savings too."*
-
-### 9. PawsGood
-**"Good paws" + "It's all good."** Two words, one simple statement of quality. "Good" = quality, trustworthy, reliable. "Good paws" = your pet is in good hands (paws). The tagline writes itself: "PawsGood — care you can feel good about."
-**Logo:** Paw print with a thumbs up inside.  
-**Tagline:** *"Good paws. Good care. Good value."*
-
-### 10. VetGold
-**Vet + Gold (standard + value).** More professional version of PawsGold. Better for B2B/vet-to-vet contexts. "Gold" = the standard of care + the value you get. Sounds established and prestigious.
-**Logo:** Veterinary caduceus + gold bar/star.  
-**Tagline:** *"Gold-standard veterinary care. For less."*
+> **Source:** Reader's Digest pet slang guide, DoggoLingo dictionary, We Rate Dogs blog  
+> **Constraint:** No death/negative subconscious associations  
+> **Goal:** Portmanteaus using actual internet pet culture language
 
 ---
 
-## RUNNERS-UP (11-20)
+## Internet Pet Slang — Building Blocks
 
-### Portmanteaus (New Words)
-11. **VetCove** — Vet + Cove. Professional + safe harbor.
-12. **CareCove** — Care + Cove. Warm + safe. Less pet-specific.
-13. **WagWell** — Wag + Well. Shorter than WagsWell.
-14. **WagWard** — Wag + Homeward. But "ward" is medical.
-15. **PawsWay** — Paws + Way + Waterway. Softer than VetWay.
-16. **PawsPrime** — Prime = best, premium. Amazon word.
-
-### Compound Names (Two Words, One Concept)
-17. **WellWags** — Wellness + Wags. Same happy energy reversed.
-18. **TrueWags** — True + Wags. Authentic happiness.
-19. **SureWags** — Sure + Wags. Guaranteed happiness.
-20. **GoldWags** — Gold + Wags. Your pet's happiness is gold.
-
-### Fresh Angles
-21. **BestPaw** — Best + Paw + "Best Paw Forward." Positive direction.
-22. **PawForward** — "Best paw forward." Optimistic, action-oriented.
-23. **HappyBay** — Happy + Bay (Florida, safe water). Geographic + emotional.
-24. **BrightBay** — Bright future + Bright sunshine + Bay waters.
-25. **SunnyPaw** — Florida + positivity + pet.
+| Slang | Meaning | Vibe |
+|-------|---------|------|
+| **Woof** | Universal dog sound + "dog" itself | Happy, recognizable, zero negatives |
+| **Pup** | Short for puppy, also "pupper" | Warm, short, professional |
+| **Floof** | Very fluffy dog | Playful, huggable |
+| **Snoot** | Dog's nose | Affectionate, boopable |
+| **Boop** | Tapping the nose | Playful, loving |
+| **Zoom** | From "zoomies" — happy energy | Energetic, modern |
+| **Bork** | Playful bark | Fun, internet-native |
+| **Mlem / Blep** | Tongue out | Silly, less professional |
+| **Derp** | Goofy expression | Too silly for medical |
 
 ---
 
-## Domain Availability (Top 10)
+## TOP 10 — Internet Slang Portmanteaus
 
-| Name | .com | .vet | .co | Notes |
-|------|------|------|-----|-------|
-| **PawsPort** | ❌ Taken | ⚠️ Check | ⚠️ Check | Strongest name |
-| **Pawtient** | ✅ **Available** | ⚠️ Check | ⚠️ Check | Only .com in top! |
-| **PawsCove** | ❌ Taken | ⚠️ Check | ⚠️ Check | Very warm |
-| **WagsWell** | ❌ Taken | ⚠️ Check | ⚠️ Check | Happy energy |
-| **VetWay** | ❌ Taken | ⚠️ Check | ⚠️ Check | Professional |
-| **PawsGold** | ❌ Taken | ⚠️ Check | ⚠️ Check | Premium value |
-| **PawsUp** | ❌ Taken | ⚠️ Check | ⚠️ Check | Celebration |
-| **WagsSave** | ❌ Taken | ⚠️ Check | ⚠️ Check | Direct savings |
-| **PawsGood** | ❌ Taken | ⚠️ Check | ⚠️ Check | Warm trust |
-| **VetGold** | ❌ Taken | ⚠️ Check | ⚠️ Check | B2B option |
+### 1. WoofPort
+**Woof (dog sound = dog) + Port (harbor + border + passport).**
+"Woof" is the most universally recognized dog sound on earth — it IS a dog, in sound form. Combined with "port" (safe harbor, port of entry, implied passport), it says "your dog's gateway to affordable care." The wordplay rewards thinking: a woofport is where your dog arrives safely. 
+**Seven letters, two syllables.** Instantly readable, memorable.
+**Tagline:** *"WoofPort — your dog's port to affordable care."*
+
+### 2. Pupport
+**Pup (pupper) + Port (harbor + passport).**
+Taps into the "pupper" internet slang culture while staying short (7 letters). "Pup" carries warmth and affection (everyone loves puppies). Combined with "port," it implies safe arrival, border crossing, and the ferry journey — all without saying those words. The double "p" makes it punchy.
+**Tagline:** *"Pupport to healing."*
+
+### 3. WoofWell
+**Woof (dog) + Well (healthy, recovered, thriving).**
+The ultimate positive outcome — a dog who is healthy enough to woof happily. "Get well" becomes "get woofwell." The name itself is a happy ending for every pet owner. More emotional than clever-wordplay, but incredibly warm.
+**Tagline:** *"Woof well again."*
+
+### 4. PupWell
+**Pup + Well.**
+Short, clean, professional. Drops the internet slang suffix ("er") but keeps the warm core. "Pup well" = the puppy gets well. Seven letters. Works for both internet-native audiences and traditional vet referrals.
+**Tagline:** *"Healthy pup. Happy home."*
+
+### 5. FloofWell
+**Floof (fluffy dog) + Well.**
+For the pet owners who call their Samoyed or Pomeranian a "floof" — and there are millions of them. "Floof well" = the fluffy one is healthy. Niche enough to feel insider, warm enough to welcome everyone. Best if you target the social media / Instagram crowd.
+**Tagline:** *"Every floof deserves to be well."*
+
+### 6. WoofGold
+**Woof + Gold (value + standard).**
+"Good as gold" + "gold standard of care" + "woof" = your dog is precious and gets premium care at a value price. Three meanings folded into one.
+**Tagline:** *"Good as gold. For less."*
+
+### 7. WoofGo
+**Woof + Go (action, progress, "we handle it").**
+Energetic, modern, app-like. "Woof go" = the dog is going, we're handling it. Very short (6 letters). Best for a mobile-first / digital-forward brand.
+**Tagline:** *"Woof Go — we've got it from here."*
+
+### 8. PupPort
+**Pup + Port.**
+The cleanest, shortest version. "PupPort" reads as "pup port" (puppy's harbor) and almost like "pup passport." Professional enough for any context, warm enough for pet owners. If you want maximum accessibility with minimum explanation.
+**Tagline:** *"Every pup deserves a port to care."*
+
+### 9. WoofCare
+**Woof + Care.**
+Direct. Warm. Professional. The word every pet owner wants to hear about their dog: that someone cares. "Woof" signals it's about dogs, "care" signals quality and compassion. Less wordplay, more emotional resonance.
+**Tagline:** *"Care that makes them woof."*
+
+### 10. PupGold
+**Pup + Gold (value, precious).**
+"Good as gold" + "gold standard." Your puppy is precious, and you're getting gold-standard care at a fair price. Short, positive, premium.
+**Tagline:** *"Worth their weight in gold."*
+
+---
+
+## RUNNERS-UP (11-15)
+
+| Name | Wordplay | Best For |
+|------|----------|----------|
+| **SnootSave** | Snoot + Save | Facebook/boomer crowd who love "save the snoot" |
+| **BoopWell** | Boop + Well | If you want maximum internet energy |
+| **WoofCove** | Woof + Cove (safe harbor) | Warmest emotional register |
+| **PupCove** | Pup + Cove | Short, warm, protective |
+| **ZoomWell** | Zoom + Well | Modern, energetic, app-like |
+
+---
+
+## Category Summary
+
+| Theme | Best Name | Why |
+|-------|-----------|-----|
+| **Slang + Port** | **WoofPort** | Woof + Port + Passport — cleanest combo |
+| **Slang + Well** | **WoofWell** | Happy outcome = happy woof |
+| **Slang + Gold** | **WoofGold** | Value + premium positioning |
+| **Pup + Port** | **Pupport** | Short, pupper-culture, memorable |
+| **Pup + Well** | **PupWell** | Most professional of the slang names |
+| **Floof + Well** | **FloofWell** | Best for Instagram/social media crowd |
 
 ---
 
 ## My Top 3
 
-| Rank | Name | Wordplay | Vibe |
-|------|------|----------|------|
-| **1** | **PawsPort** | Port (harbor) + Port (border) + Passport (implied) | Clever + professional |
-| **2** | **Pawtient** | Paw + Patient — original portmanteau | Warm + witty |
-| **3** | **PawsCove** | Cove = sheltered harbor, safe haven | Calm + nurturing |
+| Rank | Name | Wordplay | Domain | Why |
+|------|------|----------|--------|-----|
+| **1** | **WoofPort** | Woof + Port (harbor, border, passport) | Check | Seven letters. Dog sound + safe arrival = everything the brand is |
+| **2** | **Pupport** | Pup + Port | Check | Pupper culture + gateway to care. Warm, short, clever |
+| **3** | **WoofWell** | Woof + Well | Check | The happy ending every pet owner wants |
