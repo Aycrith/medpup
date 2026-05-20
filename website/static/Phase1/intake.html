@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MedPup — Free Price Check | Affordable Pet Surgery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+body {{ font-family: 'Inter', sans-serif; background: #F7FAFC; color: #2D3748; }}
+.header {{ background: #1A365D; color: white; padding: 16px 24px; }}
+.header a {{ color: white; text-decoration: none; font-weight: 600; }}
+.main {{ max-width: 640px; margin: 40px auto; padding: 0 20px; }}
+.card {{ background: white; border-radius: 12px; padding: 36px; box-shadow: 0 2px 20px rgba(0,0,0,.08); }}
+h1 {{ font-size: 26px; font-weight: 700; color: #1A365D; margin-bottom: 8px; }}
+.subtitle {{ color: #718096; margin-bottom: 28px; }}
+.form-group {{ margin-bottom: 20px; }}
+label {{ display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #2D3748; }}
+input, select, textarea {{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #CBD5E0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+}}
+input:focus, select:focus, textarea:focus {{ outline: none; border-color: #319795; box-shadow: 0 0 0 3px rgba(49,151,149,.2); }}
+.checks {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }}
+.check {{ display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }}
+.check input {{ width: auto; }}
+.btn {{
+  display: block; width: 100%; padding: 16px;
+  background: #D69E2E; color: #1A365D;
+  font-size: 18px; font-weight: 700; border: none;
+  border-radius: 8px; cursor: pointer; margin-top: 24px;
+  font-family: 'Inter', sans-serif;
+}}
+.btn:hover {{ background: #C06820; }}
+.privacy {{ font-size: 12px; color: #A0AEC0; margin-top: 16px; text-align: center; }}
+.back {{ display: inline-block; margin-top: 20px; color: #319795; font-weight: 600; text-decoration: none; }}
+</style>
+</head>
+<body>
+<div class="header"><a href="index.html">← Back to MedPup</a></div>
+<div class="main">
+  <div class="card">
+    <h1>Get Your Free Price Check</h1>
+    <p class="subtitle">Tell us what your pet needs. We'll compare 2–3 clinic prices and reply within 24 hours — no obligation.</p>
+
+    <!-- Google Form embed target — replace src when form is published -->
+    <!--
+    <iframe src="GOOGLE_FORM_URL_HERE" width="100%" height="800" frameborder="0"></iframe>
+    -->
+
+    <!-- Fallback: raw HTML form (submits to Google Forms or custom endpoint) -->
+    <form id="intake-form" action="#" method="POST">
+
+      <div class="form-group">
+        <label>Your Name *</label>
+        <input type="text" name="owner_name" required placeholder="Full name" />
+      </div>
+
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" name="email" required placeholder="you@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" name="phone" required placeholder="(727) 000-0000" />
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="form-group">
+          <label>Pet's Name *</label>
+          <input type="text" name="pet_name" required />
+        </div>
+        <div class="form-group">
+          <label>Breed *</label>
+          <input type="text" name="breed" required />
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div class="form-group">
+          <label>Age *</label>
+          <input type="text" name="age" required placeholder="e.g. 5 yrs" />
+        </div>
+        <div class="form-group">
+          <label>Weight *</label>
+          <input type="text" name="weight" required placeholder="e.g. 65 lbs" />
+        </div>
+        <div class="form-group">
+          <label>Species *</label>
+          <select name="species" required>
+            <option value="">Select…</option>
+            <option>Dog</option>
+            <option>Cat</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>What procedure is your pet facing? *</label>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="procedure" value="dental" /> Dental cleaning</label>
+          <label class="check"><input type="checkbox" name="procedure" value="mass-removal" /> Mass / lump removal</label>
+          <label class="check"><input type="checkbox" name="procedure" value="spay" /> Spay</label>
+          <label class="check"><input type="checkbox" name="procedure" value="neuter" /> Neuter</label>
+          <label class="check"><input type="checkbox" name="procedure" value="orthopedic" /> Orthopedic (ACL/FHO/TPLO)</label>
+          <label class="check"><input type="checkbox" name="procedure" value="other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>U.S. Vet Quote (if you have one)</label>
+        <input type="text" name="us_quote" placeholder="$1,200 — optional" />
+      </div>
+
+      <div class="form-group">
+        <label>Any additional details?</label>
+        <textarea name="notes" rows="3" placeholder="Special requirements, mobility concerns, timeline…"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Submit — Get My Free Price Check →</button>
+      <p class="privacy">Your info stays private. We'll never share or sell your data. Reply within 24 hours.</p>
+    </form>
+  </div>
+  <a href="index.html" class="back">← Back to MedPup homepage</a>
+</div>
+</body>
+</html>

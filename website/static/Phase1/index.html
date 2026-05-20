@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MedPup — Affordable Pet Surgery &amp; Dental | Save 60–90%</title>
+<meta name="description"
+  content="MedPup routes Florida pet owners to vetted low-cost clinics. Save 60–94% on spay/neuter, dental cleanings, and surgery — one flat coordination fee, zero hidden costs." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ── Reset & Base ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #F7FAFC;
+  color: #2D3748;
+  line-height: 1.6;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+section { padding: 64px 0; }
+
+/* ── Typography ──────────────────────────────────── */
+h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; line-height: 1.15; }
+h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 700; margin-bottom: 16px; }
+h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+p  { font-size: 16px; margin-bottom: 12px; }
+small { font-size: 13px; color: #718096; }
+
+/* ── Colors ──────────────────────────────────────── */
+.accent { color: #D69E2E; }
+.primary { color: #1A365D; }
+.bg-accent  { background: #D69E2E; color: #FFFFFF; }
+.bg-primary { background: #1A365D; color: #FFFFFF; }
+.card { background: #FFFFFF; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+
+/* ── Header ──────────────────────────────────────── */
+header {
+  background: #1A365D;
+  color: #FFFFFF;
+  padding: 20px 0;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+header .container { display: flex; align-items: center; gap: 16px; }
+header .logo { height: 42px; }
+header nav a { color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 20px; }
+header nav a:hover { text-decoration: underline; }
+
+/* ── Hero ────────────────────────────────────────── */
+#hero {
+  background: linear-gradient(135deg, #1A365D 0%, #319795 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 100px 24px 80px;
+}
+#hero h1 { color: #FFFFFF; margin-bottom: 16px; }
+#hero .tagline { font-size: 20px; font-weight: 300; opacity: .9; margin-bottom: 32px; }
+.btn {
+  display: inline-block;
+  background: #D69E2E;
+  color: #1A365D;
+  font-size: 18px; font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+  border: none; cursor: pointer;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(214,158,46,.5); }
+.btn-outline {
+  display: inline-block;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  font-size: 16px; font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-left: 12px;
+}
+.btn-outline:hover { background: rgba(255,255,255,.1); }
+
+/* ── Savings Table ───────────────────────────────── */
+.savings-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.savings-table th { background: #1A365D; color: white; padding: 12px 16px; text-align: left; }
+.savings-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+.savings-table tr:nth-child(even) td { background: #f7fafc; }
+.savings-table .high   { color: #276749; font-weight: 700; }
+.savings-table .medium { color: #c05621; font-weight: 600; }
+
+/* ── Procedure Cards ─────────────────────────────── */
+.procedure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.proc-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  border-left: 4px solid #319795;
+}
+.proc-card .price { font-size: 28px; font-weight: 700; color: #1A365D; margin: 8px 0; }
+.proc-card .savings { color: #276749; font-weight: 600; }
+.proc-card .note { font-size: 13px; color: #718096; margin-top: 8px; }
+
+/* ── How It Works ────────────────────────────────── */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.step { text-align: center; }
+.step .num {
+  width: 48px; height: 48px;
+  background: #D69E2E;
+  color: #1A365D;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+/* ── CTA Strip ───────────────────────────────────── */
+#cta {
+  background: #1A365D;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 64px 24px;
+}
+#cta .btn { margin-top: 24px; }
+
+/* ── FAQ ─────────────────────────────────────────── */
+.faq { max-width: 720px; margin: 0 auto; }
+.faq details { background: #FFFFFF; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+.faq summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; position: relative; }
+.faq summary::after { content: '+'; position: absolute; right: 20px; font-size: 20px; }
+.faq details[open] summary::after { content: '−'; }
+.faq p { padding: 0 20px 16px; color: #4a5568; }
+
+/* ── Footer ──────────────────────────────────────── */
+footer { background: #2D3748; color: #cbd5e0; padding: 40px 24px; text-align: center; font-size: 14px; }
+footer a { color: #D69E2E; text-decoration: none; }
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  section { padding: 40px 0; }
+  #hero { padding: 60px 16px 40px; }
+  .btn, .btn-outline { display: block; margin: 8px 0; width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════ -->
+<header>
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:12px">
+      <svg height="42" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A365D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#234E78;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#319795;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38B2AC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Compass outer ring -->
+  <circle cx="200" cy="200" r="145" fill="none" stroke="#1A365D" stroke-width="3" opacity="0.15"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#1A365D" stroke-width="1" opacity="0.1"/>
+
+  <!-- Compass cardinal points -->
+  <!-- N -->
+  <polygon points="200,55 194,70 206,70" fill="#1A365D"/>
+  <!-- S -->
+  <polygon points="200,345 194,330 206,330" fill="#D69E2E" opacity="0.4"/>
+  <!-- E (highlighted — pointing to Bahamas) -->
+  <polygon points="345,200 330,194 330,206" fill="#319795"/>
+  <!-- W -->
+  <polygon points="55,200 70,194 70,206" fill="#1A365D" opacity="0.4"/>
+
+  <!-- Compass needle pointing East -->
+  <line x1="200" y1="200" x2="310" y2="200" stroke="#319795" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="200" y2="90" stroke="#1A365D" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Paw pad (central) -->
+  <ellipse cx="200" cy="215" rx="45" ry="38" fill="url(#teal-grad)" opacity="0.9"/>
+
+  <!-- Paw toe pads -->
+  <ellipse cx="170" cy="175" rx="16" ry="20" fill="url(#teal-grad)" opacity="0.85"/>
+  <ellipse cx="200" cy="162" rx="16" ry="20" fill="url(#teal-grad)" opacity="0.85"/>
+  <ellipse cx="230" cy="175" rx="16" ry="20" fill="url(#teal-grad)" opacity="0.85"/>
+
+  <!-- Small paw pad above -->
+  <ellipse cx="200" cy="145" rx="10" ry="8" fill="url(#teal-grad)" opacity="0.5"/>
+
+  <!-- Compass inner circle over paw -->
+  <circle cx="200" cy="200" r="65" fill="none" stroke="#1A365D" stroke-width="2" opacity="0.2"/>
+
+  <!-- Text: MEDPUP -->
+  <text x="200" y="370" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="#1A365D" letter-spacing="8">MEDPUP</text>
+
+  <!-- Tagline -->
+  <text x="200" y="388" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#319795" letter-spacing="3">WORLD-CLASS CARE. A SHORT TRIP AWAY.</text>
+</svg>
+
+      <span style="font-size:22px;font-weight:700;letter-spacing:-.5px">MedPup</span>
+    </div>
+    <nav style="margin-left:auto">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="intake.html" class="btn" style="margin-left:16px;font-size:14px;padding:10px 20px">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ HERO ═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <p class="tagline">World-class veterinary care. A short trip away.</p>
+    <h1>Save <span class="accent" style="color:#D69E2E">60–94%</span> on Your Pet's Surgery &amp; Dental Care</h1>
+    <p style="font-size:18px;margin:20px auto 32px;max-width:640px;opacity:.9">
+      MedPup is a Florida-based pet surgery coordinator. We route you to vetted, licensed low-cost clinics — 
+      no travel, no customs, no red tape. You stay local. We handle the price comparison and booking.
+    </p>
+    <a href="intake.html" class="btn">Get Your Free Price Check →</a>
+    <a href="#services" class="btn-outline">See How It Works</a>
+  </div>
+</section>
+
+<!-- ══ THE PROBLEM ════════════════════════════════════ -->
+<section id="problem">
+  <div class="container">
+    <div class="card" style="max-width:740px;margin:0 auto;text-align:center">
+      <h2 class="accent" style="font-size:22px;margin-bottom:16px">The Vet Cost Crisis Is Real</h2>
+      <p>Veterinary costs in the U.S. have risen <strong>47% since 2020</strong> (Bureau of Labor Statistics). 
+         More than <strong>50% of pet owners have skipped or delayed care</strong> because they couldn't afford it (Gallup 2025).</p>
+      <p>Dental cleaning: $1,500–$4,000. Spay/neuter: $400–$800. Mass removal: $1,000–$3,000.</p>
+      <p class="accent" style="font-weight:600;margin-top:12px">There is a better way. And it's right here in Florida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SAVINGS TABLE ══════════════════════════════════ -->
+<section id="pricing" style="background:#F7FAFC">
+  <div class="container">
+    <h2 class="primary" style="text-align:center;margin-bottom:32px">Verified Price Comparison</h2>
+    <div class="card" style="overflow-x:auto">
+      <table class="savings-table">
+        <thead>
+          <tr>
+            <th>Procedure</th>
+            <th>Full-Service Clinic (FL Avg)</th>
+            <th>MedPup Partner Price</th>
+            <th>Your Savings</th>
+            <th>MedPup Fee*</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dog Spay</strong></td>
+            <td>$400–$800</td>
+            <td><strong>$40–$80</strong></td>
+            <td class="high">80–95%</td>
+            <td>$25–$50</td>
+          </tr>
+          <tr>
+            <td><strong>Cat Spay</strong></td>
+            <td>$200–$500</td>
+            <td><strong>$30</strong></td>
+            <td class="high">85–94%</td>
+            <td>$15–$30</td>
+          </tr>
+          <tr>
+            <td><strong>Dog Neuter</strong></td>
+            <td>$350–$800</td>
+            <td><strong>$350–$780</strong></td>
+            <td class="medium">0–44%</td>
+            <td>$50–$100</td>
+          </tr>
+          <tr>
+            <td><strong>Dental Cleaning</strong></td>
+            <td>$1,500–$4,000</td>
+            <td><strong>$285–$595</strong></td>
+            <td class="high">83–94%</td>
+            <td>$50–$100</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:#718096;margin-top:12px">
+        * MedPup coordination fee covers price comparison, booking support, appointment reminders, and vet record coordination. 
+        Prices sourced directly from partner clinic websites. Full-service averages from BLS 2023 / CanineBible 2024.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ═══════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <h2 class="primary" style="text-align:center;margin-bottom:32px">What We Coordinate</h2>
+    <div class="procedure-grid">
+      <div class="proc-card">
+        <h3>🐾 Spay &amp; Neuter</h3>
+        <div class="price">$40 – $780</div>
+        <p>Cat spay from $30. Dog spay from $40. The lowest confirmed prices in Florida — verified directly from clinic materials.</p>
+        <p class="note">ASPCA CVC &amp; Good Care Animal Clinic (Hialeah)</p>
+      </div>
+      <div class="proc-card">
+        <h3>🦷 Dental Cleanings</h3>
+        <div class="price">$285 – $595</div>
+        <p>Full dental cleanings under anesthesia from $285 — that's 83–94% below the $1,500–$4,000 full-service market.</p>
+        <p class="note">Good Care Animal Clinic — Miami, 1 hr from Largo</p>
+      </div>
+      <div class="proc-card">
+        <h3>🔪 Mass Removal</h3>
+        <div class="price">$650 – $2,100</div>
+        <p>Surgical mass and tumor removal. Pricing confirmed at Good Care Animal Clinic — most Florida owners never offered this option at any price point.</p>
+        <p class="note">Good Care Animal Clinic — surgery confirmed</p>
+      </div>
+      <div class="proc-card">
+        <h3>💊 Vaccinations &amp; Exams</h3>
+        <div class="price">$15 – $60</div>
+        <p>Rabies, DHPP, Bordetella — low-cost wellness visits from $15. Preventive care shouldn't break the bank.</p>
+        <p class="note">Paws 2 Help WPB, ASPCA CVC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══════════════════════════════════ -->
+<section id="how-it-works" style="background:#F7FAFC">
+  <div class="container">
+    <h2 class="primary" style="text-align:center;margin-bottom:40px">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>You Submit an Inquiry</h3>
+        <p>Fill out a 2-minute intake form. Tell us your pet's name, procedure needed, and your rough U.S. quote.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>We Price-Compare</h3>
+        <p>We check 2–3 vetted clinics and find your best actual price — including all fees, taxes, and hidden costs.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>We Book It</h3>
+        <p>We schedule the appointment and send you a pre-appointment checklist. You show up — we've already done the shopping.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>You Pay a Flat Fee</h3>
+        <p>One flat coordination fee (25–100 depending on procedure). The clinic bills you directly — no markup on the procedure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY MEDPUP ════════════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <h2 class="primary" style="text-align:center;margin-bottom:32px">Why MedPup</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+      <div class="card" style="border-top:4px solid #319795">
+        <h3 class="accent">No Travel Required</h3>
+        <p>Our Phase 1 partners are all within 1 hour of Largo. No ferry, no customs, no APHIS — just drive to the clinic.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #319795">
+        <h3 class="accent">Verified Pricing</h3>
+        <p>We pull prices directly from clinic websites — not estimates. What we show you is what you pay.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #319795">
+        <h3 class="accent">Flat Fee — No Markup</h3>
+        <p>We charge one coordination fee. The clinic bills you directly. Conflicts of interest eliminated.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #319795">
+        <h3 class="accent">Florida-Based, Real People</h3>
+        <p>Based in Largo, FL. We are not a faceless platform — you talk to a real person every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══════════════════════════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <h2 style="font-size:32px;margin-bottom:12px">Ready to Save on Your Pet's Care?</h2>
+    <p style="font-size:18px;opacity:.9;margin-bottom:24px">Submit a free inquiry. We price-compare 2–3 clinics and reply within 24 hours.</p>
+    <a href="intake.html" class="btn" style="font-size:20px;padding:18px 48px">Start My Free Price Check →</a>
+    <p style="font-size:13px;margin-top:16px;opacity:.7">No obligation. No spam. Ever.</p>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <h2 class="primary" style="text-align:center;margin-bottom:32px">Frequently Asked Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Is this safe? Are the clinics legitimate?</summary>
+        <p>Yes. Every clinic we route to is:
+          <br/>• Operated by a licensed Florida veterinarian
+          <br/>• Accredited and inspected
+          <br/>• Independently owned — we do not own or employ any clinic
+          <br/>• Offering prices that are publicly listed on their own websites
+        </p>
+      </details>
+      <details>
+        <summary>How much does MedPup charge?</summary>
+        <p>A flat coordination fee per appointment: $15–$50 for wellness/spay, $50–$100 for dental and surgical procedures.
+           No ongoing subscriptions. No percentage markup on the procedure bill.</p>
+      </details>
+      <details>
+        <summary>Why are these clinics cheaper?</summary>
+        <p>Low-cost clinics operate on a high-volume, thin-margin non-profit or mission-driven model. They accept government funding and grants,
+           which subsidizes care for low-income residents. The care quality is identical — the same licensed vets, the same anesthetics, 
+           the same surgical standards — at a fraction of the cost.</p>
+      </details>
+      <details>
+        <summary>Do I need to travel internationally?</summary>
+        <p>Not for Phase 1. All our current partner clinics are within 1 hour of Largo, FL. No ferry, no customs, no international paperwork.</p>
+      </details>
+      <details>
+        <summary>Can I use CareCredit?</summary>
+        <p>If the partner clinic accepts CareCredit, yes — you pay the clinic directly. MedPup is not involved in payment processing.</p>
+      </details>
+      <details>
+        <summary>How do you make money?</summary>
+        <p>We charge a transparent flat coordination fee for our time: finding prices, confirming appointments, sending reminders,
+           and coordinating records between you and the clinic. The clinic bills you directly for the procedure — we never markup medical fees.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <p><strong>MedPup</strong> — Pinellas County, Florida</p>
+    <p style="margin-top:8px">
+      <a href="mailto:hello@medpup.com">hello@medpup.com</a>
+    </p>
+    <p style="margin-top:20px;font-size:12px;opacity:.6">
+      MedPup is a pet surgery coordination service. All medical decisions are made by licensed veterinarians at independently owned partner clinics.
+      MedPup does not provide veterinary medical advice.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
