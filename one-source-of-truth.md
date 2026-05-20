@@ -187,15 +187,54 @@ The business model depends on either Freeport GB or Cancún being able to perfor
 
 **Cancún assessment:** Both VetCancun and CAP address all four procedure types explicitly from public materials. CAP is a full hospital-level facility with the highest equipment depth of any clinic in this analysis. Cancún has a proven cross-border medical tourism market (36,670+ pets/year in the broader Mexico ecosystem).
 
-### C3. Cancun Hub Feasibility
+### C3. Cancun Hub Feasibility — Research Results (May 19, 2026)
 
-The business plan's Phase 2 (Cancun) depends on:
-- CareCredit NOT being accepted → client pays cash/card
-- USDA endorsement required → adds time/cost
-- Screwworm certificate required → adds logistics
-- Charter flights or commercial air → higher cost
+**Full pipeline research complete.** See `cancun_medical_tourism_guide.md` for the comprehensive 17KB analysis.
 
-The Cancun model has higher regulatory friction and no CareCredit advantage. However, it benefits from a proven market (36,670+ dogs crossing into Mexico annually, active competitors like MexiVet Express). The Mexico route is validated by existing business operations — MexiVet is proof the concept works at the land border. Air travel to Cancun adds complexity but doesn't invalidate the model.
+**Vet market:** 15+ clinics identified in Cancún. Two fully evaluated via direct website reading:
+
+| Clinic | Surgery | Dental | Orthopedic | Travel Certs | English | 24/7 |
+|--------|---------|--------|------------|-------------|---------|------|
+| **VetCancun** (Zona Hotelera) | ✅ tumores, ortopédicas | ✅ ultrasonido, extracción | ✅ cirugías ortopédicas | ✅ USDA/SENASICA/EU | ✅ bilingual | ✅ |
+| **CAP Cancún** (Cumbres) | ✅ 24h oncológica | ✅ listed | ✅ **SPECIALTY** — luxaciones, fracturas, ligamentos, columna, implantes | Unconfirmed | Unconfirmed (Spanish) | ✅ RECOVER certified |
+
+Additional names from Yelp/DDG directories: Pet Go!, Animalisimo, Petopía, Hospipet, Mundo Animal Las Avenidas, Loyal Can, Koolvets, Perritos del Caribe, Mundo Animal, VetLife Cancun, Veterinaria Internacional Cancún, Centro Veterinario Especializado.
+
+**Air logistics — FLL→CUN:**
+- Airlines with pets in cabin: Spirit ($110/way), JetBlue ($125), American ($200), Delta ($200), United ($250)
+- Southwest does NOT fly pets internationally
+- Carrier: ~17–19" L × 11–14" W × 7.5–9" H, max 20 lbs
+- Temperature embargoes possible in hot months (>85°F)
+
+**Mexico import requirements:**
+- Health certificate (CVP-70) within 10 days + APHIS endorsement ($38–$50, 1–2 wks mail or 1–3 days VEHCS)
+- Screwworm certificate MANDATORY since Nov 2024 (treatment within 5 days + vet inspection — ~$30–$80)
+- No import permit for stays <60 days
+- Total prep: $100–$225 per pet, 3–4 weeks lead time
+
+**US return:**
+- Best practice: schedule trips <10 days so the US-issued APHIS-endorsed HC covers return leg
+- Longer stays: Mexican vet HC (~$50) + SENASICA endorsement in Cancún (~$30, same-day)
+- CDC: Mexico is NOT high-risk for rabies
+
+**Ground logistics:** CUN → Zona Hotelera: 20–25 km, $40–$80 pet-friendly private transfer. Multiple pet-friendly hotels ($50–$150/night, dogs up to 15–25 kg).
+
+**Pricing benchmarks (Mexico/Cancún USD):**
+| Procedure | Cancún | US comparison |
+|-----------|--------|--------------|
+| Dental cleaning | $150–$250 | $500–$1,200 |
+| Spay/neuter | $60–$150 | $300–$600 |
+| Mass removal | $100–$400 | $1,000–$3,000 |
+| Orthopedic (FHO) | $500–$800 | $2,000–$5,000 |
+| X-ray | $30–$75 | $100–$250 |
+| Health certificate | $35–$100 | $50–$150 |
+
+**Per-trip profit analysis (5 pets):**
+- Dental cleaning @ $900 fee: $775–LOSS (thin margins)
+- Mass removal @ $1,200 fee: $2,275–LOSS (38% margin at low cost)
+- Orthopedic @ $2,000 fee: $4,100–LOSS (41% margin at low cost)
+
+**Cancún assessment:** The model is only financially compelling for high-complexity procedures (mass removal, orthopedic) where US costs are $2,000+. Low-end procedures (dental, spay) show marginal savings after adding air travel + concierge fee. Cancún has the proven surgical capacity that Freeport lacks but adds the screwworm requirement and airfare cost that Freeport doesn't have.
 
 ---
 
@@ -203,26 +242,40 @@ The Cancun model has higher regulatory friction and no CareCredit advantage. How
 
 ### Key Uncertainties (Ranked by Impact)
 
-| # | Uncertainty | Impact if Wrong | Verification Method Needed |
-|---|-------------|-----------------|---------------------------|
-| 1 | **Can Freeport Vet Hospital perform needed procedures?** | **FATAL** — can't refer clients for services that don't exist | Phone call to 242-352-8155 |
-| 2 | **Does Freeport Vet accept CareCredit?** | **HIGH** — removes key advantage if false | Phone call to 242-352-8155 |
-| 3 | **Is import permit really 6-8 weeks?** | **HIGH** — changes operational model from 1-week to 2-month lead time | Access BAHFSA application portal or call Bahamas Agriculture |
-| 4 | **Is USDA endorsement required for Bahamas?** | **MODERATE** — adds cost/time but not fatal | Visit APHIS pet travel site with browser |
-| 5 | **Health certificate 48 hours vs 10 days?** | **MODERATE** — tighter window but manageable | Confirm via BAHFSA or Bahamas Agriculture |
-| 6 | **What does CBP at Port Everglades actually require?** | **MODERATE** — likely routine but unknown | Contact CBP Port Everglades agriculture |
-| 7 | **Is Balearia route running reliably?** | **LOW** — schedule changes affect planning | Check current schedule |
+| # | Uncertainty | Impact if Wrong | Verification Method Needed | Status |
+||---|-------------|-----------------|---------------------------|--------|
+| 1 | **Can Freeport Vet Hospital perform needed procedures?** | **FATAL** — can't refer clients for services that don't exist | Phone call to 242-352-8155 | **Still unknown** |
+| 2 | **Does Freeport Vet accept CareCredit?** | **HIGH** — removes key advantage if false | Phone call to 242-352-8155 | **Contradicted** (Cash/Visa/MC only) |
+| 3 | **Is import permit really 6-8 weeks?** | RESOLVED ✅ — 24-48 hours per BAHFSA official | Already verified | **RESOLVED** ✅ |
+| 4 | **Is USDA endorsement required for Bahamas?** | **MODERATE** — adds cost/time but not fatal | Visit APHIS pet travel site | No browser available — CANCELLED now: Cancún needs APHIS. Bahamas does NOT. |
+| 5 | **Health certificate 48 hours vs 10 days?** | RESOLVED ✅ — 10 days per BAHFSA conditions | Already verified | **RESOLVED** ✅ |
+| 6 | **What does CBP at Port Everglades actually require?** | **MODERATE** — likely routine but unknown | Contact CBP Port Everglades | **Still unknown** |
+| 7 | **Is Balearia route running reliably?** | RESOLVED ✅ — pet policy confirmed, $150/leg | Already verified | **RESOLVED** ✅ |
+
+**Cancún-specific uncertainties (added from May 19 research):**
+
+| # | Uncertainty | Impact if Wrong | Verification Method Needed | Status |
+||---|-------------|-----------------|---------------------------|--------|
+| 8 | **VetCancun USD pricing — can dental/ortho fit within $150–$800 bracket?** | **MODERATE** — margins highly sensitive to procedure cost | Email inquiry or WhatsApp +52 998 123 4567 | **Unknown — no published rates** |
+| 9 | **CAP Cancún — English spoken? Travel certificates available?** | **MODERATE** — limits clientele if no English/travel certs | Contact form or phone +52 998 361 1641 | **Unknown — website is all Spanish** |
+| 10 | **Airline pet slot availability for group bookings (5+ pets)?** | **MODERATE** — limits trip size | Call each airline | **Unknown** |
+| 11 | **Hotel pet policies for dogs >50 lbs?** | **LOW** — can gate-keep by dog size | Confirm with specific hotels | **Limit noted (15–25 kg cap typical)** |
+
 
 **BALERIA PET POLICY — NOW RESOLVED** ✅ Ferry accepts pets in calm kennels. $150/leg, 72hr advance reservation required. This critical uncertainty is no longer open.
 
 ### CONFIRMED Advantages (Still Valid)
 
 - ✅ US veterinary cost crisis is real and growing
-- ✅ Cross-border pet medical tourism is proven (Mexico)
+- ✅ Cross-border pet medical tourism is proven (Mexico — 36,670+ dogs in 2025)
 - ✅ Bahamas is NOT CDC high-risk for rabies
+- ✅ Mexico is NOT CDC high-risk for rabies (confirmed same low-risk status)
 - ✅ Hawksbill Creek FTZ provides genuine tax advantages through 2054
 - ✅ No screwworm certificate needed for Bahamas
 - ✅ No competitor operating a Florida-to-Freeport pet concierge service
+- ✅ Cancún has 2+ clinics with CONFIRMED orthopedic + dental + surgery capabilities
+- ✅ VetCancun explicitly generates USDA health certificates for US return
+- ✅ Cancún Zona Hotelera has pet-friendly hotels + pet-friendly private transfers available
 - ✅ Large Florida pet owner population under financial stress
 
 ### Key Contradictions Found

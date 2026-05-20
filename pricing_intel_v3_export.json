@@ -1,0 +1,1886 @@
+{
+  "Banfield Pet Hospital\u00ae - Quality Veterinary Care & Pet Wellness": {
+    "url": "https://www.banfield.com",
+    "email": "email@emailserver.com",
+    "phone": "(343) 291-8353,(429) 496-7295,(224) 682-2507",
+    "whatsapp": "3432918353",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "BlueSky At-Home Veterinary Care": {
+    "url": "https://www.thevets.com",
+    "email": "",
+    "phone": "(779) 295-2000",
+    "whatsapp": "1779295200",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Community Veterinary Clinic in Liberty City | ASPCA Community Medicine": {
+    "url": "https://www.aspca.org/miami-initiative/community-veterinary-clinic",
+    "email": "jack@greensock.com",
+    "phone": "(727) 272-7272,(909) 090-9090",
+    "whatsapp": "7272727272",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 5,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "general": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 80.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ],
+      "surgery": [
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 80.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ],
+      "wellness": [
+        {
+          "procedure": "Vaccination",
+          "price_low": 20.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 40.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Physical examination: \u2192 $40"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 80.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Physical examination: \u2192 $80"
+      },
+      {
+        "procedure": "Spay/Neuter",
+        "category": "surgery",
+        "price_low": 40.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cat spay/neuter surgery: \u2192 $40"
+      },
+      {
+        "procedure": "Spay/Neuter",
+        "category": "surgery",
+        "price_low": 80.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dog spay/neuter surgery: \u2192 $80"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 20.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "Combination vaccine - DA2PP or FVRCP: \u2192 $20"
+      }
+    ]
+  },
+  "Friends of Animals | Animal Rights & Veganism": {
+    "url": "https://www.friendsofanimals.org",
+    "email": "",
+    "phone": "",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Good Care Animal Clinic | Affordable Pet Care": {
+    "url": "https://www.goodcareanimalclinic.com",
+    "email": "",
+    "phone": "(305) 220-0102,(305) 220-0103",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 47,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "dental": [
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 285.0,
+          "price_high": 595.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 285.0,
+          "price_high": 575.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 305.0,
+          "price_high": 595.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 305.0,
+          "price_high": 595.0,
+          "currency": "USD"
+        }
+      ],
+      "general": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 40.0,
+          "price_high": 292.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 40.0,
+          "price_high": 292.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 45.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 49.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 49.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 105.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 105.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 110.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 110.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 495.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 495.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 750.0,
+          "price_high": 1750.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 750.0,
+          "price_high": 1800.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 750.0,
+          "price_high": 1750.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 750.0,
+          "price_high": 1800.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3200.0,
+          "price_high": 4200.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3200.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3700.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ],
+      "surgery": [
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 780.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 785.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 780.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 785.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 450.0,
+          "price_high": 1600.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 450.0,
+          "price_high": 1600.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 450.0,
+          "price_high": 1600.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 450.0,
+          "price_high": 1600.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Entropion Repair",
+          "price_low": 500.0,
+          "price_high": 700.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Entropion Repair",
+          "price_low": 500.0,
+          "price_high": 700.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Entropion Repair",
+          "price_low": 500.0,
+          "price_high": 700.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Entropion Repair",
+          "price_low": 500.0,
+          "price_high": 700.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 650.0,
+          "price_high": 2100.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 650.0,
+          "price_high": 2100.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Cherry Eye Repair",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Cherry Eye Repair",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Pyometra Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Pyometra Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3100.0,
+          "price_high": 4350.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3100.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3200.0,
+          "price_high": 4200.0,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 285.0,
+        "price_high": 595.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dental Cleaning - \u2192 $285 \u2013 $595"
+      },
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 285.0,
+        "price_high": 575.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Regular Dental Cleaning Services ( \u2192 $285-$575) Your dog will never tell you when they are experiencing de"
+      },
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 305.0,
+        "price_high": 595.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dental Cleaning - \u2192 $305 \u2013 $595"
+      },
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 305.0,
+        "price_high": 595.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Regular Dental Cleaning Services ( \u2192 $305-$595) Your dog will never tell you when they are experiencing de"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 40.0,
+        "price_high": 292.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Traveling Certificates ( \u2192 $40-$292)"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 40.0,
+        "price_high": 292.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Certificate Requirements ( \u2192 $40-$292) (Not doing traveling certificates at the moment) When trav"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 45.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Laser Therapy \u2192 $45"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 49.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Puppy and Kitten Pack - \u2192 $49"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 49.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Puppy & Kitten Pack ( \u2192 $49) Our vaccination pack for puppies and kittens plays a criti"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 105.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Annual Checkup - \u2192 $105"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 105.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Annual Checkup for Dogs and Cats ( \u2192 $105) Our annual checkup with vaccinations plays a critical role"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 110.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Annual Checkup - \u2192 $110"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 110.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Annual Checkup for Dogs and Cats ( \u2192 $110) Our annual checkup with vaccinations plays a critical role"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 495.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Ear Cropping starts at \u2192 $495"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 495.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Ear Cropping starts at \u2192 $495"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 750.0,
+        "price_high": 1750.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Mammary Tumors ( \u2192 $750-$1750)"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 750.0,
+        "price_high": 1800.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Mammary Tumors ( \u2192 $750-$1800) -Miami Approximately 25% of unspayed female dogs will deve"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 750.0,
+        "price_high": 1750.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Mammary Tumors ( \u2192 $750-$1750)"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 750.0,
+        "price_high": 1800.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Mammary Tumors ( \u2192 $750-$1800) -Miami Approximately 25% of unspayed female dogs will deve"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 3200.0,
+        "price_high": 4200.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Broken Leg -Miami ( \u2192 $3200 \u2013 $4200)"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 3200.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Prophylactic Gastropexy ( \u2192 $3200) -Miami |This price includes Spay or Neutering as well | A "
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 3700.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Prophylactic Gastropexy ( \u2192 $3700) -Miami"
+      },
+      {
+        "procedure": "Neuter",
+        "category": "surgery",
+        "price_low": 350.0,
+        "price_high": 780.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Neutering - \u2192 $350 \u2013 $780"
+      },
+      {
+        "procedure": "Neuter",
+        "category": "surgery",
+        "price_low": 350.0,
+        "price_high": 785.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Neutering ( \u2192 $350-$785) Many research studies out there examine the optimum age to"
+      },
+      {
+        "procedure": "Neuter",
+        "category": "surgery",
+        "price_low": 350.0,
+        "price_high": 780.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Neutering - \u2192 $350 \u2013 $780"
+      },
+      {
+        "procedure": "Neuter",
+        "category": "surgery",
+        "price_low": 350.0,
+        "price_high": 785.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Neutering ( \u2192 $350-$785) Many research studies out there examine the optimum age to"
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 450.0,
+        "price_high": 1600.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Spay - \u2192 $450 \u2013 $1600"
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 450.0,
+        "price_high": 1600.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Spay ( \u2192 $450 -$1600) The age accepted for spaying a dog is approximately 6 mont"
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 450.0,
+        "price_high": 1600.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Spay - \u2192 $450 \u2013 $1600"
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 450.0,
+        "price_high": 1600.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Spay ( \u2192 $450 -$1600) The age accepted for spaying a dog is approximately 6 mont"
+      },
+      {
+        "procedure": "Entropion Repair",
+        "category": "surgery",
+        "price_low": 500.0,
+        "price_high": 700.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Entropion ( \u2192 $500-$700)"
+      },
+      {
+        "procedure": "Entropion Repair",
+        "category": "surgery",
+        "price_low": 500.0,
+        "price_high": 700.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Entropion ( \u2192 $500-$700) -Miami Entropion causes your dog\u2019s eyes to roll inward, wh"
+      },
+      {
+        "procedure": "Entropion Repair",
+        "category": "surgery",
+        "price_low": 500.0,
+        "price_high": 700.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Entropion ( \u2192 $500-$700)"
+      },
+      {
+        "procedure": "Entropion Repair",
+        "category": "surgery",
+        "price_low": 500.0,
+        "price_high": 700.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Entropion ( \u2192 $500-$700) -Miami Entropion causes your dog\u2019s eyes to roll inward, wh"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 650.0,
+        "price_high": 2100.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dog Bite / Wound Repair Surgery-Miami ( \u2192 $650 \u2013 $2100)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 650.0,
+        "price_high": 2100.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dog Bite / Wound Repair Surgery-Miami ( \u2192 $650 - $2100) This is one of our specialties in South Florida, with more"
+      },
+      {
+        "procedure": "Cherry Eye Repair",
+        "category": "surgery",
+        "price_low": 1000.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cherry Eye -Miami ( \u2192 $1000)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 1000.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cherry Eye Surgery ( \u2192 $1000) -Miami Cherry eye, also known as prolapse of the nictitati"
+      },
+      {
+        "procedure": "Cherry Eye Repair",
+        "category": "surgery",
+        "price_low": 1000.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cherry Eye -Miami ( \u2192 $1000)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 1000.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cherry Eye Surgery ( \u2192 $1000) -Miami Cherry eye, also known as prolapse of the nictitati"
+      },
+      {
+        "procedure": "Pyometra Surgery",
+        "category": "surgery",
+        "price_low": 1300.0,
+        "price_high": 1900.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Pyometra -Miami ( \u2192 $1300 \u2013 $1900)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 1300.0,
+        "price_high": 1900.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Surgery ( \u2192 $1300-$1900) -Miami Pyometra is a uterus infection that happens as a re"
+      },
+      {
+        "procedure": "Pyometra Surgery",
+        "category": "surgery",
+        "price_low": 1300.0,
+        "price_high": 1900.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Pyometra -Miami ( \u2192 $1300 \u2013 $1900)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 1300.0,
+        "price_high": 1900.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Surgery ( \u2192 $1300-1900) -Miami Pyometra is a uterus infection that happens as a re"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 3100.0,
+        "price_high": 4350.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cranial Cruciate Ligament Surgery ( \u2192 $3100-$4350)"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 3100.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Cranial Cruciate Ligament Surgery (CCL or ACL) - TTA \u2192 $3100 -TPLO $4350 -Miami In dogs, the cranial cruciate ligament o"
+      },
+      {
+        "procedure": "Surgery",
+        "category": "surgery",
+        "price_low": 3200.0,
+        "price_high": 4200.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Surgery ( \u2192 $3200-4200) -Miami A broken leg in dogs is a common orthopedic injury "
+      }
+    ]
+  },
+  "Home - Justin Bartlett Animal Rescue": {
+    "url": "https://justinbartlett.org",
+    "email": "info@justinbartlett.org,info@justinbartlett.org,info@justinbartlett.org,jbarfunds@gmail.com,adoptions@justinbartlett.org",
+    "phone": "(489) 633-5733,(169) 912-1900,(561) 795-9999,(375) 252-2699,(681) 931-6487",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 3,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "general": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 60.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 250.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 250.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 60.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "...mal Rescue. This event is a fantastic opportunity to contribute to a great cause and have a wonderful time. Tickets are \u2192 $60. Get yours now and make a difference!"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 250.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Annual Membership Fee: \u2192 $250"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 250.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "during the open enrollment period by purchasing the \u2192 $250 membership."
+      }
+    ]
+  },
+  "Home | Veterinarian in Oakland Park, FL | Heroes Veterinary Hospital": {
+    "url": "https://heroesveterinaryhospital.com",
+    "email": "",
+    "phone": "",
+    "whatsapp": null,
+    "cloudflare_blocked": true,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Humane Society of Tampa Bay | HSTB | Tampa Bay": {
+    "url": "https://humanesocietytampa.org",
+    "email": "slick-carousel@1.8.1,slick-carousel@1.8.1",
+    "phone": "(012) 345-6789",
+    "whatsapp": "0123456789",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 1,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "wellness": [
+        {
+          "procedure": "Microchip",
+          "price_low": 35.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "Microchip",
+        "category": "wellness",
+        "price_low": 35.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "... ever becomes lost, a microchip can help bring them safely home. The HSTB Animal Hospital offers microchipping for just \u2192 $35 \u2014 a small investment that gives your furry family member th"
+      }
+    ]
+  },
+  "Low Cost Vet Phoenix | Spay & Neuter Clinics Phoenix": {
+    "url": "https://www.drkellysvet.com",
+    "email": "",
+    "phone": "",
+    "whatsapp": null,
+    "cloudflare_blocked": true,
+    "pricing_summary": {
+      "total": 4,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "general": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 550.0,
+          "price_high": 1100.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 800.0,
+          "price_high": 1000.0,
+          "currency": "USD"
+        }
+      ],
+      "surgery": [
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 390.0,
+          "price_high": 500.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 500.0,
+          "price_high": 600.0,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 550.0,
+        "price_high": 1100.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": " \u2192 $550-$1,100"
+      },
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 800.0,
+        "price_high": 1000.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": " \u2192 $800-$1,000"
+      },
+      {
+        "procedure": "Spay/Neuter",
+        "category": "surgery",
+        "price_low": 390.0,
+        "price_high": 500.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "If added to spay/neuter procedure, \u2192 $390-$500 alone"
+      },
+      {
+        "procedure": "Spay/Neuter",
+        "category": "surgery",
+        "price_low": 500.0,
+        "price_high": 600.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "If added to spay/neuter procedure, \u2192 $500-$600 alone"
+      }
+    ]
+  },
+  "MexiVet Express": {
+    "url": "https://www.mexivetexpress.com",
+    "email": "rspack@1.3.9",
+    "phone": "(117) 804-6562,(542) 472-8218,(681) 953-2617",
+    "whatsapp": "1178046562",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Online Vet Visits 24/7: Dog & Cat Prescriptions in Most States | Dutch": {
+    "url": "https://www.dutch.com",
+    "email": "d1adfb29713f23224ec2b2695edbed03@o4507495026196480.ingest.us.sentry.io,d98a4cd829a62cc8d51af148c497f30c@o4507495026196480.ingest.us.sentry.io",
+    "phone": "(899) 999-9999,(012) 345-6789",
+    "whatsapp": "8999999999",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 7,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "general": [
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 50.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 100.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 132.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 132.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 353.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 603.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 843.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 50.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Get \u2192 $50 to spend on flea and tick treatments, plus $25 to redeem in"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 100.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Get \u2192 $100 to redeem for supplemental in-person care (such as annual v"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 132.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Billed \u2192 $132 today"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 132.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dutch is an annual membership service. At \u2192 $132/year ($11/month), the annual membership covers unlimited vi"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 353.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": " \u2192 $353 annual value"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 603.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": " \u2192 $603 annual value"
+      },
+      {
+        "procedure": "extracted_from_html",
+        "category": "general",
+        "price_low": 843.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": " \u2192 $843 annual value"
+      }
+    ]
+  },
+  "Paws 2 Help | West Palm Beach, FL 33406": {
+    "url": "https://www.paws2help.org",
+    "email": "paws.reception@paws2help.org,wght@200..900,wght@200..900,wght@200..900,wght@200..900",
+    "phone": "(561) 712-1911,(319) 051-6614,(824) 618-1971",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 2,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {
+      "general": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 65.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ],
+      "wellness": [
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": null,
+          "currency": "USD"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "extracted_from_archive",
+        "category": "general",
+        "price_low": 65.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "...-ray equipment allows us to provide quality images. Cost of x-rays, 1 to 3 views taken at same time range in price from \u2192 $65.00 for one to $135.00 for 2/3. Additional x-rays or views duri"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "Many vaccines and in-house tests are \u2192 $15.00 EACH."
+      }
+    ]
+  },
+  "SPCA of Texas | The leading animal welfare agency in North Texas": {
+    "url": "https://www.spca.org",
+    "email": "gasparesganga-jquery-loading-overlay@2.1.7,fostermed@spca.org,fostermed@spca.org,Fostermed@spca.org,Fostermed@spca.org",
+    "phone": "(214) 748-3647",
+    "whatsapp": "2147483647",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Thomasville Humane": {
+    "url": "https://www.thomasvillehumane.org",
+    "email": "rspack@1.3.9",
+    "phone": "(117) 804-6562,(542) 472-8218,(681) 953-2617",
+    "whatsapp": "1178046562",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "VCA Animal Hospitals: World-Class Veterinary Care": {
+    "url": "https://vcahospitals.com",
+    "email": "",
+    "phone": "(942) 269-4340,(882) 044-7854,(706) 749-9243",
+    "whatsapp": "9422694340",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "Veterinario en Canc\u00fan | Cl\u00ednica Veterinaria 24 Horas | VetCancun": {
+    "url": "https://vetcancun.com",
+    "email": "info@vetcancun.com",
+    "phone": "(080) 202-4042,(529) 981-2345,(998) 123-4567",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 31,
+      "high_confidence": 1
+    },
+    "pricing_by_category": {
+      "dental": [
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 50.0,
+          "price_high": 125.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 50.0,
+          "price_high": 125.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 1000.0,
+          "price_high": 2500.0,
+          "currency": "MXN"
+        }
+      ],
+      "general": [
+        {
+          "procedure": "Deworming",
+          "price_low": 150.0,
+          "price_high": 300.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Deworming",
+          "price_low": 150.0,
+          "price_high": 300.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Health Certificate",
+          "price_low": 300.0,
+          "price_high": 800.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Health Certificate",
+          "price_low": 300.0,
+          "price_high": 800.0,
+          "currency": "MXN"
+        }
+      ],
+      "surgery": [
+        {
+          "procedure": "Spay",
+          "price_low": 75.0,
+          "price_high": 150.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 75.0,
+          "price_high": 150.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 1500.0,
+          "price_high": 3000.0,
+          "currency": "MXN"
+        }
+      ],
+      "wellness": [
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": 30.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Exam",
+          "price_low": 15.0,
+          "price_high": 25.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 15.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": 30.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": 30.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Exam",
+          "price_low": 15.0,
+          "price_high": 25.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 15.0,
+          "price_high": null,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": 30.0,
+          "currency": "USD"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 200.0,
+          "price_high": 400.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 200.0,
+          "price_high": 500.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 200.0,
+          "price_high": 400.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 200.0,
+          "price_high": 500.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": 500.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": null,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 300.0,
+          "price_high": 600.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 300.0,
+          "price_high": 600.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": 500.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": null,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 300.0,
+          "price_high": 600.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Microchip",
+          "price_low": 400.0,
+          "price_high": 600.0,
+          "currency": "MXN"
+        },
+        {
+          "procedure": "Microchip",
+          "price_low": 400.0,
+          "price_high": 600.0,
+          "currency": "MXN"
+        }
+      ]
+    },
+    "pricing": [
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 50.0,
+        "price_high": 125.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Dental cleaning for dogs costs \u2192 $50-125 USD depending on size and dental condition."
+      },
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 50.0,
+        "price_high": 125.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Dental cleaning for dogs costs \u2192 $50-125 USD depending on size and dental condition.\"}"
+      },
+      {
+        "procedure": "Dental Cleaning",
+        "category": "dental",
+        "price_low": 1000.0,
+        "price_high": 2500.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "La limpieza dental para perros cuesta entre \u2192 $1,000-2,500 MXN dependiendo del tama\u00f1o y estado dental."
+      },
+      {
+        "procedure": "Deworming",
+        "category": "general",
+        "price_low": 150.0,
+        "price_high": 300.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "La desparasitaci\u00f3n interna cuesta \u2192 $150-300 MXN y los tratamientos antipulgas $200-500 MXN dependiendo "
+      },
+      {
+        "procedure": "Deworming",
+        "category": "general",
+        "price_low": 150.0,
+        "price_high": 300.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"La desparasitaci\u00f3n interna cuesta \u2192 $150-300 MXN y los tratamientos antipulgas $200-500 MXN dependiendo "
+      },
+      {
+        "procedure": "Health Certificate",
+        "category": "general",
+        "price_low": 300.0,
+        "price_high": 800.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Los certificados de salud cuestan \u2192 $300-800 MXN dependiendo del destino y documentaci\u00f3n requerida."
+      },
+      {
+        "procedure": "Health Certificate",
+        "category": "general",
+        "price_low": 300.0,
+        "price_high": 800.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Los certificados de salud cuestan \u2192 $300-800 MXN dependiendo del destino y documentaci\u00f3n requerida.\"}"
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 75.0,
+        "price_high": 150.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Spaying female dogs costs \u2192 $75-150 USD and neutering males $40-75 USD, depending on size."
+      },
+      {
+        "procedure": "Spay",
+        "category": "surgery",
+        "price_low": 75.0,
+        "price_high": 150.0,
+        "currency": "USD",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Spaying female dogs costs \u2192 $75-150 USD and neutering males $40-75 USD"
+      },
+      {
+        "procedure": "Neuter",
+        "category": "surgery",
+        "price_low": 1500.0,
+        "price_high": 3000.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "La esterilizaci\u00f3n de perras cuesta \u2192 $1,500-3,000 MXN y la castraci\u00f3n de perros $800-1,500 MXN, dependiendo d"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 30.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "Veterinary consultations in Cancun average \u2192 $15-30 USD. Vaccinations range from $10-20 USD. Prices vary by ser"
+      },
+      {
+        "procedure": "Exam",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 25.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "Veterinary consultations at VetCancun cost \u2192 $15-25 USD depending on the type of exam required."
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "General consultations start at \u2192 $15 USD. We offer regular packages and promotions."
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 30.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "Veterinary consultations in Cancun average \u2192 $15-30 USD. Vaccinations range from $10-20 USD."
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 30.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "\"faq.a1\":\"Veterinary consultations in Cancun average \u2192 $15-30 USD. Vaccinations range from $10-20 USD. Prices vary by ser"
+      },
+      {
+        "procedure": "Exam",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 25.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "a:\"Veterinary consultations at VetCancun cost \u2192 $15-25 USD depending on the type of exam required.\"}"
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.4,
+        "context": "a:\"General consultations start at \u2192 $15 USD. We offer regular packages and promotions.\"}]}}"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 15.0,
+        "price_high": 30.0,
+        "currency": "USD",
+        "confidence": "low",
+        "confidence_score": 0.5,
+        "context": "Veterinary consultations in Cancun average $15-30 USD. Vaccinations range from $10-20 USD. Prices vary by service and clinic. Contact us for a personalized quote."
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 200.0,
+        "price_high": 400.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Las vacunas individuales cuestan entre \u2192 $200-400 MXN. Ofrecemos paquetes de vacunaci\u00f3n con descuento."
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 200.0,
+        "price_high": 500.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Las consultas de urgencia tienen un costo adicional de \u2192 $200-500 MXN sobre la consulta regular. El tratamiento depende de ca"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 200.0,
+        "price_high": 400.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Las vacunas individuales cuestan entre \u2192 $200-400 MXN. Ofrecemos paquetes de vacunaci\u00f3n con descuento.\"}"
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 200.0,
+        "price_high": 500.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Las consultas de urgencia tienen un costo adicional de \u2192 $200-500 MXN sobre la consulta regular. El tratamiento depende de ca"
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": 500.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Las consultas veterinarias en VetCancun tienen un costo de \u2192 $300-500 MXN dependiendo del tipo de examen requerido."
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": null,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Las consultas generales tienen un costo desde \u2192 $300 MXN. Ofrecemos paquetes y promociones regulares."
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": 600.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "Las consultas veterinarias en Canc\u00fan tienen un costo promedio de \u2192 $300-600 MXN. Las vacunas rondan los $200-400 MXN."
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": 600.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "\"faq.a1\":\"Las consultas veterinarias en Canc\u00fan tienen un costo promedio de \u2192 $300-600 MXN. Las vacunas rondan los $200-400 MXN. Los precios var\u00eda"
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": 500.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Las consultas veterinarias en VetCancun tienen un costo de \u2192 $300-500 MXN dependiendo del tipo de examen requerido.\"}"
+      },
+      {
+        "procedure": "Consultation",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": null,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"Las consultas generales tienen un costo desde \u2192 $300 MXN. Ofrecemos paquetes y promociones regulares.\"}]"
+      },
+      {
+        "procedure": "Vaccination",
+        "category": "wellness",
+        "price_low": 300.0,
+        "price_high": 600.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.7,
+        "context": "Las consultas veterinarias en Canc\u00fan tienen un costo promedio de $300-600 MXN. Las vacunas rondan los $200-400 MXN. Los precios var\u00edan seg\u00fan el servicio y la cl\u00ednica. Cont\u00e1ctanos para un presupuesto p"
+      },
+      {
+        "procedure": "Microchip",
+        "category": "wellness",
+        "price_low": 400.0,
+        "price_high": 600.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "El microchip con registro cuesta \u2192 $400-600 MXN. Es un procedimiento r\u00e1pido que se hace durante una con"
+      },
+      {
+        "procedure": "Microchip",
+        "category": "wellness",
+        "price_low": 400.0,
+        "price_high": 600.0,
+        "currency": "MXN",
+        "confidence": "medium",
+        "confidence_score": 0.6,
+        "context": "a:\"El microchip con registro cuesta \u2192 $400-600 MXN. Es un procedimiento r\u00e1pido que se hace durante una con"
+      }
+    ]
+  },
+  "Visit Us | Affordable Pet Care In Pinellas County | Largo, FL": {
+    "url": "https://operationsnip.com",
+    "email": "operationsnipfl@gmail.com,operationsnipfl@gmail.com",
+    "phone": "(285) 714-2857,(666) 666-6666,(333) 333-3333",
+    "whatsapp": "14.28571428",
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  },
+  "remedyfl.com": {
+    "url": "https://remedyfl.com",
+    "email": "",
+    "phone": "",
+    "whatsapp": null,
+    "cloudflare_blocked": false,
+    "pricing_summary": {
+      "total": 0,
+      "high_confidence": 0
+    },
+    "pricing_by_category": {},
+    "pricing": []
+  }
+}
