@@ -12,6 +12,9 @@ Usage:
 import sqlite3, json, sys, argparse
 from pathlib import Path
 
+# ── All-in cost estimator ────────────────────────────────────────────────────
+from real_cost_calculator import realistic_range  # guaranteed_min / possible_max
+
 DB = Path(r"C:\Users\camer\DEVNEW\animalaid\pricing_intel_v3.db")
 
 # ── Reference U.S. average prices ─────────────────────────────────────────
@@ -142,19 +145,35 @@ def build_route_cards(scenario=None, zip_code="33701", as_json=False):
         t_score = travel_score(dt)
         comp = composite(p_score, t_score)
         f_score, f_status, f_age = freshness_score(cid, proc)
+
+        # ── All-in cost estimate (marketing price + hidden add-ons) ───────────
+        # realistic_range returns the defensible guaranteed_min / possible_max
+        # that we show to clients in the route card.
+        rc = realistic_range(proc, low, p['high'])
+        allin_low  = rc['guaranteed_minimum']
+        allin_high = rc['possible_maximum']
+        addons_hi  = rc['addon_high']
+        addons_lo  = rc['addon_range_low']
+
         cards.append({
             "clinic_id":         cid,
             "clinic_name":       p['name'],
             "clinic_url":        p['url'],
             "address":           p['address'] or "",
             "procedure":         proc,
+            "procedure_lower":   proc.lower(),
             "category":          p.get('cat',''),
             "price_low":         low,
             "price_high":        p['high'],
+            "allin_low":         allin_low,
+            "allin_high":        allin_high,
+            "addon_floor_low":   addons_lo,
+            "addon_floor_high":  addons_hi,
             "currency":          p['cur'],
             "confidence":        p['conf'],
             "confidence_score":  p['cscore'],
             "us_avg":            US_AVG.get(proc_key, 0),
+            "realistic_pct":     round((allin_high - low) / (low if low else 1) * 100),
             "price_score":       round(p_score, 4),
             "drive_minutes":     dt,
             "travel_score":      round(t_score, 4),
@@ -182,24 +201,29 @@ def print_route_board(cards, scenario=None):
         print("  No pricing data available.")
         return
 
-    print(f"  {'RANK':<5} {'CLINIC':<42} {'PROC':<22} {'PRICE':<14} {'DRIVE':<7} {'COMP':<6} {'FRESH'}")
+    print(f"  {'RANK':<5} {'CLINIC':<38} {'PROC':<20} {'MKT':<11} {'ALL-IN RANGE':<17} {'+ADDONS':<11} {'DRIVE':<6} {'COMP':<5} {'FRESH'}")
+
     print(f"  {'─'*110}")
     for i, c in enumerate(cards[:20], 1):
-        hi = f"${c['price_high']:.0f}" if c['price_high'] else "—"
+        mkt  = f"${c['price_low']:.0f}–{c['price_high'] or '?':.0f}"
+        ai   = f"${c['allin_low']:.0f}–${c['allin_high']:.0f}"
+        add  = f"+${c['addon_floor_low']:.0f}–${c['addon_floor_high']:.0f}"
         fresh_marker = {"fresh":"🟢","aging":"🟡","stale":"🔴","missing":"⬛"}.get(c['freshness_status'],"?")
-        print(f"  {i:<5} {c['clinic_name'][:40]:<42} {c['procedure'][:20]:<22} "
-              f"${c['price_low']:.0f}–{hi:<7} {c['drive_minutes']}min {'':<2} "
+        print(f"  {i:<5} {c['clinic_name'][:36]:<38} {c['procedure'][:18]:<20} "
+              f"{mkt:<11} {ai:<17} {add:<11} "
+              f"{c['drive_minutes']}min {'':<2} "
               f"{c['composite_score']:.3f}  {fresh_marker}{c['freshness_status']}")
 
-    # Show top 3 with savings
+    # Show top 3 with savings + all-in guarantee
     print(f"\n  ── TOP ROUTES ──────────────────────────────────────────────────")
     for i, c in enumerate(cards[:3], 1):
-        us = c['us_avg']
+        us  = c['us_avg']
         sav = us - c['price_low'] if us > 0 else 0
+        ai  = f"${c['allin_low']:.0f}–${c['allin_high']:.0f}"
+        add = f"+${c['addon_floor_low']:.0f}–${c['addon_floor_high']:.0f}"
         print(f"  #{i}  {c['clinic_name']}")
-        print(f"      {c['procedure']}: ${c['price_low']:.0f}–{c['price_high'] or '?'} vs. US avg ${us:.0f}  → save ~${sav:.0f}")
-        print(f"      Drive: {c['drive_minutes']}min  Score: {c['composite_score']:.3f}  "
-              f"Freshness: {c['freshness_status']} ({c['freshness_age_days']}d)")
+        print(f"      {c['procedure']}: ${c['price_low']:.0f}–{c['price_high'] or '?'} marketing  →  all-in {ai} ({add} typical add-ons)")
+        print(f"      US avg ${us:.0f}  →  save ~${sav:.0f}  |  Drive: {c['drive_minutes']}min  |  Score: {c['composite_score']:.3f}")
         print()
 
 if __name__ == "__main__":

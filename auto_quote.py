@@ -73,8 +73,8 @@ def build_route_card(intake):
 
     # Top 3 routes
     top = cards[:3]
-    # US avg for comparison
-    us_avg = US_AVG.get(scenario.title(), cards[0]["us_avg"] if cards else 0)
+    # US avg for comparison (per-clinic value already computed by route_engine)
+    us_avg = cards[0]["us_avg"] if cards else 0
     if intake.get("us_quote"):
         try:
             us_avg = float(intake["us_quote"])
@@ -87,22 +87,27 @@ def build_route_card(intake):
         sav = us_avg - c["price_low"] if us_avg > 0 else 0
         sav_pct = (sav / us_avg * 100) if us_avg > 0 else 0
         route_card.append({
-            "rank": i,
-            "clinic_id": c["clinic_id"],
-            "clinic_name": c["clinic_name"],
-            "clinic_url": c["clinic_url"],
-            "clinic_address": c["address"],
-            "phone": "(pending DB fill)",   # To be filled from DB
-            "procedure": c["procedure"],
-            "price_range": f"${c['price_low']:.0f}–${c['price_high'] or '?'}",
-            "currency": c["currency"],
-            "medpup_fee": "$25–$50" if c["category"] == "Surgery" else "$50–$100",
-            "client_total": f"${c['price_low']:.0f}+MedPup fee",
-            "us_comparison": f"${us_avg:.0f}",
-            "savings_vs_us": f"${sav:.0f} ({sav_pct:.0f}%)",
-            "drive_minutes": c["drive_minutes"],
+            "rank":              i,
+            "clinic_id":         c["clinic_id"],
+            "clinic_name":       c["clinic_name"],
+            "clinic_url":        c["clinic_url"],
+            "clinic_address":    c["address"],
+            "phone":             "(pending DB fill)",
+            "procedure":         c["procedure"],
+            "price_range":       f"${c['price_low']:.0f}–${c['price_high'] or '?'}",
+            "allin_low":         c["allin_low"],
+            "allin_high":        c["allin_high"],
+            "addon_range":       f"{c['addon_floor_low']:.0f}–{c['addon_floor_high']:.0f}",   # plain number range
+            "currency":          c["currency"],
+            "medpup_fee":        "$25–$50" if c["category"] == "Surgery" else "$50–$100",
+            "client_total_floor":f"${c['allin_low']}+MedPup fee",
+            "all_in_guarantee":  f"MedPup guarantees all-in cost is between ${c['allin_low']:.0f}–${c['allin_high']:.0f} before you book. "
+                                 f"If the final bill exceeds our confirmed range, we cover the excess or route you to a backup clinic.",
+            "us_comparison":     f"{us_avg:.0f}",
+            "savings_vs_us":     f"${sav:.0f} ({sav_pct:.0f}%)",
+            "drive_minutes":     c["drive_minutes"],
             "needs_verification_call": c["freshness_status"] == "stale",
-            "composite_score": c["composite_score"],
+            "composite_score":   c["composite_score"],
         })
 
     return {
@@ -127,10 +132,13 @@ def format_human(card):
     for opt in card["route_card"]:
         lines.append(f"  ┌── Route #{opt['rank']} ──────────────────────────────────────────")
         lines.append(f"  │  {opt['clinic_name']}")
-        lines.append(f"  │  {opt['procedure']}: {opt['price_range']} + MedPup fee {opt['medpup_fee']}")
+        lines.append(f"  │  {opt['procedure']}: {opt['price_range']}   (hidden add-ons ${opt['addon_range'].replace('–','–$')})")
+        lines.append(f"  │  ╔═══ MEDPUP ALL-IN COST GUARANTEE ══════════════")
+        lines.append(f"  │       Marketing:  {opt['price_range']}")
+        lines.append(f"  │       Estimated all-in: ${opt['allin_low']:.0f}–${opt['allin_high']:.0f}  (before MedPup fee)")
+        lines.append(f"  │       {opt['all_in_guarantee']}")
         lines.append(f"  │  U.S. comparison: ${opt['us_comparison']}  → save {opt['savings_vs_us']}")
-        lines.append(f"  │  Drive: {opt['drive_minutes']} min from your area")
-        lines.append(f"  │  Score: {opt['composite_score']:.3f}")
+        lines.append(f"  │  Drive: {opt['drive_minutes']} min  |  Score: {opt['composite_score']:.3f}")
         if opt["needs_verification_call"]:
             lines.append(f"  │  ⚠️  VERIFICATION CALL NEEDED — pricing may be stale")
         lines.append(f"  └─────────────────────────────────────────────────────────────\n")

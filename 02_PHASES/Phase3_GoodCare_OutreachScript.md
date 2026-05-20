@@ -1,63 +1,69 @@
-# Good Care Animal Clinic — Outreach Script
+# Good Care Animal Clinic — Outreach Script (updated framing)
 
 **URL:** https://www.goodcareanimalclinic.com  
-**Verified pricing:** Dental $285–$595 · Spay $450–$1,600 · Surgery $650–$4,200  
-**Distance from Largo:** 1 hr  
-**Goal:** Confirm pricing end-to-end, confirm they accept short-notice / same-day appointments, ask about flat referral fee acceptance.
+**Contact:** goodcareanimalclinic.com/contact page  
+**Goal:** Establish referral partnership — Pinellas pet clients with all-in cost confirmed before they arrive.
 
 ---
 
-## Call Script (90 seconds)
+## Core Value Proposition to Communicate
 
-> "Hi, I'm Cameron in Largo — I run MedPup. I help Pinellas pet owners find affordable veterinary care, and I'm building a referral pipeline to verified low-cost clinics. Good Care came up as a strong option for dental and surgical cases — your pricing is excellent — and I'd like to ask a few quick questions before I route any clients your way."
+Good Care published: dental $285–$595, spay $450–$1,600, surgery from $650 upward.
+Those are real and good prices. But the client's final bill reflects:
 
-**Key questions (in order):**
+- **Per-tooth extractions** — the most common discretionary pain point; usually "discovered" during cleaning
+- **Dental X-rays and anesthesia monitor** — not shown in marketing price, always present in the actual bill
+- **Anesthesia tier upgrades** — blood pressure drops, monitor gets upgraded mid-surgery
+- **Pain medication and recovery supplies** — mandatory, billed separately
+- **Post-op check at their own vet** — +$40–$80 not included in Good Care's number
 
-1. **Pricing verification:**  
-   "Your dental cleaning range is $285–$595 and spay/neuter is $350–$1,600 — are those current, and do they include anesthesia and extractions?"
+Client expects $450 spay. Leaves paying $800–$1,400.
+Client expects $285 dental. Leaves paying $600–$1,000.
 
-2. **Appointment lead time:**  
-   "What's the typical wait for an appointment? Same-week? Same-day for emergencies?"
-
-3. **Referral acceptance:**  
-   "Do you accept referrals from outside your regular patient base? Would you be open to a flat coordination fee per case for clients I send your way?"
-
-4. **Payment methods:**  
-   "Do you accept CareCredit or credit cards at the clinic?"
+MedPup sends clients who've already accepted the all-in number before they drive.
 
 ---
 
-## Email Version
+## Email Script
 
-**Subject:** MedPup Pinellas — referral partnership — Good Care
-
-> Hi [Name],
-> 
-> I'm Cameron in Largo, FL. I run MedPup — a Pinellas-based service routing cost-constrained pet owners to vetted low-cost clinics.
-> 
-> Good Care's published pricing makes it a strong destination for my clients — dental $285–$595, spay/neuter, and surgery all confirmed — and I'd like to ask if you'd accept external client referrals from Pinellas County.
-> 
-> My model is transparent: flat coordination fee ($50 for dental, $100 for surgery). You bill the client directly. No per-procedure markup.
-> 
-> Three quick questions before I start routing:
-> 1. Are the prices I've found current, and do they include anesthesia/extractions?
-> 2. What's your next available appointment lead time?
-> 3. Do you accept CareCredit?
-> 
-> Would love to send you our first referral this week.
-> 
-> Cameron — MedPup | hello@medpup.com | [phone]
+**Subject:** Referral partnership — MedPup (Pinellas) sends pre-vetted dental/surgery clients
 
 ---
 
-## Notes Field
+Hi Good Care Team,
 
-```
-Date contacted: __________
-Method:          [ ] Phone   [ ] Email
-Pricing verified:[ ] Confirmed current
-Appt lead time:  __________
-Accepts CareCredit: [ ] Yes   [ ] No   [ ] Other
-Referral fee:    [ ] Flat fee accepted   [ ] Needs other structure   [ ] Declined
-Next step:       __________
-```
+My name is Cameron. I'm in Largo and I run MedPup — a Pinellas County coordination service that's sending clients to Good Care for dental and soft-tissue work.
+
+**What I'm sending you right now:** Pinellas pet owners who have already accepted a confirmed all-in cost estimate before they book. They know what they're paying. They're not bill-shocked at checkout.
+
+**The problem I'm solving for your clinic:**
+A client who booked a $450 spay based on your website price shows up expecting $450. They get an extra $300 of add-ons at check-in. They're stressed and unhappy — and that's avoidable if they accepted those items before they arrived.
+
+**How the partnership works:**
+
+1. I verify the exact all-in price with your team before a client is told to book
+2. I send 1–2 clients per week (growing from there) — screened, qualified, with confirmed budget
+3. Client pays your clinic directly — no billing through me, no % split, no hidden flow
+4. I invoice the client separately for flat coordination: $50–$100 per visit
+5. I provide your clinic with the pre-routed client's records before they arrive
+
+**Three quick questions before I start routing:**
+
+1. **Current price check** — Can you confirm the dental $285–$595, spay $450–$1,600, and surgery $650–$4,200 figures are still current?
+2. **Lead time** — How far out are you booking new patients right now?
+3. **Referral capacity** — Do you have room for external clients? Any cap?
+
+If this is something Good Care is open to, I'll send the first dental referral this week.
+
+Cameron  
+MedPup | Largo, FL  
+[phone]  
+hello@medpup.com
+
+---
+
+## If No Reply in 3 Business Days
+
+Call (305) 631-2022. Short 60-second version over the phone. Get a contact name rather than voicemail — it matters to the clinic that a real person is answering.
+
+If they're at capacity: ask which of Monday–Thursday mornings are lightest and if they know any other South FL clinics accepting Pinellas referred clients.
