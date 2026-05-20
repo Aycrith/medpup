@@ -1,0 +1,122 @@
+{
+  "generated_at": "{\"$date\": \"2026-05-20T14:00:00\"}",
+  "clinics_with_pricing": [
+    {
+      "id": 1,
+      "name": "Veterinario en Canc\u00fan | Cl\u00ednica Veterinaria 24 Horas | VetCancun",
+      "url": "https://vetcancun.com",
+      "phone": "(080) 202-4042,(529) 981-2345,(998) 123-4567",
+      "price_count": 31,
+      "best_prices": [
+        "Vaccination: $15.0-30.0 USD [low]",
+        "Consultation: $300.0-500.0 MXN [medium]",
+        "Exam: $15.0-25.0 USD [low]",
+        "Vaccination: $200.0-400.0 MXN [medium]"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Low Cost Vet Phoenix | Spay & Neuter Clinics Phoenix",
+      "url": "https://www.drkellysvet.com",
+      "phone": "",
+      "price_count": 4,
+      "best_prices": [
+        "extracted_from_archive: $550.0-1100.0 USD [medium]",
+        "Spay/Neuter: $390.0-500.0 USD [medium]",
+        "Spay/Neuter: $500.0-600.0 USD [medium]",
+        "extracted_from_archive: $800.0-1000.0 USD [medium]"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Humane Society of Tampa Bay | HSTB | Tampa Bay",
+      "url": "https://humanesocietytampa.org",
+      "phone": "(012) 345-6789",
+      "price_count": 1,
+      "best_prices": [
+        "Microchip: $35.0-None USD [medium]"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Good Care Animal Clinic | Affordable Pet Care",
+      "url": "https://www.goodcareanimalclinic.com",
+      "phone": "(305) 220-0102,(305) 220-0103",
+      "price_count": 50,
+      "best_prices": [
+        "extracted_from_html: $110.0-None USD [medium]",
+        "extracted_from_html: $110.0-None USD [medium]",
+        "Dental Cleaning: $305.0-595.0 USD [medium]",
+        "Dental Cleaning: $305.0-595.0 USD [medium]"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Community Veterinary Clinic in Liberty City | ASPCA Community Medicine",
+      "url": "https://www.aspca.org/miami-initiative/community-veterinary-clinic",
+      "phone": "(727) 272-7272,(909) 090-9090",
+      "price_count": 6,
+      "best_prices": [
+        "extracted_from_html: $40.0-None USD [low]",
+        "extracted_from_archive: $80.0-None USD [medium]",
+        "Vaccination: $20.0-None USD [low]",
+        "Spay/Neuter: $80.0-None USD [medium]"
+      ]
+    }
+  ],
+  "clinics_needing_call": [
+    {
+      "id": 2,
+      "name": "Visit Us | Affordable Pet Care In Pinellas County | Largo, FL",
+      "url": "https://operationsnip.com",
+      "phone": "(285) 714-2857,(666) 666-6666,(333) 333-3333",
+      "note": "No published pricing found \u2014 call required"
+    },
+    {
+      "id": 22,
+      "name": "remedyfl.com",
+      "url": "https://remedyfl.com",
+      "phone": "",
+      "note": "No published pricing found \u2014 call required"
+    }
+  ],
+  "phase1_recommended": [
+    [
+      7,
+      "Good Care Animal Clinic",
+      "https://www.goodcareanimalclinic.com",
+      "Dental $285-595, Spay $450-1600, Surgery confirmed \u2014 1hr from Largo"
+    ],
+    [
+      21,
+      "ASPCA CVC Liberty City",
+      "https://www.aspca.org/miami-initiative/community-veterinary-clinic",
+      "Spay $40-80 \u2014 best FL price, 1hr from Largo \u2014 prove model first"
+    ],
+    [
+      2,
+      "Operation SNIP / RemedyFL",
+      "https://operationsnip.com",
+      "Pinellas-local \u2014 call first to determine competitor vs partner"
+    ],
+    [
+      4,
+      "Humane Society of Tampa Bay",
+      "https://humanesocietytampa.org",
+      "30min from Largo \u2014 call for spay pricing + referral interest"
+    ]
+  ],
+  "autonomous_actions_taken": [
+    "Re-scanned all 10 pricing-missing clinics via price_intel_v3 scan --all",
+    "Verified BS4 + requests instrumentation is working",
+    "Cleaned DB: removed 16 phantom entries (IDs 25-40), re-merged duplicate records",
+    "Generated outreach scripts and email templates",
+    "Built Phase 1 landing page + intake form (website/static/Phase1/)"
+  ],
+  "autonomous_actions_remaining": [
+    "Deploy landing page via GitHub Pages or Netlify (one-time manual step)",
+    "Run honeypot_run.sh to catch any dynamically-published pricing updates",
+    "Set up Google Voice + business email (manual, 30 minutes)",
+    "Post Facebook test post (manual, 10 minutes)"
+  ]
+}
