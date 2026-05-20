@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="zxx" class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html lang="zxx" class="ie"> <![endif]-->
+<!--[if !IE]><!-->
+<html dir="ltr" lang="en-US">
+	<!--<![endif]-->
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bahamas Agricultural Food Safety Authority | BAHFSA</title>
+    <meta charset="utf-8">
+<meta name="description" content="Bahamas Agricultural Food Safety Authority">
+<meta name="author" content="Alex Cameron">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="/fonts/fontello/css/fontello.css" rel="stylesheet">
+<link href="/fonts/avenir/stylesheet.css" rel="stylesheet">
+<link href="/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+<link href="/plugins/rs-plugin-5/css/settings.css" rel="stylesheet">
+<link href="/plugins/rs-plugin-5/css/layers.css" rel="stylesheet">
+<link href="/plugins/rs-plugin-5/css/navigation.css" rel="stylesheet">
+<link href="/css/animations.css" rel="stylesheet">
+<link href="/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="/plugins/hover/hover-min.css" rel="stylesheet">
+<link href="/plugins/morphext/morphext.css" rel="stylesheet">
+<link href="/css/theme.min.css?ts=1778854881" rel="stylesheet">
+<!-- <link href="/css/typography-default.css" rel="stylesheet" > -->
+<link href="/css/skins/gray.css" rel="stylesheet">
+<link href="/css/custom.css" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P3Q2X5WH2J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-P3Q2X5WH2J');
+    </script>
+
+	  </head>
+        <body class="" data-slug="">
+
+	<div class="utilityBar">
+	<div class="inner">
+		<a href="/cdn-cgi/l/email-protection#f0929198968391b0929198919d9183de979f86de9283"><span class="__cf_email__" data-cfemail="c3a1a2aba5b0a283a1a2aba2aea2b0eda4acb5eda1b0">[email&#160;protected]</span></a>
+		<span class="utilityBar-divider"></span>
+		<a href="tel:+12426033260">1-242-603-3260</a>
+	</div>
+</div>
+
+<header class="head">
+	<div class="headBar">
+		<div class="inner">
+		<header class="headbar-header">
+			<div class="logo"><a href="/"><img id="logo_img" src="/images/logoX172.png" width="172" alt="BAHFSA"></a></div>
+			<nav class="main-nav">
+								<ul>
+											<li class="has-children">
+							<a  class=""  >
+									<span>About Us							
+										<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																			</span>
+							</a>
+															<ul class="dropdown">
+															<li class="">
+							<a href="https://bahfsabahamas.com/about-bahfsa" class=""  >
+									<span>About BAHFSA									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/board-and-management" class=""  >
+									<span>Board and Management									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/partners-1" class=""  >
+									<span>Partners									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/employment-opportunities" class=""  >
+									<span>Employment Opportunities									</span>
+							</a>
+													</li>				
+													</ul>
+													</li>				
+											<li class="has-children">
+							<a  class=""  >
+									<span>Sectors							
+										<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																			</span>
+							</a>
+															<ul class="dropdown">
+															<li class="">
+							<a href="https://bahfsabahamas.com/sectors/food-safety" class=""  >
+									<span>Food Safety and Quality Unit									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/sectors/animals" class=""  >
+									<span>Veterinary Services Unit									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/sectors/plants" class=""  >
+									<span>Plant Protection Unit									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/sectors/diagnostics" class=""  >
+									<span>Diagnostics									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/sectors/pesticides" class=""  >
+									<span>Pesticides									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/sectors/international" class=""  >
+									<span>Trade Facilitation Unit									</span>
+							</a>
+													</li>				
+													</ul>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/services" class=""  >
+									<span>Services									</span>
+							</a>
+													</li>				
+											<li class="has-children">
+							<a  class=""  >
+									<span>Legislation							
+										<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																			</span>
+							</a>
+															<ul class="dropdown">
+															<li class="">
+							<a href="https://bahfsabahamas.com/downloads/documents/legislation/AnimalHealthandProductionAct.pdf" class=""  target="_blank" rel="noopener" >
+									<span>Animal Health &amp; Production Act 2016									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/downloads/documents/legislation/PlantProtectionAct.pdf" class=""  target="_blank" rel="noopener" >
+									<span>Plant Protection Act 2016									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/downloads/documents/legislation/FSQAct.pdf" class=""  target="_blank" rel="noopener" >
+									<span>Food Safety and Quality Act 2016									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/downloads/documents/legislation/BAHFSALegislation.pdf" class=""  >
+									<span>Agricultural Health and Food Safety Authority Act 2016									</span>
+							</a>
+													</li>				
+													</ul>
+													</li>				
+											<li class="has-children">
+							<a href="/news" class=""  >
+									<span>News							
+										<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																			</span>
+							</a>
+															<ul class="dropdown">
+															<li class="">
+							<a href="/alerts" class=""  >
+									<span>Alerts									</span>
+							</a>
+													</li>				
+											<li class="">
+							<a href="https://bahfsabahamas.com/media" class=""  >
+									<span>Media									</span>
+							</a>
+													</li>				
+													</ul>
+													</li>				
+										
+				</ul>
+			</nav>
+		
+			<div class="buttons">
+				<a href="/payment" class="button btn-brand">Make a Payment</a>
+				<a href="/contact-bahfsa" class="button btn-white">Contact Us</a>
+			</div>
+			<div class="hamburger" id="hamburger">☰</div>
+		</header>
+		<div class="mobile-nav closed" id="mobile-nav">
+			<div class="mobile-nav-wrap">
+								<ul>
+												<li class="has-children">
+								<a  class=""  >
+										<span class="mobile-toggle">About Us							
+											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																					</span>
+								</a>
+																	<ul class="mobile-dropdown">
+																	<li class="">
+								<a href="https://bahfsabahamas.com/about-bahfsa" class=""  >
+										<span class="">About BAHFSA										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/board-and-management" class=""  >
+										<span class="">Board and Management										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/partners-1" class=""  >
+										<span class="">Partners										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/employment-opportunities" class=""  >
+										<span class="">Employment Opportunities										</span>
+								</a>
+															</li>				
+															</ul>
+															</li>				
+													<li class="has-children">
+								<a  class=""  >
+										<span class="mobile-toggle">Sectors							
+											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																					</span>
+								</a>
+																	<ul class="mobile-dropdown">
+																	<li class="">
+								<a href="https://bahfsabahamas.com/sectors/food-safety" class=""  >
+										<span class="">Food Safety and Quality Unit										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/sectors/animals" class=""  >
+										<span class="">Veterinary Services Unit										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/sectors/plants" class=""  >
+										<span class="">Plant Protection Unit										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/sectors/diagnostics" class=""  >
+										<span class="">Diagnostics										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/sectors/pesticides" class=""  >
+										<span class="">Pesticides										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/sectors/international" class=""  >
+										<span class="">Trade Facilitation Unit										</span>
+								</a>
+															</li>				
+															</ul>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/services" class=""  >
+										<span class="">Services										</span>
+								</a>
+															</li>				
+													<li class="has-children">
+								<a  class=""  >
+										<span class="mobile-toggle">Legislation							
+											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																					</span>
+								</a>
+																	<ul class="mobile-dropdown">
+																	<li class="">
+								<a href="https://bahfsabahamas.com/downloads/documents/legislation/AnimalHealthandProductionAct.pdf" class=""  target="_blank" rel="noopener" >
+										<span class="">Animal Health &amp; Production Act 2016										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/downloads/documents/legislation/PlantProtectionAct.pdf" class=""  target="_blank" rel="noopener" >
+										<span class="">Plant Protection Act 2016										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/downloads/documents/legislation/FSQAct.pdf" class=""  target="_blank" rel="noopener" >
+										<span class="">Food Safety and Quality Act 2016										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/downloads/documents/legislation/BAHFSALegislation.pdf" class=""  >
+										<span class="">Agricultural Health and Food Safety Authority Act 2016										</span>
+								</a>
+															</li>				
+															</ul>
+															</li>				
+													<li class="has-children">
+								<a href="/news" class=""  >
+										<span class="mobile-toggle">News							
+											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none"> <path d="M12.4141 1.41406L6.20703 7.62109L0 1.41406L1.41406 0L6.20703 4.79297L11 0L12.4141 1.41406Z" fill="#9AA4B2"/></svg>
+																					</span>
+								</a>
+																	<ul class="mobile-dropdown">
+																	<li class="">
+								<a href="/alerts" class=""  >
+										<span class="">Alerts										</span>
+								</a>
+															</li>				
+													<li class="">
+								<a href="https://bahfsabahamas.com/media" class=""  >
+										<span class="">Media										</span>
+								</a>
+															</li>				
+															</ul>
+															</li>				
+											
+					</ul>
+				
+				<div class="mobile-links">
+					<a href="/cdn-cgi/l/email-protection#accecdc4cadfcdeccecdc4cdc1cddf82cbc3da82cedf"><span class="__cf_email__" data-cfemail="c5a7a4ada3b6a485a7a4ada4a8a4b6eba2aab3eba7b6">[email&#160;protected]</span></a>
+					<a href="tel:+12426033260">1-242-603-3260</a>
+				</div>
+				<div class="mobile-buttons">
+					<a href="/payment" class="button btn-brand">Make a Payment</a>
+					<a href="/contact-bahfsa" class="button btn-white">Contact Us</a>
+					
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</header>    <div class="page-wrapper">
+
+
+
+      
+<section class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="main col-lg-12">
+				<h1 class="lead">Error: Page Not Found</h1>
+				<p>Unfortunately, the page you're looking for cannot be found.</p>
+				<p>Try choosing a link from the navigation above, visiting <a href="/">the homepage</a> or viewing our <a href="https://bahfsabahamas.com/contact-bahfsa">contact info</a>.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+      <footer class="footer">
+	<div class="inner">
+		<div class="footer-top">
+			<div class="footer-top-bar">
+				
+				<a href="/"><img id="logo_img" src="/images/logoX172.png" width="172" alt="BAHFSA"></a>	
+				
+				<div class="footer-social">
+					<a target="_blank" href="https://www.facebook.com/Bahamas-Agricultural-Health-and-Food-Safety-Authority-101518308238112">
+						<svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" viewBox="0 0 11 20" fill="none">
+						  <path d="M7.08107 20V10.8771H10.2974L10.7789 7.32167H7.08097V5.0517C7.08097 4.02233 7.38117 3.32087 8.93167 3.32087L10.9091 3.31999V0.14008C10.5671 0.0968288 9.39318 0 8.02764 0C5.17651 0 3.22457 1.65686 3.22457 4.69969V7.32167H0V10.8771H3.22457V19.9999L7.08107 20Z" fill="#333333"/>
+						</svg>
+					</a>
+					<a target="_blank" href="https://twitter.com/BAHFSA1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+						  <path d="M0 0L7.70067 11.25L0.163102 20H1.8331L8.43822 12.3273L13.6903 20H20L11.9547 8.24733L19.0542 0H17.3893L11.2161 7.16694L6.30969 0H0ZM1.99415 1.05263H5.75678L18.0058 18.9474H14.2432L1.99415 1.05263Z" fill="#333333"/>
+						</svg>
+					</a>
+					<a target="_blank" href="https://www.instagram.com/bahfsa/">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+						  <path d="M10 0C13.9946 0 15.9921 0.000268933 17.4307 0.952148C18.0729 1.37713 18.6229 1.92711 19.0479 2.56934C19.9997 4.00793 20 6.0054 20 10C20 13.9946 19.9997 15.9921 19.0479 17.4307C18.6229 18.0729 18.0729 18.6229 17.4307 19.0479C15.9921 19.9997 13.9946 20 10 20C6.0054 20 4.00793 19.9997 2.56934 19.0479C1.92711 18.6229 1.37713 18.0729 0.952148 17.4307C0.000268933 15.9921 0 13.9946 0 10C0 6.0054 0.000268936 4.00793 0.952148 2.56934C1.37713 1.92711 1.92711 1.37713 2.56934 0.952148C4.00793 0.000268936 6.0054 0 10 0ZM10 4.82227C7.14075 4.82227 4.82227 7.14076 4.82227 10C4.82246 12.8591 7.14088 15.1768 10 15.1768C12.859 15.1766 15.1766 12.859 15.1768 10C15.1768 7.14086 12.8591 4.82244 10 4.82227ZM10 6.57422C11.8917 6.5744 13.4248 8.10822 13.4248 10C13.4246 11.8916 11.8916 13.4246 10 13.4248C8.10824 13.4248 6.57442 11.8917 6.57422 10C6.57422 8.10812 8.10812 6.57422 10 6.57422ZM15.3818 3.34668C14.7101 3.34668 14.1652 3.89077 14.165 4.5625C14.165 5.23434 14.71 5.7793 15.3818 5.7793C16.0535 5.7791 16.5977 5.23422 16.5977 4.5625C16.5975 3.8909 16.0534 3.34688 15.3818 3.34668Z" fill="#333333"/>
+						</svg>
+					</a>
+					<a target="_blank" href="https://www.linkedin.com/company/28940197/">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+						  <path d="M10 12.6877C10 12.0464 10.2252 11.5173 10.6757 11.1004C11.1261 10.6835 11.7117 10.4751 12.4324 10.4751C13.1403 10.4751 13.713 10.6803 14.1506 11.0908C14.601 11.5141 14.8263 12.0656 14.8263 12.7454C14.8263 13.3611 14.6075 13.8742 14.1699 14.2846C13.7194 14.7079 13.1274 14.9195 12.3938 14.9195H12.3745C11.6667 14.9195 11.094 14.7079 10.6564 14.2846C10.2188 13.8613 10 13.329 10 12.6877ZM10.251 29.5227V16.6704H14.5367V29.5227H10.251ZM16.9112 29.5227H21.1969V22.3462C21.1969 21.8972 21.2484 21.5509 21.3514 21.3072C21.5315 20.8711 21.805 20.5023 22.1718 20.2009C22.5386 19.8995 22.9987 19.7488 23.5521 19.7488C24.9936 19.7488 25.7143 20.7172 25.7143 22.654V29.5227H30V22.1538C30 20.2554 29.5496 18.8156 28.6486 17.8344C27.7477 16.8532 26.5573 16.3625 25.0772 16.3625C23.417 16.3625 22.1236 17.0744 21.1969 18.4982V18.5367H21.1776L21.1969 18.4982V16.6704H16.9112C16.9369 17.0808 16.9498 18.3571 16.9498 20.4991C16.9498 22.6412 16.9369 25.649 16.9112 29.5227Z" fill="#333333"/>
+						</svg>
+					</a>
+					<a target="_blank" href="https://www.youtube.com/@bahfsabahamas4860/">
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
+						  <path d="M11.4874 15.5314L6.97385 15.447C5.51246 15.4176 4.04744 15.4763 2.61471 15.1717C0.435191 14.7167 0.280786 12.4857 0.119218 10.6143C-0.103406 7.98341 -0.0172219 5.30472 0.402899 2.69575C0.640072 1.23184 1.57344 0.358321 3.01686 0.263265C7.88948 -0.081707 12.7945 -0.0408241 17.6563 0.120118C18.1698 0.134872 18.6868 0.215512 19.1931 0.307301C21.6923 0.754988 21.7533 3.28321 21.9153 5.41149C22.0768 7.56174 22.0086 9.72303 21.6998 11.8586C21.4521 13.6269 20.978 15.1097 18.9776 15.2528C16.4712 15.44 14.0223 15.5907 11.5089 15.5427C11.509 15.5314 11.4946 15.5314 11.4874 15.5314ZM8.83387 11.0547C10.7226 9.94647 12.5754 8.85671 14.4534 7.75591C12.5611 6.64767 10.7118 5.55791 8.83387 4.4571V11.0547Z" fill="#333333"/>
+						</svg>
+					</a>
+				</div>
+				
+			</div>
+			<div class="footer-top-bar">
+				<div class="footer-address">
+					99 Crawford Street<br>P.O. Box N7110 <br> Nassau, New Providence, The Bahamas
+				</div>
+				<div class="footer-menu">
+					<a href="https://bahfsabahamas.com/privacy">Privacy Policy</a>
+					<a href="https://bahfsabahamas.com/about-bahfsa">About</a>
+					<a href="https://bahfsabahamas.com/contact-bahfsa">Contact</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="footer-bottom-block">
+				<a href="/cdn-cgi/l/email-protection#e587848d839684a587848d84888496cb828a93cb8796"><span class="__cf_email__" data-cfemail="4c2e2d242a3f2d0c2e2d242d212d3f622b233a622e3f">[email&#160;protected]</span></a>
+				<span class="utilityBar-divider"></span>
+				<a href="tel:+12426033260">1-242-603-3260</a>
+			</div>
+			<div class="footer-bottom-block">
+				<span>Copyright 2026 Bahamas Agricultural Health and Food Safety Authority</span>
+			</div>
+		</div>
+	</div>
+</footer>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="/js/homepage.js"></script>
+<script type="text/javascript" src="/plugins/popper.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/plugins/modernizr.js"></script>
+<script type="text/javascript" src="/plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+<script type="text/javascript" src="/plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+<script type="text/javascript" src="/plugins/isotope/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="/plugins/isotope/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/plugins/waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/plugins/waypoints/sticky.min.js"></script>
+<script type="text/javascript" src="/plugins/jquery.countTo.js"></script>
+<script src="/plugins/jquery.parallax-1.1.3.js"></script>
+<script src="/plugins/jquery.validate.js"></script>
+<script type="text/javascript" src="/plugins/rs-plugin-5/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="/plugins/rs-plugin-5/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="/plugins/rs-plugin-5/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="/plugins/morphext/morphext.min.js"></script>
+<script type="text/javascript" src="/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/js/template.js?v=1706147391"></script>
+<script type="text/javascript" src="/js/alerts.js?v=1732028178"></script>
+<script type="text/javascript" src="/js/custom.js?v=1778792080"></script>
+<script type="text/javascript" src="/js/responsive-tables.js?v=1706147391"></script>
+<script type="text/javascript" src="/js/payment-form.min.js?v=1751914446"></script>
+
+
+      </body>
+</html>

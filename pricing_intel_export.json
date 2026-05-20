@@ -1,0 +1,272 @@
+{
+  "Cuidado total para tu mascota las 24 h": {
+    "url": "https://capcancun.com",
+    "email": "",
+    "phone": null,
+    "whatsapp": null,
+    "pricing": []
+  },
+  "Low Cost Vet Phoenix": {
+    "url": "https://www.drkellysvet.com",
+    "email": "appointment@drkellysvet.com,flagstaff@drkellysvet.com,tucappt@drkellysvet.com",
+    "phone": null,
+    "whatsapp": null,
+    "pricing": []
+  },
+  "Veterinario en Canc\u00fan": {
+    "url": "https://vetcancun.com",
+    "email": "",
+    "phone": null,
+    "whatsapp": "+529981234567",
+    "pricing": [
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 2.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 8.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 10.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 10.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 10.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 10.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 15.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 20.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 40.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 50.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 75.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 150.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 200.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 200.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 200.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 200.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 300.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 300.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 300.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 400.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 800.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1000.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      },
+      {
+        "procedure": "extracted_from_bundle",
+        "price_low": 1500.0,
+        "price_high": null,
+        "currency": "USD",
+        "confidence": "medium",
+        "context": null
+      }
+    ]
+  }
+}

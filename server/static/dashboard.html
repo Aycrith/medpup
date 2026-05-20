@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedPup CRM Dashboard</title>
+<style>
+:root {
+  --bg: #0F172A;
+  --card: #1E293B;
+  --border: #334155;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+  --teal: #14B8A6;
+  --teal-bg: rgba(20, 184, 166, 0.15);
+  --gold: #F59E0B;
+  --gold-bg: rgba(245, 158, 11, 0.15);
+  --red: #EF4444;
+  --red-bg: rgba(239, 68, 68, 0.15);
+  --green: #22C55E;
+  --green-bg: rgba(34, 197, 94, 0.15);
+  --blue: #3B82F6;
+  --blue-bg: rgba(59, 130, 246, 0.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 1.5rem;
+  line-height: 1.5;
+}
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+}
+.header h1 { font-size: 1.75rem; color: var(--teal); }
+.header .subtitle { color: var(--muted); font-size: 0.9rem; }
+.controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+.controls select, .controls input {
+  background: var(--card); border: 1px solid var(--border); color: var(--text);
+  padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.85rem;
+}
+.controls select:focus, .controls input:focus { outline: none; border-color: var(--teal); }
+.btn {
+  padding: 0.5rem 1rem; border: none; border-radius: 6px;
+  font-weight: 500; font-size: 0.85rem; cursor: pointer;
+  background: var(--teal); color: white; transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-outline {
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+}
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+.btn-sm { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+.btn-danger { background: var(--red); }
+.btn-gold { background: var(--gold); color: #1E293B; }
+
+/* Stats row */
+.stats-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem; text-align: center;
+}
+.stat-card .num { font-size: 2rem; font-weight: 700; color: var(--teal); }
+.stat-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+.stat-card.new .num { color: var(--blue); }
+.stat-card.contacted .num { color: var(--gold); }
+.stat-card.booked .num { color: var(--green); }
+.stat-card.lost .num { color: var(--red); }
+
+/* Pipeline */
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem; margin-bottom: 2rem;
+}
+.pipeline-col {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.pipeline-col-header {
+  padding: 0.75rem 1rem; font-weight: 600; font-size: 0.85rem;
+  border-bottom: 1px solid var(--border); text-transform: uppercase;
+  letter-spacing: 0.05em; display: flex; justify-content: space-between;
+}
+.pipeline-col-header .count {
+  background: var(--bg); padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.8rem;
+}
+.col-new .pipeline-col-header { border-left: 3px solid var(--blue); color: var(--blue); }
+.col-contacted .pipeline-col-header { border-left: 3px solid var(--gold); color: var(--gold); }
+.col-booked .pipeline-col-header { border-left: 3px solid var(--green); color: var(--green); }
+.col-lost .pipeline-col-header { border-left: 3px solid var(--red); color: var(--red); }
+
+/* Lead cards */
+.lead-card {
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background 0.15s;
+}
+.lead-card:hover { background: rgba(255,255,255,0.03); }
+.lead-card:last-child { border-bottom: none; }
+.lead-card .name { font-weight: 600; font-size: 0.95rem; }
+.lead-card .pet { font-size: 0.8rem; color: var(--muted); }
+.lead-card .meta { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+.lead-card .procedure-tag {
+  display: inline-block; background: var(--teal-bg); color: var(--teal);
+  padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.7rem; font-weight: 500;
+}
+
+/* Lead detail panel */
+.detail-panel {
+  display: none;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem;
+}
+.detail-panel.open { display: block; }
+.detail-panel h2 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.detail-panel .status-badge {
+  display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px;
+  font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem;
+}
+.status-new { background: var(--blue-bg); color: var(--blue); }
+.status-contacted { background: var(--gold-bg); color: var(--gold); }
+.status-booked { background: var(--green-bg); color: var(--green); }
+.status-lost { background: var(--red-bg); color: var(--red); }
+.detail-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.detail-field label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.detail-field .value { font-size: 0.95rem; margin-top: 0.15rem; }
+.email-history { margin-bottom: 1.5rem; }
+.email-history h3 { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+.email-entry {
+  background: var(--bg); padding: 0.5rem 0.75rem; border-radius: 6px;
+  margin-bottom: 0.4rem; font-size: 0.8rem; color: var(--muted);
+}
+.email-entry strong { color: var(--text); }
+.detail-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  color: var(--text); padding: 0.5rem; border-radius: 6px;
+  font-family: inherit; font-size: 0.85rem; resize: vertical; min-height: 60px;
+}
+textarea:focus { outline: none; border-color: var(--teal); }
+select.status-select {
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--text); padding: 0.4rem 0.6rem; border-radius: 4px; font-size: 0.85rem;
+}
+
+/* Email modal */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  z-index: 100; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem; width: 90%; max-width: 600px;
+  max-height: 80vh; overflow-y: auto;
+}
+.modal h3 { margin-bottom: 1rem; }
+.modal .form-group { margin-bottom: 0.75rem; }
+.modal label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.25rem; }
+.modal input, .modal textarea, .modal select {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  color: var(--text); padding: 0.5rem 0.75rem; border-radius: 6px; font-family: inherit; font-size: 0.85rem;
+}
+.modal .modal-actions { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: flex-end; }
+.modal .template-picker { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.modal .template-chip {
+  padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 4px;
+  font-size: 0.75rem; cursor: pointer; transition: all 0.15s;
+}
+.modal .template-chip:hover { border-color: var(--teal); color: var(--teal); }
+.modal .template-chip.active { background: var(--teal-bg); border-color: var(--teal); color: var(--teal); }
+
+.refresh-note {
+  position: fixed; bottom: 1rem; right: 1rem;
+  font-size: 0.75rem; color: var(--muted); opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🐾 MedPup CRM</h1>
+    <div class="subtitle">Local lead management — all data stays on your machine</div>
+  </div>
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search leads..." oninput="render()">
+    <select id="filter-procedure" onchange="render()">
+      <option value="">All procedures</option>
+    </select>
+    <button class="btn btn-outline" onclick="refreshLeads()">↻ Refresh</button>
+    <button class="btn" onclick="exportCSV()">↓ Export CSV</button>
+    <button class="btn btn-outline" onclick="document.getElementById('email-config-modal').classList.add('open')">✉ Setup Email</button>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-row" id="stats-row"></div>
+
+<!-- Pipeline -->
+<div class="pipeline" id="pipeline"></div>
+
+<!-- Detail Panel -->
+<div class="detail-panel" id="detail-panel">
+  <div id="detail-content"></div>
+</div>
+
+<!-- Email Modal -->
+<div class="modal-overlay" id="email-config-modal">
+  <div class="modal" style="max-width: 400px;">
+    <h3>Email Configuration</h3>
+    <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+      Uses Gmail App Passwords. Generate one at 
+      <a href="https://myaccount.google.com/apppasswords" target="_blank" style="color: var(--teal);">Google App Passwords</a>.
+    </p>
+    <div class="form-group">
+      <label>SMTP User (your Gmail)</label>
+      <input type="email" id="cfg-user" placeholder="you@gmail.com">
+    </div>
+    <div class="form-group">
+      <label>App Password</label>
+      <input type="password" id="cfg-pass" placeholder="16-char app password">
+    </div>
+    <div class="form-group">
+      <label>From Email</label>
+      <input type="email" id="cfg-from" placeholder="hello@medpup.com">
+    </div>
+    <div class="form-group">
+      <label>From Name</label>
+      <input type="text" id="cfg-name" placeholder="MedPup Veterinary Concierge">
+    </div>
+    <div id="config-status" style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem;"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="document.getElementById('email-config-modal').classList.remove('open')">Cancel</button>
+      <button class="btn" onclick="saveEmailConfig()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Send Email Modal -->
+<div class="modal-overlay" id="send-email-modal">
+  <div class="modal">
+    <h3>Send Email to <span id="email-target-name"></span></h3>
+    <div class="template-picker" id="template-picker"></div>
+    <div class="form-group">
+      <label>To</label>
+      <input type="email" id="email-to">
+    </div>
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" id="email-subject">
+    </div>
+    <div class="form-group">
+      <label>Body</label>
+      <textarea id="email-body" rows="12"></textarea>
+    </div>
+    <div id="email-status" style="font-size: 0.8rem; margin-bottom: 0.5rem;"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="document.getElementById('send-email-modal').classList.remove('open')">Cancel</button>
+      <button class="btn" onclick="sendEmail()">Send</button>
+    </div>
+  </div>
+</div>
+
+<div class="refresh-note">Auto-refreshes every 30s</div>
+
+<script>
+let allLeads = [];
+let emailTemplates = [];
+let currentLeadId = null;
+
+async function loadEmailConfig() {
+  try {
+    const r = await fetch('/api/email-config/status');
+    const d = await r.json();
+    document.getElementById('config-status').textContent = 
+      d.configured ? `✅ Configured (${d.user})` : '❌ Not configured';
+    if (d.user) document.getElementById('cfg-user').value = d.user;
+    if (d.from_email) document.getElementById('cfg-from').value = d.from_email;
+    if (d.from_name) document.getElementById('cfg-name').value = d.from_name;
+  } catch(e) {}
+}
+
+async function saveEmailConfig() {
+  const config = {
+    smtp_user: document.getElementById('cfg-user').value,
+    smtp_password: document.getElementById('cfg-pass').value,
+    from_email: document.getElementById('cfg-from').value,
+    from_name: document.getElementById('cfg-name').value,
+    smtp_host: 'smtp.gmail.com',
+    smtp_port: 587,
+  };
+  const r = await fetch('/api/email-config/status', {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(config),
+  }).catch(() => {});
+  document.getElementById('config-status').textContent = '✅ Saved (session only)';
+  setTimeout(() => document.getElementById('email-config-modal').classList.remove('open'), 500);
+}
+
+async function loadTemplates() {
+  try {
+    const r = await fetch('/api/email-templates');
+    const d = await r.json();
+    emailTemplates = d.templates || [];
+  } catch(e) { emailTemplates = []; }
+}
+
+async function refreshLeads() {
+  try {
+    const r = await fetch('/api/leads');
+    const d = await r.json();
+    allLeads = d.leads || [];
+    render();
+  } catch(e) { console.error('Failed to load leads', e); }
+}
+
+function renderStats(leads) {
+  const total = leads.length;
+  const byStatus = {};
+  const byProc = {};
+  for (const l of leads) {
+    const s = l.status || 'new';
+    byStatus[s] = (byStatus[s] || 0) + 1;
+    const p = l.procedure || 'other';
+    byProc[p] = (byProc[p] || 0) + 1;
+  }
+  document.getElementById('stats-row').innerHTML = `
+    <div class="stat-card"><div class="num">${total}</div><div class="label">Total Leads</div></div>
+    <div class="stat-card new"><div class="num">${byStatus['new'] || 0}</div><div class="label">New</div></div>
+    <div class="stat-card contacted"><div class="num">${byStatus['contacted'] || 0}</div><div class="label">Contacted</div></div>
+    <div class="stat-card booked"><div class="num">${byStatus['booked'] || 0}</div><div class="label">Booked</div></div>
+    <div class="stat-card lost"><div class="num">${byStatus['lost'] || 0}</div><div class="label">Lost</div></div>
+  `;
+  
+  // Update procedure filter
+  const sel = document.getElementById('filter-procedure');
+  const currentVal = sel.value;
+  const procs = Object.keys(byProc).sort();
+  sel.innerHTML = '<option value="">All procedures</option>' + 
+    procs.map(p => `<option value="${p}" ${p === currentVal ? 'selected' : ''}>${p.replace(/-/g,' ')} (${byProc[p]})</option>`).join('');
+}
+
+function getFilteredLeads() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const procFilter = document.getElementById('filter-procedure').value;
+  return allLeads.filter(l => {
+    if (search && !l.owner_name?.toLowerCase().includes(search) && 
+        !l.pet_name?.toLowerCase().includes(search) &&
+        !l.email?.toLowerCase().includes(search)) return false;
+    if (procFilter && l.procedure !== procFilter) return false;
+    return true;
+  });
+}
+
+function renderPipeline(leads) {
+  const cols = {
+    new: { label: 'New', leads: [], cls: 'col-new' },
+    contacted: { label: 'Contacted', leads: [], cls: 'col-contacted' },
+    booked: { label: 'Booked', leads: [], cls: 'col-booked' },
+    lost: { label: 'Lost / Archived', leads: [], cls: 'col-lost' },
+  };
+  
+  for (const l of leads) {
+    const s = l.status || 'new';
+    if (cols[s]) cols[s].leads.push(l);
+    else cols['new'].leads.push(l);
+  }
+  
+  document.getElementById('pipeline').innerHTML = Object.entries(cols).map(([key, col]) => `
+    <div class="pipeline-col ${col.cls}">
+      <div class="pipeline-col-header">
+        <span>${col.label}</span>
+        <span class="count">${col.leads.length}</span>
+      </div>
+      ${col.leads.length === 0 ? '<div style="padding: 1rem; text-align: center; color: var(--muted); font-size: 0.8rem;">No leads</div>' :
+        col.leads.map(l => `
+          <div class="lead-card" onclick="showDetail('${l.id}')">
+            <div class="name">${l.owner_name}</div>
+            <div class="pet">${l.pet_name} ${l.breed ? '· ' + l.breed : ''}</div>
+            <div><span class="procedure-tag">${(l.procedure || '').replace(/-/g,' ')}</span></div>
+            <div class="meta">${l.email} ${l.phone ? '· ' + l.phone : ''}</div>
+            <div class="meta">${formatDate(l.submitted_at)}</div>
+          </div>
+        `).join('')
+      }
+    </div>
+  `).join('');
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const dt = new Date(d);
+  return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+
+function formatMoney(v) {
+  return v ? '$' + v : '';
+}
+
+async function showDetail(id) {
+  currentLeadId = id;
+  try {
+    const r = await fetch(`/api/leads/${id}`);
+    const l = await r.json();
+    
+    const panel = document.getElementById('detail-panel');
+    panel.classList.add('open');
+    
+    const emails = (l.emails_sent || []).map(e => `
+      <div class="email-entry">
+        <strong>${e.template}</strong> → ${e.to}<br>
+        Subject: ${e.subject}<br>
+        <span style="font-size:0.75rem">${formatDate(e.sent_at)}</span>
+      </div>
+    `).join('') || '<div style="color: var(--muted); font-size: 0.85rem;">No emails sent yet</div>';
+    
+    document.getElementById('detail-content').innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:0.5rem">
+        <div>
+          <h2>${l.owner_name}${l.pet_name ? ' & ' + l.pet_name : ''}</h2>
+          <span class="status-badge status-${l.status || 'new'}">${(l.status || 'new').toUpperCase()}</span>
+        </div>
+        <div style="display:flex;gap:0.5rem">
+          <button class="btn btn-sm btn-gold" onclick="openEmailModal('${l.id}')">✉ Send Email</button>
+          <button class="btn btn-sm" onclick="openEmailModal('${l.id}','booking-confirmation')">📋 Send Booking Confirmation</button>
+        </div>
+      </div>
+      
+      <div class="detail-grid">
+        <div class="detail-field"><label>Email</label><div class="value">${l.email || '-'}</div></div>
+        <div class="detail-field"><label>Phone</label><div class="value">${l.phone || '-'}</div></div>
+        <div class="detail-field"><label>Pet</label><div class="value">${l.pet_name || '-'} ${l.breed ? '· ' + l.breed : ''}</div></div>
+        <div class="detail-field"><label>Age / Weight</label><div class="value">${l.age || '-'} / ${l.weight || '-'}</div></div>
+        <div class="detail-field"><label>Procedure</label><div class="value" style="text-transform:capitalize">${(l.procedure || '-').replace(/-/g,' ')}</div></div>
+        <div class="detail-field"><label>U.S. Quote</label><div class="value">${formatMoney(l.us_quote)}</div></div>
+        <div class="detail-field"><label>Destination</label><div class="value" style="text-transform:capitalize">${(l.destination || 'Not specified').replace(/-/g,' ')}</div></div>
+        <div class="detail-field"><label>Submitted</label><div class="value">${formatDate(l.submitted_at)}</div></div>
+      </div>
+      
+      ${l.comments ? `
+        <div style="margin-bottom:1rem">
+          <label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em">Comments</label>
+          <div style="font-size:0.9rem;margin-top:0.15rem">${l.comments}</div>
+        </div>
+      ` : ''}
+      
+      <div class="email-history">
+        <h3>📧 Email History</h3>
+        ${emails}
+      </div>
+      
+      <div style="margin-bottom:1rem">
+        <label style="font-size:0.8rem;color:var(--muted);margin-bottom:0.25rem;display:block">Status</label>
+        <select class="status-select" onchange="updateLeadStatus('${l.id}', this.value)">
+          <option value="new" ${l.status === 'new' ? 'selected' : ''}>New</option>
+          <option value="contacted" ${l.status === 'contacted' ? 'selected' : ''}>Contacted</option>
+          <option value="booked" ${l.status === 'booked' ? 'selected' : ''}>Booked</option>
+          <option value="lost" ${l.status === 'lost' ? 'selected' : ''}>Lost</option>
+        </select>
+      </div>
+      
+      <div style="margin-bottom:1rem">
+        <label style="font-size:0.8rem;color:var(--muted);margin-bottom:0.25rem;display:block">Add Note</label>
+        <textarea id="new-note" placeholder="Type a note about this lead..."></textarea>
+        <button class="btn btn-sm" style="margin-top:0.5rem" onclick="addNote('${l.id}')">Add Note</button>
+      </div>
+      
+      ${l.notes ? `
+        <div>
+          <label style="font-size:0.8rem;color:var(--muted);margin-bottom:0.25rem;display:block">Notes History</label>
+          <div style="background:var(--bg);padding:0.75rem;border-radius:6px;font-size:0.85rem;white-space:pre-wrap">${l.notes}</div>
+        </div>
+      ` : ''}
+    `;
+  } catch(e) { console.error(e); }
+}
+
+async function updateLeadStatus(id, status) {
+  await fetch(`/api/leads/${id}`, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ status }),
+  });
+  refreshLeads();
+  showDetail(id);
+}
+
+async function addNote(id) {
+  const note = document.getElementById('new-note').value;
+  if (!note) return;
+  await fetch(`/api/leads/${id}`, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ notes: `[${new Date().toLocaleDateString()}] ${note}` }),
+  });
+  document.getElementById('new-note').value = '';
+  showDetail(id);
+}
+
+async function openEmailModal(leadId, templateName) {
+  currentLeadId = leadId;
+  try {
+    const r = await fetch(`/api/leads/${leadId}`);
+    const l = await r.json();
+    document.getElementById('email-target-name').textContent = l.owner_name;
+    document.getElementById('email-to').value = l.email;
+    document.getElementById('email-subject').value = '';
+    document.getElementById('email-body').value = '';
+    document.getElementById('email-status').textContent = '';
+    
+    // Load template picker
+    const picker = document.getElementById('template-picker');
+    picker.innerHTML = '<div class="template-chip" onclick="loadTemplate(this,\'\')">Custom</div>' +
+      emailTemplates.map(t => 
+        `<div class="template-chip ${t.name === templateName ? 'active' : ''}" 
+             onclick="loadTemplate(this,'${t.name}')">${t.name}</div>`
+      ).join('');
+    
+    // Load specific template if requested
+    if (templateName) {
+      await loadTemplateByName(templateName, l);
+    }
+  } catch(e) { console.error(e); }
+  document.getElementById('send-email-modal').classList.add('open');
+}
+
+async function loadTemplate(el, name) {
+  document.querySelectorAll('.template-chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  
+  if (!name) {
+    document.getElementById('email-subject').value = '';
+    document.getElementById('email-body').value = '';
+    return;
+  }
+  
+  try {
+    const r = await fetch(`/api/email-templates/${name}`);
+    const d = await r.json();
+    const lines = d.content.split('\n');
+    // Try to extract subject from first line
+    const subject = lines[0].replace(/^#\s*/, '').replace(/^Subject:\s*/i, '').trim();
+    if (subject && subject.length < 100) document.getElementById('email-subject').value = subject;
+    document.getElementById('email-body').value = d.content;
+  } catch(e) { console.error(e); }
+}
+
+async function loadTemplateByName(name, lead) {
+  const el = document.querySelector(`.template-chip[onclick*="${name}"]`);
+  if (el) await loadTemplate(el, name);
+}
+
+async function sendEmail() {
+  const to = document.getElementById('email-to').value;
+  const subject = document.getElementById('email-subject').value;
+  const body = document.getElementById('email-body').value;
+  
+  if (!to || !subject || !body) {
+    document.getElementById('email-status').textContent = '⚠ Fill in all fields';
+    document.getElementById('email-status').style.color = 'var(--gold)';
+    return;
+  }
+  
+  document.getElementById('email-status').textContent = '⏳ Sending...';
+  document.getElementById('email-status').style.color = 'var(--muted)';
+  
+  try {
+    const r = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        to,
+        subject,
+        body,
+        lead_id: currentLeadId,
+        template_name: document.querySelector('.template-chip.active')?.textContent?.trim() || 'custom',
+      }),
+    });
+    const d = await r.json();
+    if (r.ok) {
+      document.getElementById('email-status').textContent = '✅ Sent!';
+      document.getElementById('email-status').style.color = 'var(--green)';
+      setTimeout(() => document.getElementById('send-email-modal').classList.remove('open'), 1000);
+      if (currentLeadId) showDetail(currentLeadId);
+    } else {
+      document.getElementById('email-status').textContent = '❌ ' + d.detail;
+      document.getElementById('email-status').style.color = 'var(--red)';
+    }
+  } catch(e) {
+    document.getElementById('email-status').textContent = '❌ Connection failed';
+    document.getElementById('email-status').style.color = 'var(--red)';
+  }
+}
+
+async function exportCSV() {
+  try {
+    const r = await fetch('/api/leads/export/csv');
+    const d = await r.json();
+    const blob = new Blob([d.csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `medpup-leads-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+  } catch(e) { console.error(e); }
+}
+
+function render() {
+  const leads = getFilteredLeads();
+  renderStats(leads);
+  renderPipeline(leads);
+}
+
+// Init
+loadTemplates();
+loadEmailConfig();
+refreshLeads();
+setInterval(refreshLeads, 30000);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+IMPORT EPERMIT
+
+—— September 2024 ——
+
+BAHFSA/Click2Clear
+
+Agri-import permit Price List
+Plant import ePermit
+
+Plant Permit $50
+
+Animal import ePermit
+
+Animal Skins Permit $50
+Bovine and Bovine products Permit $50
+Cats and Dogs Permit $50
+Birds Permit $50
+Fish/mollusc/aquatic invertebrate Permit $50
+Pork and Pork Products Permit $50
+Poultry and Poultry products Permit $50
+Rabbits Permit $50
+
+Sheep/Goat and Sheep/Goat Products $50
+Permit
+
+Terrestrial Exotic Animal Permit $50
+Equine Permit $50
+Bee and Bee Products Permit $50
+
+Aquatic Exotic Animals Import Permit $50
+Dairy Permit $50
+
+“) BAHFSA
+
+THE BAHAMAS AGRICULTURAL HEALTH & FOOD
+SAFETY AUTHORITY
