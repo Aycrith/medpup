@@ -1,0 +1,622 @@
+{
+  "generated_at": "2026-05-20T15:17:24.466637",
+  "clinics": [
+    {
+      "name": "Banfield Pet Hospital\u00ae - Quality Veterinary Care & Pet Wellness",
+      "url": "https://www.banfield.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "BlueSky At-Home Veterinary Care",
+      "url": "https://www.thevets.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Community Veterinary Clinic in Liberty City | ASPCA Community Medicine",
+      "url": "https://www.aspca.org/miami-initiative/community-veterinary-clinic",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 80.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 20.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 80.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Friends of Animals | Animal Rights & Veganism",
+      "url": "https://www.friendsofanimals.org",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Good Care Animal Clinic | Affordable Pet Care",
+      "url": "https://www.goodcareanimalclinic.com",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Cherry Eye Repair",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 285.0,
+          "price_high": 575.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 285.0,
+          "price_high": 595.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 305.0,
+          "price_high": 595.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Entropion Repair",
+          "price_low": 500.0,
+          "price_high": 700.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 780.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 350.0,
+          "price_high": 785.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Pyometra Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 450.0,
+          "price_high": 1600.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 650.0,
+          "price_high": 2100.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1000.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 1300.0,
+          "price_high": 1900.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3100.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3100.0,
+          "price_high": 4350.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Surgery",
+          "price_low": 3200.0,
+          "price_high": 4200.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 40.0,
+          "price_high": 292.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 45.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 49.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 105.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 495.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 750.0,
+          "price_high": 1750.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 750.0,
+          "price_high": 1800.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3200.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3200.0,
+          "price_high": 4200.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 3700.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 45.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 49.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 110.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 495.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 750.0,
+          "price_high": 1750.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 750.0,
+          "price_high": 1800.0,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Home - Justin Bartlett Animal Rescue",
+      "url": "https://justinbartlett.org",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 60.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 250.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Home | Veterinarian in Oakland Park, FL | Heroes Veterinary Hospital",
+      "url": "https://heroesveterinaryhospital.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Humane Society of Tampa Bay | HSTB | Tampa Bay",
+      "url": "https://humanesocietytampa.org",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Microchip",
+          "price_low": 35.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Low Cost Vet Phoenix | Spay & Neuter Clinics Phoenix",
+      "url": "https://www.drkellysvet.com",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 390.0,
+          "price_high": 500.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Spay/Neuter",
+          "price_low": 500.0,
+          "price_high": 600.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 550.0,
+          "price_high": 1100.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 800.0,
+          "price_high": 1000.0,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "MexiVet Express",
+      "url": "https://www.mexivetexpress.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Online Vet Visits 24/7: Dog & Cat Prescriptions in Most States | Dutch",
+      "url": "https://www.dutch.com",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 33.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 40.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 50.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 100.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 132.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 353.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 603.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "extracted_from_html",
+          "price_low": 843.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Paws 2 Help | West Palm Beach, FL 33406",
+      "url": "https://www.paws2help.org",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "extracted_from_archive",
+          "price_low": 65.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "SPCA of Texas | The leading animal welfare agency in North Texas",
+      "url": "https://www.spca.org",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Thomasville Humane",
+      "url": "https://www.thomasvillehumane.org",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "VCA Animal Hospitals: World-Class Veterinary Care",
+      "url": "https://vcahospitals.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "Veterinario en Canc\u00fan | Cl\u00ednica Veterinaria 24 Horas | VetCancun",
+      "url": "https://vetcancun.com",
+      "services": "scanned_v3",
+      "pricing": [
+        {
+          "procedure": "Consultation",
+          "price_low": 15.0,
+          "price_high": null,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 200.0,
+          "price_high": 500.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": null,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Consultation",
+          "price_low": 300.0,
+          "price_high": 500.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 50.0,
+          "price_high": 125.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Dental Cleaning",
+          "price_low": 1000.0,
+          "price_high": 2500.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Deworming",
+          "price_low": 150.0,
+          "price_high": 300.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Exam",
+          "price_low": 15.0,
+          "price_high": 25.0,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "Health Certificate",
+          "price_low": 300.0,
+          "price_high": 800.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Microchip",
+          "price_low": 400.0,
+          "price_high": 600.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Neuter",
+          "price_low": 1500.0,
+          "price_high": 3000.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Spay",
+          "price_low": 75.0,
+          "price_high": 150.0,
+          "currency": "USD",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 15.0,
+          "price_high": 30.0,
+          "currency": "USD",
+          "confidence": "low"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 200.0,
+          "price_high": 400.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        },
+        {
+          "procedure": "Vaccination",
+          "price_low": 300.0,
+          "price_high": 600.0,
+          "currency": "MXN",
+          "confidence": "medium"
+        }
+      ],
+      "has_pricing": true
+    },
+    {
+      "name": "Visit Us | Affordable Pet Care In Pinellas County | Largo, FL",
+      "url": "https://operationsnip.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    },
+    {
+      "name": "remedyfl.com",
+      "url": "https://remedyfl.com",
+      "services": "scanned_v3",
+      "pricing": [],
+      "has_pricing": false
+    }
+  ]
+}

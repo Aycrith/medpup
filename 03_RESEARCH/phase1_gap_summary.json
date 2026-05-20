@@ -1,0 +1,30 @@
+{
+  "tier1": [
+    "Community Veterinary Clinic in Liberty City | ASPCA Community Medicine",
+    "Good Care Animal Clinic | Affordable Pet Care",
+    "Humane Society of Tampa Bay | HSTB | Tampa Bay",
+    "remedyfl.com"
+  ],
+  "tier2": [
+    "Home - Justin Bartlett Animal Rescue",
+    "Home | Veterinarian in Oakland Park, FL | Heroes Veterinary Hospital",
+    "Paws 2 Help | West Palm Beach, FL 33406"
+  ],
+  "tier3": [
+    "Veterinario en Canc\u00fan | Cl\u00ednica Veterinaria 24 Horas | VetCancun"
+  ],
+  "skipped": [
+    "Banfield Pet Hospital\u00ae - Quality Veterinary Care & Pet Wellness",
+    "Low Cost Vet Phoenix | Spay & Neuter Clinics Phoenix",
+    "Thomasville Humane",
+    "VCA Animal Hospitals: World-Class Veterinary Care"
+  ],
+  "unclassified": [
+    "BlueSky At-Home Veterinary Care",
+    "Friends of Animals | Animal Rights & Veganism",
+    "MexiVet Express",
+    "Online Vet Visits 24/7: Dog & Cat Prescriptions in Most States | Dutch",
+    "SPCA of Texas | The leading animal welfare agency in North Texas",
+    "Visit Us | Affordable Pet Care In Pinellas County | Largo, FL"
+  ]
+}
