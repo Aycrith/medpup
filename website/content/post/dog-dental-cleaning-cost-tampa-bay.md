@@ -1,7 +1,7 @@
 ---
 title: "Dog Dental Cleaning Cost Tampa Bay — All-In Pricing Guide (2026)"
 date: 2026-05-20
-draft: true
+draft: false
 tags: ["dog dental cleaning", "pet dental costs", "Tampa Bay vet", "Pinellas County vet", "veterinary dentistry", "affordable pet care", "MedPup"]
 ---
 

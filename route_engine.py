@@ -105,26 +105,43 @@ def freshness_score(clinic_id, procedure):
         status = "fresh"
     return round(frac, 3), status, age_days
 
-def load_pricing():
+def load_pricing(phase=1):
+    """Load pricing, optionally filtered by clinic phase.
+    phase=1: domestic partners only (default)
+    phase=3: international/deferred
+    phase=None: all clinics"""
     conn = sqlite3.connect(str(DB))
     cur = conn.cursor()
-    cur.execute("""
-        SELECT p.id, c.id, c.name, c.url, c.address,
-               p.procedure_name, p.category,
-               p.price_low, p.price_high, p.currency,
-               p.confidence, p.confidence_score
-        FROM pricing p
-        JOIN clinics c ON c.id = p.clinic_id
-        WHERE p.procedure_name NOT LIKE 'extracted_from_%'
-        ORDER BY p.price_low ASC
-    """)
-    cols = ['pid','cid','name','url','address','proc','cat','low','high','cur','conf','cscore']
+    if phase is not None:
+        cur.execute("""
+            SELECT p.id, c.id, c.name, c.url, c.address, c.phone,
+                   p.procedure_name, p.category,
+                   p.price_low, p.price_high, p.currency,
+                   p.confidence, p.confidence_score
+            FROM pricing p
+            JOIN clinics c ON c.id = p.clinic_id
+            WHERE p.procedure_name NOT LIKE 'extracted_from_%'
+              AND c.phase = ?
+            ORDER BY p.price_low ASC
+        """, (phase,))
+    else:
+        cur.execute("""
+            SELECT p.id, c.id, c.name, c.url, c.address, c.phone,
+                   p.procedure_name, p.category,
+                   p.price_low, p.price_high, p.currency,
+                   p.confidence, p.confidence_score
+            FROM pricing p
+            JOIN clinics c ON c.id = p.clinic_id
+            WHERE p.procedure_name NOT LIKE 'extracted_from_%'
+            ORDER BY p.price_low ASC
+        """)
+    cols = ['pid','cid','name','url','address','phone','proc','cat','low','high','cur','conf','cscore']
     rows = [dict(zip(cols, r)) for r in cur.fetchall()]
     conn.close()
     return rows
 
-def build_route_cards(scenario=None, zip_code="33701", as_json=False):
-    prices = load_pricing()
+def build_route_cards(scenario=None, zip_code="33701", as_json=False, phase=1):
+    prices = load_pricing(phase=phase)
     if scenario:
         prices = [p for p in prices if scenario.lower() in p['proc'].lower()
                   or scenario.lower() in p.get('cat','').lower()]
@@ -205,7 +222,7 @@ def print_route_board(cards, scenario=None):
 
     print(f"  {'─'*110}")
     for i, c in enumerate(cards[:20], 1):
-        mkt  = f"${c['price_low']:.0f}–{c['price_high'] or '?':.0f}"
+        mkt  = f"${c['price_low']:.0f}–{c['price_high'] if c['price_high'] else '?'}"
         ai   = f"${c['allin_low']:.0f}–${c['allin_high']:.0f}"
         add  = f"+${c['addon_floor_low']:.0f}–${c['addon_floor_high']:.0f}"
         fresh_marker = {"fresh":"🟢","aging":"🟡","stale":"🔴","missing":"⬛"}.get(c['freshness_status'],"?")
@@ -231,9 +248,11 @@ if __name__ == "__main__":
     ap.add_argument("--scenario", help="Filter by procedure keyword (e.g. dental, spay)")
     ap.add_argument("--zip", default="33701", help="Client zip code for travel scoring")
     ap.add_argument("--json", action="store_true", help="Output as JSON")
+    ap.add_argument("--phase", type=int, default=1, help="Clinic phase filter (1=domestic, 3=international, 0=all)")
     args = ap.parse_args()
 
-    cards = build_route_cards(scenario=args.scenario, zip_code=args.zip, as_json=args.json)
+    phase = args.phase if args.phase != 0 else None
+    cards = build_route_cards(scenario=args.scenario, zip_code=args.zip, as_json=args.json, phase=phase)
     if args.json:
         print(cards)
     else:

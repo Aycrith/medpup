@@ -1,7 +1,7 @@
 ---
 title: "TPLO Surgery Cost Florida 2026 — How to Save 50-80% Without Leaving the State"
 date: 2026-05-20
-draft: true
+draft: false
 tags: ["TPLO surgery", "dog surgery costs", "Florida vet costs", "veterinary surgery", "affordable pet care", "Pinellas County", "MedPup"]
 ---
 

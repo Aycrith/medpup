@@ -60,7 +60,7 @@ def scenario_from_procedure(proc):
 def build_route_card(intake):
     scenario = scenario_from_procedure(intake.get("procedure",""))
     zip_code = intake.get("zip_code", "33701")
-    cards = build_route_cards(scenario=scenario, zip_code=zip_code, as_json=False)
+    cards = build_route_cards(scenario=scenario, zip_code=zip_code, as_json=False, phase=1)
 
     if not cards:
         return {
@@ -92,7 +92,7 @@ def build_route_card(intake):
             "clinic_name":       c["clinic_name"],
             "clinic_url":        c["clinic_url"],
             "clinic_address":    c["address"],
-            "phone":             "(pending DB fill)",
+            "phone":             c.get("phone") or "(call for pricing)",
             "procedure":         c["procedure"],
             "price_range":       f"${c['price_low']:.0f}–${c['price_high'] or '?'}",
             "allin_low":         c["allin_low"],

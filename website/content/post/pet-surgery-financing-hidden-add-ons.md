@@ -1,7 +1,7 @@
 ---
 title: "Pet Surgery Financing Options — What Nobody Tells You About Hidden Add-Ons"
 date: 2026-05-20
-draft: true
+draft: false
 tags: ["pet surgery financing", "CareCredit", "Scratchpay", "vet payment plans", "affordable pet care", "Florida vet costs", "MedPup"]
 ---
 

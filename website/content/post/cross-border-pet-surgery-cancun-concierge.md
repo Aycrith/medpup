@@ -1,7 +1,7 @@
 ---
 title: "Cross-Border Pet Surgery Guide — Cancun Concierge for Florida Pet Owners"
 date: 2026-05-20
-draft: true
+draft: false
 tags: ["cross-border pet surgery", "Cancun vet", "medical tourism pets", "Florida pet owners", "pet surgery abroad", "affordable vet care", "MedPup"]
 ---
 
