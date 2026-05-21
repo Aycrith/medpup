@@ -74,7 +74,7 @@ MANDATORY_ADDONS = {
 }
 
 def realistic_range(label, price_low, price_high=None):
-    mult = REALITY_MULTIPLIERS.get(label, {"min": 1.8, "max": 2.5})
+    mult = REALITY_MULTIPLIERS.get(label, {"min": 1.8, "max": 2.5, "typical_markup_src": "varies_by_procedure"})
     lo = round(price_low * mult["min"])
     hi = round((price_high or price_low) * mult["max"])
     addon_lo = sum(a[1] for a in MANDATORY_ADDONS.get(label, []))

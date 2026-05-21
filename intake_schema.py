@@ -118,11 +118,43 @@ def test_save():
 
 if __name__ == "__main__":
     import argparse
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--schema", action="store_true", help="Print schema")
-    ap.add_argument("--test", action="store_true", help="Run test save")
+    ap = argparse.ArgumentParser(description="MedPup intake schema + VOC reader")
+    ap.add_argument("--schema", action="store_true", help="Print intake schema")
+    ap.add_argument("--test", action="store_true", help="Run test save (demo)")
+    ap.add_argument("--list", action="store_true", help="List all VOC records (summary table)")
+    ap.add_argument("--show", type=str, metavar="INTAKE_ID", help="Show full JSON for one VOC record")
+    ap.add_argument("--dir", type=str, default=str(VOC_DIR), help="VOC directory path")
     args = ap.parse_args()
     if args.schema:
         print_schema()
     if args.test:
         test_save()
+    if args.list:
+        import os
+        voc_path = Path(args.dir)
+        files = sorted(voc_path.glob("*.json"))
+        if not files:
+            print(f"\nNo VOC records found in {voc_path}")
+        else:
+            print(f"\n{'ID':<30} {'Status':<18} {'Pet':<16} {'Procedure':<20} {'Created'}")
+            print("-" * 110)
+            for f in files:
+                d = json.loads(f.read_text())
+                vid = d.get("intake_id", f.stem)
+                status = d.get("status", "?")
+                pet = d.get("pet_name", d.get("pet_species", "?"))
+                proc = d.get("procedure", d.get("procedure_category", "?"))
+                created = d.get("created_at", "?")[:19].replace("T", " ")
+                print(f"{vid:<30} {status:<18} {pet:<16} {proc:<20} {created}")
+            print(f"\nTotal: {len(files)} record(s)")
+    if args.show:
+        target = Path(args.dir) / f"{args.show}.json"
+        if not target.exists():
+            # Try with just the ID if user passed partial
+            matches = [f for f in Path(args.dir).glob("*.json") if args.show in f.name or args.show in f.stem]
+            if matches:
+                target = matches[0]
+            else:
+                print(f"VOC record not found: {args.show}")
+                exit(1)
+        print(json.dumps(json.loads(target.read_text()), indent=2))
