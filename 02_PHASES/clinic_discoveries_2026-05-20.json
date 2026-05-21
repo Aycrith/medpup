@@ -1,0 +1,117 @@
+{
+  "clinics": [
+    {
+      "clinic_id": 22,
+      "name": "Harmony Vet Care",
+      "type": "Non-profit full-service veterinary clinic",
+      "locations": [
+        {
+          "address": "3301 John Moore Rd, Brandon, FL 33511",
+          "phone": "(813) 871-0850",
+          "distance_from_largo_min": 45
+        },
+        {
+          "address": "300 State Street East, Suite 112, Oldsmar, FL 34677",
+          "phone": "(813) 871-0850",
+          "distance_from_largo_min": 20
+        },
+        {
+          "address": "8501 Ladue Lane, Tampa, FL 33614",
+          "phone": "(813) 871-0850",
+          "distance_from_largo_min": 35
+        }
+      ],
+      "website": "https://harmonyvetcare.org/",
+      "email": "management@harmonyvetcare.org",
+      "hours": "Mon-Sat 7am-5pm (By Appointment Only)",
+      "pricing_verified": true,
+      "pricing_verified_date": "2026-05-20",
+      "pricing_source": "harmonyvetcare.org/services/surgery/spay-neuter/ and /dentals/",
+      "services": {
+        "spay": {
+          "dog_under_7mo": 95,
+          "dog_0_20lbs": 105,
+          "dog_20_50lbs": 135,
+          "dog_50_75lbs": 155,
+          "dog_over_75lbs": 180,
+          "cat_over_7mo": 65,
+          "cat_under_7mo": 50,
+          "add_ons": {
+            "pregnant_extra": 20,
+            "pain_meds": 15,
+            "e_collar": 10,
+            "iv_catheter_fluids_pregnant": 20
+          }
+        },
+        "neuter": {
+          "dog_under_7mo": 85,
+          "dog_0_20lbs": 100,
+          "dog_20_50lbs": 105,
+          "dog_50_75lbs": 120,
+          "dog_over_75lbs": 155,
+          "cat_over_7mo": 55,
+          "cat_under_7mo": 50
+        },
+        "dental": {
+          "pre_op_exam": {"low": 40, "high": 65},
+          "pre_op_bloodwork_starts_at": 55,
+          "dental_anesthesia_iv_fluids_scaling_polishing_xrays": 300,
+          "extractions_minor_each": {"low": 10, "high": 30},
+          "extractions_major_each": 95,
+          "antibiotics": {"low": 12, "high": 25},
+          "pain_meds": {"low": 12, "high": 30},
+          "followup_dental_within_364_days": 250
+        },
+        "vaccines": {
+          "rabies": 15
+        }
+      },
+      "notes": "Non-profit 501(c)(3). Multiple locations. Oldsmar is only 20 min from Largo — closer than ASPCA CVC (55 min). Full service: exams, surgery, dental, vaccines. Accepts donations. Online payment via Cherry.",
+      "status": "Active — Tier 1",
+      "procedures_available": ["spay", "neuter", "dental", "vaccines", "wellness", "surgery"],
+      "all_in_estimate": {
+        "spay_large_dog": {"low": 130, "high": 225},
+        "dental_cleaning": {"low": 407, "high": 480},
+        "dental_with_extractions": {"low": 500, "high": 1000}
+      }
+    },
+    {
+      "clinic_id": 23,
+      "name": "SPOT Spay & Neuter Clinic",
+      "type": "Non-profit spay/neuter and vaccine clinic",
+      "locations": [
+        {
+          "address": "4403 62nd Ave N, Pinellas Park, FL 33781",
+          "phone": "(727) 329-8657",
+          "distance_from_largo_min": 10
+        }
+      ],
+      "website": "http://www.spotusa.org/",
+      "hours": "Surgery dates and wellness clinic dates vary — call for appointment",
+      "pricing_verified": true,
+      "pricing_verified_date": "2026-05-20",
+      "pricing_source": "spotusa.org + Yelp reviews",
+      "services": {
+        "spay_neuter": {
+          "cat_neuter": 35,
+          "notes": "Cat spay pricing not found on website — call for quote"
+        },
+        "vaccines": {
+          "rabies": 15,
+          "puppy_package_under_3mo": 35,
+          "k9_vaccine_package": 75
+        },
+        "other": {
+          "microchip": 25,
+          "ear_cytology": 10,
+          "ear_flush": 10
+        }
+      },
+      "notes": "501(c)(3) non-profit. Pinellas Park location is only 10 min from Largo — closest clinic found. Limited to spay/neuter and vaccines primarily. No dental or surgery services listed. Old website. Appointment-only.",
+      "status": "Active — Tier 1 (spay/neuter only)",
+      "procedures_available": ["spay", "neuter", "vaccines", "microchip"]
+    }
+  ],
+  "last_updated": "2026-05-20",
+  "total_verified_clinics": 5
+}

@@ -119,7 +119,7 @@ ASPCA CVC and Good Care have long waits. We pre-check availability before you ca
 
 ### Is My Dog a Candidate?
 
-Your pet is a candidate if you're facing veterinary costs you can't afford — and you don't want to walk into a clinic blind on price. We're currently routing Pinellas pet owners to ASPCA CVC (Liberty City, spay/neuter $40–$80 → real cost ~$100–$240) and Good Care Animal Clinic (Hialeah, dental and surgery from $285 up).
+Your pet is a candidate if you're facing veterinary costs you can't afford — and you don't want to walk into a clinic blind on price. We're currently routing Pinellas pet owners to **Harmony Vet Care** (Oldsmar — 20 min from Largo, spay/neuter $85-$180, dental from $300), **ASPCA CVC** (Liberty City, spay/neuter $40-$80), and **Good Care Animal Clinic** (Hialeah, dental and surgery from $285).
 
 <div class="cta-center">
 <a href="/contact/" class="cta-button">Get Your All-In Quote →</a>

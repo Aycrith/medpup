@@ -14,13 +14,13 @@ Yes. MedPup is a Pinellas County–based coordination service that connects pet 
 No. MedPup is a coordination service. All medical care is provided by independently licensed veterinarians at accredited partner clinics.
 
 **Is the quality really the same?**
-Yes. Our Phase 1 partner clinics — ASPCA Community Veterinary Clinic (Liberty City, Miami) and Good Care Animal Clinic (Hialeah) — are fully licensed Florida clinics. ASPCA CVC is a nonprofit community clinic. Good Care is a 5-star Yelp-rated general practice with surgical capabilities. Both use AVMA-recognized protocols.
+Yes. Our Phase 1 partner clinics — **Harmony Vet Care** (Oldsmar, 20 min), **ASPCA Community Veterinary Clinic** (Liberty City, Miami), and **Good Care Animal Clinic** (Hialeah) — are fully licensed Florida clinics. Harmony Vet Care is a non-profit with published pricing. ASPCA CVC is a nonprofit community clinic. Good Care is a 5-star Yelp-rated general practice. All use AVMA-recognized protocols.
 
 **How much does this save me?**
 Our verified Phase 1 pricing shows confirmed savings of **80–95% on spay/neuter** (ASPCA CVC: $40–$80 vs. ~$600–$1,200 U.S. average) and **83–94% on dental** (Good Care: $285–$595 vs. ~$1,500–$2,500 U.S. average).
 
 **Is travel required?**
-Yes — approximately 1 hour from Largo to either clinic. No customs, no APHIS paperwork, no ferry or flight. Just a direct car drive to a U.S. licensed clinic.
+Yes — approximately 20 minutes to Harmony Vet Care (Oldsmar) or 1 hour to ASPCA CVC (Miami area) or Good Care (Hialeah). No customs, no APHIS paperwork, no ferry or flight. Just a direct car drive to a U.S. licensed clinic.
 
 ---
 

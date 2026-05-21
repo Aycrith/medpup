@@ -8,14 +8,16 @@ description: "Transparent pricing for MedPup veterinary cost coordination servic
 MedPup charges a **flat coordination fee**, paid separately from the clinic bill.
 We do not mark up veterinary fees. You pay the clinic directly.
 
-### Phase 1 — South Florida Clinics (Active)
+### Phase 1 — Florida Clinics (Active)
 
 | Service | MedPup Coordination Fee | Clinic Charges Separately |
 |---------|------------------------|--------------------------|
-| Spay / Neuter | $25 – $50 | $40 – $80 (ASPCA CVC) |
-| Dental + Extractions | $50 – $100 | $285 – $595 (Good Care Animal Clinic) |
+| Spay / Neuter | $25 – $50 | $40 – $180 (ASPCA CVC: $40-$80, Harmony Vet Care: $85-$180) |
+| Dental + Extractions | $50 – $100 | $285 – $595 (Good Care Animal Clinic) or ~$407-$480 (Harmony Vet Care: pre-op+bloodwork+dental included) |
 | Mass Removal | $50 – $100 | ~$450 (Good Care) |
 | Soft Tissue Surgery | $50 – $100 | $650 – $4,200 (Good Care) |
+
+**New: Harmony Vet Care** — Non-profit with 3 locations. The Oldsmar clinic is only **20 minutes from Largo** with published pricing: spay/neuter $85-$180, dental $300+extractions. This is now the closest Phase 1 partner clinic.
 
 **Free Consultation** — We review your pet's diagnosis and give you a transparent estimate before you commit.
 
