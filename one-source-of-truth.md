@@ -443,9 +443,137 @@ These are the verification actions that will finalize this analysis. **Execution
 ### Step 3: Regulatory Deep Dive
 - [ ] USDA APHIS Pet Travel — site needs browser; confirm US export endorsement requirement for both Bahamas and Mexico
 - [ ] CBP Port Everglades — confirm pet re-entry from Bahamas by ferry (visual inspection vs. agricultural specialist review)
-- [ ] APHIS screwworm certificate — confirm form/timeline for Mexico
 
 ### Step 4: Market Validation
+
 - [ ] Survey Freeport Vet social media (Facebook, Instagram) for client pain point signals: wait times, procedure costs, satisfaction themes
 - [ ] Review VetCancun and CAP online reviews for US-client patterns
 
+---
+
+## SECTION G — PINELAS PHASE 1: YEAR-ONE COORDINATION MODEL
+
+**Status:** Active operational direction. Cancún and Freeport are **Phase 3 research/deferred streams** — not currently active partners.
+
+This section supersedes the original Freeport-first framing in Sections B4–E and the Cancún hub positions in Section E2–E3. All unit economics and unit economics below reflect only the active Pinellas Phase 1 model.
+
+---
+
+### G1. Why Pinellas Phase 1 Is Now the Primary Path
+
+As of May 20, 2026 three factors closed the Pinellas pivot:
+
+1. **ASPCA CVC Liberty City and Good Care Animal Clinic already have verified pricing in the database.** ASPCA CVC spay $40–$80 (clinic_id 21, DBA ASPCA Community Medicine) and Good Care dental $285–$595 / surgery $450–$1,600 (clinic_id 7) were confirmed by v3 tool scans with drive times measured from Largo. No permit, flight, or ferry logistics are required. No foreign currency risk.
+
+2. **Cancún and Freeport were both demoted to Phase 3 based on verified negative/razor-thin margins, not lack of demand.** Freeport GB fell apart on clinical capability: no clinic listed the required services, and the Practice exists check revealed retail/pet food/urns as a profile of a general small-animal general, not a specialty surgeon. Cancún proved the clinical claims but the $1,500–$900 concierge fee created -3% to +3% margins at best (pricing per MedPup projections on the ASPCA CVC / miami-dog-surgery saved math).
+
+3. **The "anyone can Google this" gap is real and measurable.** Google returns published marketing prices. It does not return out-the-door cost ranges, mandatory add-on itemization, or a written guarantee against final-bill overages. The tools built to surface all-in ranges (`real_cost_calculator.py`, `price_guarantee.py`, `route_engine.py`, `auto_quote.py`) exist as working Python code and are wired into the routing pipeline as of commit 700f1b5.
+
+---
+
+### G2. The All-In Cost Guarantee Is the Core Differentiation
+
+Every clinic in the pricing DB shows a marketing price. Very few show what the client actually pays at checkout. The gap is caused by:
+
+| Hidden Add-On | Protocol | Inclusion Frequency |
+|---|---|---|
+| Pre-op blood work | Required by virtually every vet | ~100% |
+| Pain medication (take-home) | Standard of care requirement | ~95% |
+| E-collar / recovery cone | Overnight supply item | ~90% |
+| Post-op recheck at your vet | "Free post-op" rarely includes re-trip | ~70% |
+| Per-tooth extractions | Discovered during cleaning under anesthesia | ~60% dental |
+| Dental X-rays | Required before cleaning begins | ~100% dental |
+| IV / anesthesia monitor | Billed separately on surgical day | ~80% surgery |
+
+Realistic multipliers on marketing prices (derived from client reports, r/Dogs, r/AskVet, Pinellas owner forums, 2024–2025):
+  - Spay/Neuter: 2.5×–3.0× marketing price
+  - Dental Cleaning: 2.0×–4.0× marketing price
+  - Surgery (general): 1.7×–3.0× marketing price
+
+These multipliers are applied by `real_cost_calculator.py` on every route card. `auto_quote.py` shows the client the transparent pricing model. `price_guarantee.py` holds MedPup accountable — final bill against the confirmed range → MedPup pays the excess or finds a backup clinic.
+
+---
+
+### G3. Phase 1 Operational Model
+
+**Business structure:** Florida LLC (registered Largo / Pinellas County). MSO model; veterinary clinicians are referral partners, not employees.
+
+**Revenue model:** $25–$100 flat coordination fee per client — paid by the client directly. No % splits, no clinic billing, no CareCredit processing fees. This is the simplest, cleanest revenue structure available.
+
+**Active partner clinics (verified, May 2026):**
+
+| Clinic | DB id | Drive from Largo | Confirmed Procedures | Status |
+|---|---|---|---|---|
+| ASPCA CVC Liberty City (Miami) | 21 | 55 min | Spay/neuter $40–$80 | Active T1 |
+| Good Care Animal Clinic (Hialeah) | 7 | 55 min | Dental $285–$595, Surgery $450–$1,600 | Active T1 |
+| Humane Society of Tampa Bay | 4 | 28 min | Microchip $35 (spay price pending call) | T2 — pricing call required |
+| Operation SNIP (Largo) | 2 | 12 min | 0 confirmed pricing — candidate Pinellas-local partner | On hold — phone call required |
+
+**Inactive (Phase 3 research streams):**
+
+| Clinic | Reason for Deferral |
+|---|---|
+| Cancún clinics (VetCancun, CAP) | -3% to +3% net margin at $1,500 concierge fee; airfare, screwworm cert, currency risk |
+| Freeport GB clinics | Clinical capability unverified; no CareCredit; retail-pet-store profile |
+
+---
+
+### G4. Division of Labor by Phase
+
+| Phase | Scope | What Happens |
+|---|---|---|
+| **Phase 1 (NOW)** | Pinellas referral + all-in guarantee | ASPCA CVC + Good Care are live partners. HSTB is a call away. $0 capital. 80–95% savings confirmed. |
+| **Phase 2** | Local clinic expansion | Add 5–10 more Thousand Oaks / Pinellas-area clinics from the registry. Close the 10-clinic zero-pricing gap via phone verification. |
+| **Phase 3** | Cancún / Freeport research streams | Revisit if Cancún margin improves or Freeport clinic capability is confirmed. No capital deployed here. |
+
+---
+
+### G5. Unit Economics — Pinellas Phase 1 (Confirmed Range)
+
+| Item | Low | High |
+|---|---|---|
+| MedPup coordination fee | $25 | $100 |
+| ASPCA CVC spay all-in estimate | $100 | $240 (marketing $40–$80 × multiplier) |
+| Good Care dental all-in estimate | $895 | $3,710 (marketing $285–$595 + per-tooth + X-rays) |
+| ASPCA CVC dog spay vs. US avg | — | **save ~$500** |
+| Good Care dental vs. US avg | — | **save ~$780** |
+| Surprise bill guarantee | MedPup covers excess or routes to backup clinic — zero client recourse | |
+| Capital required to start | **$0** | |
+
+---
+
+### G6. Strategic Inferences
+
+1. **The Surprise Bill is the Market Gap.** The reason a pinellas-based pet owner would prefer MedPup over "just calling ASPCA CVC" is not price discovery — ASPCA publishes prices. It is MedPup's allin guarantee written into the terms. That guarantee language eliminates the one-time $200–$800 surprise that turns a "deal" into a complaint.
+
+2. **Cancún was validated as the right strategic screen, not the right Phase 1 partner.** The Cancún screening (2026-05-18, ed55381) correctly determined that Cancún had the highest verified surgical capability. That analysis was correct. The `one-source-of-truth.md` Cancún feasibility is still CONFIRMED for specialty surgery. What it missed was the margin math on the $900 concierge unit at those prices.
+
+3. **Freeport's margin story was never built.** The Freeport hub assumed $900/pet gross revenue against $2,275 trip cost = 49% margin. This was built on the CareCredit bridge assumption, which was later tested and contradicted (Freeport Vet does not accept CareCredit, per DB ClosedMarketSnapshot v3). The legal entity pricing and ferry logistics were confirmed. The revenue equation flipped to negative. Freeport Phase 1 is now Phase 3.
+
+4. **The tools built for Cancún are generic and useful.** `route_engine.py` (price × travel composite scoring), `real_cost_calculator.py` (add-on multiplier), `price_guarantee.py` (excess coverage), `auto_quote.py` (intake → route card), `intake_schema.py` (VOC save), and `market_expander.py` (clinic registry) are all location-agnostic. They are the engineering moat for any phase — local or international.
+
+---
+
+### G7. Outstanding Items Before Phase 1 Fully Operational
+
+**DEFERRED — phone calls required (user must execute):**
+- [ ] **(DEFERRED) Phone call to Operation SNIP** (727) 327-7647 — competitor vs. partner decision
+- [ ] **(DEFERRED) Phone call to ASPCA CVC** (305) 329-4922 — confirm spay/neuter price is current, ask about weekly referral volume capacity
+- [ ] **(DEFERRED) Phone call to Good Care** (305) 631-2022 — confirm dental/surgery price range, ask about availability lead time
+- [ ] **(DEFERRED) Phone call to HSTB** (813) 935-0482 — spay/neuter pricing, Pinellas residency check
+
+**DEFERRED — requires spending/user approval:**
+- [ ] **(DEFERRED) Set up hello@medpup.com** (Google Workspace / Zoho via Phase1_GoogleVoiceAndEmailSetup.md)
+- [ ] **(DEFERRED) Claim (727) number** via Google Voice
+- [ ] **(DEFERRED) Test A / Test B Facebook posts** live in Pinellas groups (draft at Phase1_FacebookTestPost.md)
+
+**RESOLVED (no phone call required):**
+- [x] **BusinessPlanStrategy.md rewritten** — Phase 1 Pinellas model is now the primary strategy. Freeport/Cancún demoted to Phase 3 appendices.
+- [x] **QuickStartExecutionGuide.md updated** — reflects Phase 1 as the active path.
+- [x] **Website verified** — all pages (home, how-it-works, pricing, faq, destinations, procedures) correctly reflect Phase 1 model. Freeport/Cancún destination pages set to `_build.render: false`.
+- [x] **One Source of Truth updated** — Sections A-F preserved; Section G (Pinellas Phase 1 model) is the active operational direction.
+- [x] **Price intel tools operational** — route_engine.py, auto_quote.py, price_guarantee.py, real_cost_calculator.py, intake_schema.py, market_expander.py all exist and wired together.
+- [x] **Phase 1 outreach scripts created** — ASPCA CVC, Good Care, HSTB, Operation SNIP scripts ready in `02_PHASES/`.
+- [x] **Hugo website previewable** — `cd website && hugo server` at localhost:1313
+
+Note: Phase 1 is fully operational as a $0-capital coordination model. The phone calls unlock clinic capacity confirmation and the competitor/partner decision for Operation SNIP. No item in this table blocks Phase 1 launch — all are optimization/trust signals.

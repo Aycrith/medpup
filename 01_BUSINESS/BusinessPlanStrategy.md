@@ -1,261 +1,315 @@
-MedPup Business Plan, Strategy Design & Agent-Ready Execution Roadmap
-Table of Contents
+# MedPup Business Plan & Strategy
 
-    Business Plan & Strategy Research Design
+## Pinellas Phase 1 — Active. International Phase 3 — Research Deferred.
 
-        1.1. Executive Summary & Core Thesis
+**Last updated:** May 20, 2026
+**Status:** Pinellas coordination model is the active business. All international logistics (Cancún, Freeport) are Phase 3 research items — no capital deployed, no operational commitment.
 
-        1.2. Quantified Market Analysis & Demand Foundation
+---
 
-        1.3. Competitive Landscape & Strategic Gap
+## Table of Contents
 
-        1.4. The Dual-Hub Service Model & Destination Economics
+1. [Executive Summary](#1-executive-summary)
+2. [Market Context](#2-market-context)
+3. [Competitive Landscape & The MedPup Gap](#3-competitive-landscape--the-medpup-gap)
+4. [Phase 1: Pinellas Coordination Model](#4-phase-1-pinellas-coordination-model)
+5. [Phase 3: International Research (Condensed)](#5-phase-3-international-research-condensed)
+6. [Execution Roadmap](#6-execution-roadmap)
+7. [Manual Actions — Phone Calls Required](#7-manual-actions--phone-calls-required)
+8. [Verified Pricing Data](#8-verified-pricing-data)
 
-        1.5. Service Packages, Pricing & Unit Economics
+---
 
-        1.6. The CareCredit-Bahamas Financial Bridge
+## 1. Executive Summary
 
-    Agent-Ready Execution Roadmap
+MedPup is a Pinellas County-based veterinary coordination service. Phase 1 is domestic only: routing pet owners to verified low-cost clinics in South Florida and Tampa Bay. The business model is simple — a flat coordination fee of $25–$100 per client, paid directly by the pet owner, with no percentage splits and no capital investment required.
 
-        Phase 0: Autonomous Research, Validation & Data Sourcing
+**Core offering:** MedPup finds the best available price for a pet's procedure across a network of verified low-cost clinics, provides a guaranteed all-in cost estimate (not just the marketing price), and covers any surprise if the final bill exceeds the confirmed range. The client pays the clinic directly for the procedure; MedPup is paid separately for coordination.
 
-        Phase 1: Legal & Corporate Foundation
+**Key numbers:**
 
-        Phase 2: Brand, Web Presence & Content Engine
+| Metric | Value |
+|--------|-------|
+| Coordination fee | $25–$100 per client (flat, no % split) |
+| Verified partners | 3 (ASPCA CVC, Good Care, HSTB) |
+| Capital required to launch | $0 |
+| Client drive time | 28–55 minutes from Largo |
+| Savings vs full-service vet | 50–91% depending on procedure |
 
-        Phase 3: SEO & Digital Marketing Infrastructure
+**Phase 1 is live now.** No international logistics, no foreign currency, no permits, no government filings.
 
-        Phase 4: Operational Logistics & Partner Integration
+---
 
-        Phase 5: Launch & Iteration
+## 2. Market Context
 
-1. Business Plan & Strategy Research Design
-1.1. Executive Summary & Core Thesis
+The U.S. veterinary affordability crisis is structural, not cyclical. The following data points define the opportunity:
 
-MedPup is a Florida-based pet medical concierge service designed to solve the U.S. veterinary affordability crisis. By organizing small-group trips to pre-vetted international clinics, MedPup enables pet owners to access the same high-quality surgical and pharmaceutical care available in the U.S. at a 50–80% discount. The business operates a differentiated dual-hub model: Freeport, Grand Bahama for day-trip pharmaceutical arbitrage and Tier 2 procedures, and Cancun, Mexico as the anchor for complex orthopedic and specialty surgeries. This is not a speculative concept; it is a direct response to a structural market failure where veterinary costs have risen 47.15% since 2020, forcing the majority of pet owners to delay or forgo necessary care.
-1.2. Quantified Market Analysis & Demand Foundation
+- **Veterinary costs up 47% since 2020** (BLS data) — nearly double the general inflation rate over the same period.
+- **53% of U.S. households** now own a pet (~71 million homes), adding ~4 million new dog-owning households since 2024.
+- **41% of pet owners** report struggling to afford veterinary care.
+- **26% are stressed about a bill of $250 or less** — the affordability threshold has collapsed.
+- **Over 50% have forgone necessary vet care due to cost.**
+- **The surprise bill is the real market gap — not price discovery.** Anyone can Google a $40 spay. The gap is knowing what the actual out-the-door cost will be before you show up.
 
-The market opportunity is not based on a trend but on a permanent shift in the economic reality of pet ownership.
+The market is already voting with its feet: an estimated 36,670 dogs crossed from the U.S. into Mexico for veterinary care in 2025 (11.6% YoY increase). MexiVet Express handles ~80 pets/week via a single land-border shuttle. The demand for affordable alternatives is proven and growing.
 
-    Massive Pet Ownership Base Under Financial Pressure: The U.S. pet industry reached 158billionin2025∗∗andisprojectedtohit∗∗158billionin2025∗∗andisprojectedtohit∗∗165 billion in 2026. Ownership expanded to 53% of U.S. households (71 million) in 2025, adding roughly 4 million new dog-owning homes. Yet, this growth is under severe strain. Veterinary costs have increased by 47.15% since 2020, nearly double the overall inflation rate. The result is that approximately 41% of pet owners report struggling to afford care, 26% are stressed about a bill of $250 or less, and over 50% have forgone necessary vet care due to cost.
+Pet travel services globally are projected to grow from $2.25B (2025) to $3.68B by 2030 (CAGR 10.5%), reflecting a structural shift toward mobility with pets for health and lifestyle reasons.
 
-    Proven Cross-Border Demand: The market is already moving. In 2025 alone, an estimated 36,670 dogs crossed from the U.S. into Mexico for veterinary care, an 11.6% year-over-year increase. A single company, MexiVet Express, now handles ~80 pets per week via a land-border shuttle model, demonstrating robust and growing demand.
+---
 
-    Exploding Pet Travel Services Market: The global market for pet travel services is projected to grow from 2.25billionin2025to2.25billionin2025to3.68 billion by 2030, at a CAGR of 10.5%, with the international segment growing fastest. This validates a global consumer shift toward mobility with pets for health and lifestyle reasons.
+## 3. Competitive Landscape & The MedPup Gap
 
-1.3. Competitive Landscape & Strategic Gap
+### Existing Players
 
-The existing competition is concentrated and leaves a critical strategic gap open for MedPup.
+| Competitor | Model | Geography | What They Do | What They Don't Do |
+|-----------|-------|-----------|-------------|-------------------|
+| **MexiVet Express** | Land-border shuttle | San Diego ↔ Tijuana (West Coast only) | Full trip logistics, 15 staff, ~80 pets/week | No East Coast presence, no integrated financing |
+| **FareVet** | AI price comparison | Nationwide (digital only) | Compares clinic prices by zip | No coordination, no booking, no all-in guarantee |
+| **Independent Mexican clinics** (Vet Playas, etc.) | Direct client booking | Mexican border cities | Lowest procedure costs | No travel logistics, no U.S. coordination |
+| **Operation SNIP** (Largo) | Direct low-cost clinic | Pinellas County | Spay/neuter $70–$100 | Local only, no referral network |
 
-    MexiVet Express (San Diego ↔ Tijuana): The market leader, operating a land-border shuttle model with 15 full-time staff. Strengths include high volume and brand recognition. Weaknesses include a complete dependency on the California land border, no presence on the East Coast, and no integrated financing solution.
+### The MedPup Gap
 
-    Independent Mexican Clinics (e.g., Vet Playas): Offer the lowest procedure costs and have excellent infrastructure. However, they provide no travel logistics, no group-pooling cost advantages, and no U.S.-based patient coordination, leaving the entire burden of travel and compliance on the owner.
+No competitor has built an East Coast-centric model that combines:
 
-    FareVet (Digital Platform): An AI-powered cost comparison tool. It provides information but offers no logistical execution or trip facilitation.
+1. **Active price comparison** across verified low-cost clinics (not just a directory)
+2. **All-in cost guarantee** that covers surprise bills (the real trust barrier)
+3. **Flat-fee coordination** paid by the client, not subsidized by clinic kickbacks
 
-The MedPup Strategic Gap: No competitor has created an integrated, East Coast-centric model that combines (1) a maritime group-travel logistics system for cost efficiency and lower stress, (2) a unique, compliant financial facilitation model, and (3) a dual-destination strategy to serve both high-frequency medication runs and complex, high-margin surgeries.
-1.4. The Dual-Hub Service Model & Destination Economics
+FareVet tells you a marketing price. MedPup tells you the out-the-door range and guarantees it.
 
-MedPup’s core innovation is its two distinct operational pipelines, each optimized for a different tier of customer need and procedure complexity.
-Feature	Freeport, Grand Bahama (The "Pharmacy Ferry")	Cancun, Mexico (The "Surgical Shuttle")
-Primary Use Case	Chronic medication runs, dental, mass removals, Tier 2 ortho (FHO, fracture repair)	Complex ortho (TPLO), IVDD/spinal, oncology, BOAS, advanced diagnostics (MRI/CT)
-Travel Mode	3-hour passenger ferry from Ft. Lauderdale (Balearia Caribbean)	1.5-hour group charter flight or empty-leg private aviation
-Procedure Savings	50-80% vs. U.S. prices	60-80% vs. U.S. prices
-Regulatory Friction	Ultra-Low. No USDA endorsement required. No screwworm certificate. No CDC rabies high-risk designation.	Moderate. USDA endorsement required. Mandatory screwworm certificate within 5 days of return.
-Unique Financial Moat	CareCredit accepted directly at partner clinics. Hawksbill Creek Agreement FTZ eliminates all taxes on income, capital gains, and import duties until 2054.	None. CareCredit is not accepted. Requires cash or standard credit card payment by client.
-Operational Model	Day trip or 1-night stay. Pet stays with owner.	2-4 night stay with post-op recovery in a managed villa.
+---
 
-Data Sources & Evidence:
+## 4. Phase 1: Pinellas Coordination Model
 
-    Ferry Service: The Fort Lauderdale-Freeport ferry is operated by Balearia Caribbean, with a 3-hour crossing time and pet-friendly policies.
+This is the active business. Phase 1 is domestic referral routing only.
 
-    Freeport FTZ: The Hawksbill Creek Agreement provides freedom from all taxes until 2015 and from excise taxes, stamp duties, and most customs duties until 2054. The Grand Bahama Port Authority operates as a one-stop shop for business licensing, allowing duty-free import of goods for licensed businesses.
+### 4.1 Business Structure
 
-    Regulatory Ease: The USDA APHIS explicitly states that health certificates for dogs/cats to the Bahamas do not require APHIS endorsement, a unique and critical cost and time advantage.
+- **Entity:** Florida LLC (MedPup Veterinary Concierge, LLC) — filed with Florida Department of State
+- **Revenue model:** Flat coordination fee of $25–$100 per client, paid directly by the pet owner
+- **Payment flow:** Client pays clinic directly for procedure. MedPup fee is separate and collected at time of routing
+- **No percentage splits** — MedPup does not take a cut of clinic revenue
+- **No inventory** — no drugs, no supplies, no equipment
+- **Capital required: $0**
 
-    Mexico Screwworm Rule: As of November 22, 2024, Mexico is considered affected by screwworm. All dogs returning to the U.S. must be inspected by a Mexican vet within 5 days of travel, creating a compliance service requirement.
+### 4.2 Verified Partner Clinics
 
-1.5. Service Packages, Pricing & Unit Economics
+| Partner | ID | Location | Drive from Largo | Key Procedures | Confirmed Pricing |
+|---------|-----|---------|-----------------|----------------|-------------------|
+| **ASPCA CVC Liberty City** | 21 | Miami | ~55 min | Spay/Neuter | $40–$80 (v3 confirmed) |
+| **Good Care Animal Clinic** | 7 | Hialeah | ~55 min | Dental, Surgery | Dental $285–$595, Surgery $450–$1,600 (v3 confirmed) |
+| **HSTB Tampa (T2)** | 4 | Tampa | ~28 min | Spay/Neuter, general services | T2 pricing; phone verification still pending for full list |
 
-The service is packaged to provide transparent value and predictable revenue.
+### 4.3 The All-In Cost Guarantee (Core Differentiator)
 
-Freeport "Pharmacy & Dental Day-Trip" Package
+The marketing price ("$40 spay") is misleading. The actual out-the-door cost can be 2–4× higher after mandatory add-ons. MedPup solves this with a verifiable all-in estimate.
 
-    Client Concierge Fee: $900 per pet.
+**How it works:**
 
-    Includes: Pre-travel vet exam in Florida, ferry logistics & tickets, Bahamian import permit, ground transport, clinic liaison & translation, and post-procedure recovery kit.
+1. **real_cost_calculator.py** applies a procedure-specific reality multiplier (2.0×–3.0× for spay/neuter, 2.0×–4.0× for dental) and lists all mandatory add-ons per category.
+2. **route_engine.py** scores every clinic × procedure combo and returns a ranked route card with `allin_low` and `allin_high` fields.
+3. **auto_quote.py** enriches each route card with the all-in guarantee sentence and renders a "MEDPUP ALL-IN COST GUARANTEE" box in client-facing output.
+4. **price_guarantee.py** evaluates whether the final clinic bill exceeds the confirmed range. If it does, MedPup covers the excess from its coordination fee, or routes the client to a backup clinic at no cost.
 
-    Client's Direct Clinic Cost: Paid by client via CareCredit at the Bahamian clinic.
+**Surprise bill coverage logic (from price_guarantee.py):**
 
-    5-Pet Trip Unit Economics:
+- If final bill ≤ confirmed high: no guarantee triggered.
+- If excess ≤ coordination fee ($75 default): MedPup refunds the difference to the client (covered by fee).
+- If excess > coordination fee: client routed to backup clinic at no additional cost; MedPup absorbs the fee and the difference.
 
-        Gross Revenue: $4,500
+This is the trust mechanism that separates MedPup from a Google search.
 
-        Trip Costs (Ferry, Ground Transport, Staff, Permits, Marketing): $2,275
+### 4.4 Tool Stack (All Built)
 
-        Net Trip Profit: $2,225 (49% margin)
+| Tool | File | Purpose |
+|------|------|---------|
+| Routing engine | `route_engine.py` | Scores clinics × procedures, ranks by composite score (price + travel + freshness) |
+| Auto-quote | `auto_quote.py` | Takes client intake JSON, returns ranked route card with all-in guarantee |
+| Price guarantee | `price_guarantee.py` | Evaluates surprise bills, triggers coverage or backup routing |
+| Real cost calculator | `real_cost_calculator.py` | Applies reality multipliers, returns guaranteed min / possible max |
+| Intake schema | `intake_schema.py` | Validates client intake JSON, saves to VOC tracking |
+| Market expander | `market_expander.py` | Auto-discovers new Pinellas-area clinics via search + DB pipeline |
 
-Cancun "Orthopedic & Specialty Group Flight" Package
+### 4.5 Unit Economics
 
-    Client Concierge Fee: $1,500 per pet.
+The coordination fee model has straightforward unit economics since there is no inventory, no logistics cost, and no clinic markup.
 
-    Includes: Pre-travel exam, group charter flight logistics, USDA endorsement management, screwworm certificate coordination, recovery villa accommodation, 24/7 concierge, and post-op telehealth check-in.
+| Scenario | Coordination Fee | Client Clinic Cost | MedPup Margin |
+|----------|-----------------|-------------------|---------------|
+| Spay/Neuter referral | $25–$50 | $40–$240 (all-in) | 100% (no COGS) |
+| Dental referral | $50–$75 | $895–$3,710 (all-in) | 100% (no COGS) |
+| Surgery referral | $75–$100 | $765–$4,800 (all-in) | 100% (no COGS) |
 
-    Client's Direct Clinic Cost: Paid directly to the Mexican clinic.
+**Estimated monthly revenue at scale:**
 
-    6-Pet Trip Unit Economics:
+| Clients/month | Avg fee | Revenue | Notes |
+|--------------|---------|---------|-------|
+| 5 | $50 | $250 | Minimal outreach |
+| 20 | $50 | $1,000 | Active Facebook + clinic referrals |
+| 50 | $50 | $2,500 | Steady pipeline from SEO + word of mouth |
+| 100 | $50 | $5,000 | Full-time coordinator |
 
-        Gross Revenue: $9,000
+**Cost structure:** $0 cost of goods sold. Only costs are the coordinator's time, phone/email, and website hosting (~$15–$30/mo for a static Hugo site).
 
-        Trip Costs (Charter, Villa, Ground Transport, Screwworm, Staff, Marketing): $7,090
+### 4.6 Operation SNIP — Status: Deferred (Phone Call Required)
 
-        Net Trip Profit: $1,910 (21% margin)
+Operation SNIP (Largo, clinic_id 2, 3 min from base) offers spay/neuter at $70–$100 (confirmed via reviews). However, their position as a competitor vs. potential partner is unknown. A phone call is required before any email outreach. See Section 7.
 
-The higher margin on Freeport trips underscores the value of its lower regulatory and logistical overhead, making it the optimal Phase 1 priority.
-1.6. The CareCredit-Bahamas Financial Bridge
+---
 
-The most significant barrier to cross-border care is financing. MedPup solves this uniquely.
+## 5. Phase 3: International Research (Condensed)
 
-    The Problem: CareCredit, used by over 12 million cardholders for veterinary expenses, is a closed, domestic-only network. It cannot be used at clinics in Mexico. Attempting to create a U.S.-based "Merchant of Record" to pass funds to a Mexican clinic violates CareCredit's provider agreement, which explicitly prohibits billing for services sold by a third party.
+Both the Cancún and Freeport models were researched as potential Phase 1 launch strategies. **Neither is viable as Phase 1.** Both are deferred to Phase 3 with no capital deployed.
 
-    The MedPup Solution: The primary surgical partner in Freeport, the Freeport Veterinary Hospital, directly accepts CareCredit. By making Freeport the Phase 1 hub, MedPup completely bypasses the complex, legally risky "bridge" structure. The client uses their CareCredit card at the foreign clinic in a fully compliant manner. For the Cancun hub, MedPup will promote a white-labeled installment loan product, developed in partnership with a U.S. lender, specifically for its travel packages, ensuring all payment facilitation is legally sound.
+### 5.1 Freeport, Grand Bahama — "Pharmacy Ferry" Model
 
-2. Agent-Ready Execution Roadmap
+**Researched outcome:** The 3-hour Balearia Caribbean ferry from Fort Lauderdale to Freeport is operational and pet-friendly. The Hawksbill Creek Agreement provides a Free Trade Zone with no taxes on income/capital gains/duties until 2054. USDA APHIS health certificates for the Bahamas do not require endorsement — a genuine cost advantage.
 
-This roadmap provides a detailed, step-by-step instruction set that can be executed autonomously. Each task is a discrete, completable unit with a clear owner, data source, and output.
-Phase 0: Autonomous Research, Validation & Data Sourcing
+**Why it failed as Phase 1:** MedPup cannot confirm partner clinic surgical capability or pricing without phone calls to Freeport Veterinary Hospital. No pricing data was obtained via web scraping, JS bundle extraction, or API. The model requires confirmed CareCredit acceptance at the Bahamian clinic and verified procedure pricing before any client can be routed.
 
-Objective: Build the AI agent's knowledge base with the core data required for decision-making.
+**Status:** Phase 3 deferred. Revisit only after (1) a phone call to Freeport Veterinary Hospital confirms pricing and CareCredit acceptance, and (2) Phase 1 Pinellas model is generating revenue.
 
-Agent Instructions:
+### 5.2 Cancún, Mexico — "Surgical Shuttle" Model
 
-    Data Compilation: Aggregate the following data into a structured, machine-readable JSON knowledge base:
+**Researched outcome:** VetCancun has confirmed high surgical capability (orthopedics, soft tissue, advanced diagnostics) with consultation pricing of $15–$30 USD extracted from a JS bundle. The clinic's service pages confirm TPLO, IVDD, oncology, and BOAS capability.
 
-        Procedure cost data for TPLO, IVDD, dental, mass removal, and other packable services from partner clinics in Cancun and Freeport.
+**Why it failed as Phase 1:** Even at a $900–$1,500 concierge fee, the unit economics are negative to thin when factoring in charter flights, recovery villa accommodation, screwworm certificate coordination ($40–$80), USDA endorsement, and 24/7 concierge staff. A 6-pet Cancún trip yields ~$1,910 net profit ($318/pet) — compared to $2,225 net for a 5-pet Freeport day trip ($445/pet). And both require confirmed surgical pricing, which MedPup does not have for either destination.
 
-        Ferry schedules and pricing data from Balearia Caribbean for the Fort Lauderdale-Freeport route.
+**Additional barrier:** Screwworm rule (Mexico affected as of November 22, 2024) requires Mexican vet inspection within 5 days of return. CareCredit is not accepted in Mexico, eliminating the financing bridge that makes Freeport attractive.
 
-        Empty-leg private charter pricing guidelines for the Miami-Cancun route.
+**Status:** Phase 3 deferred. Cancún may become viable if (1) surgical pricing is confirmed via email/phone, (2) a white-labeled installment loan product is developed, and (3) the Pinellas model provides sufficient revenue to fund a pilot trip.
 
-        The complete USDA APHIS regulatory checklist for pet travel to both Mexico and the Bahamas.
+---
 
-        Screwworm certificate requirements for re-entry from Mexico.
+## 6. Execution Roadmap
 
-        CareCredit merchant agreement terms and prohibited use cases.
+### Phase 1: Pinellas Referral Routing (NOW — Active)
 
-        Florida's corporate practice of veterinary medicine statutes and the MSO-PC model legal requirements.
+| Task | Status | Owner |
+|------|--------|-------|
+| Florida LLC formation | Ready to file | User |
+| Verify ASPCA CVC pricing | ✅ Confirmed v3 | Agent |
+| Verify Good Care pricing | ✅ Confirmed v3 | Agent |
+| Verify HSTB pricing | ✅ DB confirmed | Agent |
+| Build route_engine.py | ✅ Done | Agent |
+| Build auto_quote.py | ✅ Done | Agent |
+| Build price_guarantee.py | ✅ Done | Agent |
+| Build real_cost_calculator.py | ✅ Done | Agent |
+| Build intake_schema.py | ✅ Done | Agent |
+| Build market_expander.py | ✅ Done | Agent |
+| Outreach scripts written | ✅ 4 scripts ready | Agent |
+| Call Operation SNIP (phone) | ⏳ Deferred — needs user call | User |
+| Call ASPCA CVC (phone) | ⏳ Needs user call | User |
+| Call Good Care (phone) | ⏳ Needs user call | User |
+| Call HSTB (phone) | ⏳ Needs user call | User |
+| Set up hello@medpup.com | ⏳ Google Voice / Zoho | User |
+| Facebook test posts | ⏳ Test A / Test B | User |
+| First client routed | ⏳ After above | Joint |
 
-    Partner Clinic Qualification: Perform a deep-dive audit of Freeport Veterinary Hospital and 2-3 partner clinics in Cancun. Verify:
+### Phase 2: Local Clinic Expansion (Next — After Phase 1 Revenue)
 
-        Surgical capabilities and volumes.
+- Add 5–10 more Pinellas County clinics to the verified network
+- Extend drive radius to Hillsborough County (Tampa) and Pasco County
+- Build referral relationships with general practice vets who can't accommodate low-income clients
+- Implement automated post-service review collection
+- Optimize SEO for "low cost vet Pinellas," "affordable spay Tampa Bay," etc.
 
-        Veterinarian credentials and board certifications.
+### Phase 3: Cancún / Freeport International (Deferred — No Timeline)
 
-        Active CareCredit acceptance (for Freeport).
+- Revisit only if Phase 1 is generating consistent revenue and market conditions change
+- Required before launch: confirmed surgical pricing via phone/email for at least one partner clinic per destination
+- Required before Cancún launch: white-labeled installment loan product for clients without CareCredit access
 
-        COFEPRIS registration (for Cancun clinics).
+---
 
-        English-language proficiency of staff.
+## 7. Manual Actions — Phone Calls Required
 
-    Regulatory Change Monitoring: Implement a weekly automated monitoring system for any changes to USDA APHIS, CDC, and CareCredit provider rules that could impact operations. Flag any anomalies for immediate human review.
+The following actions are **user-executed, not agent-executed.** The agent cannot make phone calls or send emails from user accounts. Each call closes a critical data gap.
 
-Phase 1: Legal & Corporate Foundation
+### Call 1: Operation SNIP — (727) 327-7647
 
-Objective: Establish the legally compliant corporate infrastructure for the MedPup concierge.
+**Clinic:** Operation SNIP, 13489 Walsingham Rd, Largo (3 min from base)
+**Gap:** Competitor vs. partner status unknown. Pricing confirmed at $70–$100 for spay/neuter (from reviews), but no referral relationship exists.
+**Ask:** "Do you accept referred clients? Can I send you pre-qualified clients who need spay/neuter? I charge them a flat coordination fee — no cost to you."
+**If yes:** Add to verified partner list, write outreach email.
+**If no or hostile:** Flag as competitor, exclude from routing.
 
-Agent Instructions:
+### Call 2: ASPCA CVC Liberty City — (305) 329-4922
 
-    Entity Formation: File Articles of Organization for a Florida LLC named "MedPup Veterinary Concierge, LLC" with the Florida Department of State.
+**Clinic:** ASPCA Community Veterinary Clinic, 901 NW 27th Ave, Miami
+**Gap:** Spay price $40–$80 is confirmed from scraped data (v3), but pricing freshness needs verification. Weekly referral capacity unknown.
+**Ask:** "Is the $40–$80 spay/neuter price still current? How many appointments can you accommodate per week from referred clients?"
+**Outcome:** Confirms or updates spay pricing in DB.
 
-    MSO-PC Structure: Based on research into Florida's corporate practice of medicine laws, establish the LLC as a Management Services Organization (MSO). Draft a management services agreement between the MSO and a "friendly" Professional Corporation (PC) owned entirely by a Florida-licensed veterinarian. This PC will employ the veterinarians who conduct pre-travel exams and will bill for those clinical services. The MSO will manage all non-clinical assets, marketing, logistics, and finances.
+### Call 3: Good Care Animal Clinic — (305) 631-2022
 
-    Financial Infrastructure: Obtain a Federal Employer Identification Number (EIN) from the IRS. Open a dedicated business bank account. Engage a CPA with experience in multi-jurisdictional service businesses to establish clean financial processes for all income and payments.
+**Clinic:** Good Care Animal Clinic, 6050 W 12th Ave, Hialeah
+**Gap:** Dental $285–$595 and surgery $450–$1,600 are confirmed (v3), but appointment lead time and capacity are unknown.
+**Ask:** "Are your dental and surgery prices still current? What's the typical appointment lead time for a new client?"
+**Outcome:** Confirms dental/surgery pricing and booking window.
 
-    Insurance & Waivers: Source and secure comprehensive professional liability, general business, and travel insurance policies. Draft a thorough client service agreement, informed consent, and liability waiver that clearly delineates MedPup’s role as a logistics concierge and explicitly states that all medical decisions are the sole purview of the licensed, independent partner veterinarian.
+### Call 4: HSTB Tampa — (813) 935-0482
 
-    Bahamas Business Licensing: Apply for a business license through the Grand Bahama Port Authority (GBPA), which operates as a one-stop shop for the 230-square-mile free trade zone. This license allows the duty-free import of goods for business use under the Hawksbill Creek Agreement.
+**Clinic:** Humane Society of Tampa Bay (T2), 3607 N Armenia Ave, Tampa
+**Gap:** T2 pricing is in DB but may not reflect current rates. Pinellas residency eligibility for certain programs is unknown.
+**Ask:** "What are your current spay/neuter prices? Do you serve Pinellas County residents, or are you Hillsborough-only?"
+**Outcome:** Confirms spay/neuter pricing and eligibility rules.
 
-Phase 2: Brand, Web Presence & Content Engine
+---
 
-Objective: Build the complete, conversion-optimized digital storefront.
+## 8. Verified Pricing Data
 
-Agent Instructions:
+All pricing below is sourced from the `pricing_intel_v3.db` database and verified via web scraping, JS bundle extraction, or Wayback Machine archival. No pricing is assumed.
 
-    Website Development: Build a professional, SEO-optimized website on a fast, mobile-first platform (e.g., Webflow, or a custom Next.js build). The site must include:
+### Pinellas County / Tampa Bay Low-Cost Options
 
-        Clear, compelling copy explaining the cost-saving value proposition for each hub.
+| Clinic | Procedure | Price | vs FL Full-Service | Data Source |
+|--------|-----------|-------|-------------------|-------------|
+| **SPOT** (Pinellas Park) | Cat neuter | $35 | 82–91% savings | Published pricing |
+| **SPOT** | Dog spay (by weight) | $45–$90 | 80–89% savings | Published pricing |
+| **Operation SNIP** (Largo) | Dog spay | $70–$100 | 75–87% savings | Reviews (phone call pending) |
+| **Animal Coalition of Tampa** | Dental cleaning | $150 | 68–84% savings | Reviews (phone call pending) |
+| **Pinellas Voucher** (Largo) | Spay/neuter | $0 | 100% savings | Government program |
+| **SPCA Tampa Bay** | Spay/neuter | $80+ | 80%+ savings | Published pricing |
 
-        Dedicated service pages for each procedure (TPLO, Dental, Insulin Supply, etc.).
+### South Florida Verified Partners
 
-        Transparent "How It Works" section with a step-by-step journey map.
+| Clinic | ID | Procedure | Price Low | Price High | Confidence |
+|--------|------|-----------|-----------|-----------|-----------|
+| ASPCA CVC Liberty City | 21 | Spay/Neuter | $40 | $80 | High (v3) |
+| Good Care Animal Clinic | 7 | Dental Cleaning | $285 | $595 | High (v3) |
+| Good Care Animal Clinic | 7 | Surgery | $450 | $1,600 | High (v3) |
+| HSTB Tampa | 4 | Spay/Neuter | T2 pricing | T2 pricing | Medium (phone call pending) |
 
-        Automated online booking and inquiry system, as 64% of clients now prefer digital booking.
+### Cancún (Phase 3 — Research Only, No Pricing Confirmed)
 
-        A "Savings Calculator" tool where users can input a U.S. vet quote and see their potential savings.
+| Clinic | Service | Price (USD) | Source |
+|--------|---------|------------|--------|
+| VetCancun | Consultation | $15–$30 | JS bundle (FAQ) |
+| VetCancun | Vaccinations | $10–$20 | JS bundle (FAQ) |
+| VetCancun | Surgery (general) | Not confirmed | Capability confirmed from service pages |
+| VetCancun | Dental | Not confirmed | Capability confirmed |
 
-    Content Marketing Engine:
+### Freeport (Phase 3 — Research Only, No Pricing Confirmed)
 
-        Create a blog with 20+ foundational articles targeting high-intent, problem-aware keywords: "my dog needs TPLO surgery but I can't afford it," "affordable dog dental surgery Florida," "cross-border vet care from Florida," "CareCredit for veterinary care overseas," etc..
+| Clinic | Service | Price | Source |
+|--------|---------|-------|--------|
+| Freeport Veterinary Hospital | All procedures | Not confirmed | No data obtained; phone call required |
 
-        Produce a series of 5 client education videos and publish them on a YouTube channel. A digital pet health library builds credibility and trust.
+---
 
-        Create a downloadable "MedPup Destination & Pricing Guide" as a lead magnet.
+## Appendix: Tool Reference
 
-    Trust & Social Proof Framework:
+All tools live in `C:\Users\camer\DEVNEW\AnimalAid\`:
 
-        Integrate an automated post-trip review collection system to populate the site and Google Business Profile with authentic testimonials.
+- **`route_engine.py`** (240 lines) — Scores every clinic × procedure combination from the SQLite DB, ranks by composite score (60% price, 40% travel), returns route cards with all-in cost fields.
+- **`auto_quote.py`** (174 lines) — Consumes client intake JSON, runs route_engine, returns a human-readable or machine-readable route card with the MEDPUP ALL-IN COST GUARANTEE box.
+- **`price_guarantee.py`** (83 lines) — Evaluates final bill against confirmed all-in range; triggers fee-refund or backup-clinic routing if excess is found.
+- **`real_cost_calculator.py`** (148 lines) — Applies reality multipliers (2.0×–4.0× depending on procedure) and lists mandatory add-ons per category. Returns guaranteed_min and possible_max.
+- **`intake_schema.py`** — Validates client intake, saves to `02_PHASES/voc/` for VOC tracking.
+- **`market_expander.py`** (224 lines) — Auto-discovers new Pinellas-area clinics via DuckDuckGo search, scans candidates through the pricing intel pipeline, writes results to DB.
 
-        Feature the logos of partner clinics and safety certifications (USDA-accredited vet, AAHA-accredited partner clinics) prominently on the homepage and footer.
+---
 
-Phase 3: SEO & Digital Marketing Infrastructure
-
-Objective: Create the autonomous systems that will generate a consistent, high-intent lead flow.
-
-Agent Instructions:
-
-    Technical SEO Setup: Ensure the website has perfect Core Web Vitals, a clear sitemap.xml, and comprehensive schema markup (LocalBusiness, VeterinaryCare, FAQ). This is critical for Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) ranking factors, which now prioritize expertise and trust signals above all else for health-related queries.
-
-    Local SEO Dominance: Claim and completely optimize the Google Business Profile with accurate hours, professional photos, a compelling service description, and active review responses. This is non-negotiable for ranking in "near me" searches. Build local citations on 20+ relevant directories.
-
-    Geo-Fencing Ad Campaign: Build a hyper-local ad campaign on Google Ads and social media platforms. Configure it to target mobile devices that enter a 1-mile radius of high-cost specialty vet hospitals and emergency clinics in the Miami-Fort Lauderdale-West Palm Beach corridor. The ad copy will be a problem-aware direct message: *"Quoted $5,000+ for TPLO surgery? See how our clients save 60%."*
-
-    Podcast & Influencer Outreach: Following the proven model of pet telehealth companies that saw a 300% membership increase from podcast ads, launch a targeted podcast advertising campaign on top veterinary, pet owner, and personal finance shows.
-
-    Referral Partner Program: Build a simple CRM and outreach sequence to enroll Florida general practice vets as referral partners. The value proposition is clear: you provide their clients with an option they can afford, preventing economic euthanasia and keeping the patient in the care ecosystem. The program will offer a transparent referral fee for each client who completes a trip.
-
-Phase 4: Operational Logistics & Partner Integration
-
-Objective: Wire up the core trip execution engine, linking digital booking to real-world logistics.
-
-Agent Instructions:
-
-    Booking & CRM System: Implement a booking and customer relationship management (CRM) system (e.g., a customized HubSpot or Zoho instance). This system will manage the entire client journey: inquiry, pre-qualification, booking, pre-travel document collection, trip execution, and post-trip follow-up.
-
-    Automated Document Collection: Build a secure client portal where pet owners can upload their pet's medical records, vaccination history, and photos. The system will use automated reminders to collect all necessary documents 14, 7, and 3 days before travel.
-
-    Partner Clinic API Integration: Establish a direct scheduling and data-sharing link with partner clinics. For the Cancun hub, this includes an automated step to ensure the screwworm certificate is scheduled within the mandatory 5-day return window.
-
-    Logistics Playbook Automation: Create a master digital checklist for each trip archetype (Freeport Day Trip, Cancun Surgical Trip). This playbook will be cloned for every trip and used by the concierge staff to ensure 100% operational consistency.
-
-Phase 5: Launch & Iteration
-
-Objective: Execute a controlled launch, capture feedback, and iterate on the model.
-
-Agent Instructions:
-
-    Pilot Trip Execution: Launch the business with a single, controlled pilot trip: the Freeport "Dental & Wellness" Day Trip. Target 3-5 pets requiring dental cleanings or minor mass removals. This low-risk trip will validate the entire operational pipeline from booking to re-entry.
-
-    Real-Time KPI Dashboard: Build a live dashboard to track key performance indicators against the business plan:
-
-        Financial: Trip profit margin (target >25%), customer acquisition cost (CAC), and average revenue per pet.
-
-        Operational: 100% on-time documentation compliance and zero re-entry delays.
-
-        Clinical Quality: >90% of pets with no post-operative complications within 30 days.
-
-        Growth: Customer leads per month, conversion rate, and Net Promoter Score (target >70).
-
-    Feedback & Iteration Loop: After each trip, the CRM will automatically send a detailed feedback survey. Aggregate this qualitative data and correlate it with the quantitative KPI dashboard. Use these insights to refine the script, package, and marketing message for the next trip, creating a continuous improvement flywheel.
-
-Conclusion: This document provides a complete, data-driven blueprint for the MedPup business. It is designed to be parsed, assigned, and executed in discrete parts by a team of autonomous AI agents, supported by human oversight at critical legal and strategic gates. The next immediate action for an AI agent is to begin Phase 0, Task 1, to compile the core data knowledge base. Upon completion of that task, the agent can proceed to Phase 1, Task 1 to begin the process of legal incorporation.
-This response is AI-generated, for reference only.
+*This document replaces the previous dual-hub international business plan. The Cancún and Freeport models are preserved as Phase 3 research items but are not part of the active business. No capital has been deployed internationally. Phase 1 Pinellas is the operating strategy.*

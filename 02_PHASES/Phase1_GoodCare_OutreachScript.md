@@ -1,4 +1,4 @@
-# Good Care Animal Clinic — Outreach Script (updated framing)
+# Good Care Animal Clinic — Outreach Script (All-In Cost Guarantee framing)
 
 **URL:** https://www.goodcareanimalclinic.com  
 **Contact:** goodcareanimalclinic.com/contact page  
@@ -20,7 +20,9 @@ Those are real and good prices. But the client's final bill reflects:
 Client expects $450 spay. Leaves paying $800–$1,400.
 Client expects $285 dental. Leaves paying $600–$1,000.
 
-MedPup sends clients who've already accepted the all-in number before they drive.
+**MedPup sends clients who've already accepted the all-in number before they drive — and if final bill exceeds our confirmed range, MedPup covers the excess or routes the client to a backup clinic at no cost.**
+
+This is the guarantee that separates MedPup from any Google search or clinic website. Good Care can't offer that alone. Together, we can.
 
 ---
 

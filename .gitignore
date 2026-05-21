@@ -53,3 +53,9 @@ __pycache__/
 
 # Archive inner .git (historical project had its own repo)
 04_ARCHIVE/**/.git/
+
+# External project artifacts
+camofox-browser/
+
+# Hugo auto-generated stats
+website/hugo_stats.json

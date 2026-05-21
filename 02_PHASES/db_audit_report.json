@@ -1,0 +1,182 @@
+[
+  {
+    "clinic_id": 3,
+    "name": "Low Cost Vet Phoenix | Spay & Neuter Clinics Phoenix",
+    "phone": "(602) 354-3111",
+    "drive_minutes": 0,
+    "procedures": "Spay/Neuter,extracted_from_archive",
+    "row_count": 4,
+    "avg_confidence_score": 0.6,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 4,
+    "name": "Humane Society of Tampa Bay | HSTB | Tampa Bay",
+    "phone": "(813) 935-0482",
+    "drive_minutes": 28,
+    "procedures": "Microchip",
+    "row_count": 1,
+    "avg_confidence_score": 0.6,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 13,
+    "name": "Home - Justin Bartlett Animal Rescue",
+    "phone": "(XXX) XXX-XXXX",
+    "drive_minutes": 45,
+    "procedures": "extracted_from_archive,extracted_from_html",
+    "row_count": 3,
+    "avg_confidence_score": 0.6,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 7,
+    "name": "Good Care Animal Clinic | Affordable Pet Care",
+    "phone": "(305) 631-2022",
+    "drive_minutes": 55,
+    "procedures": "Cherry Eye Repair,Dental Cleaning,Entropion Repair,Neuter,Pyometra Surgery,Spay,Surgery,extracted_from_archive,extracted_from_html",
+    "row_count": 50,
+    "avg_confidence_score": 0.585,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 1,
+    "name": "Veterinario en Canc\u00fan | Cl\u00ednica Veterinaria 24 Horas | VetCancun",
+    "phone": "(998) XXX-XXXX",
+    "drive_minutes": 0,
+    "procedures": "Consultation,Dental Cleaning,Deworming,Exam,Health Certificate,Microchip,Neuter,Spay,Vaccination",
+    "row_count": 31,
+    "avg_confidence_score": 0.555,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 11,
+    "name": "Online Vet Visits 24/7: Dog & Cat Prescriptions in Most States | Dutch",
+    "phone": "(899) 999-9999,(012) 345-6789",
+    "drive_minutes": 60,
+    "procedures": "extracted_from_html",
+    "row_count": 10,
+    "avg_confidence_score": 0.525,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 21,
+    "name": "Community Veterinary Clinic in Liberty City | ASPCA Community Medicine",
+    "phone": "(305) 329-4922",
+    "drive_minutes": 55,
+    "procedures": "Spay/Neuter,Vaccination,extracted_from_archive,extracted_from_html",
+    "row_count": 6,
+    "avg_confidence_score": 0.525,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 14,
+    "name": "Paws 2 Help | West Palm Beach, FL 33406",
+    "phone": "(561) 123-4567",
+    "drive_minutes": 35,
+    "procedures": "Vaccination,extracted_from_archive",
+    "row_count": 2,
+    "avg_confidence_score": 0.5,
+    "status": "\u2713 CONFIRMED"
+  },
+  {
+    "clinic_id": 2,
+    "name": "Visit Us | Affordable Pet Care In Pinellas County | Largo, FL",
+    "phone": "(727) 800-0027",
+    "drive_minutes": 12,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 6,
+    "name": "SPCA of Texas | The leading animal welfare agency in North Texas",
+    "phone": "(214) 748-3647",
+    "drive_minutes": 60,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 12,
+    "name": "BlueSky At-Home Veterinary Care",
+    "phone": "(779) 302-7000",
+    "drive_minutes": 60,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 15,
+    "name": "Home | Veterinarian in Oakland Park, FL | Heroes Veterinary Hospital",
+    "phone": "(XXX) XXX-XXXX",
+    "drive_minutes": 55,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 16,
+    "name": "Banfield Pet Hospital\u00ae - Quality Veterinary Care & Pet Wellness",
+    "phone": "(343) 291-8353,(429) 496-7295,(224) 682-2507",
+    "drive_minutes": 0,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 17,
+    "name": "VCA Animal Hospitals: World-Class Veterinary Care",
+    "phone": "(942) 269-4340,(882) 044-7854,(706) 749-9243",
+    "drive_minutes": 0,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 18,
+    "name": "Friends of Animals | Animal Rights & Veganism",
+    "phone": "",
+    "drive_minutes": 60,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 19,
+    "name": "MexiVet Express",
+    "phone": "(117) 804-6562,(542) 472-8218,(681) 953-2617",
+    "drive_minutes": 60,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 22,
+    "name": "remedyfl.com",
+    "phone": "",
+    "drive_minutes": 45,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  },
+  {
+    "clinic_id": 23,
+    "name": "Thomasville Humane",
+    "phone": "(229) 226-XXXX",
+    "drive_minutes": 270,
+    "procedures": "",
+    "row_count": 0,
+    "avg_confidence_score": 0,
+    "status": "\u2717 BLOCKED"
+  }
+]

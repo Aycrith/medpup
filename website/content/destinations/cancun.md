@@ -1,9 +1,9 @@
 ---
 title: "Cancun — Phase 3 Option"
 description: "Archived Phase 3 destination page — Cancún was researched but downgraded due to negative-to-thin margins at the proposed concierge fee. South Florida domestic clinics are the active Phase 1 model. "
-_build:
-  render: "false"
-  list: "future"
+build:
+  render: never
+  list: never
   publishResources: false
 ---
 

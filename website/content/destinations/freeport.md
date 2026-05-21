@@ -1,9 +1,9 @@
 ---
 title: "Freeport — Phase 3 Option"
 description: "Archived Phase 3 destination page — Freeport was researched in Phase 0 but is not part of the current Phase 1 launch plan. Phase 1 is South Florida clinics reachable by car."
-_build:
-  render: "false"
-  list: "future"
+build:
+  render: never
+  list: never
   publishResources: false
 ---
 
