@@ -1,6 +1,15 @@
-# MedPup — Pet Medical Concierge
+# MedPup Veterinary Concierge
 
-A Florida-based veterinary concierge service that connects pet owners with affordable, high-quality surgical care at pre-vetted international clinics. **MedPup is a logistics concierge, not a veterinary practice.** We organize small-group trips to accredited partner clinics in Freeport, Grand Bahama and Cancun, Mexico — saving pet owners 50–80% on the same procedures quoted in the U.S.
+**Phase 1 — Pinellas County, Florida (Domestic)**
+
+MedPup is a veterinary logistics coordination service — not a veterinary practice. We connect Pinellas County pet owners with the lowest-cost licensed clinic within driving distance, confirm the **all-in cost before they book**, and if the final bill exceeds the confirmed range we cover the excess or route to a backup clinic at no cost.
+
+**Current Phase 1 model:**
+- ASPCA Community Veterinary Clinic (Liberty City / Miami) — $40–$80 for spay/neuter
+- Good Care Animal Clinic (Hialeah) — $285–$595 for dental, surgery from $650
+- Harmony Vet Care (Oldsmar, Brandon, Tampa) — spay/neuter $85–$180, dental from $300+
+- Flat coordination fee: $25–$100 per client (not a markup; paid separately)
+- Savings vs. U.S. average: **80–95%** for spay/neuter; **60–85%** for dental/surgery
 
 ---
 
@@ -40,21 +49,21 @@ medpup/
     └── images/                      # Brand previews & mockup screenshots
 ```
 
-## The Dual-Hub Model
+## Phase 1 Pipeline (Active)
 
-### Freeport, Grand Bahama — "The Pharmacy Ferry"
-- **Travel:** 3-hour passenger ferry from Fort Lauderdale (Balearia Caribbean)
-- **Use case:** Chronic medication runs, dental, mass removals, Tier 2 orthopedics
-- **Savings:** 50–80% vs. U.S. prices
-- **Key advantage:** CareCredit accepted directly at partner clinic. No USDA endorsement or screwworm certificate required.
-- **Concierge fee:** $900/pet | **Trip margin:** 49%
+**Goal:** First paying client booked within 7 days. Tools already built, tested, and verified.
 
-### Cancun, Mexico — "The Surgical Shuttle"
-- **Travel:** 1.5-hour group charter flight from Miami
-- **Use case:** Complex orthopedics (TPLO, IVDD), oncology, BOAS, advanced diagnostics
-- **Savings:** 60–80% vs. U.S. prices
-- **Key advantage:** Board-certified surgeons, advanced imaging, proven cross-border volume (36,670+ dogs crossed in 2025)
-- **Concierge fee:** $1,500/pet | **Trip margin:** 21%
+```
+Client inquiry → intake_schema.py → auto_quote.py → route card → client confirms → BOOK IT → price_guarantee.py → appointment
+```
+
+**Pricing engine:** 185 verified price records across 24 clinics. TTL-based freshness monitor runs daily.
+
+**Market data:** Verified 2026 prices from ASPCA CVC, Good Care Animal Clinic, Harmony Vet Care (3 locations), SPOT Spay/Neuter Clinic, and 19+ additional clinics in `pricing_intel_v3.db`.
+
+**Website:** Hugo static site (Stack theme), 225 pages. Build: `cd website && hugo --minify`.
+
+**Tech stack:** Zero-cost only — Hugo, GitHub Pages, Python. Full inventory at `01_BUSINESS/AgentBusinessSkills.md`.
 
 ## Market Context
 
