@@ -51,6 +51,13 @@ def scenario_from_procedure(proc):
         "tumor": "surgery",
         "surgery": "surgery",
         "pyometra": "surgery",
+        "tplo": "surgery",
+        "ivdd": "surgery",
+        "plo": "surgery",
+        "oncology": "surgery",
+        "boas": "surgery",
+        "entropion": "surgery",
+        "cherry": "surgery",
     }
     for k, v in mapping.items():
         if k in p:
@@ -69,6 +76,8 @@ def build_route_card(intake):
                        "This clinic needs a phone verification call.",
             "intake": intake,
             "route_card": [],
+            "us_reference": 0,
+            "call_to_action": "Reply 'CALL NEEDED' and we'll verify pricing directly with the clinic.",
         }
 
     # Top 3 routes
@@ -121,12 +130,24 @@ def build_route_card(intake):
     }
 
 def format_human(card):
+    if card.get("status") == "no_results":
+        return (
+            "\n╔══════════════════════════════════════════════════════╗\n"
+            "║          NO RESULTS — MANUAL REVIEW NEEDED          ║\n"
+            "╚══════════════════════════════════════════════════════╝\n\n"
+            f"  Procedure : {card['intake']['procedure']}\n"
+            f"  Zip       : {card['intake'].get('zip_code', 'Pinellas County')}\n\n"
+            f"  {card['message']}\n\n"
+            "  This procedure needs a phone verification call to the\n"
+            "  partner clinic. Pricing is not yet in the database."
+        )
+
     lines = [
         f"\n╔══════════════════════════════════════════════════════════════╗",
         f"║              AUTOMATIC ROUTE CARD — MEDPUP                  ║",
         f"╚══════════════════════════════════════════════════════════════╝",
         f"\n  Procedure : {card['intake']['procedure']}",
-        f"  Location  : {card['intake'].get('zip','Pinellas County')}",
+        f"  Location  : {card['intake'].get('zip_code','Pinellas County')}",
         f"  U.S. quote : ${card['us_reference']:.0f} (your reference)\n",
     ]
     for opt in card["route_card"]:
