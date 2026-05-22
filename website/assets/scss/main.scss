@@ -2058,3 +2058,152 @@ body::after {
         display: none;
     }
 }
+
+/* ---------- SCROLL-DRIVEN TRANSITIONS (Phase3B) ---------- */
+
+/* Section active state - crossfade transition */
+[data-section] {
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.8s ease;
+}
+[data-section].active {
+    /* Slightly brighter when active */
+    opacity: 1;
+}
+
+/* Sweep element transition */
+#section-sweep {
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(91,192,235,0.05) 50%, transparent 100%);
+    transition: opacity 0.3s ease;
+}
+
+/* ---------- ELEMENT ANIMATION CLASSES ---------- */
+
+/* Base animation setup */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-animate].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-up animation (default) */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade-up.animated,
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+.fade-in.animated,
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Slide-in-left animation */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-left.animated,
+.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide-in-right animation */
+.slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-right.animated,
+.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger container - children animate sequentially */
+[data-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-stagger] > *.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- SECTION-SPECIFIC ANIMATIONS ---------- */
+
+/* Steps section - cards slide up with stagger */
+.section-steps [data-stagger] > *:nth-child(1) { transition-delay: 0ms; }
+.section-steps [data-stagger] > *:nth-child(2) { transition-delay: 150ms; }
+.section-steps [data-stagger] > *:nth-child(3) { transition-delay: 300ms; }
+
+/* Clinics section - cards slide in alternating */
+.section-clinics [data-stagger] > *:nth-child(odd) {
+    transform: translateX(-20px);
+}
+.section-clinics [data-stagger] > *:nth-child(even) {
+    transform: translateX(20px);
+}
+.section-clinics [data-stagger] > *.animated {
+    transform: translateX(0);
+}
+
+/* Trust section - cards with 3D tilt reveal */
+.section-trust [data-stagger] > * {
+    transform: perspective(800px) rotateX(10deg) translateY(20px);
+}
+.section-trust [data-stagger] > *.animated {
+    transform: perspective(800px) rotateX(0) translateY(0);
+}
+
+/* Calculator section - results sequential reveal */
+.section-calculator .result-item:nth-child(1) { transition-delay: 0ms; }
+.section-calculator .result-item:nth-child(2) { transition-delay: 200ms; }
+.section-calculator .result-item:nth-child(3) { transition-delay: 400ms; }
+.section-calculator .result-item:nth-child(4) { transition-delay: 600ms; }
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    [data-animate],
+    .fade-up,
+    .fade-in,
+    .slide-left,
+    .slide-right {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
