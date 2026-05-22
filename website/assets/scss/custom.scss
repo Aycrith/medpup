@@ -498,6 +498,54 @@ hr {
     margin: 2rem 0;
 }
 
+/* ===== 20. ACCESSIBILITY: SKIP-TO-CONTENT & FOCUS ===== */
+
+.skip-to-content-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: var(--medpup-accent);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 0 0 6px 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: top 0.15s ease;
+}
+.skip-to-content-link:focus {
+    top: 0;
+}
+
+/* Global focus-visible for keyboard users */
+:focus-visible {
+    outline: 3px solid var(--medpup-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Remove outlines for mouse clicks only */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Broad keyboard target coverage */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--medpup-accent);
+    outline-offset: 2px;
+}
+
+/* Dark mode focus */
+[data-scheme="dark"] :focus-visible {
+    outline-color: var(--medpup-gold, #8B6914);
+}
+
 /* ===== 16. RESPONSIVE ADJUSTMENTS ===== */
 
 @media (max-width: 768px) {
