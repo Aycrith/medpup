@@ -9,11 +9,14 @@
 
 A "$40 spay" becomes $280 after blood work, meds, and "incidentals discovered during surgery."
 A "$285 dental" becomes $900 to $1,500 after extractions found mid-procedure — and anesthesia monitoring always extra.
+
 MedPup confirms the **all-in** cost **before** you book. No surprises. Guaranteed.
 
 </div>
 
 <p class="hero-guarantee">MedPup All-In Cost Guarantee: Final bill confirmed before you book — if it exceeds our range, we cover the excess or find you a backup clinic at no extra cost.</p>
+
+<a href="/contact/" class="hero-cta">Get Your All-In Quote →</a>
 
 </div>
 
@@ -23,10 +26,12 @@ MedPup is a Pinellas County-based veterinary coordination service. We find the l
 
 ### How It Works
 
-1. **Tell us your pet's procedure** — Fill out the intake form with your diagnosis and current vet's estimate.
-2. **We build a realistic cost picture** — Not the marketing price, but the confirmed out-the-door including blood work, meds, anesthesia, and follow-up. You get two numbers: what they publish, and what you actually pay.
-3. **You book with certainty** — Confirm the reserve slot and the exact number. No surprise bills. If something changes at appointment, MedPup handles it.
-4. **MedPup coordination fee is on top** — Flat fee **$25–$50 for spay/neuter**, **$50–$100 for dental/surgery**. You pay the clinic directly. We invoice separately.
+<ol class="steps-list">
+<li>**Tell us your pet's procedure** — Fill out the intake form with your diagnosis and current vet's estimate.</li>
+<li>**We build a realistic cost picture** — Not the marketing price, but the confirmed out-the-door including blood work, meds, anesthesia, and follow-up. You get two numbers: what they publish, and what you actually pay.</li>
+<li>**You book with certainty** — Confirm the reserve slot and the exact number. No surprise bills. If something changes at appointment, MedPup handles it.</li>
+<li>**MedPup coordination fee is on top** — Flat fee **$25–$50 for spay/neuter**, **$50–$100 for dental/surgery**. You pay the clinic directly. We invoice separately.</li>
+</ol>
 
 <div class="cta-center">
 <a href="/contact/" class="button">Get Your All-In Quote →</a>
@@ -239,31 +244,30 @@ else init();
 .cost-calculator {
     background: var(--card-background);
     border: 1px solid var(--card-separator-color);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin: 1.5rem 0;
-    box-shadow: var(--shadow-l1);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
-.calculator-header h3 { margin: 0 0 0.25rem; font-size: 1.4rem; }
-.calculator-subtitle { margin: 0 0 1rem; color: var(--card-text-color-secondary); font-size: 0.9rem; }
+.calculator-header h3 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+.calculator-subtitle { margin: 0 0 1.25rem; color: var(--card-text-color-secondary); font-size: 0.92rem; }
 .calc-row { margin-bottom: 1.25rem; }
 .calc-row label { font-weight: 600; display: block; margin-bottom: 0.35rem; }
-.calc-select { width: 100%; padding: 10px 14px; border: 1px solid var(--card-separator-color); border-radius: 6px; font-size: 0.95rem; background: var(--card-background); color: var(--card-text-color-main); }
+.calc-select { width: 100%; padding: 12px 16px; border: 1px solid var(--card-separator-color); border-radius: 8px; font-size: 0.95rem; background: var(--card-background); color: var(--card-text-color-main); cursor: pointer; }
 .calc-results { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; justify-content: center; margin: 1.25rem 0; }
-.calc-card { background: var(--body-background); border-radius: 8px; padding: 0.75rem 1rem; text-align: center; min-width: 100px; flex: 1; }
+.calc-card { background: var(--body-background); border-radius: 10px; padding: 0.85rem 1.15rem; text-align: center; min-width: 110px; flex: 1; }
 .calc-card-us { border-left: 3px solid var(--medpup-gold); }
 .calc-card-medpup { border-left: 3px solid var(--medpup-accent); }
 .calc-card-fee { border-left: 3px solid var(--medpup-primary); }
 .calc-card-total { border-left: 3px solid #166B3A; }
-.calc-label { display: block; font-size: 0.78rem; color: var(--card-text-color-secondary); margin-bottom: 0.25rem; }
-.calc-value { display: block; font-size: 1.15rem; font-weight: 700; color: var(--card-text-color-main); }
-.calc-arrow, .calc-plus, .calc-equals { font-size: 1.3rem; color: var(--card-text-color-secondary); flex-shrink: 0; }
+.calc-label { display: block; font-size: 0.75rem; color: var(--card-text-color-secondary); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.calc-value { display: block; font-size: 1.2rem; font-weight: 700; color: var(--card-text-color-main); }
+.calc-arrow, .calc-plus, .calc-equals { font-size: 1.4rem; color: var(--card-text-color-secondary); flex-shrink: 0; }
 .calc-savings { text-align: center; margin: 1rem 0; }
-.savings-badge { display: inline-block; background: rgba(0,102,102,0.1); color: var(--medpup-accent); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; }
-.calc-clinic-name { display: block; font-size: 0.85rem; color: var(--card-text-color-secondary); margin-top: 0.35rem; }
-.calc-cta { text-align: center; margin-top: 1rem; }
-[data-scheme="dark"] .savings-badge { background: rgba(0,128,128,0.15); color: var(--medpup-accent-light); }
-
-.clinic-map-wrapper { margin: 1.5rem 0; }
-.clinic-map { height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid var(--card-separator-color); }
+.savings-badge { display: inline-block; background: linear-gradient(135deg, rgba(0,102,102,0.1), rgba(0,102,102,0.05)); color: var(--medpup-accent); font-weight: 700; padding: 5px 16px; border-radius: 20px; font-size: 0.88rem; }
+.calc-clinic-name { display: block; font-size: 0.82rem; color: var(--card-text-color-secondary); margin-top: 0.35rem; }
+.calc-cta { text-align: center; margin-top: 1.25rem; }
+[data-scheme="dark"] .savings-badge { background: linear-gradient(135deg, rgba(0,128,128,0.15), rgba(0,128,128,0.08)); color: var(--medpup-accent-light); }
+.clinic-map-wrapper { margin: 2rem 0; }
+.clinic-map { height: 380px; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-separator-color); }
 </style>

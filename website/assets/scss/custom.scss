@@ -1,5 +1,6 @@
 /* ===========================================
    MedPup Brand Custom Styles
+   Premium Marketing Site Aesthetic
    AAA Accessible Design System
    Last updated: May 22, 2026
    =========================================== */
@@ -7,131 +8,293 @@
 /* ===== Imports theme variables ===== */
 @import "variables.scss";
 
-/* ===== 1. LAYOUT & CONTAINER ===== */
+/* ===== LAYOUT & GLOBAL ===== */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 
 .main-container {
     padding-top: 0;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1120px;
 }
 
-/* ===== 2. TOP NAVIGATION ===== */
-
-.navbar {
-    background-color: var(--medpup-primary) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    padding: 0.5rem 0;
+/* Section spacing with subtle visual breaks */
+section, .section-block {
+    margin: 4rem 0;
 }
 
-.navbar .site-name {
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 0.05em;
-    color: var(--medpup-white) !important;
-}
-
-.navbar a,
-.navbar .menu,
-.navbar .menu .menu-item a {
-    color: var(--medpup-white) !important;
-    font-weight: 500;
-}
-
-.navbar .menu .menu-item a:hover {
-    color: #B8D4E0 !important;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-}
-
-/* Active nav item */
-.navbar .menu .menu-item.current a {
-    border-bottom: 2px solid var(--medpup-accent-light);
-}
-
-/* ===== 3. SIDEBAR ===== */
+/* ===== 2. SIDEBAR NAVIGATION ===== */
 
 .sidebar {
     background-color: var(--card-background);
+    border-right: 1px solid var(--card-separator-color);
+    padding-top: 1rem;
+}
+
+.sidebar .site-meta {
+    padding: 0 1.25rem 1.25rem;
+    border-bottom: 1px solid var(--card-separator-color);
+}
+
+.sidebar .site-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.sidebar .site-name a {
+    background: linear-gradient(135deg, var(--medpup-accent-light), var(--medpup-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .sidebar .site-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
     color: var(--card-text-color-secondary);
+    margin-top: 0.25rem;
 }
 
-/* ===== 4. HERO SECTION ===== */
+/* Nav menu items */
+.sidebar .menu {
+    padding: 0.75rem 0;
+}
+
+.sidebar .menu li {
+    list-style: none;
+}
+
+.sidebar .menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--card-text-color-secondary);
+    text-decoration: none;
+    border-radius: 0;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.sidebar .menu li a:hover {
+    color: var(--card-text-color-main);
+    background-color: rgba(0, 102, 102, 0.06);
+    border-left-color: var(--medpup-accent-light);
+}
+
+.sidebar .menu li.current a {
+    color: var(--medpup-accent);
+    font-weight: 600;
+    background-color: rgba(0, 102, 102, 0.08);
+    border-left-color: var(--medpup-accent);
+}
+
+[data-scheme="dark"] .sidebar .menu li a:hover {
+    background-color: rgba(0, 128, 128, 0.08);
+}
+
+[data-scheme="dark"] .sidebar .menu li.current a {
+    background-color: rgba(0, 128, 128, 0.12);
+    color: var(--medpup-accent-light);
+}
+
+/* Sidebar social icons */
+.sidebar .menu-social {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+    border-top: 1px solid var(--card-separator-color);
+    margin: 0;
+}
+
+/* Dark mode toggle - refined */
+#dark-mode-toggle {
+    font-size: 0.8rem;
+    color: var(--card-text-color-tertiary);
+}
+
+#dark-mode-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+[data-scheme="dark"] #dark-mode-toggle {
+    color: var(--medpup-accent-light);
+    font-weight: 500;
+}
+
+/* ===== 3. HERO SECTION — PREMIUM ===== */
 
 .hero-section {
-    background: linear-gradient(135deg, var(--medpup-primary) 0%, var(--medpup-primary-light) 100%);
+    background: linear-gradient(135deg, var(--medpup-primary) 0%, var(--medpup-primary-dark) 50%, #0F1D35 100%);
     color: var(--medpup-white);
-    padding: 3rem 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
+    padding: 4rem 2.5rem;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+/* Decorative gradient orbs */
 .hero-section::before {
     content: '';
     position: absolute;
     top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0, 128, 128, 0.15) 0%, transparent 70%);
+    right: -30%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -20%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(139, 105, 20, 0.06) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .hero-section h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: 800;
     color: var(--medpup-white);
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
     position: relative;
     z-index: 1;
+    letter-spacing: -0.03em;
 }
 
-.hero-section .hero-subtitle {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.92);
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
+.hero-section h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
     position: relative;
     z-index: 1;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-section .hero-cta {
     display: inline-block;
-    background-color: var(--medpup-accent);
+    background: linear-gradient(135deg, var(--medpup-accent), var(--medpup-accent-dark));
     color: var(--medpup-white) !important;
-    padding: 14px 36px;
-    border-radius: 8px;
+    padding: 16px 40px;
+    border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: all 0.25s ease;
     position: relative;
     z-index: 1;
+    box-shadow: 0 4px 14px rgba(0, 102, 102, 0.35);
 }
 
 .hero-section .hero-cta:hover {
-    background-color: var(--medpup-accent-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 102, 0.5);
+}
+
+.hero-section .hero-cta:active {
+    transform: translateY(0);
 }
 
 .hero-section .hero-guarantee {
     display: inline-block;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.75);
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
     position: relative;
     z-index: 1;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* Savings box within hero */
+.hero-section .savings-box {
+    background: rgba(0, 102, 102, 0.15);
+    border: 1px solid rgba(0, 128, 128, 0.2);
+    border-left: 4px solid var(--medpup-accent-light);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+}
+
+.hero-section .savings-box p {
+    margin: 0.4rem 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-section .savings-box strong {
+    color: var(--medpup-white);
+}
+
+/* ===== 4. TYPOGRAPHY ===== */
+
+.page-content,
+.main {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--card-text-color-main);
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    letter-spacing: -0.01em;
+    color: var(--card-text-color-main);
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+}
+
+/* Section headings with accent underline */
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--medpup-accent);
+    display: inline-block;
+}
+
+/* Intro paragraph styling */
+.intro-text {
+    font-size: 1.12rem;
+    line-height: 1.8;
+    color: var(--card-text-color-secondary);
+    margin-bottom: 1.5rem;
 }
 
 /* ===== 5. BUTTONS & CTAs ===== */
@@ -143,18 +306,21 @@ button[type=submit],
 .cta-button,
 a.button,
 a.button-primary {
-    display: inline-block;
-    background-color: var(--medpup-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--medpup-accent), var(--medpup-accent-dark));
     color: var(--medpup-white) !important;
-    padding: 12px 28px;
-    border: 2px solid var(--medpup-accent);
-    border-radius: 8px;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+    transition: all 0.25s ease;
     line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0, 102, 102, 0.25);
 }
 
 .button:hover,
@@ -164,38 +330,45 @@ button[type=submit]:hover,
 .cta-button:hover,
 a.button:hover,
 a.button-primary:hover {
-    background-color: var(--medpup-accent-dark);
-    border-color: var(--medpup-accent-dark);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--medpup-accent-dark), var(--medpup-accent));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 102, 102, 0.4);
 }
 
 .button:active,
 .button-primary:active {
     transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 102, 102, 0.3);
 }
 
-/* Secondary button (outline style) */
+/* Secondary button */
 .button-secondary {
-    background-color: transparent;
+    background: transparent;
     color: var(--medpup-accent) !important;
     border: 2px solid var(--medpup-accent);
+    box-shadow: none;
 }
 
 .button-secondary:hover {
-    background-color: var(--medpup-accent);
+    background: var(--medpup-accent);
     color: var(--medpup-white) !important;
     border-color: var(--medpup-accent);
+    box-shadow: 0 2px 8px rgba(0, 102, 102, 0.25);
 }
 
-/* Button on dark backgrounds */
 [data-scheme="dark"] .button-secondary {
     color: var(--medpup-accent-light) !important;
     border-color: var(--medpup-accent-light);
 }
 
 [data-scheme="dark"] .button-secondary:hover {
-    background-color: var(--medpup-accent-light);
+    background: var(--medpup-accent-light);
     color: var(--medpup-white) !important;
+}
+
+.cta-center {
+    text-align: center;
+    margin: 2.5rem 0;
 }
 
 /* ===== 6. LINKS ===== */
@@ -220,24 +393,33 @@ a:hover {
 .article-content a {
     text-decoration: underline;
     text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
 }
 
 /* ===== 7. CARDS ===== */
 
 .article-list .article-card {
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: all 0.25s ease;
+    border: 1px solid var(--card-separator-color);
+    background: var(--card-background);
 }
 
 .article-list .article-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    border-color: transparent;
+}
+
+[data-scheme="dark"] .article-list .article-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .article-title a {
     color: var(--medpup-primary) !important;
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 [data-scheme="dark"] .article-title a {
@@ -258,15 +440,15 @@ a:hover {
 }
 
 .savings-box {
-    background-color: rgba(0, 102, 102, 0.08);
+    background-color: rgba(0, 102, 102, 0.06);
     border-left: 4px solid var(--medpup-accent);
-    padding: 1rem 1.25rem;
-    border-radius: 6px;
-    margin: 1.25rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
 }
 
 [data-scheme="dark"] .savings-box {
-    background-color: rgba(0, 128, 128, 0.10);
+    background-color: rgba(0, 128, 128, 0.08);
     border-left-color: var(--medpup-accent-light);
 }
 
@@ -276,11 +458,11 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: rgba(22, 107, 58, 0.08);
-    border: 1px solid rgba(22, 107, 58, 0.25);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1.25rem 0;
+    background: linear-gradient(135deg, rgba(22, 107, 58, 0.06), rgba(22, 107, 58, 0.02));
+    border: 1px solid rgba(22, 107, 58, 0.2);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .guarantee-badge .badge-icon {
@@ -289,46 +471,69 @@ a:hover {
 }
 
 .guarantee-badge .badge-text {
-    font-size: 0.925rem;
-    line-height: 1.5;
+    font-size: 0.92rem;
+    line-height: 1.6;
 }
 
 [data-scheme="dark"] .guarantee-badge {
-    background-color: rgba(22, 107, 58, 0.12);
-    border-color: rgba(22, 107, 58, 0.35);
+    background: linear-gradient(135deg, rgba(22, 107, 58, 0.1), rgba(22, 107, 58, 0.04));
+    border-color: rgba(22, 107, 58, 0.3);
 }
 
-/* ===== 10. TRUST BADGES ROW ===== */
+/* ===== 10. TRUST BADGES ROW — Premium ===== */
 
 .trust-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
     margin: 2rem 0;
 }
 
 .trust-row .trust-item {
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1.75rem 1.25rem;
     border: 1px solid var(--card-separator-color);
-    border-radius: 8px;
+    border-radius: 12px;
     background: var(--card-background);
-    transition: border-color 0.2s, transform 0.2s;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-row .trust-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--medpup-accent), var(--medpup-accent-light));
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .trust-row .trust-item:hover {
     border-color: var(--medpup-accent);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.trust-row .trust-item:hover::before {
+    opacity: 1;
+}
+
+[data-scheme="dark"] .trust-row .trust-item:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .trust-row .trust-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.75rem;
     display: block;
 }
 
 .trust-row .trust-label {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     color: var(--card-text-color-main);
 }
@@ -336,62 +541,69 @@ a:hover {
 .trust-row .trust-desc {
     font-size: 0.8rem;
     color: var(--card-text-color-secondary);
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
+    line-height: 1.5;
 }
 
 /* ===== 11. COST COMPARISON TABLE ===== */
 
-.comparison-table {
+.comparison-table,
+table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.25rem 0;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--card-separator-color);
 }
 
-.comparison-table th {
+.comparison-table th,
+table th {
     background-color: var(--medpup-primary);
     color: var(--medpup-white);
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
     text-align: left;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
-.comparison-table td {
-    padding: 0.75rem 1rem;
+.comparison-table td,
+table td {
+    padding: 0.85rem 1rem;
     border-bottom: 1px solid var(--card-separator-color);
+    font-size: 0.92rem;
 }
 
-.comparison-table tr:nth-child(even) td {
+.comparison-table tr:nth-child(even) td,
+table tr:nth-child(even) td {
     background-color: rgba(0, 0, 0, 0.02);
 }
 
-[data-scheme="dark"] .comparison-table tr:nth-child(even) td {
+.comparison-table tr:last-child td,
+table tr:last-child td {
+    border-bottom: none;
+}
+
+[data-scheme="dark"] .comparison-table tr:nth-child(even) td,
+[data-scheme="dark"] table tr:nth-child(even) td {
     background-color: rgba(255, 255, 255, 0.03);
 }
 
-/* ===== 12. SECTION TITLES ===== */
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    border-bottom: 3px solid var(--medpup-accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-/* ===== 13. FOOTER ===== */
+/* ===== 12. FOOTER ===== */
 
 .footer,
 .site-footer {
-    background-color: var(--medpup-primary) !important;
+    background: linear-gradient(135deg, var(--medpup-primary), var(--medpup-primary-dark)) !important;
     color: var(--medpup-white) !important;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    padding: 2rem 0;
+    margin-top: 3rem;
 }
 
 .footer a,
 .site-footer a {
     color: #80B8C0 !important;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 .footer a:hover,
@@ -400,19 +612,150 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ===== 14. COST CALCULATOR PLACEHOLDER ===== */
+/* ===== 13. COST CALCULATOR ===== */
 
-.cost-calculator-preview {
+.cost-calculator {
     background: var(--card-background);
-    border: 2px dashed var(--medpup-accent);
-    border-radius: 10px;
+    border: 1px solid var(--card-separator-color);
+    border-radius: 14px;
     padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.calculator-header h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.5rem;
+}
+
+.calculator-subtitle {
+    margin: 0 0 1.25rem;
+    color: var(--card-text-color-secondary);
+    font-size: 0.92rem;
+}
+
+.calc-row {
+    margin-bottom: 1.25rem;
+}
+
+.calc-row label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.calc-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--card-separator-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--card-background);
+    color: var(--card-text-color-main);
+    cursor: pointer;
+}
+
+.calc-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 1.25rem 0;
+}
+
+.calc-card {
+    background: var(--body-background);
+    border-radius: 10px;
+    padding: 0.85rem 1.15rem;
     text-align: center;
+    min-width: 110px;
+    flex: 1;
+}
+
+.calc-card-us {
+    border-left: 3px solid var(--medpup-gold);
+}
+
+.calc-card-medpup {
+    border-left: 3px solid var(--medpup-accent);
+}
+
+.calc-card-fee {
+    border-left: 3px solid var(--medpup-primary);
+}
+
+.calc-card-total {
+    border-left: 3px solid #166B3A;
+}
+
+.calc-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--card-text-color-secondary);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.calc-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--card-text-color-main);
+}
+
+.calc-arrow,
+.calc-plus,
+.calc-equals {
+    font-size: 1.4rem;
+    color: var(--card-text-color-secondary);
+    flex-shrink: 0;
+}
+
+.calc-savings {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.savings-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0, 102, 102, 0.1), rgba(0, 102, 102, 0.05));
+    color: var(--medpup-accent);
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+}
+
+.calc-clinic-name {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--card-text-color-secondary);
+    margin-top: 0.35rem;
+}
+
+.calc-cta {
+    text-align: center;
+    margin-top: 1.25rem;
+}
+
+[data-scheme="dark"] .savings-badge {
+    background: linear-gradient(135deg, rgba(0, 128, 128, 0.15), rgba(0, 128, 128, 0.08));
+    color: var(--medpup-accent-light);
+}
+
+/* ===== 14. CLINIC MAP ===== */
+
+.clinic-map-wrapper {
     margin: 2rem 0;
 }
 
-[data-scheme="dark"] .cost-calculator-preview {
-    border-color: var(--medpup-accent-light);
+.clinic-map {
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--card-separator-color);
 }
 
 /* ===== 15. FORM FIELDS ===== */
@@ -435,14 +778,14 @@ a:hover {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--card-separator-color);
-    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--card-separator-color);
+    border-radius: 8px;
     font-size: 0.95rem;
     box-sizing: border-box;
     background: var(--card-background);
     color: var(--card-text-color-main);
-    transition: border-color 0.2s;
+    transition: all 0.2s;
 }
 
 .form-group input:focus,
@@ -450,13 +793,13 @@ a:hover {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--medpup-accent);
-    box-shadow: 0 0 0 2px rgba(0, 102, 102, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 102, 102, 0.15);
 }
 
 [data-scheme="dark"] .form-group input:focus,
 [data-scheme="dark"] .form-group select:focus,
 [data-scheme="dark"] .form-group textarea:focus {
-    box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
 }
 
 /* ===== 16. DISCLAIMER / NOTE TEXT ===== */
@@ -465,7 +808,7 @@ a:hover {
     font-size: 0.8rem;
     color: var(--card-text-color-secondary);
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-style: italic;
     line-height: 1.6;
     max-width: 650px;
@@ -476,31 +819,57 @@ a:hover {
 /* ===== 17. HERO GUARANTEE TEXT ===== */
 
 .hero-guarantee {
-    font-size: 0.83rem;
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
     margin-top: 1rem;
+    line-height: 1.5;
 }
 
-/* ===== 18. CTA CENTER ===== */
-
-.cta-center {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-/* ===== 19. SECTION BREAKS ===== */
+/* ===== 18. SECTION BREAKS ===== */
 
 hr {
     border: none;
     height: 1px;
-    background: var(--card-separator-color);
-    margin: 2rem 0;
+    background: linear-gradient(90deg, transparent, var(--card-separator-color), transparent);
+    margin: 3rem 0;
+}
+
+/* ===== 19. BADGES & TAGS ===== */
+
+.article-card .article-details .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.article-card .article-details .article-tags a {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(0, 102, 102, 0.08);
+    color: var(--medpup-accent);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.article-card .article-details .article-tags a:hover {
+    background: var(--medpup-accent);
+    color: var(--medpup-white);
+}
+
+[data-scheme="dark"] .article-card .article-details .article-tags a {
+    background: rgba(0, 128, 128, 0.12);
+    color: var(--medpup-accent-light);
+}
+
+[data-scheme="dark"] .article-card .article-details .article-tags a:hover {
+    background: var(--medpup-accent-light);
+    color: var(--card-background);
 }
 
 /* ===== 20. ACCESSIBILITY: SKIP-TO-CONTENT & FOCUS ===== */
 
-/* Ensure body text is properly colored in dark mode */
 [data-scheme="dark"] body,
 [data-scheme="dark"] .main p,
 [data-scheme="dark"] .main li,
@@ -523,23 +892,21 @@ hr {
     text-decoration: none;
     transition: top 0.15s ease;
 }
+
 .skip-to-content-link:focus {
     top: 0;
 }
 
-/* Global focus-visible for keyboard users */
 :focus-visible {
     outline: 3px solid var(--medpup-accent);
     outline-offset: 2px;
     border-radius: 2px;
 }
 
-/* Remove outlines for mouse clicks only */
 :focus:not(:focus-visible) {
     outline: none;
 }
 
-/* Broad keyboard target coverage */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -550,23 +917,72 @@ textarea:focus-visible,
     outline-offset: 2px;
 }
 
-/* Dark mode focus */
 [data-scheme="dark"] :focus-visible {
     outline-color: var(--medpup-gold, #8B6914);
 }
 
-/* ===== 16. RESPONSIVE ADJUSTMENTS ===== */
+/* ===== 21. NUMBERED STEPS (How It Works) ===== */
+
+.steps-list {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.steps-list li {
+    counter-increment: step;
+    display: flex;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--card-background);
+    border: 1px solid var(--card-separator-color);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+.steps-list li:hover {
+    border-color: var(--medpup-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+[data-scheme="dark"] .steps-list li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.steps-list li::before {
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--medpup-accent), var(--medpup-accent-dark));
+    color: var(--medpup-white);
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 2rem 1.25rem;
+        padding: 2.5rem 1.5rem;
     }
 
     .hero-section h1 {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 
-    .hero-section .hero-subtitle {
+    .hero-section h2 {
+        font-size: 1rem;
+    }
+
+    .hero-section .hero-cta {
+        padding: 14px 30px;
         font-size: 1rem;
     }
 
@@ -574,13 +990,36 @@ textarea:focus-visible,
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .comparison-table {
-        font-size: 0.85rem;
+    .comparison-table,
+    table {
+        font-size: 0.8rem;
     }
 
     .comparison-table th,
-    .comparison-table td {
-        padding: 0.5rem 0.75rem;
+    .comparison-table td,
+    table th,
+    table td {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .calc-results {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .calc-card {
+        min-width: auto;
+    }
+
+    .calc-arrow,
+    .calc-plus,
+    .calc-equals {
+        display: none;
+    }
+
+    .steps-list li {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 }
 
@@ -592,5 +1031,13 @@ textarea:focus-visible,
     .guarantee-badge {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.4rem;
     }
 }
