@@ -238,12 +238,24 @@
             var progress = scrollState.progress;
             var colors = getColorAtProgress(progress, colorStops);
 
-            // ---- CAMERA: driven by scroll ----
-            // Camera moves through the scene as user scrolls
-            camera.position.x = Math.sin(progress * Math.PI * 2) * 15;
-            camera.position.y = -progress * 30; // Move "down" through scene
-            camera.position.z = 50 + Math.sin(progress * Math.PI) * 10; // Pulsing forward/back
-            camera.lookAt(0, -progress * 30, 0);
+            // ---- CAMERA: cinematic scroll-driven movement ----
+            // Ease the camera through the scene with cinematic damping
+            var targetX = Math.sin(scrollState.progress * Math.PI * 2) * 18;
+            var targetY = -scrollState.progress * 40;
+            var targetZ = 50 + Math.sin(scrollState.progress * Math.PI) * 12;
+
+            // Smooth damping (exponential decay)
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (targetY - camera.position.y) * 0.05;
+            camera.position.z += (targetZ - camera.position.z) * 0.05;
+
+            // Look at point ahead of current position for cinematic feel
+            var lookAhead = scrollState.progress + 0.02;
+            camera.lookAt(
+                Math.sin(lookAhead * Math.PI * 2) * 18,
+                -lookAhead * 40,
+                0
+            );
 
             // ---- UPDATE PARTICLE COLORS ----
             var pColors = geometry.attributes.color;
@@ -254,46 +266,62 @@
             }
             pColors.needsUpdate = true;
 
-            // ---- PARTICLES FOLLOW SCROLL ----
+            // ---- PARTICLES: scroll-driven spiral with noise ----
             positions = geometry.attributes.position.array;
             var velIdx = 0;
             for (var i = 0; i < PARTICLE_COUNT; i++) {
                 var v = velocities[velIdx++];
 
-                // Drift based on section (evolve continuously)
-                var driftX = Math.sin(elapsed * 0.5 + i * 0.01) * 0.02;
-                var driftY = Math.cos(elapsed * 0.3 + i * 0.02) * 0.02;
-                var driftZ = Math.sin(elapsed * 0.2) * 0.01;
+                // Multi-octave noise for organic movement
+                var noise1 = Math.sin(elapsed * 0.3 + i * 0.017) * 0.015;
+                var noise2 = Math.cos(elapsed * 0.5 + i * 0.023) * 0.01;
+                var noise3 = Math.sin(elapsed * 0.7 + i * 0.031) * 0.008;
 
-                // Scroll-driven movement (particles flow with scroll)
-                positions[i * 3] += (driftX + v.x * (0.5 + progress)) * delta * 60;
-                positions[i * 3 + 1] += (driftY + v.y * (0.5 + progress)) * delta * 60;
-                positions[i * 3 + 2] += (driftZ + v.z) * delta * 60;
+                // Scroll-driven spiral expansion
+                var angle = elapsed * 0.2 + i * 0.02;
+                var scrollFactor = 1 + progress * 0.8;
+                var radius = (25 + i * 0.05) * scrollFactor;
 
-                // Spiral outward based on scroll progress
-                var angle = elapsed + i * 0.01;
-                var radius = 30 + progress * 20;
-                positions[i * 3] = Math.cos(angle) * radius;
-                positions[i * 3 + 1] = (i / PARTICLE_COUNT - 0.5) * 60 - progress * 30;
-                positions[i * 3 + 2] = Math.sin(angle) * radius;
+                var targetX = Math.cos(angle) * radius + noise1 * 100;
+                var targetY = (i / PARTICLE_COUNT - 0.5) * 70 - progress * 35 + noise2 * 50;
+                var targetZ = Math.sin(angle) * radius * 0.5 + noise3 * 30;
 
-                // Wrap
-                if (positions[i * 3 + 1] < -35) positions[i * 3 + 1] += 70;
-                if (positions[i * 3 + 1] > 35) positions[i * 3 + 1] -= 70;
+                // Smooth interpolation
+                positions[i * 3] += (targetX - positions[i * 3]) * 0.03;
+                positions[i * 3 + 1] += (targetY - positions[i * 3 + 1]) * 0.03;
+                positions[i * 3 + 2] += (targetZ - positions[i * 3 + 2]) * 0.03;
+
+                // Mouse repulsion (subtle)
+                var dx = mouseX - positions[i * 3], dy = mouseY - positions[i * 3 + 1];
+                var dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 60 && dist > 0) {
+                    var force = ((60 - dist) / 60) * 0.15;
+                    positions[i * 3] -= (dx / dist) * force;
+                    positions[i * 3 + 1] -= (dy / dist) * force;
+                }
             }
             geometry.attributes.position.needsUpdate = true;
 
-            // ---- SHAPES ANIMATION ----
+        // ---- SHAPES: cinematic animation + proximity fade ----
             shapes.forEach(function(shape, idx) {
+                // Smooth rotation
                 shape.rotation.x += shape.userData.rotSpeed.x;
                 shape.rotation.y += shape.userData.rotSpeed.y;
+                shape.rotation.z += shape.userData.rotSpeed.z || 0;
+
+                // Scale pulse based on scroll
+                var pulse = 1 + Math.sin(elapsed * 0.5 + idx) * 0.05;
+                shape.scale.set(pulse, pulse, pulse);
 
                 // Fade based on proximity to current scroll section
                 var shapeSection = Math.floor(idx / 2) / (shapes.length / 2);
-                var dist = Math.abs(progress - shapeSection);
-                shape.material.opacity = dist < 0.15 ? 0.12 : 0.04;
-            });
+                var dist = Math.abs(scrollState.progress - shapeSection);
+                var targetOpacity = dist < 0.12 ? 0.12 : 0.03;
+                shape.material.opacity += (targetOpacity - shape.material.opacity) * 0.05;
 
+                // Color follows accent
+                shape.material.color.copy(colors.accent);
+            });
             // ---- LIGHTING COLOR ----
             pointLight.color.copy(colors.accent);
 
