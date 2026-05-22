@@ -1573,3 +1573,302 @@ h1, h2, h3, h4, h5, h6 {
         padding: var(--space-3);
     }
 }
+
+/* ============================================
+   CINEMATIC UPGRADES — V3 Evolution
+   ============================================ */
+
+/* ---------- SCROLL PROGRESS BAR ---------- */
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--clr-accent), var(--clr-gold));
+    z-index: calc(var(--z-nav) + 10);
+    width: 0%;
+    transition: width 50ms linear;
+    box-shadow: 0 0 8px var(--clr-accent-glow);
+}
+
+/* ---------- PARTICLE CANVAS ---------- */
+
+.particle-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Ensure content sits above canvas */
+.hero, .section, .nav, .footer, .skip-link, main {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- NOISE TEXTURE OVERLAY ---------- */
+
+.noise-svg {
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+}
+
+/* ---------- PER-SECTION ACCENT THEMING ---------- */
+
+[data-section="hero"] {
+    --section-accent: #5bc0eb;
+    --section-glow: rgba(91, 192, 235, 0.2);
+    --section-bg-glow: rgba(91, 192, 235, 0.04);
+}
+[data-section="intro"] {
+    --section-accent: #5bc0eb;
+    --section-glow: rgba(91, 192, 235, 0.2);
+    --section-bg-glow: rgba(91, 192, 235, 0.03);
+}
+[data-section="steps"] {
+    --section-accent: #8B6914;
+    --section-glow: rgba(139, 105, 20, 0.2);
+    --section-bg-glow: rgba(139, 105, 20, 0.03);
+}
+[data-section="calculator"] {
+    --section-accent: #22c55e;
+    --section-glow: rgba(34, 197, 94, 0.15);
+    --section-bg-glow: rgba(34, 197, 94, 0.03);
+}
+[data-section="clinics"],
+[data-section="numbers"] {
+    --section-accent: #5bc0eb;
+    --section-glow: rgba(91, 192, 235, 0.2);
+    --section-bg-glow: rgba(91, 192, 235, 0.04);
+}
+[data-section="trust"] {
+    --section-accent: #8B6914;
+    --section-glow: rgba(139, 105, 20, 0.2);
+    --section-bg-glow: rgba(139, 105, 20, 0.04);
+}
+[data-section="cta"] {
+    --section-accent: #5bc0eb;
+    --section-glow: rgba(91, 192, 235, 0.25);
+    --section-bg-glow: rgba(91, 192, 235, 0.05);
+}
+
+/* Apply per-section accent to sections */
+[data-section] {
+    background-image:
+        radial-gradient(ellipse at 40% 20%, var(--section-bg-glow) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, var(--section-bg-glow) 0%, transparent 50%);
+    transition: background-image 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-section] .section-label {
+    color: var(--section-accent);
+    border-color: var(--section-glow);
+}
+
+[data-section] .step-number {
+    color: var(--section-accent);
+}
+
+/* ---------- AMBIENT SECTION BACKGROUND ---------- */
+
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at var(--glow-x, 30%) var(--glow-y, 40%), var(--section-glow, transparent) 0%, transparent 60%);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 2s ease;
+}
+
+/* ---------- TYPOGRAPHY REFINEMENT ---------- */
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.hero-title .word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.hero-title .word span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: wordReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-title .word:nth-child(2) span { animation-delay: 0.15s; }
+.hero-title .word:nth-child(3) span { animation-delay: 0.3s; }
+.hero-title .word:nth-child(4) span { animation-delay: 0.4s; }
+.hero-title .word:nth-child(5) span { animation-delay: 0.55s; }
+
+@keyframes wordReveal {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.section-subtitle {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+}
+
+/* ---------- GLASS-MORPHISM ELEMENTS ---------- */
+
+.hero-badge {
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    background: rgba(91, 192, 235, 0.06);
+    border: 1px solid rgba(91, 192, 235, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-stats {
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- STATS COUNT-UP ANIMATION ---------- */
+
+.hero-stat-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 3D CARD HOVER ---------- */
+
+.step-card,
+.trust-card,
+.clinic-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.3s ease;
+}
+
+.step-card:hover,
+.trust-card:hover,
+.clinic-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-6px);
+    box-shadow: var(--shadow-xl), 0 0 30px var(--section-glow);
+}
+
+.step-card h3,
+.trust-card h3,
+.clinic-card-name,
+.step-illustration,
+.trust-card-icon,
+.clinic-card-icon {
+    transform: translateZ(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-card:hover h3,
+.trust-card:hover h3,
+.clinic-card:hover .clinic-card-name {
+    transform: translateZ(30px);
+}
+
+.step-card:hover .step-illustration,
+.trust-card:hover .trust-card-icon,
+.clinic-card:hover .clinic-card-icon {
+    transform: translateZ(40px) scale(1.05);
+}
+
+.step-card p,
+.trust-card p,
+.clinic-card-desc {
+    transform: translateZ(10px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- CARD GLOW BORDER ON HOVER ---------- */
+
+.step-card::after,
+.trust-card::after,
+.clinic-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--section-accent, transparent), transparent 50%, var(--section-accent, transparent));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+.step-card:hover::after,
+.trust-card:hover::after,
+.clinic-card:hover::after {
+    opacity: 0.3;
+}
+
+/* ---------- SECTION TRANSITION SWEEP ---------- */
+
+.section:nth-child(n) {
+    position: relative;
+}
+
+.section:nth-child(n)::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--section-accent, transparent), transparent);
+    opacity: 0.15;
+}
+
+/* ---------- HERO SCROLL EFFECT ---------- */
+
+.hero .hero-content {
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+}
+
+/* ---------- RESPONSIVE OVERRIDES ---------- */
+
+@media (max-width: 768px) {
+    .step-card:hover,
+    .trust-card:hover,
+    .clinic-card:hover {
+        transform: none;
+    }
+    .step-card::after,
+    .trust-card::after,
+    .clinic-card::after {
+        display: none;
+    }
+    .noise-overlay {
+        display: none;
+    }
+}

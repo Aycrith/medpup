@@ -13,27 +13,28 @@
         html.setAttribute('data-theme', t);
         localStorage.setItem(THEME_KEY, t);
         toggleBtn?.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        // Rebuild particles with new colors
+        if (window.particleSystem) window.particleSystem.updateColors();
     }
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function() {
             setTheme(getTheme() === 'dark' ? 'light' : 'dark');
         });
-        setTheme(getTheme()); // ensure button state matches
+        setTheme(getTheme());
     }
 
     // ========== MOBILE NAV TOGGLE ==========
     const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-    if (navToggle && navLinks) {
+    const navLinksEl = document.getElementById('nav-links');
+    if (navToggle && navLinksEl) {
         navToggle.addEventListener('click', function() {
             const expanded = navToggle.getAttribute('aria-expanded') === 'true';
             navToggle.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('nav-open');
+            navLinksEl.classList.toggle('nav-open');
         });
-        // Close nav on link click
-        navLinks.querySelectorAll('.nav-link').forEach(function(link) {
+        navLinksEl.querySelectorAll('.nav-link').forEach(function(link) {
             link.addEventListener('click', function() {
-                navLinks.classList.remove('nav-open');
+                navLinksEl.classList.remove('nav-open');
                 navToggle.setAttribute('aria-expanded', 'false');
             });
         });
@@ -50,7 +51,384 @@
         });
     });
 
-    // ========== SCROLL-TRIGGERED ANIMATIONS ==========
+    // ========== SCROLL PROGRESS BAR ==========
+    function initProgressBar() {
+        var bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollTop = window.scrollY;
+                    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    bar.style.width = progress + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+
+    // ========== HERO WORD REVEAL ==========
+    function initWordReveal() {
+        var heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+        // Don't re-process if already done
+        if (heroTitle.querySelector('.word')) return;
+        var text = heroTitle.textContent.trim();
+        var words = text.split(/\s+/);
+        heroTitle.innerHTML = words.map(function(w) {
+            return '<span class="word"><span>' + w + '</span></span> ';
+        }).join('');
+        // Trigger animation after small delay
+        setTimeout(function() {
+            heroTitle.querySelectorAll('.word span').forEach(function(s) {
+                s.style.transform = '';
+            });
+        }, 100);
+    }
+
+    // ========== CANVAS PARTICLE SYSTEM ==========
+    function ParticleSystem() {
+        var canvas = document.getElementById('particle-canvas');
+        if (!canvas) return null;
+
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return null;
+
+        var particles = [];
+        var mouseX = 0, mouseY = 0;
+        var currentSection = 'hero';
+        var animFrame = null;
+        var W, H;
+
+        // Section-specific particle configs
+        var CONFIGS = {
+            hero:    { count: 80,  speed: 0.3, size: 2.5, color: [91,192,235], opacity: 0.4, connect: false, drift: 'sink' },
+            intro:   { count: 100, speed: 0.4, size: 2.0, color: [91,192,235], opacity: 0.35, connect: false, drift: 'rise' },
+            steps:   { count: 60,  speed: 0.6, size: 1.8, color: [139,105,20], opacity: 0.4, connect: true, drift: 'orbit' },
+            calculator: { count: 120, speed: 0.5, size: 2.0, color: [34,197,94], opacity: 0.35, connect: true, drift: 'center' },
+            clinics: { count: 90,  speed: 0.4, size: 2.0, color: [91,192,235], opacity: 0.4, connect: true, drift: 'network' },
+            numbers: { count: 70,  speed: 0.3, size: 1.8, color: [91,192,235], opacity: 0.3, connect: false, drift: 'float' },
+            trust:   { count: 80,  speed: 0.5, size: 2.2, color: [139,105,20], opacity: 0.35, connect: true, drift: 'float' },
+            cta:     { count: 100, speed: 0.6, size: 2.5, color: [91,192,235], opacity: 0.5, connect: true, drift: 'expand' },
+        };
+
+        function resize() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+        }
+
+        function createParticles(cfg) {
+            particles = [];
+            for (var i = 0; i < cfg.count; i++) {
+                var p = {
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    vy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    size: cfg.size * (0.5 + Math.random() * 0.8),
+                    opacity: cfg.opacity * (0.4 + Math.random() * 0.6),
+                    phase: Math.random() * Math.PI * 2,
+                    drift: cfg.drift,
+                };
+                particles.push(p);
+            }
+        }
+
+        function updateParticles(cfg) {
+            // Adjust particle count to match config
+            var diff = cfg.count - particles.length;
+            while (diff > 0 && particles.length < 300) {
+                particles.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    vy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    size: cfg.size * (0.5 + Math.random() * 0.8),
+                    opacity: cfg.opacity * (0.4 + Math.random() * 0.6),
+                    phase: Math.random() * Math.PI * 2,
+                    drift: cfg.drift,
+                });
+                diff--;
+            }
+            while (diff < 0 && particles.length > 10) {
+                particles.pop();
+                diff++;
+            }
+            // Update all particle properties to match config
+            particles.forEach(function(p) {
+                p.drift = cfg.drift;
+                p.baseVx += ( (Math.random() - 0.5) * cfg.speed * 0.5 - p.baseVx ) * 0.05;
+                p.baseVy += ( (Math.random() - 0.5) * cfg.speed * 0.5 - p.baseVy ) * 0.05;
+                p.size += (cfg.size * (0.5 + Math.random() * 0.8) - p.size) * 0.05;
+                p.opacity += (cfg.opacity * (0.4 + Math.random() * 0.6) - p.opacity) * 0.05;
+            });
+        }
+
+        function animate(cfg, section) {
+            cfg = cfg || CONFIGS.hero;
+
+            ctx.clearRect(0, 0, W, H);
+
+            var c = cfg.color;
+            var isDark = getTheme() === 'dark';
+
+            // Drift behavior
+            particles.forEach(function(p) {
+                p.phase += 0.01;
+                var driftX = 0, driftY = 0;
+
+                switch(p.drift) {
+                    case 'sink':
+                        driftY = 0.15;
+                        break;
+                    case 'rise':
+                        driftY = -0.15;
+                        break;
+                    case 'orbit':
+                        driftX = Math.sin(p.phase) * 0.3;
+                        driftY = Math.cos(p.phase) * 0.3;
+                        break;
+                    case 'center':
+                        var cx = W / 2, cy = H / 2;
+                        driftX = (cx - p.x) * 0.0003;
+                        driftY = (cy - p.y) * 0.0003;
+                        break;
+                    case 'network':
+                        driftX = Math.sin(p.phase + p.y * 0.01) * 0.2;
+                        driftY = Math.cos(p.phase + p.x * 0.01) * 0.2;
+                        break;
+                    case 'expand':
+                        var ecx = W / 2, ecy = H / 2;
+                        var dx = p.x - ecx, dy = p.y - ecy;
+                        var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+                        driftX = (dx / dist) * 0.2;
+                        driftY = (dy / dist) * 0.2;
+                        break;
+                    default: // float
+                        driftX = Math.sin(p.phase) * 0.1;
+                        driftY = Math.cos(p.phase) * 0.1;
+                }
+
+                p.vx += (p.baseVx + driftX - p.vx) * 0.05;
+                p.vy += (p.baseVy + driftY - p.vy) * 0.05;
+
+                // Mouse interaction
+                var mdx = mouseX - p.x, mdy = mouseY - p.y;
+                var mDist = Math.sqrt(mdx*mdx + mdy*mdy);
+                if (mDist < 200 && mDist > 0) {
+                    var force = (200 - mDist) / 200 * 0.3;
+                    p.vx -= (mdx / mDist) * force;
+                    p.vy -= (mdy / mDist) * force;
+                }
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wrap around edges
+                if (p.x < -20) p.x = W + 20;
+                if (p.x > W + 20) p.x = -20;
+                if (p.y < -20) p.y = H + 20;
+                if (p.y > H + 20) p.y = -20;
+            });
+
+            // Draw connections (for network sections)
+            if (cfg.connect) {
+                var maxDist = 120;
+                for (var i = 0; i < particles.length; i++) {
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var dx = particles[i].x - particles[j].x;
+                        var dy = particles[i].y - particles[j].y;
+                        var dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < maxDist) {
+                            var alpha = (1 - dist / maxDist) * 0.15 * cfg.opacity;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alpha + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Draw particles
+            particles.forEach(function(p) {
+                var alpha = p.opacity * cfg.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, Math.max(p.size, 0.5), 0, Math.PI * 2);
+                ctx.fillStyle = isDark
+                    ? 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alpha + ')'
+                    : 'rgba(' + (c[0]*0.3) + ',' + (c[1]*0.3) + ',' + (c[2]*0.3) + ',' + alpha + ')';
+                ctx.fill();
+
+                // Glow effect on larger particles
+                if (p.size > 1.5) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = isDark
+                        ? 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (alpha * 0.15) + ')'
+                        : 'rgba(' + (c[0]*0.3) + ',' + (c[1]*0.3) + ',' + (c[2]*0.3) + ',' + (alpha * 0.08) + ')';
+                    ctx.fill();
+                }
+            });
+
+            animFrame = requestAnimationFrame(function() { animate(cfg, section); });
+        }
+
+        function switchSection(section, callback) {
+            if (section === currentSection) return;
+            currentSection = section;
+            var cfg = CONFIGS[section] || CONFIGS.hero;
+            updateParticles(cfg);
+            if (callback) callback(section, cfg);
+        }
+
+        function updateColors() {
+            // Colors update on next frame automatically via getTheme() check
+        }
+
+        // Init
+        resize();
+        var initCfg = CONFIGS.hero;
+        createParticles(initCfg);
+        animate(initCfg, 'hero');
+
+        window.addEventListener('resize', resize);
+
+        // Mouse tracking
+        window.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Detect current section on scroll
+        var ticking2 = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking2) {
+                requestAnimationFrame(function() {
+                    // Find which section is most visible
+                    var sections = document.querySelectorAll('[data-section]');
+                    var bestSection = 'hero';
+                    var bestVisibility = 0;
+                    sections.forEach(function(sec) {
+                        var rect = sec.getBoundingClientRect();
+                        var visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+                        if (visible > bestVisibility) {
+                            bestVisibility = visible;
+                            bestSection = sec.getAttribute('data-section');
+                        }
+                    });
+                    if (bestSection !== currentSection) {
+                        switchSection(bestSection);
+                    }
+                    ticking2 = false;
+                });
+                ticking2 = true;
+            }
+        });
+
+        return {
+            switchSection: switchSection,
+            updateColors: updateColors,
+            destroy: function() {
+                if (animFrame) cancelAnimationFrame(animFrame);
+                window.removeEventListener('resize', resize);
+            }
+        };
+    }
+
+    // ========== 3D CARD TILT ==========
+    function init3DCards() {
+        var cards = document.querySelectorAll('.step-card, .trust-card, .clinic-card');
+        if (!cards.length) return;
+
+        cards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+                var rotateX = ((y - centerY) / centerY) * -3;  // max ±3deg
+                var rotateY = ((x - centerX) / centerX) * 3;   // max ±3deg
+                card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    // ========== STATS COUNT-UP ==========
+    function initStatsCountUp() {
+        var stats = document.querySelectorAll('.hero-stat-value');
+        if (!stats.length) return;
+
+        var observed = false;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !observed) {
+                    observed = true;
+                    stats.forEach(function(stat) {
+                        var text = stat.textContent;
+                        var hasPercent = text.indexOf('%') >= 0;
+                        var hasDollar = text.indexOf('$') >= 0;
+                        var hasDash = text.indexOf('–') >= 0;
+                        var targetNum, prefix, suffix;
+
+                        if (hasPercent) {
+                            prefix = '';
+                            suffix = '%';
+                            targetNum = parseInt(text);
+                        } else if (hasDollar && hasDash) {
+                            prefix = '$';
+                            suffix = '';
+                            targetNum = 100;
+                        } else if (hasDollar) {
+                            prefix = '$';
+                            suffix = '';
+                            targetNum = parseInt(text.replace(/[^0-9]/g,'')) || 100;
+                        } else {
+                            prefix = '';
+                            suffix = '';
+                            targetNum = parseInt(text) || 100;
+                        }
+
+                        var current = 0;
+                        var duration = 1500;
+                        var startTime = Date.now();
+
+                        function update() {
+                            var elapsed = Date.now() - startTime;
+                            var progress = Math.min(elapsed / duration, 1);
+                            // Ease out cubic
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var val = Math.round(eased * targetNum);
+                            stat.textContent = prefix + val + suffix;
+                            if (progress < 1) requestAnimationFrame(update);
+                        }
+                        update();
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(function(s) { observer.observe(s.closest('.hero-stat') || s.parentElement); });
+    }
+
+    // ========== SCROLL ANIMATIONS (existing) ==========
     function initScrollAnimations() {
         var animated = document.querySelectorAll('[data-animate]');
         if (!animated.length) return;
@@ -146,7 +524,6 @@
             }
         }
         select.addEventListener('change', update);
-        // Trigger initial if already selected
         if (select.value) update();
     }
 
@@ -154,12 +531,10 @@
     function initMap() {
         var mapEl = document.getElementById('clinic-map');
         if (!mapEl) return;
-        // Load Leaflet CSS
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
         document.head.appendChild(link);
-        // Load Leaflet JS
         var script = document.createElement('script');
         script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
         script.onload = function() {
@@ -186,7 +561,7 @@
             clinics.forEach(function(c) {
                 var isHome = c.icon === 'home';
                 var markerHtml = '<div class="map-marker ' + (isHome ? 'map-marker-home' : 'map-marker-clinic') + '">' +
-                    (isHome ? 
+                    (isHome ?
                         '<svg width="14" height="14" viewBox="0 0 24 24" fill="#5bc0eb"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>' :
                         '<svg width="14" height="14" viewBox="0 0 24 24" fill="#1a365d"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13c0-4.97 3.03-9 9-9s9 4.03 9 9z"/></svg>'
                     ) +
@@ -201,14 +576,25 @@
                     .bindPopup('<strong>'+c.name+'</strong><br>'+c.desc);
             });
 
-            // Add scrollwheel zoom on interaction
             mapEl.addEventListener('mouseenter', function() { map.scrollWheelZoom.enable(); });
             mapEl.addEventListener('mouseleave', function() { map.scrollWheelZoom.disable(); });
-
-            // Invalidate after load to fix rendering
             setTimeout(function() { map.invalidateSize(); }, 500);
         };
         document.head.appendChild(script);
+    }
+
+    // ========== FAQ ACCORDION ==========
+    function initFaqAccordion() {
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            var question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', function() {
+                    item.classList.toggle('faq-open');
+                    var svg = question.querySelector('svg');
+                    if (svg) svg.style.transform = item.classList.contains('faq-open') ? 'rotate(180deg)' : '';
+                });
+            }
+        });
     }
 
     // ========== INIT ON DOM READY ==========
@@ -218,7 +604,25 @@
         initHeroParallax();
         initCalculator();
         initMap();
+        initFaqAccordion();
+
+        // NEW FEATURES
+        initProgressBar();
+        initWordReveal();
+        initStatsCountUp();
+        init3DCards();
+
+        // Start particle system
+        window.particleSystem = ParticleSystem();
+
+        // Disable mouse 3D on touch devices
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.step-card, .trust-card, .clinic-card').forEach(function(c) {
+                c.style.transform = '';
+            });
+        }
     }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
