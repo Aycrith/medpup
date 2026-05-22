@@ -469,25 +469,72 @@ h1, h2, h3, h4, h5, h6 {
         rgba(3, 10, 20, 0.8) 80%,
         var(--clr-bg) 100%
     );
+    z-index: 2;
+}
+
+/* Light beams (Phase2A - Cinematic Hero) */
+.hero-light-beams {
+    position: absolute;
+    inset: 0;
     z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.hero-light-beam {
+    position: absolute;
+    width: 200px;
+    height: 120%;
+    top: -10%;
+    opacity: 0.04;
+    background: linear-gradient(180deg, transparent, var(--clr-accent), transparent);
+    transform: skewX(-15deg);
+    animation: beamFloat 8s ease-in-out infinite;
+}
+.hero-light-beam:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hero-light-beam:nth-child(2) { left: 30%; animation-delay: 2s; opacity: 0.03; }
+.hero-light-beam:nth-child(3) { left: 60%; animation-delay: 4s; opacity: 0.05; }
+.hero-light-beam:nth-child(4) { left: 85%; animation-delay: 6s; opacity: 0.03; }
+
+@keyframes beamFloat {
+    0%, 100% { transform: skewX(-15deg) translateY(0); }
+    50% { transform: skewX(-12deg) translateY(-20px); }
+}
+
+/* Gradient vignette (Phase2A) */
+.hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(3, 10, 20, 0.6) 100%);
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     max-width: 800px;
     text-align: center;
     padding: var(--space-8);
 }
+
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(var(--text-4xl), 5vw, var(--text-7xl));
+    font-size: clamp(3rem, 6vw, 6rem);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
     margin-bottom: var(--space-6);
     color: var(--clr-heading);
     text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+.hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-word.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 .hero-title-accent {
     background: linear-gradient(135deg, var(--clr-accent), var(--clr-gold));
@@ -517,9 +564,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--clr-accent);
+    color: var(--section-accent, var(--clr-accent));
     margin-bottom: var(--space-6);
-    background: var(--clr-accent-subtle);
+    background: rgba(91, 192, 235, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-actions {
