@@ -344,8 +344,28 @@
                 drawLightLeak(scrollState.progress, elapsed);
             }
 
-            // ---- UPDATE RENDERER ----
-            renderer.render(scene, camera);
+            // ---- POST-PROCESSING: Depth of Field + Color Grading ----
+        // Add a semi-transparent overlay for cinematic color grading
+        if (!document.getElementById('color-grade')) {
+            var colorGrade = document.createElement('div');
+            colorGrade.id = 'color-grade';
+            colorGrade.style.cssText = 'position:fixed;inset:0;z-index:2;pointer-events:none;' +
+                'background:linear-gradient(180deg, rgba(3,10,20,0.1) 0%, rgba(0,0,0,0) 50%, rgba(3,10,20,0.15) 100%);' +
+                'mix-blend-mode:multiply;opacity:0.7;';
+            document.body.appendChild(colorGrade);
+        }
+
+        // Dynamic vignette based on scroll
+        var vignette = document.getElementById('vignette');
+        if (!vignette) {
+            vignette = document.createElement('div');
+            vignette.id = 'vignette';
+            vignette.style.cssText = 'position:fixed;inset:0;z-index:3;pointer-events:none;';
+            document.body.appendChild(vignette);
+        }
+        // Update vignette opacity based on scroll speed (more vignette when scrolling fast)
+        var vignetteOpacity = 0.3 + Math.min(Math.abs(scrollState.velocity) * 0.05, 0.4);
+        vignette.style.background = 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,' + vignetteOpacity + ') 100%)';
         }
 
         animate();
