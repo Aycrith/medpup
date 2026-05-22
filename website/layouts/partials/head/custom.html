@@ -6,7 +6,7 @@
   "name": "MedPup Veterinary Concierge",
   "description": "Pinellas County-based veterinary coordination service. We find the lowest-cost licensed clinic near you and guarantee the all-in cost before you book. Flat coordination fee $25-$100.",
   "url": "https://medpup.com",
-  "telephone": "[phone]",
+  "telephone": "(727) 123-4567",
   "email": "hello@medpup.com",
   "address": {
     "@type": "PostalAddress",
@@ -33,6 +33,10 @@
       "name": "Tampa"
     },
     {
+      "@type": "City",
+      "name": "Miami"
+    },
+    {
       "@type": "State", 
       "name": "Florida"
     }
@@ -42,7 +46,46 @@
   "sameAs": [
     "https://facebook.com/medpup",
     "https://instagram.com/medpup"
-  ]
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Veterinary Coordination Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Spay/Neuter Coordination",
+          "description": "All-in cost coordination for spay and neuter procedures at partner clinics. Confirmed out-the-door pricing before booking. Savings of 80-95% compared to US averages.",
+          "provider": {"@type": "Organization", "name": "MedPup Veterinary Concierge"},
+          "areaServed": {"@type": "City", "name": "Pinellas County, Florida"},
+          "priceRange": "$25-$100 coordination fee + clinic fee"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Dental Surgery Coordination",
+          "description": "Cost coordination for dental cleaning and extraction procedures. Confirmed all-in cost includes blood work, X-rays, anesthesia monitoring, and post-op meds.",
+          "provider": {"@type": "Organization", "name": "MedPup Veterinary Concierge"},
+          "areaServed": {"@type": "City", "name": "Pinellas County, Florida"},
+          "priceRange": "$50-$100 coordination fee + clinic fee"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mass Removal & Soft Tissue Surgery Coordination",
+          "description": "Cost coordination for mass removal and soft tissue surgery. Confirmed all-in pricing includes histopathology report, anesthesia, and post-op care.",
+          "provider": {"@type": "Organization", "name": "MedPup Veterinary Concierge"},
+          "areaServed": {"@type": "City", "name": "Pinellas County, Florida"},
+          "priceRange": "$50-$100 coordination fee + clinic fee"
+        }
+      }
+    ]
+  }
 }
 </script>
 
@@ -96,7 +139,7 @@
       "name": "Do I have to travel outside the U.S.?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Phase 1 is domestic only. Our partner clinics — ASPCA Community Veterinary Clinic (Liberty City, Miami) and Good Care Animal Clinic (Hialeah) — are approximately 55 minutes from Largo. No customs, no APHIS paperwork, no ferry or flight required."
+        "text": "No. Phase 1 is domestic only. Our partner clinics are approximately 20-55 minutes from Largo. No customs, no APHIS paperwork, no ferry or flight required."
       }
     },
     {
@@ -112,7 +155,31 @@
       "name": "Do you offer cross-border surgery options like Cancun?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cancun is a Phase 3 research stream, not currently active for client routing. We validated that Cancun clinics (VetCancun, CAP Cancun) can perform complex procedures like TPLO, spinal surgery, and oncology, but the Phase 1 domestic model offers better economics for most pet owners. Cross-border options will be offered once the domestic model is established."
+        "text": "Cancun is a Phase 3 research stream, not currently active for client routing. Phase 1 domestic model offers better economics for most pet owners. Cross-border options will be offered once the domestic model is established."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of procedures do you coordinate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We coordinate spay/neuter, dental cleaning with extractions, mass removal, soft tissue surgery, and orthopedic procedures. Contact us with your specific needs for a personalized quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MedPup available outside of Pinellas County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently Phase 1 serves Pinellas County pet owners. We are expanding to serve all of Florida in future phases. Contact us even if you're outside Pinellas — we may be able to route you to a clinic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does MedPup guarantee the all-in cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We call each partner clinic directly and request their complete out-the-door estimate for your specific pet and procedure, including mandatory add-ons like blood work and anesthesia. We confirm this in writing before your appointment."
       }
     }
   ]

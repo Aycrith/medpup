@@ -20,7 +20,7 @@ menu:
 .step-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #319795;
+    color: var(--medpup-accent);
     min-width: 60px;
     text-align: center;
     line-height: 1;
