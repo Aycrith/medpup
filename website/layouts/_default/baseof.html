@@ -15,11 +15,14 @@
     <!-- Navigation -->
     {{- partial "nav/nav.html" . -}}
 
-    <!-- Canvas Particle Background -->
-    <canvas class="particle-canvas" id="particle-canvas" aria-hidden="true"></canvas>
+    <!-- Full-screen WebGL2 Cinematic Background -->
+    <canvas id="v" class="cinematic-canvas" aria-hidden="true"></canvas>
+
+    <!-- Fallback Canvas 2D Particles (if WebGL2 unavailable) -->
+    <canvas id="particle-canvas-fallback" class="particle-canvas fallback" aria-hidden="true" style="display:none;"></canvas>
 
     <!-- Main content area -->
-    <main id="main-content" role="main">
+    <main id="main-content" role="main" style="position:relative;z-index:1;">
         {{- block "main" . }}{{- end }}
     </main>
 

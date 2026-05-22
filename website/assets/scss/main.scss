@@ -1765,9 +1765,17 @@ h3, .h3 {
     box-shadow: 0 0 8px var(--clr-accent-glow);
 }
 
-/* ---------- PARTICLE CANVAS ---------- */
+/* ---------- CINEMATIC CANVAS ---------- */
 
-.particle-canvas {
+.cinematic-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Fallback canvas for non-WebGL2 browsers */
+.particle-canvas.fallback {
     position: fixed;
     inset: 0;
     z-index: 0;
