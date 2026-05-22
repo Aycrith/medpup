@@ -21,9 +21,23 @@
     };
     document.head.appendChild(script);
 
-    // ==========================================
-    // SCROLL-DRIVEN STATE
-    // ==========================================
+// ==========================================
+// MOBILE DETECTION + FALLBACK
+// ==========================================
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                    (navigator.maxTouchPoints > 0 && navigator.maxTouchPoints < 5);
+
+    if (isMobile) {
+        console.log('Mobile detected — disabling Three.js, using CSS fallback');
+        // Remove canvas, use CSS-only experience
+        var canvas = document.getElementById('particle-canvas');
+        if (canvas) canvas.style.display = 'none';
+        // Add class to body for CSS adjustments
+        document.body.classList.add('is-mobile');
+        return; // Skip Three.js initialization
+    }
+
+    // ---- SCROLL-DRIVEN STATE ----
     var scrollState = {
         progress: 0,        // 0 to 1 (top to bottom)
         velocity: 0,
