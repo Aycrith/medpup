@@ -648,6 +648,42 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--section-accent, var(--clr-accent));
     margin-bottom: var(--space-3);
+    /* Redesign (Cinematic Evolution V3 - Phase6C) */
+    position: relative;
+    padding-left: var(--space-8);
+}
+.section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 1px;
+    background: var(--section-accent, var(--clr-accent));
+}
+/* Vertical section number label on larger screens */
+@media (min-width: 1024px) {
+    .section {
+        position: relative;
+    }
+    .section .section-label {
+        position: absolute;
+        left: var(--space-8);
+        top: var(--space-24);
+        padding-left: 0;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        text-orientation: mixed;
+        letter-spacing: 2px;
+    }
+    .section .section-label::before {
+        left: 50%;
+        top: -20px;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 16px;
+    }
 }
 .section-title {
     font-family: var(--font-display);
