@@ -1,6 +1,6 @@
 // ============================================================
-// MedPup WebGL2 Scroll Integration — Section → Scene Mapping
-// Maps scroll position to mood, camera, and scene parameters
+// MedPup WebGL2 Scroll Integration — Section → Scene Mapping v2
+// Smooth scroll, mouse parallax, light sweep on transitions
 // ============================================================
 (function () {
     'use strict';
@@ -11,24 +11,27 @@
         scrollSmooth: 0,
         scrollVelocity: 0,
         prevScroll: 0,
-        mouseX: 0,
-        mouseY: 0,
+        mouseX: 0.5,
+        mouseY: 0.5,
         mood: 0,
         moodBlend: 0,
         moodTarget: 0,
         moodTransitioning: false,
+        lastMood: -1,
         camElevation: 0,
+        camYaw: 0,
+        camFOV: 1.0,
         sections: [],
         ticking: false,
     };
 
     const LERP_SCROLL = 0.08;
-    const LERP_MOOD = 0.02;
+    const LERP_MOUSE = 0.05;
     const VELOCITY_DECAY = 0.9;
     const MOOD_TRANSITION_SPEED = 0.008;
+    const MOUSE_PARALLAX_STRENGTH = 0.04;
 
     // --- SECTION DEFINITIONS ---
-    // Maps CSS section data attributes to mood IDs
     const SECTION_MOOD_MAP = {
         'hero': 0,
         'intro': 1,
@@ -42,29 +45,35 @@
         'disclaimer': 5,
     };
 
+    // Section-based FOV (zoom feel)
+    const SECTION_FOV = {
+        0: 0.95,  // Night: slightly zoomed (intimate)
+        1: 1.05,  // Dawn: wider (horizon expanding)
+        2: 1.0,   // Morning: neutral
+        3: 1.1,   // Midday: widest (transparency)
+        4: 0.9,   // Golden hour: slightly zoomed (warm embrace)
+        5: 0.95,  // Dusk: intimate again
+    };
+
     // --- INIT ---
     function init() {
-        // Discover sections
         discoverSections();
 
-        // Scroll tracking
         window.addEventListener('scroll', onScroll, { passive: true });
 
-        // Mouse tracking (normalized to 0-1)
+        // Mouse tracking with smoother interpolation
         document.addEventListener('mousemove', function (e) {
-            state.mouseX = e.clientX / window.innerWidth;
-            state.mouseY = 1.0 - (e.clientY / window.innerHeight);
+            state.mouseX += ((e.clientX / window.innerWidth) - state.mouseX) * LERP_MOUSE;
+            state.mouseY += ((1.0 - (e.clientY / window.innerHeight)) - state.mouseY) * LERP_MOUSE;
         }, { passive: true });
 
-        // Resize: rediscover sections
         window.addEventListener('resize', function () {
             discoverSections();
         }, { passive: true });
 
-        // Initial scroll read
         onScroll();
 
-        console.log('[WebGL] Scroll integration initialized (' + state.sections.length + ' sections)');
+        console.log('[WebGL] Scroll integration v2 initialized (' + state.sections.length + ' sections)');
     }
 
     function discoverSections() {
@@ -84,9 +93,7 @@
                 });
             }
         }
-        // Sort by DOM position
         state.sections.sort(function (a, b) {
-            // Get DOM index
             var posA = Array.prototype.indexOf.call(a.el.parentNode.children, a.el);
             var posB = Array.prototype.indexOf.call(b.el.parentNode.children, b.el);
             return posA - posB;
@@ -110,7 +117,6 @@
         }
     }
 
-    // --- SCROLL HANDLING ---
     function onScroll() {
         if (!state.ticking) {
             window.requestAnimationFrame(updateScroll);
@@ -136,19 +142,17 @@
         state.scrollVelocity *= VELOCITY_DECAY;
         state.prevScroll = state.scroll;
 
-        // Update section ranges (in case content shifted)
         recalcPositions();
-
-        // Determine current mood
         updateMood();
 
-        // Calculate camera elevation from scroll
+        // Camera elevation from scroll
         state.camElevation = (state.scrollSmooth - 0.5) * 0.3;
+
+        // Camera yaw from mouse (subtle horizontal parallax)
+        state.camYaw = (state.mouseX - 0.5) * MOUSE_PARALLAX_STRENGTH;
     }
 
     function updateMood() {
-        // Find which section the scroll is in
-        var currentMood = state.mood;
         var found = false;
 
         for (var i = 0; i < state.sections.length; i++) {
@@ -160,7 +164,6 @@
             }
         }
 
-        // If between sections, use the nearest
         if (!found) {
             var nearestDist = Infinity;
             for (var i = 0; i < state.sections.length; i++) {
@@ -173,6 +176,13 @@
                     nearestDist = dist;
                     state.moodTarget = s.mood;
                 }
+            }
+        }
+
+        // Detect mood change → trigger light sweep
+        if (state.mood !== state.moodTarget && !state.moodTransitioning) {
+            if (window.MedPupWebGL) {
+                window.MedPupWebGL.triggerLightSweep();
             }
         }
 
@@ -189,6 +199,14 @@
         } else {
             state.moodBlend = 0.0;
             state.moodTransitioning = false;
+        }
+
+        // Update FOV based on current mood
+        var fovMood = state.moodTransitioning ? state.moodTarget : state.mood;
+        state.camFOV = SECTION_FOV[fovMood] || 1.0;
+        if (state.moodTransitioning) {
+            var prevFov = SECTION_FOV[state.mood] || 1.0;
+            state.camFOV = prevFov + (state.camFOV - prevFov) * state.moodBlend;
         }
     }
 
@@ -207,17 +225,17 @@
             mouseX: state.mouseX,
             mouseY: state.mouseY,
             camElevation: state.camElevation,
+            camYaw: state.camYaw,
+            camFOV: state.camFOV,
         };
     }
 
     // --- AUTO-START ---
-    // Wait for both engine and nature modules to be ready
     function autoInit() {
         if (window.MedPupWebGL && window.MedPupNature) {
             init();
             window.MedPupWebGL.init('v');
         } else {
-            // Retry after modules load
             setTimeout(autoInit, 100);
         }
     }
