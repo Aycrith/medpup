@@ -1,94 +1,539 @@
-/* MedPup Brand Customizations */
+/* ===========================================
+   MedPup Brand Custom Styles
+   AAA Accessible Design System
+   Last updated: May 22, 2026
+   =========================================== */
 
-/* ===== Brand Colors ===== */
-:root {
-    --medpup-blue: #1A365D;
-    --medpup-teal: #319795;
-    --medpup-gold: #D69E2E;
-    --medpup-light: #F7FAFC;
+/* ===== Imports theme variables ===== */
+@import "variables.scss";
+
+/* ===== 1. LAYOUT & CONTAINER ===== */
+
+.main-container {
+    padding-top: 0;
 }
 
-/* ===== Header / Navigation ===== */
+.container {
+    max-width: 1100px;
+}
+
+/* ===== 2. TOP NAVIGATION ===== */
+
 .navbar {
-    background-color: var(--medpup-blue) !important;
+    background-color: var(--medpup-primary) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
 }
 
-.navbar a {
-    color: white !important;
-}
-
-/* ===== Logo sizing ===== */
 .navbar .site-name {
     font-weight: 700;
     font-size: 1.4rem;
     letter-spacing: 0.05em;
+    color: var(--medpup-white) !important;
 }
 
-/* ===== Buttons ===== */
+.navbar a,
+.navbar .menu,
+.navbar .menu .menu-item a {
+    color: var(--medpup-white) !important;
+    font-weight: 500;
+}
+
+.navbar .menu .menu-item a:hover {
+    color: #B8D4E0 !important;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+/* Active nav item */
+.navbar .menu .menu-item.current a {
+    border-bottom: 2px solid var(--medpup-accent-light);
+}
+
+/* ===== 3. SIDEBAR ===== */
+
+.sidebar {
+    background-color: var(--card-background);
+}
+
+.sidebar .site-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--card-text-color-secondary);
+}
+
+/* ===== 4. HERO SECTION ===== */
+
+.hero-section {
+    background: linear-gradient(135deg, var(--medpup-primary) 0%, var(--medpup-primary-light) 100%);
+    color: var(--medpup-white);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-section h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--medpup-white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section .hero-cta {
+    display: inline-block;
+    background-color: var(--medpup-accent);
+    color: var(--medpup-white) !important;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section .hero-cta:hover {
+    background-color: var(--medpup-accent-dark);
+    transform: translateY(-1px);
+}
+
+.hero-section .hero-guarantee {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 5. BUTTONS & CTAs ===== */
+
 .button,
 .button-primary,
 .btn,
-.cta-button {
-    background-color: var(--medpup-teal);
-    border-color: var(--medpup-teal);
+button[type=submit],
+.cta-button,
+a.button,
+a.button-primary {
+    display: inline-block;
+    background-color: var(--medpup-accent);
+    color: var(--medpup-white) !important;
+    padding: 12px 28px;
+    border: 2px solid var(--medpup-accent);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+    line-height: 1.4;
 }
 
 .button:hover,
-.button-primary:hover {
-    background-color: #2C7A7B;
-    border-color: #2C7A7B;
+.button-primary:hover,
+.btn:hover,
+button[type=submit]:hover,
+.cta-button:hover,
+a.button:hover,
+a.button-primary:hover {
+    background-color: var(--medpup-accent-dark);
+    border-color: var(--medpup-accent-dark);
+    transform: translateY(-1px);
 }
 
-/* ===== Links ===== */
+.button:active,
+.button-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary button (outline style) */
+.button-secondary {
+    background-color: transparent;
+    color: var(--medpup-accent) !important;
+    border: 2px solid var(--medpup-accent);
+}
+
+.button-secondary:hover {
+    background-color: var(--medpup-accent);
+    color: var(--medpup-white) !important;
+    border-color: var(--medpup-accent);
+}
+
+/* Button on dark backgrounds */
+[data-scheme="dark"] .button-secondary {
+    color: var(--medpup-accent-light) !important;
+    border-color: var(--medpup-accent-light);
+}
+
+[data-scheme="dark"] .button-secondary:hover {
+    background-color: var(--medpup-accent-light);
+    color: var(--medpup-white) !important;
+}
+
+/* ===== 6. LINKS ===== */
+
 a {
-    color: var(--medpup-teal);
+    color: var(--medpup-accent);
+    transition: color 0.2s;
 }
 
 a:hover {
-    color: #2C7A7B;
+    color: var(--medpup-accent-dark);
 }
 
-/* ===== Article / Card Titles ===== */
+[data-scheme="dark"] a {
+    color: var(--medpup-accent-light);
+}
+
+[data-scheme="dark"] a:hover {
+    color: var(--medpup-accent);
+}
+
+.article-content a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ===== 7. CARDS ===== */
+
+.article-list .article-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.article-list .article-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
 .article-title a {
-    color: var(--medpup-blue);
-}
-
-/* ===== Price highlights ===== */
-.price-highlight {
-    color: var(--medpup-gold);
+    color: var(--medpup-primary) !important;
     font-weight: 700;
 }
 
-/* ===== Footer ===== */
-.footer {
-    background-color: var(--medpup-blue);
-    color: white;
+[data-scheme="dark"] .article-title a {
+    color: var(--card-text-color-main) !important;
 }
 
-.footer a {
-    color: var(--medpup-teal);
+/* ===== 8. PRICE HIGHLIGHTS & SAVINGS BOXES ===== */
+
+.price-highlight {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--medpup-gold);
 }
 
-/* ===== Section separators ===== */
-.section-title {
-    border-bottom: 2px solid var(--medpup-teal);
-    padding-bottom: 0.5rem;
+.price-savings {
+    font-weight: 700;
+    color: var(--medpup-accent);
 }
 
-/* ===== Savings callout boxes ===== */
 .savings-box {
-    background-color: rgba(49, 151, 149, 0.08);
-    border-left: 4px solid var(--medpup-teal);
-    padding: 1rem;
-    border-radius: 4px;
-    margin: 1rem 0;
+    background-color: rgba(0, 102, 102, 0.08);
+    border-left: 4px solid var(--medpup-accent);
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin: 1.25rem 0;
 }
 
-/* ===== Trust badges row ===== */
-.trust-row .trust-item {
-    border: 1px solid #E2E8F0;
+[data-scheme="dark"] .savings-box {
+    background-color: rgba(0, 128, 128, 0.10);
+    border-left-color: var(--medpup-accent-light);
+}
+
+/* ===== 9. GUARANTEE BADGE ===== */
+
+.guarantee-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(22, 107, 58, 0.08);
+    border: 1px solid rgba(22, 107, 58, 0.25);
     border-radius: 8px;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+}
+
+.guarantee-badge .badge-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.guarantee-badge .badge-text {
+    font-size: 0.925rem;
+    line-height: 1.5;
+}
+
+[data-scheme="dark"] .guarantee-badge {
+    background-color: rgba(22, 107, 58, 0.12);
+    border-color: rgba(22, 107, 58, 0.35);
+}
+
+/* ===== 10. TRUST BADGES ROW ===== */
+
+.trust-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.trust-row .trust-item {
     text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--card-separator-color);
+    border-radius: 8px;
     background: var(--card-background);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.trust-row .trust-item:hover {
+    border-color: var(--medpup-accent);
+    transform: translateY(-2px);
+}
+
+.trust-row .trust-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.trust-row .trust-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--card-text-color-main);
+}
+
+.trust-row .trust-desc {
+    font-size: 0.8rem;
+    color: var(--card-text-color-secondary);
+    margin-top: 0.25rem;
+}
+
+/* ===== 11. COST COMPARISON TABLE ===== */
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+}
+
+.comparison-table th {
+    background-color: var(--medpup-primary);
+    color: var(--medpup-white);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--card-separator-color);
+}
+
+.comparison-table tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-scheme="dark"] .comparison-table tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ===== 12. SECTION TITLES ===== */
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 3px solid var(--medpup-accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== 13. FOOTER ===== */
+
+.footer,
+.site-footer {
+    background-color: var(--medpup-primary) !important;
+    color: var(--medpup-white) !important;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.footer a,
+.site-footer a {
+    color: #80B8C0 !important;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.site-footer a:hover {
+    color: var(--medpup-white) !important;
+    text-decoration: underline;
+}
+
+/* ===== 14. COST CALCULATOR PLACEHOLDER ===== */
+
+.cost-calculator-preview {
+    background: var(--card-background);
+    border: 2px dashed var(--medpup-accent);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+[data-scheme="dark"] .cost-calculator-preview {
+    border-color: var(--medpup-accent-light);
+}
+
+/* ===== 15. FORM FIELDS ===== */
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--card-text-color-main);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--card-separator-color);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    background: var(--card-background);
+    color: var(--card-text-color-main);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--medpup-accent);
+    box-shadow: 0 0 0 2px rgba(0, 102, 102, 0.2);
+}
+
+[data-scheme="dark"] .form-group input:focus,
+[data-scheme="dark"] .form-group select:focus,
+[data-scheme="dark"] .form-group textarea:focus {
+    box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.3);
+}
+
+/* ===== 16. DISCLAIMER / NOTE TEXT ===== */
+
+.disclaimer-note {
+    font-size: 0.8rem;
+    color: var(--card-text-color-secondary);
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== 17. HERO GUARANTEE TEXT ===== */
+
+.hero-guarantee {
+    font-size: 0.83rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ===== 18. CTA CENTER ===== */
+
+.cta-center {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* ===== 19. SECTION BREAKS ===== */
+
+hr {
+    border: none;
+    height: 1px;
+    background: var(--card-separator-color);
+    margin: 2rem 0;
+}
+
+/* ===== 16. RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1.25rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero-section .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .trust-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-table {
+        font-size: 0.85rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-row {
+        grid-template-columns: 1fr;
+    }
+
+    .guarantee-badge {
+        flex-direction: column;
+        text-align: center;
+    }
 }

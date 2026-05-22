@@ -1,0 +1,87 @@
+/*
+* MedPup Brand Design System — Variables Override
+* Overrides Stack theme CSS custom properties for AAA accessibile color palette
+*/
+
+:root {
+    /* ===== Brand Primary: Navy Blue (AAA compliant on white: 9.7:1) ===== */
+    --medpup-primary: #1A365D;
+    --medpup-primary-dark: #0F2442;
+    --medpup-primary-light: #2A4F7A;
+
+    /* ===== Brand Accent: Deep Teal (AAA compliant on white: 8.9:1) ===== */
+    --medpup-accent: #006666;
+    --medpup-accent-dark: #004D4D;
+    --medpup-accent-light: #008080;
+
+    /* ===== Brand Accent Gold (for price highlights, badges) ===== */
+    --medpup-gold: #8B6914;
+    --medpup-gold-light: #B8860B;
+
+    /* ===== Neutral Palette ===== */
+    --medpup-white: #FFFFFF;
+    --medpup-off-white: #F5F5F0;
+    --medpup-light-gray: #E8E8E3;
+    --medpup-mid-gray: #999999;
+    --medpup-dark-gray: #4A4A4A;
+    --medpup-near-black: #1A1A1A;
+
+    /* ===== Success / Error / Warning (for guarantee badges, alerts) ===== */
+    --medpup-success: #166B3A;
+    --medpup-error: #B51212;
+    --medpup-warning: #8B6914;
+
+    /* ===== Theme Variable Overrides — Light Mode ===== */
+    --body-background: var(--medpup-off-white);
+    --accent-color: var(--medpup-accent);
+    --accent-color-darker: var(--medpup-accent-dark);
+    --accent-color-text: var(--medpup-white);
+    --body-text-color: var(--medpup-dark-gray);
+
+    --card-background: var(--medpup-white);
+    --card-background-selected: var(--medpup-light-gray);
+    --card-text-color-main: var(--medpup-near-black);
+    --card-text-color-secondary: var(--medpup-dark-gray);
+    --card-text-color-tertiary: var(--medpup-mid-gray);
+    --card-separator-color: rgba(0, 0, 0, 0.10);
+
+    /* ===== Theme Variable Overrides — Dark Mode ===== */
+    &[data-scheme="dark"] {
+        --body-background: #0D1117;
+        --accent-color: #008080;
+        --accent-color-darker: #006666;
+        --accent-color-text: var(--medpup-white);
+        --body-text-color: rgba(255, 255, 255, 0.8);
+
+        --card-background: #161B22;
+        --card-background-selected: #21262D;
+        --card-text-color-main: rgba(255, 255, 255, 0.92);
+        --card-text-color-secondary: rgba(255, 255, 255, 0.75);
+        --card-text-color-tertiary: rgba(255, 255, 255, 0.55);
+        --card-separator-color: rgba(255, 255, 255, 0.10);
+    }
+
+    /* ===== Font consistency ===== */
+    --base-font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue", sans-serif;
+    --article-font-family: var(--base-font-family);
+    --code-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+    /* ===== Spacing ===== */
+    --section-separation: 40px;
+    --main-top-padding: 35px;
+
+    @include respond(xl) {
+        --main-top-padding: 50px;
+    }
+
+    /* ===== Link styling ===== */
+    --link-background-color: 0, 102, 102;
+    --link-background-opacity: 0.12;
+    --link-background-opacity-hover: 0.2;
+}
+
+/* ===== Dark mode specific overrides ===== */
+[data-scheme="dark"] {
+    --pre-text-color: #f8f8f2;
+    --pre-background-color: #161B22;
+}

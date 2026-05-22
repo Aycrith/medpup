@@ -113,44 +113,4 @@ We'll get back to you within 24 hours. No obligation, no payment required.
 
 </form>
 
-<style>
-.form-group {
-    margin-bottom: 1.25rem;
-}
-.form-group label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.35rem;
-}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="number"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.95rem;
-    box-sizing: border-box;
-}
-.form-group button[type="submit"] {
-    background: #319795;
-    color: white;
-    padding: 12px 36px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.form-group button[type="submit"]:hover {
-    background: #2C7A7B;
-}
-</style>
-
-<div class="disclaimer">
-<strong>Note:</strong> MedPup is a coordination service, not a veterinary practice. All medical decisions are made by your licensed veterinarian. The consultation is free and does not commit you to any appointment.
-</div>
+<p class="disclaimer-note"><strong>Note:</strong> MedPup is a coordination service, not a veterinary practice. All medical decisions are made by your licensed veterinarian. The consultation is free and does not commit you to any appointment.</p>
