@@ -1,0 +1,17 @@
+{{ define "body-class" }}content-page{{ end }}
+
+{{ define "main" }}
+<div class="content-wrapper">
+    <article class="content-article">
+        <header class="content-header">
+            <h1>{{ .Title }}</h1>
+            {{ with .Params.description }}
+            <p class="content-subtitle">{{ . }}</p>
+            {{ end }}
+        </header>
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+    </article>
+</div>
+{{ end }}

@@ -1,0 +1,28 @@
+<!-- Top Navigation Bar -->
+<nav class="top-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="{{ .Site.Home.RelPermalink }}" class="nav-logo">
+            {{ .Site.Title }}
+        </a>
+
+        <ul class="nav-links">
+            {{ range .Site.Menus.main }}
+            <li>
+                <a href="{{ .URL }}" {{ if .Params.newTab }}target="_blank"{{ end }}
+                   {{ if eq $.RelPermalink .URL }}class="active"{{ end }}>
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+
+        <div class="nav-actions">
+            {{ if .Site.Params.colorScheme.toggle }}
+            <button class="theme-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon theme-icon-dark">☾</span>
+                <span class="theme-icon theme-icon-light">☀</span>
+            </button>
+            {{ end }}
+        </div>
+    </div>
+</nav>

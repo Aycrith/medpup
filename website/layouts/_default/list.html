@@ -1,0 +1,24 @@
+{{ define "body-class" }}list-page{{ end }}
+
+{{ define "main" }}
+<div class="content-wrapper">
+    <header class="content-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.description }}
+        <p class="content-subtitle">{{ . }}</p>
+        {{ end }}
+    </header>
+    <div class="content-body">
+        {{ .Content }}
+    </div>
+    {{ $paginator := partial "helper/paginator.html" . }}
+    {{ with $paginator }}
+    <section class="article-list">
+        {{ range .Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}
