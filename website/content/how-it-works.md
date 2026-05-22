@@ -1,10 +1,6 @@
 ---
 title: "How It Works"
 description: "A step-by-step guide to your MedPup veterinary coordination"
-menu:
-    main:
-        name: How It Works
-        weight: 2
 ---
 
 <style>

@@ -500,6 +500,15 @@ hr {
 
 /* ===== 20. ACCESSIBILITY: SKIP-TO-CONTENT & FOCUS ===== */
 
+/* Ensure body text is properly colored in dark mode */
+[data-scheme="dark"] body,
+[data-scheme="dark"] .main p,
+[data-scheme="dark"] .main li,
+[data-scheme="dark"] .main ul,
+[data-scheme="dark"] .main ol {
+    color: var(--card-text-color-main);
+}
+
 .skip-to-content-link {
     position: absolute;
     top: -100px;

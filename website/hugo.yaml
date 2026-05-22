@@ -61,7 +61,7 @@ menu:
       weight: 8
 
 params:
-  mainSections: ["post"]
+  mainSections: ["blog"]
   rssFullContent: true
   description: "MedPup finds the lowest-cost veterinary clinic near Pinellas County — with confirmed all-in pricing and a surprise-bill guarantee. Save 80-95% on spay/neuter, dental, and surgery."
   
