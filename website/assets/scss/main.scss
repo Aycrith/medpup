@@ -865,10 +865,12 @@ h3, .h3 {
     border: 1px solid var(--clr-border);
     transition: all var(--transition-base);
     position: relative;
+    transform-style: preserve-3d;
+    perspective: 800px;
 }
 .step-card:hover {
     border-color: var(--clr-border-active);
-    transform: translateY(-4px);
+    transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 .step-illustration {
@@ -1103,10 +1105,12 @@ h3, .h3 {
     padding: var(--space-6);
     text-align: center;
     transition: all var(--transition-base);
+    transform-style: preserve-3d;
+    perspective: 800px;
 }
 .clinic-card:hover {
     border-color: var(--clr-border-active);
-    transform: translateY(-2px);
+    transform: perspective(800px) rotateX(1deg) rotateY(1deg) translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 .clinic-card-icon {
@@ -1199,10 +1203,12 @@ h3, .h3 {
     padding: var(--space-8) var(--space-6);
     text-align: center;
     transition: all var(--transition-base);
+    transform-style: preserve-3d;
+    perspective: 800px;
 }
 .trust-card:hover {
     border-color: var(--clr-border-active);
-    transform: translateY(-4px);
+    transform: perspective(800px) rotateX(2deg) rotateY(2deg) translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 .trust-card-icon {
