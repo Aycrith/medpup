@@ -671,6 +671,39 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========== TYPOGRAPHY ========== */
 
+/* Refined heading scale (Cinematic Evolution V3 - Phase6A) */
+h1, .h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 6rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-weight: 700;
+}
+h2, .h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    font-weight: 700;
+}
+h3, .h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.hero-subtitle, .subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+}
+.page-content {
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    line-height: 1.75;
+}
+
 .text-gradient {
     background: linear-gradient(135deg, var(--clr-accent), var(--clr-gold));
     -webkit-background-clip: text;
