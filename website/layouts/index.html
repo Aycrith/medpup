@@ -1,307 +1,472 @@
-{{ define "body-class" }}home-page{{ end }}
+{{ define "body-class" }}home{{ end }}
 
 {{ define "main" }}
 
-<!-- Hero Section -->
+<!-- ========== HERO ========== -->
 <section class="hero" id="hero">
-    <div class="hero-atmosphere">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
+    <!-- Animated gradient mesh: a grid-based low-poly fabric animation -->
+    <div class="hero-mesh" aria-hidden="true">
+        <div class="mesh-cell mesh-cell-1"></div>
+        <div class="mesh-cell mesh-cell-2"></div>
+        <div class="mesh-cell mesh-cell-3"></div>
+        <div class="mesh-cell mesh-cell-4"></div>
+        <div class="mesh-cell mesh-cell-5"></div>
+        <div class="mesh-cell mesh-cell-6"></div>
+        <div class="mesh-cell mesh-cell-7"></div>
+        <div class="mesh-cell mesh-cell-8"></div>
+        <div class="mesh-cell mesh-cell-9"></div>
+        <div class="mesh-cell mesh-cell-10"></div>
+        <div class="mesh-cell mesh-cell-11"></div>
+        <div class="mesh-cell mesh-cell-12"></div>
     </div>
-    <div class="hero-content">
-        <p class="hero-tagline">Pinellas County Veterinary Concierge</p>
-        <h1 class="hero-title">Your dog deserves the best care.</h1>
-        <h2 class="hero-subtitle">It shouldn't require a second mortgage.</h2>
-        <div class="hero-savings-box">
-            <p><strong>The real cost isn't the price on their website.</strong></p>
-            <p>A "$40 spay" becomes $280 after blood work, meds, and "incidentals discovered during surgery." A "$285 dental" becomes $900 to $1,500 after extractions found mid-procedure.</p>
-            <p>MedPup confirms the <strong>all-in</strong> cost <strong>before</strong> you book. No surprises. Guaranteed.</p>
+    <!-- Atmospheric overlay -->
+    <div class="hero-overlay"></div>
+    <!-- Hero content -->
+    <div class="hero-content" data-animate="fade-up">
+        <div class="hero-badge">Pinellas County Veterinary Concierge</div>
+        <h1 class="hero-title">Your dog deserves<br><span class="hero-title-accent">the best care.</span></h1>
+        <p class="hero-subtitle">It shouldn't require a second mortgage. <strong>MedPup confirms the all-in cost before you book — no surprise bills.</strong></p>
+        <div class="hero-actions">
+            <a href="/contact/" class="btn btn-primary btn-glow">
+                Get Your All-In Quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+            <a href="/how-it-works/" class="btn btn-secondary">
+                How It Works
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </a>
         </div>
-        <a href="/contact/" class="btn btn-primary btn-glow">Get Your All-In Quote →</a>
-        <p class="hero-guarantee">All-In Cost Guarantee: Final bill confirmed before you book — if it exceeds our range, we cover the excess or find you a backup clinic at no extra cost.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="hero-stat-value">80-95%</span>
+                <span class="hero-stat-label">Average Savings</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-value">$25–$100</span>
+                <span class="hero-stat-label">Coordination Fee</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-value">100%</span>
+                <span class="hero-stat-label">Cost Guarantee</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+        <svg width="24" height="36" viewBox="0 0 24 36">
+            <rect x="1" y="1" width="22" height="34" rx="11" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+            <circle cx="12" cy="10" r="3" fill="currentColor" class="scroll-dot"/>
+        </svg>
     </div>
 </section>
 
-<!-- Intro Section -->
-<section class="section section-intro">
+<!-- ========== INTRO ========== -->
+<section class="section section-intro" data-animate="fade-up">
     <div class="section-inner">
-        <p class="intro-text">MedPup is a Pinellas County-based veterinary coordination service. We find the lowest-cost licensed clinic within driving distance, demand the full out-the-door quote (not the marketing price), and secure a confirmed rate before your appointment. If the bill exceeds our confirmed number, we find you a backup clinic — <strong>at no extra cost.</strong></p>
+        <div class="intro-grid">
+            <div class="intro-content">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">Veterinary surgery doesn't have to break the bank.</h2>
+                <p class="intro-text">MedPup is a Pinellas County-based veterinary coordination service. We find the lowest-cost licensed clinic within driving distance, demand the full out-the-door quote (not the marketing price), and secure a confirmed rate before your appointment. If the bill exceeds our confirmed number, we find you a backup clinic — <strong>at no extra cost.</strong></p>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span>Verified all-in pricing</span>
+                    </div>
+                    <div class="intro-feature">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span>Same-day booking available</span>
+                    </div>
+                    <div class="intro-feature">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                        <span>Surprise-bill guarantee</span>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-visual">
+                <!-- Custom SVG illustration for "cost comparison" -->
+                <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="intro-illustration">
+                    <!-- Background shape -->
+                    <rect x="20" y="20" width="280" height="240" rx="16" fill="#0d1829" stroke="rgba(91,192,235,0.15)" stroke-width="1"/>
+                    <!-- Price tag large -->
+                    <rect x="40" y="40" width="240" height="60" rx="8" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1" stroke-dasharray="4 2"/>
+                    <text x="60" y="78" fill="#ef4444" font-family="Inter, sans-serif" font-size="13" font-weight="600" opacity="0.7">Typical Vet Cost</text>
+                    <text x="200" y="78" fill="#ef4444" font-family="Inter, sans-serif" font-size="20" font-weight="700">$1,500</text>
+                    <!-- Arrow down -->
+                    <line x1="160" y1="100" x2="160" y2="130" stroke="#5bc0eb" stroke-width="2" stroke-dasharray="4 2"/>
+                    <polyline points="153,125 160,135 167,125" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                    <!-- Price tag small -->
+                    <rect x="40" y="135" width="240" height="60" rx="8" fill="rgba(91,192,235,0.12)" stroke="#5bc0eb" stroke-width="1.5"/>
+                    <text x="60" y="173" fill="#5bc0eb" font-family="Inter, sans-serif" font-size="13" font-weight="600" opacity="0.7">With MedPup</text>
+                    <text x="220" y="173" fill="#5bc0eb" font-family="Inter, sans-serif" font-size="20" font-weight="700">$285</text>
+                    <!-- Savings badge -->
+                    <rect x="100" y="205" width="120" height="32" rx="16" fill="rgba(91,192,235,0.2)"/>
+                    <text x="116" y="226" fill="#5bc0eb" font-family="Inter, sans-serif" font-size="12" font-weight="700">SAVE 72–83%</text>
+                </svg>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- How It Works -->
-<section class="section section-steps">
+<!-- ========== HOW IT WORKS ========== -->
+<section class="section section-steps" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">How It Works</h2>
+        <span class="section-label">The Process</span>
+        <h2 class="section-title">How It Works — <span class="text-gradient">Three Simple Steps</span></h2>
         <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Tell us your pet's procedure</h3>
-                <p>Fill out the intake form with your diagnosis and current vet's estimate.</p>
+            <div class="step-card" data-animate="fade-up">
+                <div class="step-illustration">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <!-- Clipboard icon -->
+                        <rect x="26" y="22" width="28" height="36" rx="3" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                        <line x1="32" y1="30" x2="48" y2="30" stroke="#5bc0eb" stroke-width="1.5"/>
+                        <line x1="32" y1="36" x2="48" y2="36" stroke="#5bc0eb" stroke-width="1.5"/>
+                        <line x1="32" y1="42" x2="44" y2="42" stroke="#5bc0eb" stroke-width="1.5"/>
+                        <circle cx="40" cy="58" r="4" fill="#5bc0eb"/>
+                    </svg>
+                </div>
+                <div class="step-number">01</div>
+                <h3>Tell us about your pet</h3>
+                <p>Fill out a 2-minute intake form with your pet's diagnosis and current vet estimate. We need the procedure type and your location.</p>
             </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>We build a realistic cost picture</h3>
-                <p>Not the marketing price, but the confirmed out-the-door including blood work, meds, anesthesia, and follow-up.</p>
+            <div class="step-card" data-animate="fade-up" style="animation-delay:0.15s">
+                <div class="step-illustration">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <!-- Calculator/search icon -->
+                        <rect x="24" y="24" width="32" height="32" rx="4" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                        <text x="30" y="44" fill="#5bc0eb" font-family="Inter" font-size="16" font-weight="700">$</text>
+                        <line x1="24" y1="48" x2="56" y2="48" stroke="#5bc0eb" stroke-width="1" opacity="0.3"/>
+                        <text x="30" y="66" fill="#5bc0eb" font-family="Inter" font-size="9" opacity="0.7">✓ verified</text>
+                    </svg>
+                </div>
+                <div class="step-number">02</div>
+                <h3>We find the real cost</h3>
+                <p>Not the marketing price — we call partner clinics and demand the complete out-the-door quote including blood work, anesthesia, meds, and follow-up.</p>
             </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>You book with certainty</h3>
-                <p>Confirm the reserve slot and the exact number. No surprise bills.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h3>MedPup fee is on top</h3>
-                <p>Flat fee <strong>$25–$50 for spay/neuter</strong>, <strong>$50–$100 for dental/surgery</strong>. You pay the clinic directly.</p>
+            <div class="step-card" data-animate="fade-up" style="animation-delay:0.3s">
+                <div class="step-illustration">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <!-- Handshake/confirm icon -->
+                        <path d="M26 42v12M54 42v12" stroke="#5bc0eb" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M30 42c0-4 4-8 10-8s10 4 10 8v12H30V42z" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                        <circle cx="40" cy="28" r="6" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                        <line x1="34" y1="28" x2="46" y2="28" stroke="#5bc0eb" stroke-width="1.5"/>
+                        <!-- Shield -->
+                        <path d="M40 54l-6-3v-6c0-3 6-5 6-5s6 2 6 5v6l-6 3z" fill="none" stroke="#8B6914" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="step-number">03</div>
+                <h3>Book with certainty</h3>
+                <p>Confirm the reserved slot and the exact all-in number. Your $25–$100 coordination fee is the only MedPup charge — the clinic bills you directly.</p>
             </div>
         </div>
-        <div class="section-cta">
-            <a href="/contact/" class="btn btn-primary">Get Your All-In Quote →</a>
+        <div class="section-actions">
+            <a href="/contact/" class="btn btn-primary btn-glow">
+                Get Your All-In Quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Savings Calculator -->
-<section class="section section-calculator">
+<!-- ========== SAVINGS CALCULATOR ========== -->
+<section class="section section-calculator" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">Estimate Your Savings</h2>
-        <p class="section-subtitle">Select a procedure to see how much you can save with MedPup.</p>
+        <span class="section-label">Your Savings</span>
+        <h2 class="section-title">How Much You'll Save</h2>
+        <p class="section-subtitle">Select a procedure to compare typical US vet costs against MedPup's confirmed partner pricing.</p>
         <div class="cost-calculator-placeholder"></div>
     </div>
 </section>
 
-<!-- Partner Clinics -->
-<section class="section section-clinics">
+<!-- ========== PARTNER CLINICS ========== -->
+<section class="section section-clinics" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">Our Partner Clinics</h2>
-        <div class="clinic-map-wrapper">
-            <div id="clinic-map" class="clinic-map"></div>
-        </div>
+        <span class="section-label">Our Network</span>
+        <h2 class="section-title">Partner Clinics</h2>
+        <p class="section-subtitle">Licensed Florida clinics we've vetted for pricing transparency. All within driving distance of Pinellas County.</p>
+        <div id="clinic-map" class="clinic-map"></div>
         <div class="clinics-grid">
-            <div class="clinic-card">
-                <div class="clinic-icon">🏥</div>
-                <h3>ASPCA CVC Liberty City</h3>
-                <p>Spay/neuter from $40. 55 min from Largo. Miami.</p>
+            <div class="clinic-card" data-animate="fade-up">
+                <div class="clinic-card-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
+                        <path d="M20 12c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-2 10v-4h4v4h-4z" fill="#5bc0eb" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h3 class="clinic-card-name">ASPCA CVC</h3>
+                <p class="clinic-card-desc">Liberty City, Miami — 55 min from Largo. Spay/neuter from <strong>$40</strong>.</p>
+                <span class="clinic-card-tag">Best for spay/neuter</span>
             </div>
-            <div class="clinic-card">
-                <div class="clinic-icon">🏥</div>
-                <h3>Good Care Animal Clinic</h3>
-                <p>Dental & surgery from $285. 45 min from Largo. Hialeah.</p>
+            <div class="clinic-card" data-animate="fade-up" style="animation-delay:0.1s">
+                <div class="clinic-card-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
+                        <path d="M20 12c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-2 10v-4h4v4h-4z" fill="#5bc0eb" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h3 class="clinic-card-name">Good Care Animal Clinic</h3>
+                <p class="clinic-card-desc">Hialeah — 45 min. Dental & surgery from <strong>$285</strong>.</p>
+                <span class="clinic-card-tag">Best for dental</span>
             </div>
-            <div class="clinic-card">
-                <div class="clinic-icon">🏥</div>
-                <h3>Humane Society of Tampa Bay</h3>
-                <p>Spay/neuter from $70. 28 min from Largo. Tampa.</p>
+            <div class="clinic-card" data-animate="fade-up" style="animation-delay:0.2s">
+                <div class="clinic-card-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
+                        <path d="M20 12c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-2 10v-4h4v4h-4z" fill="#5bc0eb" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h3 class="clinic-card-name">Humane Society of Tampa Bay</h3>
+                <p class="clinic-card-desc">Tampa — 28 min. Spay/neuter from <strong>$70</strong>.</p>
+                <span class="clinic-card-tag">Closest option</span>
             </div>
-            <div class="clinic-card">
-                <div class="clinic-icon">🏥</div>
-                <h3>Harmony Vet Care</h3>
-                <p>Spay/neuter $85-$180. 20 min from Largo. Oldsmar.</p>
+            <div class="clinic-card" data-animate="fade-up" style="animation-delay:0.3s">
+                <div class="clinic-card-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
+                        <path d="M20 12c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-2 10v-4h4v4h-4z" fill="#5bc0eb" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h3 class="clinic-card-name">Harmony Vet Care</h3>
+                <p class="clinic-card-desc">Oldsmar — 20 min. Spay/neuter <strong>$85-$180</strong>.</p>
+                <span class="clinic-card-tag">Nearest to Largo</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Real Numbers -->
-<section class="section section-numbers">
+<!-- ========== COMPARISON TABLE ========== -->
+<section class="section section-numbers" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">Real Numbers — Then and Now</h2>
-        <div class="table-wrapper">
+        <span class="section-label">The Truth</span>
+        <h2 class="section-title">Real Numbers — <span class="text-gradient">Published vs. Actual</span></h2>
+        <p class="section-subtitle">What clinics advertise and what you actually pay after mandatory add-ons. All figures sourced from verified client bills.</p>
+        <div class="table-wrap">
             <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Procedure</th>
-                        <th>What They Publish</th>
-                        <th>Realistic Out-the-Door</th>
-                        <th>Extra Add-Ons (Typical)</th>
+                        <th>Published Price</th>
+                        <th>Real Out-the-Door</th>
+                        <th>Hidden Add-Ons</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Spay (large dog)</td>
-                        <td>$40–$80</td>
-                        <td>$100–$240</td>
-                        <td>Blood work $60–120, pain meds $30–80, e-collar $15–30, post-op check $40–80</td>
+                        <td><strong>Spay (Large Dog)</strong></td>
+                        <td class="price-published">$40–$80</td>
+                        <td class="price-real">$100–$240</td>
+                        <td class="price-detail">Blood work $60–120, pain meds $30–80, e-collar $15–30</td>
                     </tr>
                     <tr>
-                        <td>Dental Clean</td>
-                        <td>$285–$595</td>
-                        <td>$895–$3,710</td>
-                        <td>Per-tooth extractions $80–250, X-rays $50–100, monitor $40–80, post-op meds $25–50</td>
+                        <td><strong>Dental Cleaning</strong></td>
+                        <td class="price-published">$285–$595</td>
+                        <td class="price-real">$895–$3,710</td>
+                        <td class="price-detail">Per-tooth extractions $80–250, X-rays $50–100, monitoring $40–80</td>
                     </tr>
                     <tr>
-                        <td>Mass Removal</td>
-                        <td>$450</td>
-                        <td>$890–$1,605</td>
-                        <td>Histopathology/biopsy $80–300, histopath report, drain placement $50–100</td>
+                        <td><strong>Mass Removal</strong></td>
+                        <td class="price-published">$450</td>
+                        <td class="price-real">$890–$1,605</td>
+                        <td class="price-detail">Histopathology $80–300, drain placement $50–100</td>
                     </tr>
                     <tr>
-                        <td>Soft Tissue Surgery</td>
-                        <td>$650–$2,100</td>
-                        <td>$1,250–$6,710</td>
-                        <td>Anesthesia upgrade $50–200, post-op meds $40–100, e-collar, follow-up check</td>
+                        <td><strong>Soft Tissue Surgery</strong></td>
+                        <td class="price-published">$650–$2,100</td>
+                        <td class="price-real">$1,250–$6,710</td>
+                        <td class="price-detail">Anesthesia upgrade $50–200, post-op meds $40–100, follow-up</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p class="table-footnote">All realistic out-the-door figures include the clinic's mandatory pre-op, anesthesia, and post-op work that is never published in their marketing price. MedPup confirmed these ranges by reading actual client final bills from Reddit/vet forums.</p>
+        <p class="table-footnote">Real out-the-door figures include mandatory pre-op, anesthesia, and post-op work that is never published. MedPup confirms the true all-in cost before you book.</p>
     </div>
 </section>
 
-<!-- Why Trust -->
-<section class="section section-trust">
+<!-- ========== TRUST ========== -->
+<section class="section section-trust" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">Why Families Trust MedPup</h2>
+        <span class="section-label">Why Trust Us</span>
+        <h2 class="section-title">The MedPup Difference</h2>
         <div class="trust-grid">
-            <div class="trust-card">
-                <div class="trust-icon">💰</div>
-                <h3>We Get the Real Price</h3>
-                <p>We demand the full out-the-door quote before you book — not just the marketing number.</p>
+            <div class="trust-card" data-animate="fade-up">
+                <div class="trust-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <path d="M24 14v10l6 3" stroke="#5bc0eb" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="8" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Real Price Verification</h3>
+                <p>We call each partner clinic and demand the complete out-the-door quote — not the marketing number. You see the true cost before you book.</p>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">✅</div>
-                <h3>Surprise Bill Guarantee</h3>
-                <p>If the final bill exceeds our confirmed range, we find you a backup clinic — no extra cost to you.</p>
+            <div class="trust-card" data-animate="fade-up" style="animation-delay:0.1s">
+                <div class="trust-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" fill="rgba(139,105,20,0.08)" stroke="rgba(139,105,20,0.2)" stroke-width="1"/>
+                        <path d="M16 28l6 6 10-12" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="10" y="10" width="28" height="28" rx="4" fill="none" stroke="#8B6914" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Surprise-Bill Guarantee</h3>
+                <p>If the final clinic bill exceeds our confirmed range, we find you a backup clinic — at no extra cost. It's in our written agreement.</p>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">📍</div>
+            <div class="trust-card" data-animate="fade-up" style="animation-delay:0.2s">
+                <div class="trust-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <path d="M24 12C17.4 12 12 17.4 12 24s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12z" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="4" fill="rgba(91,192,235,0.3)"/>
+                        <circle cx="24" cy="24" r="2" fill="#5bc0eb"/>
+                    </svg>
+                </div>
                 <h3>Pinellas-Based Routing</h3>
-                <p>We find the closest clinic within driving distance. No travel, no customs, no ferry.</p>
+                <p>We find the closest clinic within driving distance. No flights, no customs, no APHIS paperwork. Just a car and a confirmed appointment.</p>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">⏱️</div>
-                <h3>Skip the Hold Music</h3>
-                <p>ASPCA CVC and Good Care have long waits. We pre-check availability before you call.</p>
+            <div class="trust-card" data-animate="fade-up" style="animation-delay:0.3s">
+                <div class="trust-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
+                        <path d="M24 10l-4 8-9 1 6.5 6.5L15.5 34 24 29.5 32.5 34l-2-8.5L37 19l-9-1-4-8z" fill="none" stroke="#5bc0eb" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Transparent Fee</h3>
+                <p>Our flat fee — $25–$100 per booking — is disclosed upfront with no hidden charges. The clinic bills you directly for the procedure.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="section section-cta">
+<!-- ========== FAQ PREVIEW ========== -->
+<section class="section section-faq" data-animate="fade-up">
     <div class="section-inner">
-        <h2 class="section-title">Is Your Pet a Candidate?</h2>
-        <p class="intro-text">Your pet is a candidate if you're facing veterinary costs you can't afford — and you don't want to walk into a clinic blind on price. We're currently routing Pinellas pet owners to <strong>Harmony Vet Care</strong> (Oldsmar — 20 min), <strong>ASPCA CVC</strong> (Liberty City, spay/neuter $40-$80), and <strong>Good Care Animal Clinic</strong> (Hialeah, dental and surgery from $285).</p>
-        <a href="/contact/" class="btn btn-primary btn-glow btn-large">Get Your All-In Quote →</a>
-    </div>
-</section>
-
-<!-- FAQ Preview -->
-<section class="section section-faq">
-    <div class="section-inner">
+        <span class="section-label">Questions?</span>
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-grid">
-            <div class="faq-item">
-                <h3>What does the MedPup fee actually cover?</h3>
-                <p>The flat coordination fee covers: realistic cost calculation, clinic price verification, appointment reservation, and the surprise-bill guarantee. It's paid separately — the clinic's bill goes directly to the clinic.</p>
+            <div class="faq-item" data-animate="fade-up">
+                <div class="faq-question">
+                    <h3>What does the MedPup fee actually cover?</h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+                <div class="faq-answer"><p>The flat coordination fee covers: realistic cost calculation based on your pet's specific needs, clinic price verification through direct calls, appointment reservation, and our surprise-bill guarantee. The clinic's bill goes directly to the clinic — MedPup never touches the procedure cost.</p></div>
             </div>
-            <div class="faq-item">
-                <h3>What if the final bill is higher than you quoted?</h3>
-                <p>We take responsibility. If the final bill exceeds our confirmed all-in range, we find you a backup clinic and cover the difference up to the cost of your coordination fee. No surprises, no disputes — it's in the agreement.</p>
+            <div class="faq-item" data-animate="fade-up">
+                <div class="faq-question">
+                    <h3>What if the final bill exceeds your quote?</h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+                <div class="faq-answer"><p>We take responsibility. If the final clinic bill exceeds our confirmed all-in range, we cover the difference (up to the cost of your coordination fee) and find you a backup clinic at no extra charge. No disputes, no fine print — it's in your service agreement.</p></div>
             </div>
-            <div class="faq-item">
-                <h3>Do I still have to drive to Miami/Hialeah?</h3>
-                <p>Yes, approximately 1 hour from Largo. No customs, no APHIS paperwork, no ferry. Just a car and a confirmed appointment.</p>
+            <div class="faq-item" data-animate="fade-up">
+                <div class="faq-question">
+                    <h3>Do I have to travel far?</h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+                <div class="faq-answer"><p>Current partner clinics are 20–55 minutes from Largo by car. No customs, no APHIS paperwork, no ferry or flight required. We route you to the closest clinic that offers your needed procedure at the best confirmed price.</p></div>
             </div>
-            <div class="faq-item">
-                <h3>What about follow-up care?</h3>
-                <p>Your regular vet handles all post-op rechecks. We provide them a complete surgical report and remain available for questions through recovery.</p>
+            <div class="faq-item" data-animate="fade-up">
+                <div class="faq-question">
+                    <h3>What about follow-up care?</h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+                <div class="faq-answer"><p>Your regular veterinarian handles all post-op rechecks. We provide them a complete surgical record from the partner clinic and remain available by phone throughout your pet's recovery.</p></div>
             </div>
         </div>
-        <div class="section-cta">
-            <a href="/faq/" class="btn btn-secondary">View All FAQs →</a>
+        <div class="section-actions">
+            <a href="/faq/" class="btn btn-secondary">
+                View All FAQs
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Disclaimer -->
+<!-- ========== CTA ========== -->
+<section class="section section-cta section-dark" data-animate="fade-up">
+    <div class="section-inner">
+        <div class="cta-content">
+            <span class="section-label">Get Started</span>
+            <h2 class="section-title">Is Your Pet a Candidate?</h2>
+            <p class="cta-text">If you're facing veterinary costs you can't afford — and you don't want to walk into a clinic blind on price — MedPup is for you. We're currently routing Pinellas County pet owners to vetted partner clinics with confirmed all-in pricing.</p>
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span>Free intake consultation</span>
+                </div>
+                <div class="cta-feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span>No obligation quote</span>
+                </div>
+                <div class="cta-feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span>All-in cost guaranteed</span>
+                </div>
+            </div>
+            <a href="/contact/" class="btn btn-primary btn-glow btn-large">
+                Get Your All-In Quote
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== DISCLAIMER ========== -->
 <section class="section section-disclaimer">
     <div class="section-inner">
-        <p class="disclaimer-text">MedPup is a veterinary coordination service, not a veterinary practice. All medical decisions are made by your licensed veterinarian. Our price guarantee applies only to administrative coordination — final medical decisions are not within our scope.</p>
+        <p class="disclaimer-text">MedPup is a veterinary coordination service, not a veterinary practice. All medical decisions, diagnoses, and procedures are provided by independently licensed veterinarians at our partner clinics. Our price guarantee applies to administrative coordination only — final medical decisions are outside our scope.</p>
     </div>
 </section>
 
-<!-- Cost Calculator & Map Scripts -->
+<!-- ========== INITIALIZATION BRIDGE ========== -->
+<!-- FAQ accordion on homepage -->
 <script>
-/* Cost Calculator */
 (function() {
-const COST_DATA = {procedures:[
-{id:'spay',name:'Spay / Neuter (Large Dog)',us_range:'$300–$800',us_avg:550,clinic_range:'$40–$80',clinic_avg:60,medpup_fee:'$25–$50',savings:'80–95%',clinic:'ASPCA CVC Liberty City'},
-{id:'dental',name:'Dental Cleaning (+ Extractions)',us_range:'$1,000–$2,000',us_avg:1500,clinic_range:'$285–$595',clinic_avg:440,medpup_fee:'$50–$100',savings:'72–83%',clinic:'Good Care Animal Clinic'},
-{id:'mass',name:'Mass Removal (Skin Lump)',us_range:'$500–$2,000',us_avg:1250,clinic_range:'$450',clinic_avg:450,medpup_fee:'$50–$100',savings:'50–78%',clinic:'Good Care Animal Clinic'},
-{id:'soft-tissue',name:'Soft Tissue Surgery',us_range:'$650–$2,100',us_avg:1375,clinic_range:'$650–$2,100',clinic_avg:1375,medpup_fee:'$50–$100',savings:'varies',clinic:'Partner clinic'},
-{id:'tplo',name:'TPLO (Orthopedic)',us_range:'$4,000–$6,000',us_avg:5000,clinic_range:'TBD',clinic_avg:null,medpup_fee:'$50–$100',savings:null,clinic:'Phase 3 international'}
-]};
-
-function createCalc() {
-    var c = document.createElement('div');
-    c.className = 'cost-calculator';
-    c.innerHTML = '<div class="calc-header"><h3>Estimate Your Savings</h3><p class="calc-subtitle">Select a procedure to see how much you can save with MedPup.</p></div><div class="calc-body"><div class="calc-row"><label for="procedure-select">Select Procedure:</label><select id="procedure-select" class="calc-select">' + COST_DATA.procedures.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>';}).join('') + '</select></div><div class="calc-results"><div class="calc-card calc-card-us"><span class="calc-label">Typical US Cost</span><span class="calc-value" id="calc-us-cost">$550</span></div><span class="calc-arrow">→</span><div class="calc-card calc-card-clinic"><span class="calc-label">Clinic Price via MedPup</span><span class="calc-value" id="calc-clinic-cost">$40–$80</span></div><span class="calc-plus">+</span><div class="calc-card calc-card-fee"><span class="calc-label">MedPup Coordination</span><span class="calc-value" id="calc-fee">$25–$50</span></div><span class="calc-equals">=</span><div class="calc-card calc-card-total"><span class="calc-label">Your Total</span><span class="calc-value" id="calc-total">$65–$130</span></div></div><div class="calc-savings" id="calc-savings"><span class="savings-badge">Save 80–95%</span><span class="calc-clinic-name">via ASPCA CVC Liberty City</span></div><div class="calc-cta"><a href="/contact/" class="btn btn-primary">Get Your Personal Quote →</a></div></div>';
-    var select = c.querySelector('#procedure-select');
-    function update() {
-        var proc = COST_DATA.procedures.find(function(p){return p.id===select.value;});
-        if (!proc) return;
-        document.getElementById('calc-us-cost').textContent = proc.us_range;
-        document.getElementById('calc-clinic-cost').textContent = proc.clinic_range;
-        document.getElementById('calc-fee').textContent = proc.medpup_fee;
-        if (proc.clinic_avg !== null) {
-            var min = parseInt(proc.clinic_range.replace(/[^0-9]/g,''));
-            var feeParts = proc.medpup_fee.replace(/[^0-9–-]/g,'').split('–');
-            var feeMax = parseInt(feeParts[1])||100;
-            var max = proc.clinic_range.indexOf('–')>0 ? parseInt(proc.clinic_range.split('–')[1].replace(/[^0-9]/g,''))+feeMax : min+feeMax;
-            document.getElementById('calc-total').textContent = '$'+min+'-$'+Math.max(max,300);
-        } else {
-            document.getElementById('calc-total').textContent = 'Contact us';
-        }
-        document.querySelector('#calc-savings .savings-badge').textContent = proc.savings ? 'Save '+proc.savings : 'Contact for pricing';
-        document.querySelector('#calc-savings .calc-clinic-name').textContent = 'via '+proc.clinic;
-    }
-    select.addEventListener('change', update);
-    update();
-    return c;
-}
-
-function loadMap() {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-    document.head.appendChild(link);
-    var script = document.createElement('script');
-    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-    script.onload = function() {
-        var mapEl = document.getElementById('clinic-map');
-        if (!mapEl) return;
-        var map = L.map('clinic-map').setView([27.8, -82.3], 7);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18
-        }).addTo(map);
-        var clinics = [
-            {name:'MedPup (Largo)', lat:27.91, lng:-82.79, desc:'Your location'},
-            {name:'ASPCA CVC Liberty City', lat:25.839, lng:-80.220, desc:'Spay/neuter from $40'},
-            {name:'Good Care Animal Clinic', lat:25.860, lng:-80.280, desc:'Dental & surgery from $285'},
-            {name:'Humane Society of Tampa Bay', lat:27.953, lng:-82.465, desc:'Spay/neuter from $70'},
-            {name:'Harmony Vet Care', lat:28.035, lng:-82.665, desc:'Spay/neuter $85-$180'}
-        ];
-        clinics.forEach(function(c) {
-            var icon = L.divIcon({
-                className: 'custom-marker',
-                html: '<div style="background:'+(c.name==='MedPup (Largo)'?'#5bc0eb':'#1a365d')+';color:white;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap;">'+c.name.split('(')[0].trim()+'</div>',
-                iconSize: [80, 26], iconAnchor: [40, 13]
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function() {
+                item.classList.toggle('faq-open');
+                var svg = question.querySelector('svg');
+                if (svg) svg.style.transform = item.classList.contains('faq-open') ? 'rotate(180deg)' : '';
             });
-            L.marker([c.lat, c.lng], {icon: icon}).addTo(map).bindPopup('<strong>'+c.name+'</strong><br>'+c.desc);
-        });
-    };
-    document.head.appendChild(script);
-}
-
-function init() {
-    var placeholder = document.querySelector('.cost-calculator-placeholder');
-    if (placeholder) { var calc = createCalc(); placeholder.parentNode.replaceChild(calc, placeholder); }
-    loadMap();
-}
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-else init();
+        }
+    });
 })();
 </script>
 

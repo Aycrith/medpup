@@ -1,19 +1,12 @@
 baseURL: /
 title: "MedPup — Affordable Veterinary Surgery. A Short Trip Away."
 locale: en-us
-theme: stack
 copyright: "MedPup Veterinary Concierge, LLC"
 enableEmoji: true
 enableGitInfo: false
 hasCJKLanguage: false
 permalinks:
   post: /blog/:slug/
-
-# Hugo module config
-module:
-  hugoVersion:
-    extended: true
-    min: "0.157.0"
 
 # Build config
 build:
@@ -23,6 +16,8 @@ build:
 outputs:
   home: [HTML]
   page: [HTML]
+  section: [HTML]
+  rss: [RSS]
 
 # Menu configuration
 menu:
@@ -64,34 +59,14 @@ params:
   mainSections: ["blog"]
   rssFullContent: true
   description: "MedPup finds the lowest-cost veterinary clinic near Pinellas County — with confirmed all-in pricing and a surprise-bill guarantee. Save 80-95% on spay/neuter, dental, and surgery."
-  
+
   footer:
     since: 2026
-    customText: "<div style=\"background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:0.83rem;\">✅ <strong>MedPup All-In Cost Guarantee:</strong> Final bill confirmed before you book — if it exceeds our range, we cover the excess or find you a backup clinic at no extra cost.</div>MedPup is a veterinary logistics concierge, not a veterinary practice. </br><a href='/privacy/'>Privacy Policy</a> | <a href='/terms/'>Terms of Service</a>"
-
-  sidebar:
-    compact: false
-    avatar: ""  # No avatar for business site
-    subtitle: "Florida-based pet medical concierge"
-    emoji: ""
-  
-  article:
-    headingAnchor: false
-    toc: true
-    readingTime: true
-    license:
-      enabled: false
-
-  widgets:
-    homepage: []
-    page: []
+    customText: "MedPup is a veterinary logistics concierge, not a veterinary practice."
 
   colorScheme:
     toggle: true
     default: "dark"
-
-  comments:
-    enabled: false
 
   opengraph:
     twitter:
@@ -109,7 +84,7 @@ params:
 markup:
   goldmark:
     renderer:
-      unsafe: true  # Allow HTML in markdown (for tables, buttons, etc.)
+      unsafe: true
   tableOfContents:
     endLevel: 3
     ordered: false

@@ -1,41 +1,49 @@
 <meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-
-{{- $description := partialCached "data/description" . .RelPermalink -}}
-<meta name='description' {{ printf "content=%q" $description | safeHTMLAttr }}>
+<meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+<meta name='description' content='{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
 {{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
-{{- $title := partial "data/title" . -}}
-<title>{{ $title }}</title>
+<title>{{- if .IsHome -}}{{ .Site.Title }}{{- else -}}{{ .Title }} — MedPup{{- end -}}</title>
 
-{{ with .Params.canonicalUrl }}
-<link rel="canonical" href="{{ . }}">
-{{ else }}
-<link rel="canonical" href="{{ .Permalink }}">
-{{ end }}
+{{- with .Params.canonicalUrl -}}<link rel="canonical" href="{{ . }}">{{- else -}}<link rel="canonical" href="{{ .Permalink }}">{{- end -}}
 
 <!-- Preconnect for performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://unpkg.com">
 
-<!-- Premium font stack: Playfair Display (display), Inter (body), Outfit (UI) -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<!-- Premium font stack: Cinzel (display/hero), Inter (body), Outfit (UI), Playfair (accents) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 </noscript>
 
-{{- partial "head/style.html" . -}}
-{{- partial "head/script.html" . -}}
-{{- partial "head/opengraph/include.html" . -}}
+<!-- Main Stylesheet via Hugo Pipes -->
+{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+{{ $style := resources.Get "scss/main.scss" | toCSS $options | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
-{{- range .AlternativeOutputFormats -}}
+<!-- Favicon -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.svg" type="image/svg+xml">
+
+<!-- RSS -->
+{{ range .AlternativeOutputFormats -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{- end -}}
+{{ end -}}
 
-{{- $favicon := partial "helper/image" (dict "Image" .Site.Params.favicon "Resources" resources "Context" .) -}}
-{{ with $favicon }}
-    <link rel="shortcut icon" href="{{ .Permalink }}" />
-{{ end }}
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — MedPup{{ end }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 
-{{- partial "head/custom.html" . -}}
+<!-- Structured Data -->
+{{ partial "head/custom.html" . }}
+
+<!-- Dark mode script (blocks rendering to prevent flash) -->
+<script>
+(function(){var e=localStorage.getItem('medpup-theme')||'dark';document.documentElement.setAttribute('data-theme',e);})();
+</script>

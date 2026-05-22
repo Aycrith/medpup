@@ -1,18 +1,45 @@
-<footer class="site-footer" role="contentinfo">
+<footer class="footer" role="contentinfo">
     <div class="footer-inner">
-        <div class="footer-brand">
-            <span class="footer-logo">{{ .Site.Title }}</span>
-            <span class="footer-tagline">Pinellas County Veterinary Concierge</span>
-        </div>
-        <div class="footer-links">
-            <a href="/how-it-works/">How It Works</a>
-            <a href="/pricing/">Pricing</a>
-            <a href="/faq/">FAQ</a>
-            <a href="/contact/">Contact</a>
+        <div class="footer-grid">
+            <div class="footer-col footer-brand">
+                <a href="/" class="footer-logo">MedPup</a>
+                <p class="footer-tagline">Pinellas County Veterinary Concierge — confirmed all-in pricing before you book. No surprise bills. Guaranteed.</p>
+                <div class="footer-guarantee-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5bc0eb" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>All-In Cost Guarantee</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-list">
+                    <li><a href="/how-it-works/">How It Works</a></li>
+                    <li><a href="/pricing/">Pricing</a></li>
+                    <li><a href="/procedures/">Procedures</a></li>
+                    <li><a href="/destinations/">Destinations</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Resources</h4>
+                <ul class="footer-list">
+                    <li><a href="/faq/">FAQ</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/contact/">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Legal</h4>
+                <ul class="footer-list">
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ now.Format "2026" }} {{ .Site.Title }}. All rights reserved.</p>
-            <p class="footer-disclaimer">MedPup is a coordination service, not a veterinary practice.</p>
+            <p>&copy; {{ now.Format "2026" }} MedPup Veterinary Concierge, LLC. All rights reserved.</p>
+            <p class="footer-disclaimer">MedPup is a coordination service, not a veterinary practice. All medical decisions are made by your licensed veterinarian.</p>
         </div>
     </div>
 </footer>

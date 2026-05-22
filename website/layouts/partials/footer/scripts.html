@@ -1,1 +1,228 @@
-{{ partialCached "footer/components/script.html" . }}
+<!-- Core Scripts -->
+<script>
+(function() {
+    'use strict';
+
+    // ========== THEME MANAGEMENT ==========
+    const THEME_KEY = 'medpup-theme';
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    function getTheme() { return localStorage.getItem(THEME_KEY) || 'dark'; }
+    function setTheme(t) {
+        html.setAttribute('data-theme', t);
+        localStorage.setItem(THEME_KEY, t);
+        toggleBtn?.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+        });
+        setTheme(getTheme()); // ensure button state matches
+    }
+
+    // ========== MOBILE NAV TOGGLE ==========
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navLinks.classList.toggle('nav-open');
+        });
+        // Close nav on link click
+        navLinks.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ========== SCROLL-TRIGGERED ANIMATIONS ==========
+    function initScrollAnimations() {
+        var animated = document.querySelectorAll('[data-animate]');
+        if (!animated.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        animated.forEach(function(el) { observer.observe(el); });
+    }
+
+    // ========== NAV SCROLL EFFECT ==========
+    function initNavScroll() {
+        var nav = document.querySelector('.nav');
+        if (!nav) return;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    nav.classList.toggle('nav-scrolled', window.scrollY > 80);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+
+    // ========== HERO PARALLAX ==========
+    function initHeroParallax() {
+        var hero = document.querySelector('.hero');
+        if (!hero) return;
+        window.addEventListener('scroll', function() {
+            var scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                hero.style.setProperty('--scroll-offset', scrollY * 0.4 + 'px');
+            }
+        }, { passive: true });
+    }
+
+    // ========== COST CALCULATOR ==========
+    function initCalculator() {
+        var placeholder = document.querySelector('.cost-calculator-placeholder');
+        if (!placeholder) return;
+
+        var COST_DATA = {procedures:[
+            {id:'spay',name:'Spay / Neuter (Large Dog)',us_range:'$300–$800',us_avg:550,clinic_range:'$40–$80',clinic_avg:60,medpup_fee:'$25–$50',savings:'80-95%',clinic:'ASPCA CVC Liberty City'},
+            {id:'dental',name:'Dental Cleaning + Extractions',us_range:'$1,000–$2,000',us_avg:1500,clinic_range:'$285–$595',clinic_avg:440,medpup_fee:'$50–$100',savings:'72-83%',clinic:'Good Care Animal Clinic'},
+            {id:'mass',name:'Mass Removal (Skin Lump)',us_range:'$500–$2,000',us_avg:1250,clinic_range:'$450',clinic_avg:450,medpup_fee:'$50–$100',savings:'50-78%',clinic:'Good Care Animal Clinic'},
+            {id:'soft-tissue',name:'Soft Tissue Surgery',us_range:'$650–$2,100',us_avg:1375,clinic_range:'$650–$2,100',clinic_avg:1375,medpup_fee:'$50–$100',savings:'varies',clinic:'Partner clinic'},
+            {id:'tplo',name:'TPLO (Orthopedic)',us_range:'$4,000–$6,000',us_avg:5000,clinic_range:'TBD',clinic_avg:null,medpup_fee:'$50–$100',savings:null,clinic:'Phase 3 international'}
+        ]};
+
+        var c = document.createElement('div');
+        c.className = 'calculator';
+        c.innerHTML = '<div class="calculator-header"><h3 class="calculator-title">Estimate Your Savings</h3><p class="calculator-subtitle">Select a procedure to see how much you can save with MedPup compared to typical US vet costs.</p></div><div class="calculator-body"><div class="calculator-select-row"><label for="calc-select" class="calculator-label">Choose a procedure:</label><div class="calculator-select-wrap"><select id="calc-select" class="calculator-select"><option value="">— Select a procedure —</option>' + COST_DATA.procedures.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>';}).join('') + '</select><svg class="calculator-select-arrow" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div></div><div class="calculator-results"><div class="calculator-card"><div class="calculator-card-label">Typical US Cost</div><div class="calculator-card-value" id="calc-us">—</div><div class="calculator-card-note">National average with all add-ons</div></div><div class="calculator-arrow">→</div><div class="calculator-card"><div class="calculator-card-label">Clinic Price</div><div class="calculator-card-value" id="calc-clinic">—</div><div class="calculator-card-note">Confirmed out-the-door at partner clinic</div></div><div class="calculator-plus">+</div><div class="calculator-card card-fee"><div class="calculator-card-label">MedPup Fee</div><div class="calculator-card-value" id="calc-fee">—</div><div class="calculator-card-note">Flat coordination fee</div></div><div class="calculator-equals">=</div><div class="calculator-card card-total"><div class="calculator-card-label">Your Total</div><div class="calculator-card-value" id="calc-total">—</div><div class="calculator-card-note">All-in, guaranteed</div></div></div><div class="calculator-savings" id="calc-savings" style="display:none"><div class="savings-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span id="calc-savings-pct">—</span></div><p class="calculator-clinic-name" id="calc-clinic-name">via —</p></div><div class="calculator-cta"><a href="/contact/" class="btn btn-primary">Get Your Personal Quote →</a></div>';
+
+        placeholder.parentNode.replaceChild(c, placeholder);
+
+        var select = document.getElementById('calc-select');
+        if (!select) return;
+        function update() {
+            if (!select.value) {
+                document.querySelectorAll('.calculator-results, .calculator-savings').forEach(function(el){el.style.display='none';});
+                return;
+            }
+            document.querySelector('.calculator-results').style.display='flex';
+            var proc = COST_DATA.procedures.find(function(p){return p.id===select.value;});
+            if (!proc) return;
+            document.getElementById('calc-us').textContent = proc.us_range;
+            document.getElementById('calc-clinic').textContent = proc.clinic_range;
+            document.getElementById('calc-fee').textContent = proc.medpup_fee;
+            if (proc.clinic_avg !== null) {
+                var min = parseInt(proc.clinic_range.replace(/[^0-9]/g,''));
+                var feeParts = proc.medpup_fee.replace(/[^0-9–-]/g,'').split('–');
+                var feeMax = parseInt(feeParts[1])||100;
+                var max = proc.clinic_range.indexOf('–')>0 ? parseInt(proc.clinic_range.split('–')[1].replace(/[^0-9]/g,''))+feeMax : min+feeMax;
+                document.getElementById('calc-total').textContent = '$'+min+'-$'+Math.max(max,300);
+            } else {
+                document.getElementById('calc-total').textContent = 'Contact us';
+            }
+            var savingsEl = document.getElementById('calc-savings');
+            var pctEl = document.getElementById('calc-savings-pct');
+            var clinicEl = document.getElementById('calc-clinic-name');
+            if (proc.savings) {
+                savingsEl.style.display = 'flex';
+                pctEl.textContent = 'Save ' + proc.savings;
+                clinicEl.textContent = 'via ' + proc.clinic;
+            } else {
+                savingsEl.style.display = 'none';
+            }
+        }
+        select.addEventListener('change', update);
+        // Trigger initial if already selected
+        if (select.value) update();
+    }
+
+    // ========== CLINIC MAP ==========
+    function initMap() {
+        var mapEl = document.getElementById('clinic-map');
+        if (!mapEl) return;
+        // Load Leaflet CSS
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
+        // Load Leaflet JS
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.onload = function() {
+            var map = L.map('clinic-map', {
+                center: [27.8, -82.3],
+                zoom: 7,
+                zoomControl: true,
+                scrollWheelZoom: false
+            });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18,
+                className: 'map-tiles'
+            }).addTo(map);
+
+            var clinics = [
+                {name:'MedPup (Largo)', lat:27.91, lng:-82.79, desc:'Your location — we coordinate from here', icon:'home'},
+                {name:'ASPCA CVC Liberty City', lat:25.839, lng:-80.220, desc:'Spay/neuter from $40', icon:'clinic'},
+                {name:'Good Care Animal Clinic', lat:25.860, lng:-80.280, desc:'Dental & surgery from $285', icon:'clinic'},
+                {name:'Humane Society of Tampa Bay', lat:27.953, lng:-82.465, desc:'Spay/neuter from $70', icon:'clinic'},
+                {name:'Harmony Vet Care', lat:28.035, lng:-82.665, desc:'Spay/neuter $85-$180', icon:'clinic'}
+            ];
+
+            clinics.forEach(function(c) {
+                var isHome = c.icon === 'home';
+                var markerHtml = '<div class="map-marker ' + (isHome ? 'map-marker-home' : 'map-marker-clinic') + '">' +
+                    (isHome ? 
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="#5bc0eb"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>' :
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="#1a365d"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13c0-4.97 3.03-9 9-9s9 4.03 9 9z"/></svg>'
+                    ) +
+                    '<span>' + c.name.split('(')[0].trim() + '</span></div>';
+                var icon = L.divIcon({
+                    className: '',
+                    html: markerHtml,
+                    iconSize: isHome ? [80, 30] : [100, 30],
+                    iconAnchor: isHome ? [40, 15] : [50, 15]
+                });
+                L.marker([c.lat, c.lng], {icon: icon}).addTo(map)
+                    .bindPopup('<strong>'+c.name+'</strong><br>'+c.desc);
+            });
+
+            // Add scrollwheel zoom on interaction
+            mapEl.addEventListener('mouseenter', function() { map.scrollWheelZoom.enable(); });
+            mapEl.addEventListener('mouseleave', function() { map.scrollWheelZoom.disable(); });
+
+            // Invalidate after load to fix rendering
+            setTimeout(function() { map.invalidateSize(); }, 500);
+        };
+        document.head.appendChild(script);
+    }
+
+    // ========== INIT ON DOM READY ==========
+    function init() {
+        initNavScroll();
+        initScrollAnimations();
+        initHeroParallax();
+        initCalculator();
+        initMap();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
