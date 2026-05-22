@@ -15,6 +15,9 @@ This repository contains the complete planning, research, and operational assets
 - **finance/** — CSV templates (trip ledger, projections, vet tracker, cost comparison)
 - **scripts/** — Utility scripts (build, go-bag check, regulatory monitor, trip log generator)
 - **operations/** — Trip logs directory (auto-populated by new-trip-log.sh)
+- **docs/** — Project learnings, execution plans, and meta-documentation
+  - `docs/LEARNINGS.md` — Compiled project learnings from memory, research, and operations
+  - `docs/plans/` — Execution plans and sprint roadmaps
 - **assets/** — Brand preview images
 
 ## Working Conventions
@@ -31,6 +34,8 @@ This repository contains the complete planning, research, and operational assets
 |------|-----------|
 | Business model overview | `01_BUSINESS/BusinessPlanStrategy.md` |
 | Next actions to execute | `01_BUSINESS/QuickStartExecutionGuide.md` |
+| Current execution plan | `docs/plans/CURRENT_EXECUTION_PLAN.md` |
+| Project learnings | `docs/LEARNINGS.md` |
 | Legal structure setup | `02_PHASES/Phase1FoundationalBusinessAssets.md` |
 | Full market data (JSON) | `KNOWLEDGE_BASE.json` |
 | Digital infrastructure | `02_PHASES/Phase2_DigitalInfrastructure.md` |

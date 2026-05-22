@@ -1,0 +1,16 @@
+{
+  "intake_id": "intake_20260522_034454",
+  "created_at": "2026-05-22T03:44:54.990396",
+  "status": "pending_routing",
+  "pet_name": "Test Dog",
+  "pet_species": "dog",
+  "pet_breed": "Lab Mix",
+  "pet_weight_lbs": 55,
+  "zip_code": "33701",
+  "city": "Largo",
+  "procedure": "Dental Cleaning with extractions",
+  "procedure_category": "dental",
+  "uspree_est_cost": 1800.0,
+  "urgency": "within_week",
+  "needs_travel_coord": false
+}
