@@ -1,0 +1,630 @@
+
+(function() {
+    'use strict';
+
+    // ========== THEME MANAGEMENT ==========
+    const THEME_KEY = 'medpup-theme';
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    function getTheme() { return localStorage.getItem(THEME_KEY) || 'dark'; }
+    function setTheme(t) {
+        html.setAttribute('data-theme', t);
+        localStorage.setItem(THEME_KEY, t);
+        toggleBtn?.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        // Rebuild particles with new colors
+        if (window.particleSystem) window.particleSystem.updateColors();
+    }
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+        });
+        setTheme(getTheme());
+    }
+
+    // ========== MOBILE NAV TOGGLE ==========
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinksEl = document.getElementById('nav-links');
+    if (navToggle && navLinksEl) {
+        navToggle.addEventListener('click', function() {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navLinksEl.classList.toggle('nav-open');
+        });
+        navLinksEl.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinksEl.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ========== SCROLL PROGRESS BAR ==========
+    function initProgressBar() {
+        var bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollTop = window.scrollY;
+                    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    bar.style.width = progress + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+
+    // ========== HERO WORD REVEAL ==========
+    function initWordReveal() {
+        var heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+        // Don't re-process if already done
+        if (heroTitle.querySelector('.word')) return;
+        var text = heroTitle.textContent.trim();
+        var words = text.split(/\s+/);
+        heroTitle.innerHTML = words.map(function(w) {
+            return '<span class="word"><span>' + w + '</span></span> ';
+        }).join('');
+        // Trigger animation after small delay
+        setTimeout(function() {
+            heroTitle.querySelectorAll('.word span').forEach(function(s) {
+                s.style.transform = '';
+            });
+        }, 100);
+    }
+
+    // ========== CANVAS PARTICLE SYSTEM ==========
+    function ParticleSystem() {
+        var canvas = document.getElementById('particle-canvas');
+        if (!canvas) return null;
+
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return null;
+
+        var particles = [];
+        var mouseX = 0, mouseY = 0;
+        var currentSection = 'hero';
+        var animFrame = null;
+        var W, H;
+
+        // Section-specific particle configs
+        var CONFIGS = {
+            hero:    { count: 80,  speed: 0.3, size: 2.5, color: [91,192,235], opacity: 0.4, connect: false, drift: 'sink' },
+            intro:   { count: 100, speed: 0.4, size: 2.0, color: [91,192,235], opacity: 0.35, connect: false, drift: 'rise' },
+            steps:   { count: 60,  speed: 0.6, size: 1.8, color: [139,105,20], opacity: 0.4, connect: true, drift: 'orbit' },
+            calculator: { count: 120, speed: 0.5, size: 2.0, color: [34,197,94], opacity: 0.35, connect: true, drift: 'center' },
+            clinics: { count: 90,  speed: 0.4, size: 2.0, color: [91,192,235], opacity: 0.4, connect: true, drift: 'network' },
+            numbers: { count: 70,  speed: 0.3, size: 1.8, color: [91,192,235], opacity: 0.3, connect: false, drift: 'float' },
+            trust:   { count: 80,  speed: 0.5, size: 2.2, color: [139,105,20], opacity: 0.35, connect: true, drift: 'float' },
+            cta:     { count: 100, speed: 0.6, size: 2.5, color: [91,192,235], opacity: 0.5, connect: true, drift: 'expand' },
+        };
+
+        function resize() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+        }
+
+        function createParticles(cfg) {
+            particles = [];
+            for (var i = 0; i < cfg.count; i++) {
+                var p = {
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    vy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    size: cfg.size * (0.5 + Math.random() * 0.8),
+                    opacity: cfg.opacity * (0.4 + Math.random() * 0.6),
+                    phase: Math.random() * Math.PI * 2,
+                    drift: cfg.drift,
+                };
+                particles.push(p);
+            }
+        }
+
+        function updateParticles(cfg) {
+            // Adjust particle count to match config
+            var diff = cfg.count - particles.length;
+            while (diff > 0 && particles.length < 300) {
+                particles.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    vy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVx: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    baseVy: (Math.random() - 0.5) * cfg.speed * 0.5,
+                    size: cfg.size * (0.5 + Math.random() * 0.8),
+                    opacity: cfg.opacity * (0.4 + Math.random() * 0.6),
+                    phase: Math.random() * Math.PI * 2,
+                    drift: cfg.drift,
+                });
+                diff--;
+            }
+            while (diff < 0 && particles.length > 10) {
+                particles.pop();
+                diff++;
+            }
+            // Update all particle properties to match config
+            particles.forEach(function(p) {
+                p.drift = cfg.drift;
+                p.baseVx += ( (Math.random() - 0.5) * cfg.speed * 0.5 - p.baseVx ) * 0.05;
+                p.baseVy += ( (Math.random() - 0.5) * cfg.speed * 0.5 - p.baseVy ) * 0.05;
+                p.size += (cfg.size * (0.5 + Math.random() * 0.8) - p.size) * 0.05;
+                p.opacity += (cfg.opacity * (0.4 + Math.random() * 0.6) - p.opacity) * 0.05;
+            });
+        }
+
+        function animate(cfg, section) {
+            cfg = cfg || CONFIGS.hero;
+
+            ctx.clearRect(0, 0, W, H);
+
+            var c = cfg.color;
+            var isDark = getTheme() === 'dark';
+
+            // Drift behavior
+            particles.forEach(function(p) {
+                p.phase += 0.01;
+                var driftX = 0, driftY = 0;
+
+                switch(p.drift) {
+                    case 'sink':
+                        driftY = 0.15;
+                        break;
+                    case 'rise':
+                        driftY = -0.15;
+                        break;
+                    case 'orbit':
+                        driftX = Math.sin(p.phase) * 0.3;
+                        driftY = Math.cos(p.phase) * 0.3;
+                        break;
+                    case 'center':
+                        var cx = W / 2, cy = H / 2;
+                        driftX = (cx - p.x) * 0.0003;
+                        driftY = (cy - p.y) * 0.0003;
+                        break;
+                    case 'network':
+                        driftX = Math.sin(p.phase + p.y * 0.01) * 0.2;
+                        driftY = Math.cos(p.phase + p.x * 0.01) * 0.2;
+                        break;
+                    case 'expand':
+                        var ecx = W / 2, ecy = H / 2;
+                        var dx = p.x - ecx, dy = p.y - ecy;
+                        var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+                        driftX = (dx / dist) * 0.2;
+                        driftY = (dy / dist) * 0.2;
+                        break;
+                    default: // float
+                        driftX = Math.sin(p.phase) * 0.1;
+                        driftY = Math.cos(p.phase) * 0.1;
+                }
+
+                p.vx += (p.baseVx + driftX - p.vx) * 0.05;
+                p.vy += (p.baseVy + driftY - p.vy) * 0.05;
+
+                // Mouse interaction
+                var mdx = mouseX - p.x, mdy = mouseY - p.y;
+                var mDist = Math.sqrt(mdx*mdx + mdy*mdy);
+                if (mDist < 200 && mDist > 0) {
+                    var force = (200 - mDist) / 200 * 0.3;
+                    p.vx -= (mdx / mDist) * force;
+                    p.vy -= (mdy / mDist) * force;
+                }
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wrap around edges
+                if (p.x < -20) p.x = W + 20;
+                if (p.x > W + 20) p.x = -20;
+                if (p.y < -20) p.y = H + 20;
+                if (p.y > H + 20) p.y = -20;
+            });
+
+            // Draw connections (for network sections)
+            if (cfg.connect) {
+                var maxDist = 120;
+                for (var i = 0; i < particles.length; i++) {
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var dx = particles[i].x - particles[j].x;
+                        var dy = particles[i].y - particles[j].y;
+                        var dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < maxDist) {
+                            var alpha = (1 - dist / maxDist) * 0.15 * cfg.opacity;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alpha + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Draw particles
+            particles.forEach(function(p) {
+                var alpha = p.opacity * cfg.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, Math.max(p.size, 0.5), 0, Math.PI * 2);
+                ctx.fillStyle = isDark
+                    ? 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alpha + ')'
+                    : 'rgba(' + (c[0]*0.3) + ',' + (c[1]*0.3) + ',' + (c[2]*0.3) + ',' + alpha + ')';
+                ctx.fill();
+
+                // Glow effect on larger particles
+                if (p.size > 1.5) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = isDark
+                        ? 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (alpha * 0.15) + ')'
+                        : 'rgba(' + (c[0]*0.3) + ',' + (c[1]*0.3) + ',' + (c[2]*0.3) + ',' + (alpha * 0.08) + ')';
+                    ctx.fill();
+                }
+            });
+
+            animFrame = requestAnimationFrame(function() { animate(cfg, section); });
+        }
+
+        function switchSection(section, callback) {
+            if (section === currentSection) return;
+            currentSection = section;
+            var cfg = CONFIGS[section] || CONFIGS.hero;
+            updateParticles(cfg);
+            if (callback) callback(section, cfg);
+        }
+
+        function updateColors() {
+            // Colors update on next frame automatically via getTheme() check
+        }
+
+        // Init
+        resize();
+        var initCfg = CONFIGS.hero;
+        createParticles(initCfg);
+        animate(initCfg, 'hero');
+
+        window.addEventListener('resize', resize);
+
+        // Mouse tracking
+        window.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Detect current section on scroll
+        var ticking2 = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking2) {
+                requestAnimationFrame(function() {
+                    // Find which section is most visible
+                    var sections = document.querySelectorAll('[data-section]');
+                    var bestSection = 'hero';
+                    var bestVisibility = 0;
+                    sections.forEach(function(sec) {
+                        var rect = sec.getBoundingClientRect();
+                        var visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+                        if (visible > bestVisibility) {
+                            bestVisibility = visible;
+                            bestSection = sec.getAttribute('data-section');
+                        }
+                    });
+                    if (bestSection !== currentSection) {
+                        switchSection(bestSection);
+                    }
+                    ticking2 = false;
+                });
+                ticking2 = true;
+            }
+        });
+
+        return {
+            switchSection: switchSection,
+            updateColors: updateColors,
+            destroy: function() {
+                if (animFrame) cancelAnimationFrame(animFrame);
+                window.removeEventListener('resize', resize);
+            }
+        };
+    }
+
+    // ========== 3D CARD TILT ==========
+    function init3DCards() {
+        var cards = document.querySelectorAll('.step-card, .trust-card, .clinic-card');
+        if (!cards.length) return;
+
+        cards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+                var rotateX = ((y - centerY) / centerY) * -3;  // max ±3deg
+                var rotateY = ((x - centerX) / centerX) * 3;   // max ±3deg
+                card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    // ========== STATS COUNT-UP ==========
+    function initStatsCountUp() {
+        var stats = document.querySelectorAll('.hero-stat-value');
+        if (!stats.length) return;
+
+        var observed = false;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !observed) {
+                    observed = true;
+                    stats.forEach(function(stat) {
+                        var text = stat.textContent;
+                        var hasPercent = text.indexOf('%') >= 0;
+                        var hasDollar = text.indexOf('$') >= 0;
+                        var hasDash = text.indexOf('–') >= 0;
+                        var targetNum, prefix, suffix;
+
+                        if (hasPercent) {
+                            prefix = '';
+                            suffix = '%';
+                            targetNum = parseInt(text);
+                        } else if (hasDollar && hasDash) {
+                            prefix = '$';
+                            suffix = '';
+                            targetNum = 100;
+                        } else if (hasDollar) {
+                            prefix = '$';
+                            suffix = '';
+                            targetNum = parseInt(text.replace(/[^0-9]/g,'')) || 100;
+                        } else {
+                            prefix = '';
+                            suffix = '';
+                            targetNum = parseInt(text) || 100;
+                        }
+
+                        var current = 0;
+                        var duration = 1500;
+                        var startTime = Date.now();
+
+                        function update() {
+                            var elapsed = Date.now() - startTime;
+                            var progress = Math.min(elapsed / duration, 1);
+                            // Ease out cubic
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var val = Math.round(eased * targetNum);
+                            stat.textContent = prefix + val + suffix;
+                            if (progress < 1) requestAnimationFrame(update);
+                        }
+                        update();
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(function(s) { observer.observe(s.closest('.hero-stat') || s.parentElement); });
+    }
+
+    // ========== SCROLL ANIMATIONS (existing) ==========
+    function initScrollAnimations() {
+        var animated = document.querySelectorAll('[data-animate]');
+        if (!animated.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        animated.forEach(function(el) { observer.observe(el); });
+    }
+
+    // ========== NAV SCROLL EFFECT ==========
+    function initNavScroll() {
+        var nav = document.querySelector('.nav');
+        if (!nav) return;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    nav.classList.toggle('nav-scrolled', window.scrollY > 80);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+
+    // ========== HERO PARALLAX ==========
+    function initHeroParallax() {
+        var hero = document.querySelector('.hero');
+        if (!hero) return;
+        window.addEventListener('scroll', function() {
+            var scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                hero.style.setProperty('--scroll-offset', scrollY * 0.4 + 'px');
+            }
+        }, { passive: true });
+    }
+
+    // ========== COST CALCULATOR ==========
+    function initCalculator() {
+        var placeholder = document.querySelector('.cost-calculator-placeholder');
+        if (!placeholder) return;
+
+        var COST_DATA = {procedures:[
+            {id:'spay',name:'Spay / Neuter (Large Dog)',us_range:'$300–$800',us_avg:550,clinic_range:'$40–$80',clinic_avg:60,medpup_fee:'$25–$50',savings:'80-95%',clinic:'ASPCA CVC Liberty City'},
+            {id:'dental',name:'Dental Cleaning + Extractions',us_range:'$1,000–$2,000',us_avg:1500,clinic_range:'$285–$595',clinic_avg:440,medpup_fee:'$50–$100',savings:'72-83%',clinic:'Good Care Animal Clinic'},
+            {id:'mass',name:'Mass Removal (Skin Lump)',us_range:'$500–$2,000',us_avg:1250,clinic_range:'$450',clinic_avg:450,medpup_fee:'$50–$100',savings:'50-78%',clinic:'Good Care Animal Clinic'},
+            {id:'soft-tissue',name:'Soft Tissue Surgery',us_range:'$650–$2,100',us_avg:1375,clinic_range:'$650–$2,100',clinic_avg:1375,medpup_fee:'$50–$100',savings:'varies',clinic:'Partner clinic'},
+            {id:'tplo',name:'TPLO (Orthopedic)',us_range:'$4,000–$6,000',us_avg:5000,clinic_range:'TBD',clinic_avg:null,medpup_fee:'$50–$100',savings:null,clinic:'Phase 3 international'}
+        ]};
+
+        var c = document.createElement('div');
+        c.className = 'calculator';
+        c.innerHTML = '<div class="calculator-header"><h3 class="calculator-title">Estimate Your Savings</h3><p class="calculator-subtitle">Select a procedure to see how much you can save with MedPup compared to typical US vet costs.</p></div><div class="calculator-body"><div class="calculator-select-row"><label for="calc-select" class="calculator-label">Choose a procedure:</label><div class="calculator-select-wrap"><select id="calc-select" class="calculator-select"><option value="">— Select a procedure —</option>' + COST_DATA.procedures.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>';}).join('') + '</select><svg class="calculator-select-arrow" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div></div><div class="calculator-results"><div class="calculator-card"><div class="calculator-card-label">Typical US Cost</div><div class="calculator-card-value" id="calc-us">—</div><div class="calculator-card-note">National average with all add-ons</div></div><div class="calculator-arrow">→</div><div class="calculator-card"><div class="calculator-card-label">Clinic Price</div><div class="calculator-card-value" id="calc-clinic">—</div><div class="calculator-card-note">Confirmed out-the-door at partner clinic</div></div><div class="calculator-plus">+</div><div class="calculator-card card-fee"><div class="calculator-card-label">MedPup Fee</div><div class="calculator-card-value" id="calc-fee">—</div><div class="calculator-card-note">Flat coordination fee</div></div><div class="calculator-equals">=</div><div class="calculator-card card-total"><div class="calculator-card-label">Your Total</div><div class="calculator-card-value" id="calc-total">—</div><div class="calculator-card-note">All-in, guaranteed</div></div></div><div class="calculator-savings" id="calc-savings" style="display:none"><div class="savings-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span id="calc-savings-pct">—</span></div><p class="calculator-clinic-name" id="calc-clinic-name">via —</p></div><div class="calculator-cta"><a href="/contact/" class="btn btn-primary">Get Your Personal Quote →</a></div>';
+
+        placeholder.parentNode.replaceChild(c, placeholder);
+
+        var select = document.getElementById('calc-select');
+        if (!select) return;
+        function update() {
+            if (!select.value) {
+                document.querySelectorAll('.calculator-results, .calculator-savings').forEach(function(el){el.style.display='none';});
+                return;
+            }
+            document.querySelector('.calculator-results').style.display='flex';
+            var proc = COST_DATA.procedures.find(function(p){return p.id===select.value;});
+            if (!proc) return;
+            document.getElementById('calc-us').textContent = proc.us_range;
+            document.getElementById('calc-clinic').textContent = proc.clinic_range;
+            document.getElementById('calc-fee').textContent = proc.medpup_fee;
+            if (proc.clinic_avg !== null) {
+                var min = parseInt(proc.clinic_range.replace(/[^0-9]/g,''));
+                var feeParts = proc.medpup_fee.replace(/[^0-9–-]/g,'').split('–');
+                var feeMax = parseInt(feeParts[1])||100;
+                var max = proc.clinic_range.indexOf('–')>0 ? parseInt(proc.clinic_range.split('–')[1].replace(/[^0-9]/g,''))+feeMax : min+feeMax;
+                document.getElementById('calc-total').textContent = '$'+min+'-$'+Math.max(max,300);
+            } else {
+                document.getElementById('calc-total').textContent = 'Contact us';
+            }
+            var savingsEl = document.getElementById('calc-savings');
+            var pctEl = document.getElementById('calc-savings-pct');
+            var clinicEl = document.getElementById('calc-clinic-name');
+            if (proc.savings) {
+                savingsEl.style.display = 'flex';
+                pctEl.textContent = 'Save ' + proc.savings;
+                clinicEl.textContent = 'via ' + proc.clinic;
+            } else {
+                savingsEl.style.display = 'none';
+            }
+        }
+        select.addEventListener('change', update);
+        if (select.value) update();
+    }
+
+    // ========== CLINIC MAP ==========
+    function initMap() {
+        var mapEl = document.getElementById('clinic-map');
+        if (!mapEl) return;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.onload = function() {
+            var map = L.map('clinic-map', {
+                center: [27.8, -82.3],
+                zoom: 7,
+                zoomControl: true,
+                scrollWheelZoom: false
+            });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18,
+                className: 'map-tiles'
+            }).addTo(map);
+
+            var clinics = [
+                {name:'MedPup (Largo)', lat:27.91, lng:-82.79, desc:'Your location — we coordinate from here', icon:'home'},
+                {name:'ASPCA CVC Liberty City', lat:25.839, lng:-80.220, desc:'Spay/neuter from $40', icon:'clinic'},
+                {name:'Good Care Animal Clinic', lat:25.860, lng:-80.280, desc:'Dental & surgery from $285', icon:'clinic'},
+                {name:'Humane Society of Tampa Bay', lat:27.953, lng:-82.465, desc:'Spay/neuter from $70', icon:'clinic'},
+                {name:'Harmony Vet Care', lat:28.035, lng:-82.665, desc:'Spay/neuter $85-$180', icon:'clinic'}
+            ];
+
+            clinics.forEach(function(c) {
+                var isHome = c.icon === 'home';
+                var markerHtml = '<div class="map-marker ' + (isHome ? 'map-marker-home' : 'map-marker-clinic') + '">' +
+                    (isHome ?
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="#5bc0eb"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>' :
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="#1a365d"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13c0-4.97 3.03-9 9-9s9 4.03 9 9z"/></svg>'
+                    ) +
+                    '<span>' + c.name.split('(')[0].trim() + '</span></div>';
+                var icon = L.divIcon({
+                    className: '',
+                    html: markerHtml,
+                    iconSize: isHome ? [80, 30] : [100, 30],
+                    iconAnchor: isHome ? [40, 15] : [50, 15]
+                });
+                L.marker([c.lat, c.lng], {icon: icon}).addTo(map)
+                    .bindPopup('<strong>'+c.name+'</strong><br>'+c.desc);
+            });
+
+            mapEl.addEventListener('mouseenter', function() { map.scrollWheelZoom.enable(); });
+            mapEl.addEventListener('mouseleave', function() { map.scrollWheelZoom.disable(); });
+            setTimeout(function() { map.invalidateSize(); }, 500);
+        };
+        document.head.appendChild(script);
+    }
+
+    // ========== FAQ ACCORDION ==========
+    function initFaqAccordion() {
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            var question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', function() {
+                    item.classList.toggle('faq-open');
+                    var svg = question.querySelector('svg');
+                    if (svg) svg.style.transform = item.classList.contains('faq-open') ? 'rotate(180deg)' : '';
+                });
+            }
+        });
+    }
+
+    // ========== INIT ON DOM READY ==========
+    function init() {
+        initNavScroll();
+        initScrollAnimations();
+        initHeroParallax();
+        initCalculator();
+        initMap();
+        initFaqAccordion();
+
+        // NEW FEATURES
+        initProgressBar();
+        initWordReveal();
+        initStatsCountUp();
+        init3DCards();
+
+        // Start particle system
+        window.particleSystem = ParticleSystem();
+
+        // Disable mouse 3D on touch devices
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.step-card, .trust-card, .clinic-card').forEach(function(c) {
+                c.style.transform = '';
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
