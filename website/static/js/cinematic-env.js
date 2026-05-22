@@ -339,13 +339,68 @@
             // ---- LIGHTING COLOR ----
             pointLight.color.copy(colors.accent);
 
+            // ---- UPDATE LIGHT LEAK ----
+            if (lightLeakCanvas && llCtx) {
+                drawLightLeak(scrollState.progress, elapsed);
+            }
+
             // ---- UPDATE RENDERER ----
             renderer.render(scene, camera);
         }
 
         animate();
 
-        // ---- RESIZE ----
+        // ==========================================
+        // LIGHT LEAKS + GLOW EFFECTS
+        // ==========================================
+        // Create a light leak overlay that pulses with scroll
+        var lightLeakCanvas = document.createElement('canvas');
+        lightLeakCanvas.id = 'light-leak';
+        lightLeakCanvas.style.cssText = 'position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:0.04;';
+        document.body.appendChild(lightLeakCanvas);
+
+        var llCtx = lightLeakCanvas.getContext('2d');
+        lightLeakCanvas.width = window.innerWidth;
+        lightLeakCanvas.height = window.innerHeight;
+
+        function drawLightLeak(progress, elapsed) {
+            llCtx.clearRect(0, 0, lightLeakCanvas.width, lightLeakCanvas.height);
+
+            // Light leak bands based on scroll progress
+            var bandCount = 3;
+            for (var b = 0; b < bandCount; b++) {
+                var bandProgress = (progress * 2 + b / bandCount) % 1;
+                var y = bandProgress * lightLeakCanvas.height;
+                var gradient = llCtx.createLinearGradient(0, y - 80, 0, y + 80);
+
+                var hue = (progress * 360 + b * 120) % 360;
+                gradient.addColorStop(0, 'rgba(255,255,255,0)');
+                gradient.addColorStop(0.5, 'hsla(' + hue + ',70%,60%,0.08)');
+                gradient.addColorStop(1, 'rgba(255,255,255,0)');
+
+                llCtx.fillStyle = gradient;
+                llCtx.fillRect(0, y - 80, lightLeakCanvas.width, 160);
+            }
+
+            // Radial glow at scroll position
+            var glowX = (Math.sin(progress * Math.PI * 2) * 0.3 + 0.5) * lightLeakCanvas.width;
+            var glowY = progress * lightLeakCanvas.height;
+            var glowGrad = llCtx.createRadialGradient(glowX, glowY, 0, glowX, glowY, 300);
+            glowGrad.addColorStop(0, 'rgba(91,192,235,0.06)');
+            glowGrad.addColorStop(1, 'rgba(91,192,235,0)');
+            llCtx.fillStyle = glowGrad;
+            llCtx.fillRect(0, 0, lightLeakCanvas.width, lightLeakCanvas.height);
+        }
+
+        window.addEventListener('resize', function() {
+            lightLeakCanvas.width = window.innerWidth;
+            lightLeakCanvas.height = window.innerHeight;
+        });
+
+        // ---- UPDATE LIGHT LEAK in animation loop ----
+        // Add this line inside the animate() function, before renderer.render():
+        // drawLightLeak(scrollState.progress, elapsed);
+
         window.addEventListener('resize', function() {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
