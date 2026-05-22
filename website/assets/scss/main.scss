@@ -606,30 +606,39 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(180deg, var(--clr-bg), rgba(91, 192, 235, 0.03) 50%, var(--clr-bg));
 }
 
-/* Per-section accent colors (Cinematic Evolution V3 - Phase 8) */
+/* Per-section accent colors (Cinematic Evolution V3 - Phase8) */
 .section-hero, [data-section="hero"] {
     --section-accent: #5bc0eb;
-    --section-glow: rgba(91, 192, 235, 0.3);
+    --section-glow: rgba(91,192,235,0.3);
+    background-image: radial-gradient(ellipse at 30% 40%, rgba(91,192,235,0.06) 0%, transparent 60%),
+                      radial-gradient(ellipse at 70% 30%, rgba(139,105,20,0.03) 0%, transparent 50%);
+    background-blend-mode: normal;
 }
 .section-steps, [data-section="steps"] {
     --section-accent: #8B6914;
-    --section-glow: rgba(139, 105, 20, 0.3);
+    --section-glow: rgba(139,105,20,0.3);
+    background-image: radial-gradient(ellipse at 50% 50%, rgba(139,105,20,0.05) 0%, transparent 60%);
 }
 .section-calculator, [data-section="calculator"] {
     --section-accent: #22c55e;
-    --section-glow: rgba(34, 197, 94, 0.3);
+    --section-glow: rgba(34,197,94,0.3);
+    background-image: radial-gradient(ellipse at 40% 60%, rgba(34,197,94,0.05) 0%, transparent 60%);
 }
 .section-clinics, [data-section="clinics"] {
     --section-accent: #5bc0eb;
-    --section-glow: rgba(91, 192, 235, 0.3);
+    --section-glow: rgba(91,192,235,0.3);
+    background-image: radial-gradient(ellipse at 60% 40%, rgba(91,192,235,0.05) 0%, transparent 60%),
+                      radial-gradient(ellipse at 30% 70%, rgba(34,197,94,0.03) 0%, transparent 50%);
 }
 .section-trust, [data-section="trust"] {
     --section-accent: #8B6914;
-    --section-glow: rgba(139, 105, 20, 0.3);
+    --section-glow: rgba(139,105,20,0.3);
+    background-image: radial-gradient(ellipse at 50% 50%, rgba(139,105,20,0.05) 0%, transparent 60%);
 }
 .section-cta, [data-section="cta"] {
     --section-accent: #5bc0eb;
-    --section-glow: rgba(91, 192, 235, 0.3);
+    --section-glow: rgba(91,192,235,0.3);
+    background-image: radial-gradient(ellipse at 50% 50%, rgba(91,192,235,0.06) 0%, transparent 60%);
 }
 .section-inner {
     max-width: var(--max-width);
