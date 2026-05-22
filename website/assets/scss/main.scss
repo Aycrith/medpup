@@ -2414,3 +2414,778 @@ body::after {
         transform: none !important;
     }
 }
+
+/* ============================================
+   PHASE 5: MICRO-INTERACTIONS
+   ============================================ */
+
+/* ---------- 5.1: BUTTON RIPPLE EFFECT ---------- */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes rippleAnim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ---------- 5.2: SKELETON LOADING SHIMMER ---------- */
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--clr-bg-elevated);
+    border-radius: var(--radius-md);
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.04) 20%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.04) 80%,
+        transparent 100%
+    );
+    animation: shimmer 1.8s ease-in-out infinite;
+    transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-text:last-child {
+    width: 60%;
+    margin-bottom: 0;
+}
+
+.skeleton-title {
+    height: 1.5em;
+    width: 70%;
+    margin-bottom: 1em;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-card {
+    height: 120px;
+    border-radius: var(--radius-lg);
+}
+
+.skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.skeleton-btn {
+    height: 44px;
+    width: 160px;
+    border-radius: var(--radius-md);
+}
+
+/* Skeleton variants for specific components */
+.calculator-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-2xl);
+}
+
+.calculator-skeleton .skeleton-select {
+    height: 48px;
+    width: 100%;
+    border-radius: var(--radius-md);
+}
+
+.calculator-skeleton .skeleton-results {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+.calculator-skeleton .skeleton-result-card {
+    flex: 1;
+    height: 80px;
+    border-radius: var(--radius-lg);
+}
+
+.map-skeleton {
+    height: 400px;
+    border-radius: var(--radius-xl);
+}
+
+/* ---------- 5.3: ENHANCED FOCUS STATES ---------- */
+
+/* High-visibility focus ring for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* Button focus with glow */
+.btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--clr-accent-glow), 0 4px 14px var(--clr-accent-glow);
+}
+
+/* Nav link focus */
+.nav-link:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-md);
+}
+
+/* Card focus for keyboard users */
+.step-card:focus-within,
+.trust-card:focus-within,
+.clinic-card:focus-within {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+    border-color: var(--clr-border-active);
+}
+
+/* FAQ focus */
+.faq-item:focus-within {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-lg);
+}
+
+/* Form element focus */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+    border-color: var(--clr-accent) !important;
+    box-shadow: 0 0 0 4px var(--clr-accent-glow);
+}
+
+/* ---------- 5.4: BUTTON PRESSED / ACTIVE STATES ---------- */
+
+.btn:active {
+    transform: scale(0.97) translateY(0) !important;
+    transition-duration: 100ms !important;
+}
+
+.btn-primary:active {
+    box-shadow: 0 2px 8px var(--clr-accent-glow);
+}
+
+.btn-secondary:active {
+    background: var(--clr-accent-subtle);
+}
+
+/* Loading state for buttons */
+.btn-loading {
+    pointer-events: none;
+    opacity: 0.85;
+    position: relative;
+}
+
+.btn-loading .btn-text {
+    opacity: 0;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: btnSpin 0.6s linear infinite;
+    left: 50%;
+    top: 50%;
+    margin-left: -9px;
+    margin-top: -9px;
+}
+
+@keyframes btnSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- 5.5: ENHANCED FAQ ACCORDION ---------- */
+
+.faq-item {
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-question {
+    position: relative;
+}
+
+/* Animated chevron with smoother transition */
+.faq-question svg {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: var(--clr-text-muted);
+}
+
+.faq-item:hover .faq-question svg {
+    color: var(--clr-accent);
+}
+
+.faq-open .faq-question svg {
+    transform: rotate(180deg);
+    color: var(--clr-accent);
+}
+
+/* Smooth height animation using grid trick */
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-open .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+    overflow: hidden;
+}
+
+.faq-answer p {
+    padding-bottom: var(--space-5);
+}
+
+/* FAQ item border accent on open */
+.faq-item {
+    border-left: 2px solid transparent;
+    transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.faq-item:hover {
+    border-left-color: var(--clr-border-hover);
+}
+
+.faq-open {
+    border-left-color: var(--clr-accent) !important;
+    background: var(--clr-accent-subtle);
+}
+
+/* ---------- 5.6: ENHANCED SCROLL REVEAL POLISH ---------- */
+
+/* Scale + fade combo */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-scale.animated {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Blur reveal */
+.reveal-blur {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+    transition: opacity 0.8s ease,
+                filter 0.8s ease,
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-blur.animated {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Character-by-character text reveal */
+.reveal-char {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.reveal-char span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+    transition: opacity 0.5s ease,
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-char.animated span {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+/* Stagger refinements */
+[data-stagger="fast"] > *:nth-child(1) { transition-delay: 0ms; }
+[data-stagger="fast"] > *:nth-child(2) { transition-delay: 50ms; }
+[data-stagger="fast"] > *:nth-child(3) { transition-delay: 100ms; }
+[data-stagger="fast"] > *:nth-child(4) { transition-delay: 150ms; }
+[data-stagger="fast"] > *:nth-child(5) { transition-delay: 200ms; }
+[data-stagger="fast"] > *:nth-child(6) { transition-delay: 250ms; }
+
+[data-stagger="slow"] > *:nth-child(1) { transition-delay: 0ms; }
+[data-stagger="slow"] > *:nth-child(2) { transition-delay: 200ms; }
+[data-stagger="slow"] > *:nth-child(3) { transition-delay: 400ms; }
+[data-stagger="slow"] > *:nth-child(4) { transition-delay: 600ms; }
+[data-stagger="slow"] > *:nth-child(5) { transition-delay: 800ms; }
+[data-stagger="slow"] > *:nth-child(6) { transition-delay: 1000ms; }
+
+/* ---------- 5.7: CURSOR TRAIL CANVAS ---------- */
+
+.cursor-trail {
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* ---------- 5.8: PAGE TRANSITION / PRELOADER ---------- */
+
+.page-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--clr-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--space-6);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.6s ease;
+}
+
+.page-preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-logo {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 4px;
+    animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+
+.preloader-bar {
+    width: 120px;
+    height: 2px;
+    background: var(--clr-bg-elevated);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.preloader-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--clr-accent), var(--clr-gold));
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+    animation: preloaderFill 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes preloaderPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes preloaderFill {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Content fade-in after preloader */
+.preloader-content {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preloader-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- 5.9: MAGNETIC BUTTON EFFECT (CSS-only base) ---------- */
+
+.magnetic-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+/* ---------- 5.10: ENHANCED HOVER STATES ---------- */
+
+/* Nav link hover - underline slide */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--clr-accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+    left: 20%;
+}
+
+/* Card image/icon scale on hover */
+.step-illustration,
+.trust-card-icon,
+.clinic-card-icon {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-card:hover .step-illustration,
+.trust-card:hover .trust-card-icon,
+.clinic-card:hover .clinic-card-icon {
+    transform: scale(1.08);
+}
+
+/* Link hover - color shift with underline */
+.page-content a,
+.footer-list a {
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.page-content a::after,
+.footer-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--clr-accent);
+    transition: width var(--transition-base);
+}
+
+.page-content a:hover::after,
+.footer-list a:hover::after {
+    width: 100%;
+}
+
+/* Spectrum button hover enhancement */
+.spectrum-btn {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.spectrum-btn:hover {
+    transform: scale(1.05);
+}
+
+.spectrum-btn.active {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Calculator card hover */
+.calculator-card {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.calculator-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--clr-border-hover);
+}
+
+.calculator-card.card-total:hover {
+    border-color: var(--clr-accent);
+    box-shadow: 0 4px 20px var(--clr-accent-glow);
+}
+
+/* ---------- 5.11: SCROLL-DRIVEN PARALLAX REFINEMENTS ---------- */
+
+/* Smooth parallax layers */
+[data-parallax] {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* Section ambient glow follows scroll */
+.section-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--section-glow, transparent) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+/* ---------- 5.12: FORM MICRO-INTERACTIONS ---------- */
+
+/* Input label float effect */
+.form-group {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 12px 8px;
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    color: var(--clr-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 0 4px var(--clr-accent-glow);
+    outline: none;
+}
+
+.form-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--text-base);
+    color: var(--clr-text-muted);
+    pointer-events: none;
+    transition: all var(--transition-fast);
+    background: var(--clr-bg);
+    padding: 0 4px;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: 0;
+    font-size: var(--text-xs);
+    color: var(--clr-accent);
+}
+
+/* Validation states */
+.form-input.valid {
+    border-color: var(--clr-success);
+}
+
+.form-input.valid:focus {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+.form-input.invalid {
+    border-color: var(--clr-error);
+}
+
+.form-input.invalid:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.form-error {
+    font-size: var(--text-xs);
+    color: var(--clr-error);
+    margin-top: var(--space-1);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all var(--transition-fast);
+}
+
+.form-error.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- 5.13: TOAST / NOTIFICATION ---------- */
+
+.toast-container {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    z-index: 99998;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.toast {
+    padding: var(--space-4) var(--space-6);
+    background: var(--clr-bg-elevated);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    font-size: var(--text-sm);
+    color: var(--clr-text);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 360px;
+}
+
+.toast.visible {
+    transform: translateX(0);
+}
+
+.toast-success { border-left: 3px solid var(--clr-success); }
+.toast-error { border-left: 3px solid var(--clr-error); }
+.toast-info { border-left: 3px solid var(--clr-info); }
+
+/* ---------- 5.14: MAGNIFIER / ZOOM ON HOVER ---------- */
+
+.zoom-on-hover {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.zoom-on-hover img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.zoom-on-hover:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------- 5.15: TEXT SELECTION STYLING ---------- */
+
+::selection {
+    background: var(--clr-accent);
+    color: #fff;
+}
+
+::-moz-selection {
+    background: var(--clr-accent);
+    color: #fff;
+}
+
+/* ---------- 5.16: SMOOTH SECTION DIVIDERS ---------- */
+
+.section-divider {
+    position: relative;
+    height: 1px;
+    margin: 0;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--section-accent, var(--clr-accent)) 20%,
+        var(--clr-gold) 50%,
+        var(--section-accent, var(--clr-accent)) 80%,
+        transparent
+    );
+    opacity: 0.3;
+}
+
+/* Animated divider on scroll */
+.section-divider.animated::before {
+    animation: dividerGlow 1.5s ease-out forwards;
+}
+
+@keyframes dividerGlow {
+    0% { opacity: 0; transform: scaleX(0); }
+    100% { opacity: 0.3; transform: scaleX(1); }
+}
+
+/* ---------- 5.17: RESPONSIVE MICRO-INTERACTIONS ---------- */
+
+@media (max-width: 768px) {
+    /* Disable cursor trail on mobile */
+    .cursor-trail {
+        display: none !important;
+    }
+
+    /* Simplify hover effects on touch */
+    .step-card:hover,
+    .trust-card:hover,
+    .clinic-card:hover {
+        transform: none;
+    }
+
+    /* Keep ripple but faster */
+    .btn-ripple {
+        animation-duration: 0.4s;
+    }
+
+    /* Toast full width on mobile */
+    .toast-container {
+        left: var(--space-4);
+        right: var(--space-4);
+        bottom: var(--space-4);
+    }
+
+    .toast {
+        max-width: 100%;
+    }
+}
+
+/* ---------- 5.18: PRINT STYLES ---------- */
+
+@media print {
+    .nav,
+    .progress-bar,
+    .particle-canvas,
+    .cursor-trail,
+    .hero-mesh,
+    .hero-light-beams,
+    .hero-vignette,
+    .section::before,
+    .section-glow,
+    .toast-container {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}

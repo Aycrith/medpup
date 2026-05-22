@@ -1,69 +1,87 @@
-// Preloader — show cinematic intro while resources load
-(function() {
+/**
+ * MedPup Phase 5.8: Enhanced Preloader
+ * Smooth page load transition with logo, progress bar, and content fade-in
+ */
+(function () {
     'use strict';
 
-    // Only show preloader if page takes > 300ms
-    var preloaderTimeout;
-    var preloaderShown = false;
-
-    function createPreloader() {
-        if (preloaderShown) return;
-        preloaderShown = true;
-
-        var overlay = document.createElement('div');
-        overlay.id = 'preloader';
-        overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#030a14;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity 0.6s ease;';
-
-        var logo = document.createElement('div');
-        logo.textContent = 'MedPup';
-        logo.style.cssText = 'font-family:"Cinzel",serif;font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#5bc0eb,#8B6914);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;';
-
-        var dots = document.createElement('div');
-        dots.style.cssText = 'display:flex;gap:8px;';
-        for (var i = 0; i < 3; i++) {
-            var dot = document.createElement('div');
-            dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:#5bc0eb;animation:pulseDot 1.4s ease-in-out infinite;animation-delay:' + (i * 0.2) + 's;';
-            dots.appendChild(dot);
-        }
-
-        // Add keyframes if not already present
-        if (!document.getElementById('preloader-styles')) {
-            var style = document.createElement('style');
-            style.id = 'preloader-styles';
-            style.textContent = '@keyframes pulseDot{0%,100%{opacity:0.3;transform:scale(0.8);}50%{opacity:1;transform:scale(1.2);}}';
-            document.head.appendChild(style);
-        }
-
-        overlay.appendChild(log);
-        overlay.appendChild(dots);
-        document.body.appendChild(overlay);
-        document.body.style.overflow = 'hidden';
+    // Skip preloader if page is already loaded (e.g., back navigation)
+    if (document.readyState === 'complete') {
+        document.body.classList.add('preloader-done');
+        return;
     }
+
+    // Create preloader element
+    var preloader = document.createElement('div');
+    preloader.className = 'page-preloader';
+    preloader.id = 'page-preloader';
+    preloader.innerHTML = [
+        '<div class="preloader-logo">MEDPUP</div>',
+        '<div class="preloader-bar">',
+        '    <div class="preloader-bar-fill"></div>',
+        '</div>'
+    ].join('');
+    document.body.prepend(preloader);
+
+    // Mark main content as preloader content for fade-in
+    var mainContent = document.querySelector('main');
+    if (mainContent) {
+        mainContent.classList.add('preloader-content');
+    }
+
+    // Helper: minimum display time (prevents flash)
+    var MIN_TIME = 1200; // ms
+    var startTime = Date.now();
+    var isReady = false;
+    var isVisible = false;
 
     function hidePreloader() {
-        var overlay = document.getElementById('preloader');
-        if (!overlay) return;
-        overlay.style.opacity = '0';
-        setTimeout(function() {
-            overlay.remove();
-            document.body.style.overflow = '';
-        }, 600);
+        if (isVisible) return;
+        isVisible = true;
+
+        var elapsed = Date.now() - startTime;
+        var remaining = Math.max(0, MIN_TIME - elapsed);
+
+        setTimeout(function () {
+            // Fade out preloader
+            preloader.classList.add('hidden');
+
+            // Fade in content
+            if (mainContent) {
+                mainContent.classList.add('visible');
+            }
+
+            // Mark body as ready
+            document.body.classList.add('preloader-done');
+
+            // Remove preloader from DOM after transition
+            setTimeout(function () {
+                preloader.remove();
+            }, 700);
+        }, remaining);
     }
 
-    // Show preloader after 300ms if page still loading
-    preloaderTimeout = setTimeout(createPreloader, 300);
-
-    // Hide when everything is loaded
-    function onReady() {
-        clearTimeout(preloaderTimeout);
-        setTimeout(hidePreloader, 200); // small delay for cinematic feel
-    }
-
-    if (document.readyState === 'complete') {
-        onReady();
+    // Wait for DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            isReady = true;
+            hidePreloader();
+        });
     } else {
-        window.addEventListener('load', onReady);
-        // Fallback: hide after 5 seconds no matter what
-        setTimeout(onReady, 5000);
+        isReady = true;
     }
+
+    // Safety: force hide after 5 seconds max
+    setTimeout(function () {
+        if (!isVisible) {
+            isReady = true;
+            hidePreloader();
+        }
+    }, 5000);
+
+    // Also hide on window load (images, fonts, etc.)
+    window.addEventListener('load', function () {
+        isReady = true;
+        hidePreloader();
+    });
 })();
