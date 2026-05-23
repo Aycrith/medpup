@@ -20,6 +20,7 @@
 
         // Benchmark
         benchmarkComplete: false,
+        benchmarkEndTime: 0,
         drsLocked: false,
 
         // Light sweep
@@ -69,6 +70,7 @@
             this._startBenchmark(function (fps) {
                 if (state.drsLocked) return;
                 state.benchmarkComplete = true;
+                state.benchmarkEndTime = performance.now();
 
                 // Adjust DRS based on measured performance
                 var adjusted = state.drsTier;
@@ -332,11 +334,11 @@
             // DRS tier — 4=highest, sent as 4.0 (high = more features)
             if (u.u_drsTier) gl.uniform1f(u.u_drsTier, Math.max(0, state.drsTier));
 
-            // Warmup — 0 = startup (black), 1 = fully visible
-            // Use benchmark state: show black during bench, then fade in
+            // Warmup — time-based (2 second fade after benchmark)
+            // Ensures scene becomes visible after exactly 2s regardless of frame rate
             if (state.benchmarkComplete) {
-                const fadeFrames = 90; // ~1.5s at 60fps
-                const warmup = Math.max(0, Math.min(1, (state.frameCount - 30) / fadeFrames));
+                const warmupElapsed = (now - state.benchmarkEndTime) / 1000;
+                const warmup = Math.min(1, Math.max(0, warmupElapsed / 2.5));
                 if (u.u_warmup) gl.uniform1f(u.u_warmup, warmup);
             } else {
                 if (u.u_warmup) gl.uniform1f(u.u_warmup, 0.0);

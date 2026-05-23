@@ -191,9 +191,14 @@
             state.moodTransitioning = false;
         }
 
-        // Warp intensity — follows current mood
+        // Warp intensity — read from nature module's mood definition if available
         var moodIdx = state.moodTransitioning ? state.moodTarget : state.mood;
-        state.warpIntensity = WARP_PER_MOOD[Math.min(moodIdx, WARP_PER_MOOD.length - 1)] || 0.5;
+        if (window.MedPupNature && window.MedPupNature.MOODS) {
+            var moodDef = window.MedPupNature.MOODS[Math.min(moodIdx, window.MedPupNature.MOODS.length - 1)];
+            state.warpIntensity = moodDef.warpIntensity || 0.5;
+        } else {
+            state.warpIntensity = WARP_PER_MOOD[Math.min(moodIdx, WARP_PER_MOOD.length - 1)] || 0.5;
+        }
     }
 
     // --- PUBLIC API ---

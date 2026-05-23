@@ -10,45 +10,63 @@
     const MOODS = [
         { // 0: Night — Hero (deep isolation)
             name: 'night',
-            waterColor: [0.01, 0.04, 0.08],
-            envTint: [1.0, 0.6, 0.3],  // cools the scene
-            camY: 0.5, camPitch: -0.02, sunHeight: -0.3,
+            waterColor: [0.03, 0.06, 0.10],   // visible dark teal (was [0.01, 0.04, 0.08])
+            envTint: [1.0, 0.6, 0.3],         // cool blue tint
+            sunHeight: -0.4,                   // below horizon → stars visible
+            nightFactor: 0.95,                 // almost fully night
             starDensity: 600, starBrightness: 1.0,
+            camY: 0.5, camPitch: -0.02,
+            warpIntensity: 0.3,
         },
         { // 1: Dawn — Intro (hope emerging)
             name: 'dawn',
-            waterColor: [0.03, 0.08, 0.12],
-            envTint: [1.2, 0.8, 0.4],
-            camY: 0.52, camPitch: -0.01, sunHeight: -0.05,
+            waterColor: [0.08, 0.15, 0.20],   // visible dawn teal (was [0.03, 0.08, 0.12])
+            envTint: [1.2, 0.8, 0.4],         // warm tint
+            sunHeight: -0.1,                   // just below horizon
+            nightFactor: 0.5,                  // half night
             starDensity: 150, starBrightness: 0.3,
+            camY: 0.52, camPitch: -0.01,
+            warpIntensity: 0.5,
         },
         { // 2: Morning — How It Works
             name: 'morning',
-            waterColor: [0.02, 0.06, 0.10],
-            envTint: [0.9, 1.0, 0.8],
-            camY: 0.55, camPitch: -0.015, sunHeight: 0.25,
+            waterColor: [0.05, 0.10, 0.15],   // (was [0.02, 0.06, 0.10])
+            envTint: [0.9, 1.0, 0.8],         // green-tinted
+            sunHeight: 0.15,                   // above horizon
+            nightFactor: 0.0,
             starDensity: 0, starBrightness: 0,
+            camY: 0.55, camPitch: -0.015,
+            warpIntensity: 0.6,
         },
         { // 3: Midday — Calculator (transparency)
             name: 'midday',
-            waterColor: [0.01, 0.05, 0.09],
-            envTint: [0.7, 1.0, 1.0],
-            camY: 0.58, camPitch: -0.01, sunHeight: 0.7,
+            waterColor: [0.06, 0.12, 0.18],   // (was [0.01, 0.05, 0.09])
+            envTint: [0.7, 1.0, 1.0],         // blue-tinted
+            sunHeight: 0.7,                    // high sun
+            nightFactor: 0.0,
             starDensity: 0, starBrightness: 0,
+            camY: 0.58, camPitch: -0.01,
+            warpIntensity: 0.7,
         },
         { // 4: Golden Hour — Clinics (trust)
             name: 'golden',
-            waterColor: [0.04, 0.06, 0.07],
-            envTint: [1.5, 0.8, 0.3],
-            camY: 0.53, camPitch: -0.015, sunHeight: 0.15,
+            waterColor: [0.10, 0.15, 0.14],   // (was [0.04, 0.06, 0.07])
+            envTint: [1.5, 0.8, 0.3],         // warm golden
+            sunHeight: 0.1,                    // low sun
+            nightFactor: 0.1,
             starDensity: 0, starBrightness: 0,
+            camY: 0.53, camPitch: -0.015,
+            warpIntensity: 0.5,
         },
         { // 5: Dusk — CTA (resolution)
             name: 'dusk',
-            waterColor: [0.02, 0.03, 0.06],
-            envTint: [1.1, 0.5, 0.3],
-            camY: 0.48, camPitch: -0.02, sunHeight: -0.15,
+            waterColor: [0.05, 0.07, 0.10],   // (was [0.02, 0.03, 0.06])
+            envTint: [1.1, 0.5, 0.3],         // purple-tinted
+            sunHeight: -0.25,                  // below horizon
+            nightFactor: 0.8,                  // mostly night
             starDensity: 350, starBrightness: 0.6,
+            camY: 0.48, camPitch: -0.02,
+            warpIntensity: 0.35,
         },
     ];
 
@@ -79,6 +97,8 @@
             // Scene uniforms
             'uniform float u_starDensity;',
             'uniform float u_starBrightness;',
+            'uniform float u_sunHeight;',
+            'uniform float u_nightFactor;',
             'uniform float u_waveHeight;',
             'uniform float u_waveTime;',
             'uniform vec3  u_waterColor;',
@@ -339,10 +359,11 @@
             '    float warp = u_warpIntensity;',
             '    float solarEase = warp * warp * (3.0 - 2.0 * warp);',
 
-            // Sun follows mouse
-            '    float currentSunY = mix(0.15 + u_mouse.y * 1.0, 0.6, solarEase);',
-            '    vec3 sunDir = normalize(vec3(u_mouse.x, currentSunY, 1.0));',
-            '    vec3 moonDir = normalize(vec3(-u_mouse.x, -currentSunY - 0.1, 1.0));',
+            // Sun follows mouse WITH mood-driven offset
+            // u_sunHeight from mood controls base position, mouse adds subtle offset
+            '    float currentSunY = mix(0.15 + u_mouse.y * 1.0, 0.6, solarEase) + u_sunHeight;',
+            '    vec3 sunDir = normalize(vec3(u_mouse.x * 0.15, currentSunY, 1.0));',
+            '    vec3 moonDir = normalize(vec3(-u_mouse.x * 0.15, -currentSunY - 0.1, 1.0));',
 
             // Camera (3D position + direction)
             '    vec3 ro = vec3(',
@@ -356,21 +377,21 @@
             '        1.1 + solarEase * 0.2',
             '    ));',
 
-            // Day/night factor
-            '    float dayFactor = smoothstep(-0.02, 0.15, sunDir.y);',
-            '    float nightFactor = 1.0 - dayFactor;',
-            '    float trueNight = smoothstep(-0.02, -0.15, sunDir.y);',
+            // Day/night factor — mood-controlled via u_nightFactor
+            '    float dayFactor = 1.0 - u_nightFactor;',
+            '    float nightFactor = u_nightFactor;',
+            '    float trueNight = smoothstep(0.3, 0.7, u_nightFactor);',
 
             // Environment tint from mood
             '    vec3 envTint = normalize(u_envTint + 0.0001);',
             '    vec3 moodTint = getMoodTint();',
             '    vec3 environmentTint = normalize(envTint * moodTint + 0.0001);',
 
-            // Sky colors
-            '    vec3 nightZenith = environmentTint * 0.005;',
-            '    vec3 nightHorizon = environmentTint * 0.015;',
-            '    vec3 dayZenith = mix(environmentTint * 0.3, environmentTint * 1.8, 0.65);',
-            '    vec3 dayHorizon = mix(environmentTint * 0.7, environmentTint * 1.5, 0.5);',
+            // Sky colors (brightened for visibility — night should be dim but visible)
+            '    vec3 nightZenith = environmentTint * 0.02;',
+            '    vec3 nightHorizon = environmentTint * 0.06;',
+            '    vec3 dayZenith = mix(environmentTint * 0.6, environmentTint * 2.2, 0.5);',
+            '    vec3 dayHorizon = mix(environmentTint * 1.0, environmentTint * 2.0, 0.5);',
 
             '    vec3 zenith = mix(nightZenith, dayZenith, dayFactor);',
             '    vec3 sunsetHorizon = mix(vec3(1.0, 0.35, 0.1), environmentTint, 0.75) * 1.35;',
@@ -533,6 +554,7 @@
             'u_mood', 'u_moodBlend', 'u_drsTier', 'u_warmup',
             'u_warpIntensity',
             'u_starDensity', 'u_starBrightness',
+            'u_sunHeight', 'u_nightFactor',
             'u_waveHeight', 'u_waveTime',
             'u_waterColor', 'u_envTint',
         ];
@@ -557,9 +579,10 @@
         }
 
         const waterColor = lerpVec(a.waterColor, b.waterColor, blend);
-        // envTint is a multiplier, keep components separate
         const envTint = lerpVec(a.envTint, b.envTint, blend);
         const starDensity = lerp(a.starDensity, b.starDensity, blend);
+        const sunHeight = lerp(a.sunHeight || 0, b.sunHeight || 0, blend);
+        const nightFactor = lerp(a.nightFactor || 0, b.nightFactor || 0, blend);
 
         function set1f(name, val) { if (u[name]) gl.uniform1f(u[name], val); }
         function set3f(name, val) { if (u[name]) gl.uniform3f(u[name], val[0], val[1], val[2]); }
@@ -568,8 +591,10 @@
         set3f('u_waterColor', waterColor);
         set3f('u_envTint', envTint);
         set1f('u_starDensity', starDensity);
-        set1f('u_starBrightness', lerp(a.starBrightness, b.starBrightness, blend));
-        set1f('u_waveHeight', 0.05 + blend * 0.01);
+        set1f('u_starBrightness', lerp(a.starBrightness || 0, b.starBrightness || 0, blend));
+        set1f('u_sunHeight', sunHeight);
+        set1f('u_nightFactor', nightFactor);
+        set1f('u_waveHeight', 0.05);
         set1f('u_waveTime', time * 2.0);
     }
 
