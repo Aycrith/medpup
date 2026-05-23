@@ -1,0 +1,399 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic: MEDPUP
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+    - text: Skip to content
+  - navigation "Main navigation" [ref=e3]:
+    - generic [ref=e4]:
+      - link "MedPup Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]:
+          - generic [ref=e12]: MEDPUP
+        - generic [ref=e13]: MedPup
+      - list [ref=e14]:
+        - listitem [ref=e15]:
+          - link "Home" [ref=e16] [cursor=pointer]:
+            - /url: /
+            - text: Home
+        - listitem [ref=e18]:
+          - link "How It Works" [ref=e19] [cursor=pointer]:
+            - /url: /how-it-works/
+            - text: How It Works
+        - listitem [ref=e20]:
+          - link "Destinations" [ref=e21] [cursor=pointer]:
+            - /url: /destinations/
+            - text: Destinations
+        - listitem [ref=e22]:
+          - link "Procedures" [ref=e23] [cursor=pointer]:
+            - /url: /procedures/
+            - text: Procedures
+        - listitem [ref=e24]:
+          - link "Pricing" [ref=e25] [cursor=pointer]:
+            - /url: /pricing/
+            - text: Pricing
+        - listitem [ref=e26]:
+          - link "FAQ" [ref=e27] [cursor=pointer]:
+            - /url: /faq/
+            - text: FAQ
+        - listitem [ref=e28]:
+          - link "Get Started" [ref=e29] [cursor=pointer]:
+            - /url: /contact/
+            - text: Get Started
+        - listitem [ref=e30]:
+          - link "Blog" [ref=e31] [cursor=pointer]:
+            - /url: /blog/
+            - text: Blog
+        - listitem [ref=e32]:
+          - button "Switch to light mode" [ref=e33] [cursor=pointer]:
+            - img [ref=e34]
+            - img [ref=e40]
+  - main [ref=e42]:
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]: Pinellas County Veterinary Concierge
+        - heading "Your dog deserves the best care." [level=1] [ref=e46]:
+          - generic [ref=e48]: Your
+          - generic [ref=e50]: dog
+          - generic [ref=e52]: deserves
+          - generic [ref=e54]: the
+          - generic [ref=e56]: best
+          - generic [ref=e58]: care.
+        - paragraph [ref=e59]:
+          - text: It shouldn't require a second mortgage.
+          - strong [ref=e60]: MedPup confirms the all-in cost before you book — no surprise bills.
+        - generic [ref=e61]:
+          - link "Get Your All-In Quote" [ref=e62] [cursor=pointer]:
+            - /url: /contact/
+            - text: Get Your All-In Quote
+            - img [ref=e63]
+          - link "How It Works" [ref=e65] [cursor=pointer]:
+            - /url: /how-it-works/
+            - text: How It Works
+            - img [ref=e66]
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: 80%
+            - generic [ref=e71]: Average Savings
+          - generic [ref=e73]:
+            - generic [ref=e74]: $100
+            - generic [ref=e75]: Coordination Fee
+          - generic [ref=e77]:
+            - generic [ref=e78]: 100%
+            - generic [ref=e79]: Cost Guarantee
+      - img [ref=e81]
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]: What We Do
+        - heading "Veterinary surgery doesn't have to break the bank." [level=2] [ref=e89]
+        - paragraph [ref=e90]:
+          - text: MedPup is a Pinellas County-based veterinary coordination service. We find the lowest-cost licensed clinic within driving distance, demand the full out-the-door quote (not the marketing price), and secure a confirmed rate before your appointment. If the bill exceeds our confirmed number, we find you a backup clinic —
+          - strong [ref=e91]: at no extra cost.
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - img [ref=e94]
+            - generic [ref=e97]: Verified all-in pricing
+          - generic [ref=e98]:
+            - img [ref=e99]
+            - generic [ref=e102]: Same-day booking available
+          - generic [ref=e103]:
+            - img [ref=e104]
+            - generic [ref=e106]: Surprise-bill guarantee
+      - img [ref=e108]:
+        - generic [ref=e111]: Typical Vet Cost
+        - generic [ref=e112]: $1,500
+        - generic [ref=e115]: With MedPup
+        - generic [ref=e116]: $285
+        - generic [ref=e118]: SAVE 72–83%
+    - generic [ref=e121]:
+      - generic [ref=e122]: The Process
+      - heading "How It Works — Three Simple Steps" [level=2] [ref=e123]
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - img [ref=e127]
+          - generic [ref=e131]: "01"
+          - heading "Tell us about your pet" [level=3] [ref=e132]
+          - paragraph [ref=e133]: Fill out a 2-minute intake form with your pet's diagnosis and current vet estimate. We need the procedure type and your location.
+        - generic [ref=e134]:
+          - img [ref=e136]:
+            - generic [ref=e139]: $
+            - generic [ref=e140]: ✓ verified
+          - generic [ref=e141]: "02"
+          - heading "We find the real cost" [level=3] [ref=e142]
+          - paragraph [ref=e143]: Not the marketing price — we call partner clinics and demand the complete out-the-door quote including blood work, anesthesia, meds, and follow-up.
+        - generic [ref=e144]:
+          - img [ref=e146]
+          - generic [ref=e152]: "03"
+          - heading "Book with certainty" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Confirm the reserved slot and the exact all-in number. Your $25–$100 coordination fee is the only MedPup charge — the clinic bills you directly.
+      - link "Get Your All-In Quote" [ref=e156] [cursor=pointer]:
+        - /url: /contact/
+        - text: Get Your All-In Quote
+        - img [ref=e157]
+    - generic [ref=e161]:
+      - generic [ref=e162]: Your Savings
+      - heading "How Much You'll Save" [level=2] [ref=e163]
+      - paragraph [ref=e164]: Select a procedure to compare typical US vet costs against MedPup's confirmed partner pricing.
+      - generic [ref=e165]:
+        - generic [ref=e166]:
+          - heading "Estimate Your Savings" [level=3] [ref=e167]
+          - paragraph [ref=e168]: Select a procedure to see how much you can save with MedPup compared to typical US vet costs.
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - generic [ref=e171]: "Choose a procedure:"
+            - generic [ref=e172]:
+              - combobox "Choose a procedure:" [ref=e173] [cursor=pointer]:
+                - option "— Select a procedure —" [selected]
+                - option "Spay / Neuter (Large Dog)"
+                - option "Dental Cleaning + Extractions"
+                - option "Mass Removal (Skin Lump)"
+                - option "Soft Tissue Surgery"
+                - option "TPLO (Orthopedic)"
+              - img
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]: Typical US Cost
+              - generic [ref=e177]: —
+              - generic [ref=e178]: National average with all add-ons
+            - generic [ref=e179]: →
+            - generic [ref=e180]:
+              - generic [ref=e181]: Clinic Price
+              - generic [ref=e182]: —
+              - generic [ref=e183]: Confirmed out-the-door at partner clinic
+            - generic [ref=e184]: +
+            - generic [ref=e185]:
+              - generic [ref=e186]: MedPup Fee
+              - generic [ref=e187]: —
+              - generic [ref=e188]: Flat coordination fee
+            - generic [ref=e189]: =
+            - generic [ref=e190]:
+              - generic [ref=e191]: Your Total
+              - generic [ref=e192]: —
+              - generic [ref=e193]: All-in, guaranteed
+          - link "Get Your Personal Quote →" [ref=e195] [cursor=pointer]:
+            - /url: /contact/
+    - generic [ref=e198]:
+      - generic [ref=e199]: Our Network
+      - heading "Partner Clinics" [level=2] [ref=e200]
+      - paragraph [ref=e201]: Licensed Florida clinics we've vetted for pricing transparency. All within driving distance of Pinellas County.
+      - generic [ref=e202]:
+        - generic:
+          - generic:
+            - button "MedPup" [ref=e203] [cursor=pointer]:
+              - generic [ref=e204]:
+                - img [ref=e205]
+                - generic [ref=e207]: MedPup
+            - button "ASPCA CVC Liberty City" [ref=e208] [cursor=pointer]:
+              - generic [ref=e209]:
+                - img
+                - generic [ref=e211]: ASPCA CVC Liberty City
+            - button "Good Care Animal Clinic" [ref=e212] [cursor=pointer]:
+              - generic [ref=e213]:
+                - img
+                - generic [ref=e215]: Good Care Animal Clinic
+            - button "Humane Society of Tampa Bay" [ref=e216] [cursor=pointer]:
+              - generic [ref=e217]:
+                - img
+                - generic [ref=e219]: Humane Society of Tampa Bay
+            - button "Harmony Vet Care" [ref=e220] [cursor=pointer]:
+              - generic [ref=e221]:
+                - img
+                - generic [ref=e223]: Harmony Vet Care
+        - generic:
+          - generic [ref=e224]:
+            - button "Zoom in" [ref=e225] [cursor=pointer]: +
+            - button "Zoom out" [ref=e226] [cursor=pointer]: −
+          - generic [ref=e227]:
+            - link "Leaflet" [ref=e228] [cursor=pointer]:
+              - /url: https://leafletjs.com
+              - img [ref=e229]
+              - text: Leaflet
+            - text: "| ©"
+            - link "OpenStreetMap" [ref=e233] [cursor=pointer]:
+              - /url: https://openstreetmap.org/copyright
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - img [ref=e237]
+          - heading "ASPCA CVC" [level=3] [ref=e240]
+          - paragraph [ref=e241]:
+            - text: Liberty City, Miami — 55 min from Largo. Spay/neuter from
+            - strong [ref=e242]: $40
+            - text: .
+          - generic [ref=e243]: Best for spay/neuter
+        - generic [ref=e244]:
+          - img [ref=e246]
+          - heading "Good Care Animal Clinic" [level=3] [ref=e249]
+          - paragraph [ref=e250]:
+            - text: Hialeah — 45 min. Dental & surgery from
+            - strong [ref=e251]: $285
+            - text: .
+          - generic [ref=e252]: Best for dental
+        - generic [ref=e253]:
+          - img [ref=e255]
+          - heading "Humane Society of Tampa Bay" [level=3] [ref=e258]
+          - paragraph [ref=e259]:
+            - text: Tampa — 28 min. Spay/neuter from
+            - strong [ref=e260]: $70
+            - text: .
+          - generic [ref=e261]: Closest option
+        - generic [ref=e262]:
+          - img [ref=e264]
+          - heading "Harmony Vet Care" [level=3] [ref=e267]
+          - paragraph [ref=e268]:
+            - text: Oldsmar — 20 min. Spay/neuter
+            - strong [ref=e269]: $85-$180
+            - text: .
+          - generic [ref=e270]: Nearest to Largo
+    - generic [ref=e273]:
+      - generic [ref=e274]: The Truth
+      - heading "Real Numbers — Published vs. Actual" [level=2] [ref=e275]
+      - paragraph [ref=e276]: What clinics advertise and what you actually pay after mandatory add-ons. All figures sourced from verified client bills.
+      - table [ref=e278]:
+        - rowgroup [ref=e279]:
+          - row "Procedure Published Price Real Out-the-Door Hidden Add-Ons" [ref=e280]:
+            - columnheader "Procedure" [ref=e281]
+            - columnheader "Published Price" [ref=e282]
+            - columnheader "Real Out-the-Door" [ref=e283]
+            - columnheader "Hidden Add-Ons" [ref=e284]
+        - rowgroup [ref=e285]:
+          - row "Spay (Large Dog) $40–$80 $100–$240 Blood work $60–120, pain meds $30–80, e-collar $15–30" [ref=e286]:
+            - cell "Spay (Large Dog)" [ref=e287]:
+              - strong [ref=e288]: Spay (Large Dog)
+            - cell "$40–$80" [ref=e289]
+            - cell "$100–$240" [ref=e290]
+            - cell "Blood work $60–120, pain meds $30–80, e-collar $15–30" [ref=e291]
+          - row "Dental Cleaning $285–$595 $895–$3,710 Per-tooth extractions $80–250, X-rays $50–100, monitoring $40–80" [ref=e292]:
+            - cell "Dental Cleaning" [ref=e293]:
+              - strong [ref=e294]: Dental Cleaning
+            - cell "$285–$595" [ref=e295]
+            - cell "$895–$3,710" [ref=e296]
+            - cell "Per-tooth extractions $80–250, X-rays $50–100, monitoring $40–80" [ref=e297]
+          - row "Mass Removal $450 $890–$1,605 Histopathology $80–300, drain placement $50–100" [ref=e298]:
+            - cell "Mass Removal" [ref=e299]:
+              - strong [ref=e300]: Mass Removal
+            - cell "$450" [ref=e301]
+            - cell "$890–$1,605" [ref=e302]
+            - cell "Histopathology $80–300, drain placement $50–100" [ref=e303]
+          - row "Soft Tissue Surgery $650–$2,100 $1,250–$6,710 Anesthesia upgrade $50–200, post-op meds $40–100, follow-up" [ref=e304]:
+            - cell "Soft Tissue Surgery" [ref=e305]:
+              - strong [ref=e306]: Soft Tissue Surgery
+            - cell "$650–$2,100" [ref=e307]
+            - cell "$1,250–$6,710" [ref=e308]
+            - cell "Anesthesia upgrade $50–200, post-op meds $40–100, follow-up" [ref=e309]
+      - paragraph [ref=e310]: Real out-the-door figures include mandatory pre-op, anesthesia, and post-op work that is never published. MedPup confirms the true all-in cost before you book.
+    - generic [ref=e313]:
+      - generic [ref=e314]: Why Trust Us
+      - heading "The MedPup Difference" [level=2] [ref=e315]
+      - generic [ref=e316]:
+        - generic [ref=e317]:
+          - img [ref=e319]
+          - heading "Real Price Verification" [level=3] [ref=e323]
+          - paragraph [ref=e324]: We call each partner clinic and demand the complete out-the-door quote — not the marketing number. You see the true cost before you book.
+        - generic [ref=e325]:
+          - img [ref=e327]
+          - heading "Surprise-Bill Guarantee" [level=3] [ref=e331]
+          - paragraph [ref=e332]: If the final clinic bill exceeds our confirmed range, we find you a backup clinic — at no extra cost. It's in our written agreement.
+        - generic [ref=e333]:
+          - img [ref=e335]
+          - heading "Pinellas-Based Routing" [level=3] [ref=e340]
+          - paragraph [ref=e341]: We find the closest clinic within driving distance. No flights, no customs, no APHIS paperwork. Just a car and a confirmed appointment.
+        - generic [ref=e342]:
+          - img [ref=e344]
+          - heading "Transparent Fee" [level=3] [ref=e347]
+          - paragraph [ref=e348]: Our flat fee — $25–$100 per booking — is disclosed upfront with no hidden charges. The clinic bills you directly for the procedure.
+    - generic [ref=e351]:
+      - generic [ref=e352]: Questions?
+      - heading "Frequently Asked Questions" [level=2] [ref=e353]
+      - generic [ref=e354]:
+        - 'button "What does the MedPup fee actually cover? The flat coordination fee covers: realistic cost calculation based on your pet''s specific needs, clinic price verification through direct calls, appointment reservation, and our surprise-bill guarantee. The clinic''s bill goes directly to the clinic — MedPup never touches the procedure cost." [ref=e355] [cursor=pointer]':
+          - generic [ref=e356]:
+            - heading "What does the MedPup fee actually cover?" [level=3] [ref=e357]
+            - img [ref=e358]
+          - paragraph [ref=e360]: "The flat coordination fee covers: realistic cost calculation based on your pet's specific needs, clinic price verification through direct calls, appointment reservation, and our surprise-bill guarantee. The clinic's bill goes directly to the clinic — MedPup never touches the procedure cost."
+        - button "What if the final bill exceeds your quote? We take responsibility. If the final clinic bill exceeds our confirmed all-in range, we cover the difference (up to the cost of your coordination fee) and find you a backup clinic at no extra charge. No disputes, no fine print — it's in your service agreement." [ref=e361] [cursor=pointer]:
+          - generic [ref=e362]:
+            - heading "What if the final bill exceeds your quote?" [level=3] [ref=e363]
+            - img [ref=e364]
+          - paragraph [ref=e366]: We take responsibility. If the final clinic bill exceeds our confirmed all-in range, we cover the difference (up to the cost of your coordination fee) and find you a backup clinic at no extra charge. No disputes, no fine print — it's in your service agreement.
+        - button "Do I have to travel far? Current partner clinics are 20–55 minutes from Largo by car. No customs, no APHIS paperwork, no ferry or flight required. We route you to the closest clinic that offers your needed procedure at the best confirmed price." [ref=e367] [cursor=pointer]:
+          - generic [ref=e368]:
+            - heading "Do I have to travel far?" [level=3] [ref=e369]
+            - img [ref=e370]
+          - paragraph [ref=e372]: Current partner clinics are 20–55 minutes from Largo by car. No customs, no APHIS paperwork, no ferry or flight required. We route you to the closest clinic that offers your needed procedure at the best confirmed price.
+        - button "What about follow-up care? Your regular veterinarian handles all post-op rechecks. We provide them a complete surgical record from the partner clinic and remain available by phone throughout your pet's recovery." [ref=e373] [cursor=pointer]:
+          - generic [ref=e374]:
+            - heading "What about follow-up care?" [level=3] [ref=e375]
+            - img [ref=e376]
+          - paragraph [ref=e378]: Your regular veterinarian handles all post-op rechecks. We provide them a complete surgical record from the partner clinic and remain available by phone throughout your pet's recovery.
+      - link "View All FAQs" [ref=e380] [cursor=pointer]:
+        - /url: /faq/
+        - text: View All FAQs
+        - img [ref=e381]
+    - generic [ref=e386]:
+      - generic [ref=e387]: Get Started
+      - heading "Is Your Pet a Candidate?" [level=2] [ref=e388]
+      - paragraph [ref=e389]: If you're facing veterinary costs you can't afford — and you don't want to walk into a clinic blind on price — MedPup is for you. We're currently routing Pinellas County pet owners to vetted partner clinics with confirmed all-in pricing.
+      - generic [ref=e390]:
+        - generic [ref=e391]:
+          - img [ref=e392]
+          - generic [ref=e394]: Free intake consultation
+        - generic [ref=e395]:
+          - img [ref=e396]
+          - generic [ref=e398]: No obligation quote
+        - generic [ref=e399]:
+          - img [ref=e400]
+          - generic [ref=e402]: All-in cost guaranteed
+      - link "Get Your All-In Quote" [ref=e403] [cursor=pointer]:
+        - /url: /contact/
+        - text: Get Your All-In Quote
+        - img [ref=e404]
+    - paragraph [ref=e408]: MedPup is a veterinary coordination service, not a veterinary practice. All medical decisions, diagnoses, and procedures are provided by independently licensed veterinarians at our partner clinics. Our price guarantee applies to administrative coordination only — final medical decisions are outside our scope.
+  - contentinfo [ref=e409]:
+    - generic [ref=e410]:
+      - generic [ref=e411]:
+        - generic [ref=e412]:
+          - link "MedPup" [ref=e413] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e414]: Pinellas County Veterinary Concierge — confirmed all-in pricing before you book. No surprise bills. Guaranteed.
+          - generic [ref=e415]:
+            - img [ref=e416]
+            - generic [ref=e419]: All-In Cost Guarantee
+        - generic [ref=e420]:
+          - heading "Services" [level=4] [ref=e421]
+          - list [ref=e422]:
+            - listitem [ref=e423]:
+              - link "How It Works" [ref=e424] [cursor=pointer]:
+                - /url: /how-it-works/
+            - listitem [ref=e425]:
+              - link "Pricing" [ref=e426] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e427]:
+              - link "Procedures" [ref=e428] [cursor=pointer]:
+                - /url: /procedures/
+            - listitem [ref=e429]:
+              - link "Destinations" [ref=e430] [cursor=pointer]:
+                - /url: /destinations/
+        - generic [ref=e431]:
+          - heading "Resources" [level=4] [ref=e432]
+          - list [ref=e433]:
+            - listitem [ref=e434]:
+              - link "FAQ" [ref=e435] [cursor=pointer]:
+                - /url: /faq/
+            - listitem [ref=e436]:
+              - link "Blog" [ref=e437] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e438]:
+              - link "Get Started" [ref=e439] [cursor=pointer]:
+                - /url: /contact/
+        - generic [ref=e440]:
+          - heading "Legal" [level=4] [ref=e441]
+          - list [ref=e442]:
+            - listitem [ref=e443]:
+              - link "Privacy Policy" [ref=e444] [cursor=pointer]:
+                - /url: /privacy/
+            - listitem [ref=e445]:
+              - link "Terms of Service" [ref=e446] [cursor=pointer]:
+                - /url: /terms/
+      - generic [ref=e447]:
+        - paragraph [ref=e448]: © 2026 MedPup Veterinary Concierge, LLC. All rights reserved.
+        - paragraph [ref=e449]: MedPup is a coordination service, not a veterinary practice. All medical decisions are made by your licensed veterinarian.

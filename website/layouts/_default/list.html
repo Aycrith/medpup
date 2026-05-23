@@ -12,14 +12,14 @@
         </div>
     </header>
     <div class="section-inner page-body">
-        <div class="page-content">
+        <div class="page-content glass-card">
             {{ .Content }}
         </div>
         {{ $pages := .Pages }}
         {{ if $pages }}
         <div class="blog-grid">
             {{ range $pages }}
-            <article class="blog-card" data-animate="fade-up">
+            <article class="blog-card glass-card" data-animate="fade-up">
                 <div class="blog-card-body">
                     <time class="blog-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
                     <h3 class="blog-card-title">

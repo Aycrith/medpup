@@ -4,33 +4,8 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="hero" data-section="hero">
-    <!-- Animated gradient mesh: a grid-based low-poly fabric animation -->
-    <div class="hero-mesh" aria-hidden="true" data-parallax="0.2">
-        <div class="mesh-cell mesh-cell-1"></div>
-        <div class="mesh-cell mesh-cell-2"></div>
-        <div class="mesh-cell mesh-cell-3"></div>
-        <div class="mesh-cell mesh-cell-4"></div>
-        <div class="mesh-cell mesh-cell-5"></div>
-        <div class="mesh-cell mesh-cell-6"></div>
-        <div class="mesh-cell mesh-cell-7"></div>
-        <div class="mesh-cell mesh-cell-8"></div>
-        <div class="mesh-cell mesh-cell-9"></div>
-        <div class="mesh-cell mesh-cell-10"></div>
-        <div class="mesh-cell mesh-cell-11"></div>
-        <div class="mesh-cell mesh-cell-12"></div>
-    </div>
-    <!-- Light beams (Phase2A) -->
-    <div class="hero-light-beams" data-parallax="0.5">
-        <div class="hero-light-beam"></div>
-        <div class="hero-light-beam"></div>
-        <div class="hero-light-beam"></div>
-        <div class="hero-light-beam"></div>
-    </div>
-    <!-- Atmospheric overlay -->
-    <div class="hero-overlay"></div>
-    <!-- Gradient vignette (Phase2A) -->
-    <div class="hero-vignette"></div>
-    <!-- Hero content -->
+    <!-- 3D WebGL scene lives behind everything as the environment (see baseof.html canvas) -->
+    <!-- Content floats over the scene with text-shadow for readability -->
     <div class="hero-content" data-animate="fade-up" data-mouse-parallax="2">
         <div class="hero-badge">Pinellas County Veterinary Concierge</div>
         <h1 class="hero-title">
@@ -140,12 +115,12 @@
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ========== SAVINGS CALCULATOR ========== -->
-<section class="section section-calculator" data-animate="fade-up" data-section="calculator">
+<section class="section section-steps" data-animate="fade-up" data-section="steps">
     <div class="section-inner">
         <span class="section-label">The Process</span>
         <h2 class="section-title">How It Works — <span class="text-gradient">Three Simple Steps</span></h2>
         <div class="steps-grid" data-stagger="150">
-            <div class="step-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="step-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="step-illustration">
                     <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
                         <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -161,7 +136,7 @@
                 <h3>Tell us about your pet</h3>
                 <p>Fill out a 2-minute intake form with your pet's diagnosis and current vet estimate. We need the procedure type and your location.</p>
             </div>
-            <div class="step-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="step-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="step-illustration">
                     <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
                         <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -176,7 +151,7 @@
                 <h3>We find the real cost</h3>
                 <p>Not the marketing price — we call partner clinics and demand the complete out-the-door quote including blood work, anesthesia, meds, and follow-up.</p>
             </div>
-            <div class="step-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="step-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="step-illustration">
                     <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
                         <circle cx="40" cy="40" r="38" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -228,7 +203,7 @@
         <p class="section-subtitle">Licensed Florida clinics we've vetted for pricing transparency. All within driving distance of Pinellas County.</p>
         <div id="clinic-map" class="clinic-map"></div>
         <div class="clinics-grid" data-stagger="200">
-            <div class="clinic-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="clinic-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="clinic-card-icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
@@ -239,7 +214,7 @@
                 <p class="clinic-card-desc">Liberty City, Miami — 55 min from Largo. Spay/neuter from <strong>$40</strong>.</p>
                 <span class="clinic-card-tag">Best for spay/neuter</span>
             </div>
-            <div class="clinic-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="clinic-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="clinic-card-icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
@@ -250,7 +225,7 @@
                 <p class="clinic-card-desc">Hialeah — 45 min. Dental & surgery from <strong>$285</strong>.</p>
                 <span class="clinic-card-tag">Best for dental</span>
             </div>
-            <div class="clinic-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="clinic-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="clinic-card-icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
@@ -261,7 +236,7 @@
                 <p class="clinic-card-desc">Tampa — 28 min. Spay/neuter from <strong>$70</strong>.</p>
                 <span class="clinic-card-tag">Closest option</span>
             </div>
-            <div class="clinic-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="clinic-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="clinic-card-icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <rect width="40" height="40" rx="8" fill="rgba(91,192,235,0.12)"/>
@@ -336,7 +311,7 @@
         <span class="section-label">Why Trust Us</span>
         <h2 class="section-title">The MedPup Difference</h2>
         <div class="trust-grid" data-stagger="150">
-            <div class="trust-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="trust-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="trust-card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -347,7 +322,7 @@
                 <h3>Real Price Verification</h3>
                 <p>We call each partner clinic and demand the complete out-the-door quote — not the marketing number. You see the true cost before you book.</p>
             </div>
-            <div class="trust-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="trust-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="trust-card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <circle cx="24" cy="24" r="22" fill="rgba(139,105,20,0.08)" stroke="rgba(139,105,20,0.2)" stroke-width="1"/>
@@ -358,7 +333,7 @@
                 <h3>Surprise-Bill Guarantee</h3>
                 <p>If the final clinic bill exceeds our confirmed range, we find you a backup clinic — at no extra cost. It's in our written agreement.</p>
             </div>
-            <div class="trust-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="trust-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="trust-card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -370,7 +345,7 @@
                 <h3>Pinellas-Based Routing</h3>
                 <p>We find the closest clinic within driving distance. No flights, no customs, no APHIS paperwork. Just a car and a confirmed appointment.</p>
             </div>
-            <div class="trust-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
+            <div class="trust-card glass-card" data-animate="fade-up" data-mouse-parallax="1" data-tilt>
                 <div class="trust-card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <circle cx="24" cy="24" r="22" fill="rgba(91,192,235,0.08)" stroke="rgba(91,192,235,0.2)" stroke-width="1"/>
@@ -393,7 +368,7 @@
         <span class="section-label">Questions?</span>
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-grid">
-            <div class="faq-item" data-animate="fade-up">
+            <div class="faq-item glass-card" data-animate="fade-up">
                 <div class="faq-question">
                     <h3>What does the MedPup fee actually cover?</h3>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -402,7 +377,7 @@
                 </div>
                 <div class="faq-answer"><p>The flat coordination fee covers: realistic cost calculation based on your pet's specific needs, clinic price verification through direct calls, appointment reservation, and our surprise-bill guarantee. The clinic's bill goes directly to the clinic — MedPup never touches the procedure cost.</p></div>
             </div>
-            <div class="faq-item" data-animate="fade-up">
+            <div class="faq-item glass-card" data-animate="fade-up">
                 <div class="faq-question">
                     <h3>What if the final bill exceeds your quote?</h3>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -411,7 +386,7 @@
                 </div>
                 <div class="faq-answer"><p>We take responsibility. If the final clinic bill exceeds our confirmed all-in range, we cover the difference (up to the cost of your coordination fee) and find you a backup clinic at no extra charge. No disputes, no fine print — it's in your service agreement.</p></div>
             </div>
-            <div class="faq-item" data-animate="fade-up">
+            <div class="faq-item glass-card" data-animate="fade-up">
                 <div class="faq-question">
                     <h3>Do I have to travel far?</h3>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -420,7 +395,7 @@
                 </div>
                 <div class="faq-answer"><p>Current partner clinics are 20–55 minutes from Largo by car. No customs, no APHIS paperwork, no ferry or flight required. We route you to the closest clinic that offers your needed procedure at the best confirmed price.</p></div>
             </div>
-            <div class="faq-item" data-animate="fade-up">
+            <div class="faq-item glass-card" data-animate="fade-up">
                 <div class="faq-question">
                     <h3>What about follow-up care?</h3>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

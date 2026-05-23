@@ -1,0 +1,7 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Phase 0 — Canvas Boat Drawing (multiple sizes)" [level=3] [ref=e3]
+    - paragraph [ref=e5]: 512×384 — production source (will be textured onto Three.js plane)
+  - generic [ref=e6]:
+    - heading "Phase 0 — Three.js Test Scene (boat on simulated horizon)" [level=3] [ref=e7]
+    - paragraph [ref=e9]: 700×420 — Three.js r128 scene mirrored to MedPup shader camera position

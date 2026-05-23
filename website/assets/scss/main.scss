@@ -168,20 +168,6 @@ body {
     transition: background var(--transition-base), color var(--transition-base);
 }
 
-/* Noise texture overlay (Cinematic Evolution V3 - Quick Win #3) */
-body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-    mix-blend-mode: overlay;
-}
-
 img, svg, video {
     max-width: 100%;
     display: block;
@@ -405,109 +391,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--clr-bg);
+    /* No background — WebGL scene is the full environment */
 }
 
 /* Animated Gradient Mesh */
-.hero-mesh {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    z-index: 0;
-}
-.mesh-cell {
-    position: relative;
-    transition: opacity 3s ease;
-}
-.mesh-cell::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: inherit;
-    filter: blur(80px);
-    opacity: 0.6;
-}
-.mesh-cell-1 { background: radial-gradient(circle at 30% 40%, rgba(91,192,235,0.12), transparent); animation: meshDrift1 12s ease-in-out infinite; }
-.mesh-cell-2 { background: radial-gradient(circle at 70% 30%, rgba(139,105,20,0.08), transparent); animation: meshDrift2 15s ease-in-out infinite 1s; }
-.mesh-cell-3 { background: radial-gradient(circle at 50% 60%, rgba(91,192,235,0.06), transparent); animation: meshDrift3 10s ease-in-out infinite 2s; }
-.mesh-cell-4 { background: radial-gradient(circle at 80% 50%, rgba(139,105,20,0.05), transparent); animation: meshDrift4 14s ease-in-out infinite 3s; }
-.mesh-cell-5 { background: radial-gradient(circle at 20% 70%, rgba(91,192,235,0.10), transparent); animation: meshDrift1 13s ease-in-out infinite 0.5s; }
-.mesh-cell-6 { background: radial-gradient(circle at 60% 80%, rgba(139,105,20,0.06), transparent); animation: meshDrift2 11s ease-in-out infinite 1.5s; }
-.mesh-cell-7 { background: radial-gradient(circle at 40% 20%, rgba(91,192,235,0.08), transparent); animation: meshDrift3 16s ease-in-out infinite 2.5s; }
-.mesh-cell-8 { background: radial-gradient(circle at 90% 90%, rgba(139,105,20,0.04), transparent); animation: meshDrift4 13s ease-in-out infinite 0.8s; }
-.mesh-cell-9 { background: radial-gradient(circle at 10% 50%, rgba(91,192,235,0.07), transparent); animation: meshDrift1 14s ease-in-out infinite 3.5s; }
-.mesh-cell-10 { background: radial-gradient(circle at 50% 10%, rgba(139,105,20,0.05), transparent); animation: meshDrift2 12s ease-in-out infinite 0.3s; }
-.mesh-cell-11 { background: radial-gradient(circle at 70% 50%, rgba(91,192,235,0.09), transparent); animation: meshDrift3 15s ease-in-out infinite 1.8s; }
-.mesh-cell-12 { background: radial-gradient(circle at 30% 90%, rgba(139,105,20,0.03), transparent); animation: meshDrift4 11s ease-in-out infinite 2.2s; }
-
-@keyframes meshDrift1 {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-}
-@keyframes meshDrift2 {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.15); }
-}
-@keyframes meshDrift3 {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.08); }
-}
-@keyframes meshDrift4 {
-    0%, 100% { opacity: 0.35; transform: scale(1); }
-    50% { opacity: 0.75; transform: scale(1.12); }
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(3, 10, 20, 0.2) 0%,
-        rgba(3, 10, 20, 0.4) 50%,
-        rgba(3, 10, 20, 0.8) 80%,
-        var(--clr-bg) 100%
-    );
-    z-index: 2;
-}
-
-/* Light beams (Phase2A - Cinematic Hero) */
-.hero-light-beams {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    overflow: hidden;
-}
-.hero-light-beam {
-    position: absolute;
-    width: 200px;
-    height: 120%;
-    top: -10%;
-    opacity: 0.04;
-    background: linear-gradient(180deg, transparent, var(--clr-accent), transparent);
-    transform: skewX(-15deg);
-    animation: beamFloat 8s ease-in-out infinite;
-}
-.hero-light-beam:nth-child(1) { left: 10%; animation-delay: 0s; }
-.hero-light-beam:nth-child(2) { left: 30%; animation-delay: 2s; opacity: 0.03; }
-.hero-light-beam:nth-child(3) { left: 60%; animation-delay: 4s; opacity: 0.05; }
-.hero-light-beam:nth-child(4) { left: 85%; animation-delay: 6s; opacity: 0.03; }
-
-@keyframes beamFloat {
-    0%, 100% { transform: skewX(-15deg) translateY(0); }
-    50% { transform: skewX(-12deg) translateY(-20px); }
-}
-
-/* Gradient vignette (Phase2A) */
-.hero-vignette {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(3, 10, 20, 0.6) 100%);
-}
+/* Hero overlay & vignette removed — 3D WebGL scene is the only background layer */
 
 .hero-content {
     position: relative;
@@ -524,7 +412,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     margin-bottom: var(--space-6);
     color: var(--clr-heading);
-    text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+    text-shadow: 0 4px 60px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3);
 }
 .hero-word {
     display: inline-block;
@@ -550,6 +438,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 
 .hero-badge {
@@ -566,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--section-accent, var(--clr-accent));
     margin-bottom: var(--space-6);
-    background: rgba(91, 192, 235, 0.08);
+    background: rgba(3, 10, 20, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -649,19 +538,18 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 .section:nth-child(even):not(.section-dark) {
-    background: var(--clr-bg-alt);
+    /* Transparent — WebGL scene shows through */
 }
 .section-dark {
-    background: linear-gradient(180deg, var(--clr-bg), rgba(91, 192, 235, 0.03) 50%, var(--clr-bg));
+    /* Subtle gradient wash — lets WebGL scene show through */
+    background: linear-gradient(180deg, rgba(3, 10, 20, 0.08), transparent 40%, transparent 60%, rgba(3, 10, 20, 0.08));
 }
 
 /* Per-section accent colors (Cinematic Evolution V3 - Phase8) */
 .section-hero, [data-section="hero"] {
     --section-accent: #5bc0eb;
     --section-glow: rgba(91,192,235,0.3);
-    background-image: radial-gradient(ellipse at 30% 40%, rgba(91,192,235,0.06) 0%, transparent 60%),
-                      radial-gradient(ellipse at 70% 30%, rgba(139,105,20,0.03) 0%, transparent 50%);
-    background-blend-mode: normal;
+    /* No background gradient — WebGL scene is the full environment */
 }
 .section-steps, [data-section="steps"] {
     --section-accent: #8B6914;
@@ -671,13 +559,13 @@ h1, h2, h3, h4, h5, h6 {
 .section-calculator, [data-section="calculator"] {
     --section-accent: #22c55e;
     --section-glow: rgba(34,197,94,0.3);
-    background-image: radial-gradient(ellipse at 40% 60%, rgba(34,197,94,0.05) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 40% 60%, rgba(34,197,94,0.04) 0%, transparent 60%);
 }
 .section-clinics, [data-section="clinics"] {
     --section-accent: #5bc0eb;
     --section-glow: rgba(91,192,235,0.3);
     background-image: radial-gradient(ellipse at 60% 40%, rgba(91,192,235,0.05) 0%, transparent 60%),
-                      radial-gradient(ellipse at 30% 70%, rgba(34,197,94,0.03) 0%, transparent 50%);
+                      radial-gradient(ellipse at 30% 70%, rgba(34,197,94,0.025) 0%, transparent 50%);
 }
 .section-trust, [data-section="trust"] {
     --section-accent: #8B6914;
@@ -687,7 +575,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-cta, [data-section="cta"] {
     --section-accent: #5bc0eb;
     --section-glow: rgba(91,192,235,0.3);
-    background-image: radial-gradient(ellipse at 50% 50%, rgba(91,192,235,0.06) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse at 50% 50%, rgba(91,192,235,0.05) 0%, transparent 60%);
 }
 .section-inner {
     max-width: var(--max-width);
@@ -750,6 +638,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.15;
     margin-bottom: var(--space-4);
     color: var(--clr-heading);
+    text-shadow: 0 2px 40px rgba(0,0,0,0.35), 0 1px 8px rgba(0,0,0,0.2);
 }
 .section-subtitle {
     font-size: var(--text-lg);
@@ -757,6 +646,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 600px;
     line-height: 1.6;
     margin-bottom: var(--space-10);
+    text-shadow: 0 1px 24px rgba(0,0,0,0.3);
 }
 .section-actions {
     text-align: center;
@@ -1210,6 +1100,11 @@ h3, .h3 {
     border-spacing: 0;
     font-family: var(--font-body);
     font-size: var(--text-sm);
+    background: rgba(13, 24, 41, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    overflow: hidden;
 }
 .comparison-table thead th {
     padding: var(--space-4) var(--space-5);
@@ -1220,7 +1115,7 @@ h3, .h3 {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--clr-text-muted);
-    background: var(--clr-bg-alt);
+    background: rgba(10, 22, 40, 0.5);
     border-bottom: 2px solid var(--clr-border);
 }
 .comparison-table thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
@@ -1230,9 +1125,10 @@ h3, .h3 {
     border-bottom: 1px solid var(--clr-border);
     color: var(--clr-text-secondary);
     line-height: 1.5;
+    background: transparent;
 }
 .comparison-table tbody tr:hover td {
-    background: var(--clr-bg-hover);
+    background: rgba(22, 35, 58, 0.5);
 }
 .price-published { color: var(--clr-text-muted); text-decoration: line-through; }
 .price-real { color: var(--clr-heading); font-weight: 600; }
@@ -1386,7 +1282,9 @@ h3, .h3 {
 .page-header {
     position: relative;
     padding: calc(var(--nav-height) + var(--space-20)) 0 var(--space-16);
-    background: var(--clr-bg-alt);
+    background: rgba(10, 22, 40, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     overflow: hidden;
 }
 .page-header-bg {
@@ -1466,7 +1364,9 @@ h3, .h3 {
     margin-top: var(--space-10);
 }
 .blog-card {
-    background: var(--clr-bg-card);
+    background: rgba(13, 24, 41, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -1522,7 +1422,9 @@ h3, .h3 {
 /* ========== FOOTER ========== */
 
 .footer {
-    background: var(--clr-bg-alt);
+    background: rgba(10, 22, 40, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--clr-border);
     padding: var(--space-16) 0 var(--space-8);
 }
@@ -1789,6 +1691,18 @@ h3, .h3 {
     z-index: 1;
 }
 
+/* ---------- GLASSMORPHISM CARDS ---------- */
+
+.glass-card {
+    background: rgba(13, 24, 41, 0.55);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid var(--clr-border);
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+
 /* ---------- NOISE TEXTURE OVERLAY ---------- */
 
 .noise-svg {
@@ -1806,7 +1720,7 @@ body::after {
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
-    opacity: 0.5;
+    opacity: 0.25;
 }
 
 /* ---------- PER-SECTION ACCENT THEMING ---------- */
@@ -3179,9 +3093,7 @@ select:focus-visible {
     .progress-bar,
     .particle-canvas,
     .cursor-trail,
-    .hero-mesh,
-    .hero-light-beams,
-    .hero-vignette,
+    /* WebGL scene + noise remain as the only background layers */
     .section::before,
     .section-glow,
     .toast-container {

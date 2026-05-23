@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boat Canvas Test</title>
+  <style>
+    body { background: #0a0612; margin: 0; padding: 18px; font-family: sans-serif; }
+    .section { margin-bottom: 30px; }
+    h3 { color: #5bc0eb; font-size: 14px; margin-bottom: 8px; }
+    canvas { border: 1px solid #5bc0eb; display: block; }
+    p { color: #aaa; font-size: 11px; font-family: monospace; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h3>Phase 0 — Canvas Boat Drawing (multiple sizes)</h3>
+    <canvas id="c1" width="512" height="384"></canvas>
+    <p>512×384 — production source (will be textured onto Three.js plane)</p>
+  </div>
+  <div class="section">
+    <h3>Phase 0 — Three.js Test Scene (boat on simulated horizon)</h3>
+    <canvas id="c2" width="700" height="420"></canvas>
+    <p>700×420 — Three.js r128 scene mirrored to MedPup shader camera position</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // ============================================================
+    // PHASE 0 — CANVAS BOAT DRAWING
+    // ============================================================
+    (function drawBoat() {
+      var canvas = document.getElementById('c1');
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+
+      // ─── PALETTE ──
+      var P = {
+        hull: '#8B4513', hullDark: '#4a2409', hullTrim: '#d97706',
+        sail: '#fef3c7', sailShadow: '#f0d58c', mast: '#8B6914',
+        dog: '#d97706', dogDark: '#a16207', dogLight: '#FDE68A',
+        earInside: '#b7410e',
+        nose: '#1C1917', eyeIris: '#78350F', eyePupil: '#1C1917',
+        eyeWhite: '#FFF8DC',
+        wake: 'rgba(255,248,230,0.6)',
+      };
+
+      // ─── SKY GRADIENT (golden hour dusk) ──
+      var skyGrad = ctx.createLinearGradient(0, 0, 0, H);
+      skyGrad.addColorStop(0.0, '#07040e');     // deep night top
+      skyGrad.addColorStop(0.25,'#100810');     // deep purple
+      skyGrad.addColorStop(0.5,  '#1e0e12');   // warm deep
+      skyGrad.addColorStop(0.72, '#2d1510');   // amber shift
+      skyGrad.addColorStop(1.0,  '#4a2508');   // golden horizon
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Stars — near top-left
+      [[36,26],[82,54],[114,18],[200,38],[245,15],[290,48]].forEach(function(s,i){
+        ctx.beginPath(); ctx.arc(s[0],s[1], 1.2 + (i%2)*0.4,0,Math.PI*2);
+        ctx.fillStyle = i%2===0?'#5bc0eb':'#fbbf24'; ctx.fill();
+      });
+
+      // Sun — half-lifted golden disc (top-right)
+      var sx=435, sy=120, sr=28;
+      var sunHalo = ctx.createRadialGradient(sx, sy, 0, sx, sy, sr*4.5);
+      sunHalo.addColorStop(0,'rgba(255,215,90,0.42)');
+      sunHalo.addColorStop(0.3,'rgba(255,175,55,0.16)');
+      sunHalo.addColorStop(1,'rgba(255,135,30,0)');
+      ctx.beginPath(); ctx.arc(sx, sy, sr*4.5, 0, Math.PI*2);
+      ctx.fillStyle = sunHalo; ctx.fill();
+
+      var sunBody = ctx.createRadialGradient(sx-4,sy-4,0,sx,sy,sr);
+      sunBody.addColorStop(0,'#FFFBE8');
+      sunBody.addColorStop(0.45,'#FBBF24');
+      sunBody.addColorStop(1,'#D97706');
+      ctx.beginPath(); ctx.arc(sx, sy, sr, 0, Math.PI*2);
+      ctx.fillStyle = sunBody; ctx.fill();
+
+      // ─── HORIZON / WATER BOUNDARY ──
+      var waterY = H * 0.5;
+
+      // Water — gradient from near-horizon to deep
+      var waterGrad = ctx.createLinearGradient(0, waterY, 0, H);
+      waterGrad.addColorStop(0, '#1b0e15');   // horizon dark
+      waterGrad.addColorStop(0.3,'#1f1218');   // warm deep mid
+      waterGrad.addColorStop(0.65,'#291408');  // amber deep
+      waterGrad.addColorStop(1,  '#32180b');   // near shore dark
+      ctx.fillStyle = waterGrad;
+      ctx.fillRect(0, waterY, W, H - waterY);
+
+      // Golden specular sweep on water
+      var specGrad = ctx.createLinearGradient(sx-80, waterY, sx+80, waterY);
+      specGrad.addColorStop(0,'rgba(255,210,80,0)');
+      specGrad.addColorStop(0.35,'rgba(255,180,55,0.25)');
+      specGrad.addColorStop(0.5,'rgba(255,225,100,0.52)');
+      specGrad.addColorStop(0.65,'rgba(255,180,55,0.25)');
+      specGrad.addColorStop(1,'rgba(255,210,80,0)');
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(sx-72, waterY); ctx.lineTo(sx+72, waterY);
+      ctx.lineTo(sx+72, H); ctx.lineTo(sx-72, H); ctx.closePath();
+      ctx.fillStyle = specGrad; ctx.fill();
+      ctx.restore();
+
+      // Horizontal ripples
+      ctx.strokeStyle = 'rgba(255,195,80,0.065)'; ctx.lineWidth = 1;
+      for (var ry = waterY+22; ry < H; ry += 16) {
+        var w = (ry - waterY) * 0.094;
+        ctx.beginPath();
+        for (var rx = 0; rx < W; rx += 3) {
+          var rv = Math.sin(rx*0.014 + ry*0.018)*2.2 + Math.sin(rx*0.03+ry*0.04)*1.1;
+          if (rx===0) ctx.moveTo(rx, ry + rv); else ctx.lineTo(rx, ry + rv);
+        }
+        ctx.stroke();
+      }
+
+      // ─── WAKE BEHIND BOAT ──
+      var boatX = 97, boatY = 303;  // boat center on water
+
+      ctx.save();
+      var wg = ctx.createRadialGradient(boatX-60, boatY, 0, boatX-60, boatY, 52);
+      wg.addColorStop(0,'rgba(255,248,230,0.60)');
+      wg.addColorStop(1,'rgba(255,240,210,0)');
+      ctx.fillStyle = wg;
+      ctx.beginPath(); ctx.ellipse(boatX-60, boatY, 56, 18, 0.16, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+
+      // ─── BOAT HULL ──
+      ctx.save();
+      ctx.translate(boatX, boatY);
+      var hullG = ctx.createLinearGradient(0,-18,0,20);
+      hullG.addColorStop(0,'#A0522D'); hullG.addColorStop(0.5,'#8B4513'); hullG.addColorStop(1,'#4a2409');
+      ctx.fillStyle = hullG; ctx.strokeStyle = P.hullTrim; ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(-62,-10);  // stern top
+      ctx.lineTo(-58,2);    // stern base
+      ctx.lineTo(-44,20);   // bottom stern
+      ctx.lineTo(56,20);    // bottom front
+      ctx.lineTo(66,-6);    // bow front
+      // gunwale
+      ctx.lineTo(58,-26);   // bow gunwale top
+      ctx.lineTo(-56,-26);  // stern gunwale top
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+      // Hull planking lines
+      ctx.strokeStyle = 'rgba(74,36,9,0.45)'; ctx.lineWidth = 1;
+      [[-54,-20,-54,18],[-40,-22,-40,18],[-26,-22,-26,18],[-12,-22,-12,18],[2,-22,2,18],[16,-22,16,18],[30,-22,30,18],[44,-22,44,18]].forEach(function(l){
+        ctx.beginPath(); ctx.moveTo(l[0],l[1]); ctx.lineTo(l[2],l[3]); ctx.stroke();
+      });
+
+      // Hull top highlight
+      ctx.strokeStyle = 'rgba(255,215,150,0.3)'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(-52,-24); ctx.lineTo(56,-24); ctx.stroke();
+
+      // Deck planks
+      ctx.strokeStyle = 'rgba(74,36,9,0.5)'; ctx.lineWidth = 1;
+      for (var kx = -44; kx < 50; kx += 16) {
+        ctx.beginPath(); ctx.moveTo(kx,-25); ctx.lineTo(kx,10); ctx.stroke();
+      }
+
+      // ─── MAST ──
+      ctx.strokeStyle = P.mast; ctx.lineWidth = 3.4; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(-7,-28); ctx.lineTo(-9,-114); ctx.stroke();
+
+      // ─── MAIN SAIL (draws from mast, jib shape, fwd) ──
+      var sailG = ctx.createLinearGradient(-10,-114,-10,-36);
+      sailG.addColorStop(0,'#fef9c3'); sailG.addColorStop(0.5,'#fef3c7'); sailG.addColorStop(1,'#fde68a');
+      ctx.fillStyle = sailG;
+      ctx.beginPath();
+      ctx.moveTo(-9,-108); ctx.lineTo(44,-98); ctx.lineTo(-9,-40); ctx.closePath();
+      ctx.fill();
+      // Sail luff (mast edge)
+      ctx.strokeStyle = 'rgba(180,140,60,0.35)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(-9,-108); ctx.lineTo(-9,-40); ctx.stroke();
+      //¼Sail fold – horizontal creases
+      for (var sy2 = -100; sy2 < -44; sy2 += 14) {
+        var frac = (sy2+100)/56;
+        var feather = 18*frac;
+        ctx.beginPath(); ctx.moveTo(-9,sy2); ctx.lineTo(-9+feather, sy2+2); ctx.stroke();
+      }
+
+      // MedPup small mark on sail
+      ctx.fillStyle = P.dog;
+      ctx.beginPath(); ctx.ellipse(14,-68, 11,7,-0.2,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle = P.mast; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = P.mast; ctx.font='bold 9px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText('M', 14, -68);
+
+      // ─── COCKPIT ──
+      ctx.beginPath(); ctx.moveTo(-58,-28); ctx.lineTo(62,-28); ctx.strokeStyle=P.hullTrim; ctx.lineWidth=1.5; ctx.stroke();
+      // Steering wheel
+      ctx.strokeStyle = P.mast; ctx.lineWidth = 2.2;
+      ctx.beginPath(); ctx.arc(-26,-32, 6, 0, Math.PI*2); ctx.stroke();
+      [[-26,-38,-26,-26],[-32,-32,-20,-32],[-30.5,-35,-21.5,-29],[-30.5,-29,-21.5,-35]].forEach(function(l){
+        ctx.beginPath(); ctx.moveTo(l[0],l[1]); ctx.lineTo(l[2],l[3]); ctx.stroke();
+      });
+
+      ctx.restore();   // end translate(boatX, boatY)
+
+      // ─── DOG ──
+      var dx = boatX - 16, dy = boatY - 48;   // dog base position
+
+      // Tail (action arc behind dog) — Emirates tail wag
+      ctx.save();
+      ctx.translate(dx, dy);
+      ctx.strokeStyle = P.dog; ctx.lineWidth = 5.8; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(-10,-4);
+      // Arc tail going back-left
+      ctx.bezierCurveTo(-22,-18,-36,-22,-44,-15);
+      ctx.stroke();
+      // Tail darker tip
+      ctx.strokeStyle = P.dogDark; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.moveTo(-30,-19); ctx.bezierCurveTo(-38,-20,-44,-15,-44,-15); ctx.stroke();
+      // Tail tip poof (lighter)
+      ctx.fillStyle = P.dogLight;
+      ctx.beginPath(); ctx.ellipse(-45,-15, 6,8,-0.5,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+
+      // Body — golden-tan back dog oblong
+      ctx.save();
+      ctx.translate(dx, dy);
+      var bG = ctx.createRadialGradient(-4,-8, 2,-4,-8, 20);
+      bG.addColorStop(0, P.dogLight); bG.addColorStop(0.55,P.dog); bG.addColorStop(1,P.dogDark);
+      ctx.fillStyle = bG;
+      ctx.beginPath(); ctx.ellipse(-2,-10, 18, 13, -0.2, 0, Math.PI*2); ctx.fill();
+      // Chest
+      ctx.beginPath(); ctx.ellipse(14,-8, 10,12, 0.12, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+
+      // Head — circle + snout
+      ctx.save();
+      ctx.translate(dx, dy);
+      var hcx = 24, hcy = -14;   // head center
+      ctx.translate(hcx, hcy);
+      var hg = ctx.createRadialGradient(-2,-2,0,3,2,20);
+      hg.addColorStop(0,P.dogLight); hg.addColorStop(0.55,P.dog); hg.addColorStop(1,P.dogDark);
+      ctx.fillStyle = hg;
+      ctx.beginPath(); ctx.arc(0,0, 20, 0, Math.PI*2); ctx.fill();
+      // Snout – pushed forward-right
+      ctx.beginPath(); ctx.ellipse(13,3,13,9, -0.12,0,Math.PI*2);
+      ctx.fillStyle = P.dogLight; ctx.fill();
+      // Bridge of snout line
+      ctx.strokeStyle = P.dogDark; ctx.lineWidth=1; ctx.globalAlpha=0.3;
+      ctx.beginPath(); ctx.moveTo(4,-1); ctx.lineTo(12,2); ctx.stroke();
+      ctx.globalAlpha=1.0;
+      ctx.restore();
+
+      // ─── NOSE ──
+      ctx.save();
+      ctx.translate(dx+24, dy-14);
+      // Nose tip
+      ctx.beginPath(); ctx.arc(22, 2, 5, 0, Math.PI*2);
+      ctx.fillStyle = P.nose; ctx.fill();
+      // Nostrils
+      ctx.beginPath(); ctx.arc(22.5, 2.5, 1.8, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fill();
+      // Gloss highlight on nose
+      ctx.beginPath(); ctx.arc(20.4, -0.2, 2, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.45)'; ctx.fill();
+      ctx.restore();
+
+      // ─── EYES ──
+      // Eye 1 (right / front eye — larger, more detail)
+      var ex1 = dx+18, ey1 = dy-14;
+      // socket shadow (dark orange oval)
+      ctx.save(); ctx.translate(ex1,ey1);
+      ctx.beginPath(); ctx.arc(-6,-2, 8.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(74,36,9,0.3)'; ctx.fill();
+      // white of eye
+      ctx.beginPath(); ctx.ellipse(-6,-2, 7,6.8,0.1,0,Math.PI*2);
+      ctx.fillStyle=P.eyeWhite; ctx.fill();
+      // iris — golden
+      ctx.beginPath(); ctx.arc(-6.5,-2, 5.2,0,Math.PI*2);
+      ctx.fillStyle=P.eyeIris; ctx.fill();
+      // pupil — cat-oval
+      ctx.beginPath(); ctx.ellipse(-6,-1.8, 2.2,3.5,0,0,Math.PI*2);
+      ctx.fillStyle=P.eyePupil; ctx.fill();
+      // iris detail texture
+      ctx.beginPath(); ctx.arc(-6.5,-2, 5.2,0,Math.PI*2);
+      ctx.strokeStyle = 'rgba(200,140,50,0.3)'; ctx.lineWidth=0.8; ctx.stroke();
+      // white gleam (big)
+      ctx.beginPath(); ctx.arc(-3.5,-4.5, 2.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.88)'; ctx.fill();
+      // white gleam (small)
+      ctx.beginPath(); ctx.arc(-9,-3.5, 1.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.6)'; ctx.fill();
+      // outer glow ring
+      ctx.beginPath(); ctx.arc(-6.5,-2,7,0,Math.PI*2);
+      ctx.strokeStyle='rgba(255,198,70,0.22)'; ctx.lineWidth=1.3; ctx.stroke();
+      ctx.restore();
+
+      // Eye 2 (left / back eye — slightly smaller)
+      var ex2 = dx+8, ey2 = dy-10;
+      ctx.save(); ctx.translate(ex2,ey2);
+      ctx.beginPath(); ctx.arc(7,-3, 7.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(74,36,9,0.28)'; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(7,-3, 6.2, 6, 0.1,0,Math.PI*2);
+      ctx.fillStyle=P.eyeWhite; ctx.fill();
+      ctx.beginPath(); ctx.arc(7.5,-2.8, 4.4,0,Math.PI*2);
+      ctx.fillStyle=P.eyeIris; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(8,-2.5, 1.8,3,0,0,Math.PI*2);
+      ctx.fillStyle=P.eyePupil; ctx.fill();
+      ctx.beginPath(); ctx.arc(10,-4.5, 1.9,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.85)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(7.5,-2.8, 6.3,0,Math.PI*2);
+      ctx.strokeStyle='rgba(255,198,70,0.18)'; ctx.lineWidth=1; ctx.stroke();
+      ctx.restore();
+
+      // ─── FLOPPY EARS ──
+      // Left ear (swept back by wind)
+      ctx.save(); ctx.translate(dx+24, dy-14);
+      ctx.beginPath(); ctx.moveTo(-13,-16);
+      ctx.bezierCurveTo(-20,-26,-32,-18,-30,-2);
+      ctx.bezierCurveTo(-28,5, -15,4, -12, -8);
+      ctx.closePath();
+      var eg1 = ctx.createLinearGradient(-20,-14, -12,0);
+      eg1.addColorStop(0,P.dog); eg1.addColorStop(1,P.dogDark);
+      ctx.fillStyle = eg1; ctx.fill();
+      // inner ear pan
+      ctx.strokeStyle = P.earInside; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.moveTo(-18,-14); ctx.bezierCurveTo(-22,-8,-26,3,-24,5); ctx.stroke();
+      ctx.restore();
+
+      // Right ear (face frame, slightly forward)
+      ctx.save(); ctx.translate(dx+24, dy-14);
+      ctx.beginPath(); ctx.moveTo(14,-17);
+      ctx.bezierCurveTo(16,-26, 26,-20, 28,-8);
+      ctx.bezierCurveTo(27,2, 18,5, 14,-8);
+      ctx.closePath();
+      var eg2 = ctx.createLinearGradient(16,-16, 14,2);
+      eg2.addColorStop(0, P.dog); eg2.addColorStop(1,P.dogDark);
+      ctx.fillStyle = eg2; ctx.fill();
+      ctx.strokeStyle = P.earInside; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.moveTo(18,-14); ctx.bezierCurveTo(22,-7, 26,4, 24,7); ctx.stroke();
+      ctx.restore();
+
+      // ─── COLLAR + TAG ──
+      ctx.save(); ctx.translate(dx+24, dy-14);
+      var ccy = 5;
+      // collar band
+      ctx.strokeStyle='#B91C1C'; ctx.lineWidth=4.5;
+      ctx.beginPath(); ctx.ellipse(-2, ccy, 19, 8, -0.12,0,Math.PI*2); ctx.stroke();
+      // inner collar line
+      ctx.lineWidth=2.5;
+      ctx.beginPath(); ctx.ellipse(-2, ccy, 15, 6, -0.12,0,Math.PI*2); ctx.stroke();
+      // tag
+      ctx.fillStyle=P.hullTrim;
+      ctx.beginPath(); ctx.arc(9, ccy+14, 5.5,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle=P.mast; ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.arc(9, ccy+14, 5.5,0,Math.PI*2); ctx.stroke();
+      // tag shine
+      ctx.beginPath(); ctx.arc(7.5, ccy+12, 1.8,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.65)'; ctx.fill();
+      ctx.restore();
+
+      // ─── PAW ON STEERING WHEEL ──
+      ctx.save(); ctx.translate(dx, dy);
+      ctx.beginPath(); ctx.ellipse(-27,-22,6,5.5,-0.35,0,Math.PI*2);
+      ctx.fillStyle=P.dog; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-27,-22,3.5,3.2,-0.5,0,Math.PI*2);
+      ctx.fillStyle=P.dogDark; ctx.fill();
+      ctx.restore();
+
+      // ─── BOW WAVE (subtle wake foam at pointy front) ──
+      ctx.save();
+      var bowWG = ctx.createRadialGradient(boatX+62, boatY+14, 0, boatX+62, boatY+14, 32);
+      bowWG.addColorStop(0,'rgba(255,245,215,0.38)');
+      bowWG.addColorStop(1,'rgba(255,235,190,0)');
+      ctx.fillStyle=bowWG;
+      ctx.beginPath(); ctx.ellipse(boatX+62, boatY+14, 38, 15, 0.2, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+
+      console.log('Boat drawing complete');
+    })();
+
+    // ============================================================
+    // PHASE 1 — THREE.JS SCENE TEST
+    // ============================================================
+    (function() {
+      var canvas = document.getElementById('c2');
+      var W = canvas.width, H = canvas.height;
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(1);
+      renderer.setClearColor(0x0a0612);
+
+      var scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x1a0e15, 0.032);
+
+      var camera = new THREE.PerspectiveCamera(55, W/H, 0.1, 200);
+      camera.position.set(0, 2.0, 52).add(new THREE.Vector3(0, Math.sin(0)*0.1, Math.cos(0)*0.1));
+      camera.lookAt(4, 0, 0);
+
+      // Ambient lighting
+      scene.add(new THREE.AmbientLight(0xfff3e0, 0.45));
+      var sunLight = new THREE.DirectionalLight(0xffbb55, 0.7);
+      sunLight.position.set(16, 35, 25); scene.add(sunLight);
+
+      // ─── BOAT PLANE ──
+      // Pre-render boat drawing into hidden canvas
+      var boatSrc = document.createElement('canvas');
+      boatSrc.width = 512; boatSrc.height = 384;
+      var bCtx = boatSrc.getContext('2d');
+
+      // Draw minimal boat illustration on boatSrc canvas
+      // (golden hour sunset sky, boat silhouette on water)
+      var bG = bCtx.createLinearGradient(0,0,0,384);
+      bG.addColorStop(0,'#0a0410'); bG.addColorStop(0.55,'#1a0e14'); bG.addColorStop(0.72,'#2d1510'); bG.addColorStop(1,'#4a1e08');
+      bCtx.fillStyle = bG; bCtx.fillRect(0,0,512,384);
+
+      // Sun
+      var bSG = bCtx.createRadialGradient(440,115,0,440,115,120);
+      bSG.addColorStop(0,'rgba(255,215,100,0.55)'); bSG.addColorStop(1,'rgba(255,160,60,0)');
+      bCtx.fillStyle=bSG; bCtx.fillRect(390,10,100,210);
+
+      // Simplified boat — hull
+      bCtx.fillStyle = '#8B4513';
+      bCtx.beginPath(); bCtx.moveTo(20,260); bCtx.lineTo(490,260);
+      bCtx.lineTo(500,300); bCtx.lineTo(20,300); bCtx.closePath(); bCtx.fill();
+      // Sail area
+      bCtx.fillStyle = '#fef3c7';
+      bCtx.beginPath(); bCtx.moveTo(200,100); bCtx.lineTo(360,80); bCtx.lineTo(200,230); bCtx.closePath(); bCtx.fill();
+      // Rope lines
+      bCtx.strokeStyle = '#8B6914'; bCtx.lineWidth = 2;
+      bCtx.beginPath(); bCtx.moveTo(200,100); bCtx.lineTo(380,200); bCtx.stroke();
+      bCtx.beginPath(); bCtx.moveTo(200,100); bCtx.moveTo(500,200); bCtx.stroke();
+      // Dog silhouette on deck
+      bCtx.fillStyle = '#d97706';
+      bCtx.beginPath(); bCtx.ellipse(130,235,18,12,-0.2,0,Math.PI*2); bCtx.fill(); // body
+      bCtx.beginPath(); bCtx.ellipse(152,228,12,11,0,0,Math.PI*2); bCtx.fill(); // head
+      bCtx.beginPath(); bCtx.arc(160,218,2.8,0,Math.PI*2); bCtx.fill(); // eye
+      bCtx.beginPath(); bCtx.arc(160,230,3,0,Math.PI*2); bCtx.fillStyle='#1C1917'; bCtx.fill(); // nose
+
+      // Textures
+      var boatTexture = new THREE.CanvasTexture(boatSrc);
+      boatTexture.minFilter = THREE.LinearFilter;
+
+      // Boat mesh — flat plane, placed flat on water
+      var boatGeo = new THREE.PlaneGeometry(4, 3);
+      var boatMat = new THREE.MeshBasicMaterial({
+        map: boatTexture,
+        transparent: true,
+        opacity: 0.92,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      });
+      var boatMesh = new THREE.Mesh(boatGeo, boatMat);
+      // Place boat so it floats on water — y = -2.0 ≈ hull-sits-on-water
+      // In shader world, camera is at y+1.5 approx, looking down to y=0 water at d≈12×
+      boatMesh.position.set(3, -1.8, 5);  // starts off-screen-left +mid
+      boatMesh.rotation.set(-0.05, 0.22, 0);  // slight tilt, facing right
+      scene.add(boatMesh);
+
+      // Debug helper — a line at y=0 to show water plane
+      var waterLineGeo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-30,0,0), new THREE.Vector3(30,0,0)
+      ]);
+      var waterLine = new THREE.Line(waterLineGeo, new THREE.LineBasicMaterial({color:0x5bc0eb, opacity:0.25, transparent:true}));
+      scene.add(waterLine);
+
+      // Camera marker — where shader camera would be at z≈depths
+      var camBall = new THREE.Mesh(
+        new THREE.SphereGeometry(0.25, 8, 8),
+        new THREE.MeshBasicMaterial({color:0xff0055})
+      );
+      camBall.position.set(0, 1.5, 52);
+      scene.add(camBall);
+      // text overlay for camera marker
+      // (no text3D in vanilla Three.js — just the ball)
+
+      // ─── ANIMATION ──
+      var t0 = performance.now();
+      function anim() {
+        requestAnimationFrame(anim);
+        var elapsed = (performance.now() - t0) * 0.001;
+
+        // Simulate scroll from 0→0.5 over 10 seconds loop
+        var simProgress = (elapsed % 12) / 12.0;
+
+        // Move boat along a gentle path
+        boatMesh.position.x   = 3 + simProgress * 22;
+        boatMesh.position.z   = 5 + Math.sin(simProgress * Math.PI * 2.2) * 3;
+        boatMesh.position.y   = -1.8 + Math.sin(elapsed * 1.2) * 0.08;
+        boatMesh.rotation.z   = Math.sin(elapsed * 0.6) * 0.015;
+
+        // Camera slowly drift right (simulates scroll camera in shader)
+        camera.position.x = simProgress * 6;
+        camera.lookAt(4 + simProgress * 4, 0, -2);
+
+        renderer.render(scene, camera);
+      }
+      anim();
+
+      console.log('Three.js test scene running — boat should sail left-to-right over water plane (cyan line at y=0). Pink sphere = shader camera sim.');
+    })();
+  </script>
+</body>
+</html>

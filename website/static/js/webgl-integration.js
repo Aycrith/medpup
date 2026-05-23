@@ -29,21 +29,25 @@
     const LERP_SCROLL = 0.08;
     const LERP_MOUSE = 0.08;
     const VELOCITY_DECAY = 0.92;
-    const MOOD_TRANSITION_SPEED = 0.008;
+    const MOOD_TRANSITION_SPEED = 0.03;  // time-based: completes ~2s at 60fps (was 0.008)
     const SCROLL_CAM_GAIN = 0.12;
 
-    // Section mood mapping
+    // Section mood mapping — CINEMATIC NARRATIVE ARC
+    // As the user scrolls, they travel through a full day:
+    //   Dawn (hope)     → Golden Hour (trust/action) → Midday (truth)
+    //   → Golden Hour (warmth) → Dusk (resolution/calm)
+    // Each mood shift reinforces the emotional content of that section.
     const SECTION_MOOD_MAP = {
-        'hero': 0,        // Night
-        'intro': 1,       // Dawn
-        'steps': 2,       // Morning
-        'calculator': 3,  // Midday
-        'clinics': 4,     // Golden Hour
-        'numbers': 4,
-        'trust': 5,       // Dusk
-        'faq': 5,
-        'cta': 5,
-        'disclaimer': 5,
+        'hero': 1,        // Dawn — hope emerging, warm pink-gold rising from darkness
+        'intro': 1,       // Dawn — continues the opening atmosphere
+        'steps': 4,       // Golden Hour — warm trust, the process feels good
+        'calculator': 2,  // Morning — clear, fresh, transparent pricing
+        'clinics': 4,     // Golden Hour — warm confidence in partner clinics
+        'numbers': 3,     // Midday — bright truth, direct facts
+        'trust': 5,       // Dusk — resolution, reflecting on the journey
+        'faq': 5,         // Dusk — calm answers, settling in
+        'cta': 5,         // Dusk — compelling finish, warm embers
+        'disclaimer': 5,  // Dusk — consistent closing
     };
 
     // Camera path: position, pitch, FOV per scroll section
@@ -210,6 +214,22 @@
         // Smooth mouse
         state.mouseX += (state.targetMX - state.mouseX) * LERP_MOUSE;
         state.mouseY += (state.targetMY - state.mouseY) * LERP_MOUSE;
+
+        // Ensure mood transitions continue even without scroll events
+        // This allows the opening scene to transition from initial mood to hero mood
+        if (state.mood !== state.moodTarget) {
+            state.moodBlend += MOOD_TRANSITION_SPEED;
+            if (state.moodBlend >= 1.0) {
+                state.mood = state.moodTarget;
+                state.moodBlend = 0.0;
+                state.moodTransitioning = false;
+            } else {
+                state.moodTransitioning = true;
+            }
+        } else {
+            state.moodBlend = 0.0;
+            state.moodTransitioning = false;
+        }
 
         return {
             scroll: state.scroll,

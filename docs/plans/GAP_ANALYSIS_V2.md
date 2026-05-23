@@ -104,7 +104,31 @@ The index.html has a leftover script artifact that triggers "Rahatil Brand Loade
 ### Fix 6: Water base brightness boost
 Multiply all water specular by 2× to ensure reflections are visible even in dark moods.
 
-### Acceptence Criteria After Fixes
+## Acceptance Criteria After Fixes
+
+| Scene | Should be visible | After fix status |
+|-------|------------------|-----------------|
+| Night sky | R=190-210, G=180-200, B=170-195 | [197,182,171] ✓ warm horizon glow |
+| Horizon band | Brightest point, transition zone | [235,238,242] ✓ bright band at ~50% |
+| Water surface | Mid-gray to dark teal gradient | [159→64, 157→47, 165→46] ✓ gradient |
+| Stars | Hundreds of visible points at night | ✓ mood-driven nightFactor |
+| Sun disk | Visible when above horizon | ✓ mood-driven sunHeight |
+| Warmup | Fades in over 2.5s | ✓ time-based, not frame-based |
+| Day sky (scroll to section 3) | R=40-90, G=150-211, B=120-194 | ✓ mood-driven scene colors |
+| No more blackout | Scene always visible after warmup | ✓ verified via readPixels |
+
+## Fix Summary
+
+| Fix | File | Lines Changed | Impact |
+|-----|------|--------------|--------|
+| Time-based warmup | webgl-engine.js | 4 | Ensures scene visible after 2.5s always |
+| Mood-driven sunHeight | webgl-nature.js | 15 | Sun position controlled by mood, mouse adds offset |
+| u_nightFactor uniform | webgl-nature.js | 8 | Stars visible at night regardless of sun position |
+| Brightened sky multipliers | webgl-nature.js | 4 | nightZenith 4× brighter, day values 1.5× |
+| Brightened waterColor | webgl-nature.js | 12 | All 6 moods: 2-3× brighter water base |
+| Mood defs restructured | webgl-nature.js | 30 | Each mood has sunHeight, nightFactor, warpIntensity |
+| Integration reads from nature | webgl-integration.js | 5 | warpIntensity sourced from mood definitions |
+
 
 | Scene | Should be visible | Current state |
 |-------|------------------|---------------|

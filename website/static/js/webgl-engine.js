@@ -112,8 +112,8 @@
             state.gl = null;
         },
 
-        triggerLightSweep: function () {
-            state.lightSweep = 0.01;
+        triggerLightSweep: function (amplitude) {
+            state.lightSweep = amplitude || 0.01;
             state.lightSweepActive = true;
             state.lightSweepTime = 0;
         },
