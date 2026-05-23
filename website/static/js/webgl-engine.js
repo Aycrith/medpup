@@ -1,11 +1,10 @@
 // ============================================================
-// MedPup WebGL2 Cinematic Engine — Core Rendering Pipeline v2
-// GPU benchmark preflight, adaptive DRS, frame-time monitoring
+// MedPup WebGL2 Cinematic Engine v3 — 3D Camera Pipeline
+// Mouse tracking: -1 to 1, DRS tier 4=highest, lock after bench
 // ============================================================
 (function () {
     'use strict';
 
-    // --- MODULE STATE ---
     const state = {
         canvas: null,
         gl: null,
@@ -13,30 +12,27 @@
         uLocs: {},
         animFrameId: null,
         running: false,
-        drsTier: 0,
+        drsTier: 4,         // 4 = highest (desktop native), 0 = lowest
         canvasScale: 1.0,
         frameCount: 0,
         lastFrameTime: 0,
         fps: 60,
 
-        // Adaptive quality
+        // Benchmark
         benchmarkComplete: false,
-        gpuScore: 0,
-        frameTimes: [],
-        frameTimeIndex: 0,
-        adaptiveDownscale: false,
+        drsLocked: false,
 
-        // Light sweep (section transitions)
+        // Light sweep
         lightSweep: 0,
         lightSweepActive: false,
         lightSweepTime: 0,
+
+        // Viscous scroll
+        viscousScroll: 0,
     };
 
-    const FRAME_TIME_SAMPLE_SIZE = 30;
-    const TARGET_FRAME_TIME_MS = 16; // ~60fps
-    const ADAPTIVE_DOWNSCALE_FACTOR = 0.75;
+    const LIGHT_SWEEP_DURATION = 1.5;
 
-    // --- PUBLIC API ---
     window.MedPupWebGL = {
 
         init: function (canvasId) {
@@ -44,7 +40,6 @@
             state.canvas = document.getElementById(canvasId || 'v');
             if (!state.canvas) { console.warn('[WebGL] Canvas not found'); return; }
 
-            // WebGL2 context
             state.gl = state.canvas.getContext('webgl2', {
                 antialias: false,
                 alpha: false,
@@ -53,50 +48,54 @@
                 depth: false,
             });
             if (!state.gl) {
-                console.warn('[WebGL] WebGL2 not supported — fallback');
+                console.warn('[WebGL] WebGL2 not supported');
                 this._fallback();
                 return;
             }
 
-            // Initial DRS based on device heuristics
-            state.drsTier = this._detectDRSTier();
+            // Initial DRS (4=desktop native, will adjust after benchmark)
+            state.drsTier = this._detectInitialTier();
             this._resize();
 
-            // Compile shaders
             if (!window.MedPupNature || !this._initShaders()) {
-                console.warn('[WebGL] Shader compilation failed — fallback');
+                console.warn('[WebGL] Shader compilation failed');
                 this._fallback();
                 return;
             }
 
-            // Full-screen quad
             this._initGeometry();
 
-            // GPU benchmark (non-blocking, runs warmup frames)
-            this._startBenchmark(function (score) {
+            // GPU benchmark (doesn't block, adjusts DRS after 500ms)
+            this._startBenchmark(function (fps) {
+                if (state.drsLocked) return;
                 state.benchmarkComplete = true;
-                state.gpuScore = score;
+
                 // Adjust DRS based on measured performance
-                if (score < 30) {
-                    state.drsTier = Math.min(state.drsTier + 1, 4);
+                var adjusted = state.drsTier;
+                if (fps < 25 && adjusted > 1) adjusted--;
+                else if (fps < 30 && adjusted > 0) adjusted--;
+                else if (fps > 55 && adjusted < 4) adjusted++;
+
+                if (adjusted !== state.drsTier) {
+                    state.drsTier = adjusted;
                     this._resize();
-                    console.log('[WebGL] GPU benchmark: ' + score + 'fps — adjusted to tier ' + state.drsTier);
+                    console.log('[WebGL] Benchmark ' + fps.toFixed(0) + 'fps → tier ' + adjusted);
                 } else {
-                    console.log('[WebGL] GPU benchmark: ' + score + 'fps — tier ' + state.drsTier + ' OK');
+                    console.log('[WebGL] Benchmark ' + fps.toFixed(0) + 'fps — tier ' + state.drsTier + ' OK');
                 }
+
+                // Lock DRS permanently after benchmark
+                state.drsLocked = true;
             }.bind(this));
 
-            // Events
             window.addEventListener('resize', this._resize.bind(this), { passive: true });
             window.addEventListener('orientationchange', this._resize.bind(this), { passive: true });
 
-            // Start loop
             state.running = true;
             state.lastFrameTime = performance.now();
-            state.frameTimes = new Float32Array(FRAME_TIME_SAMPLE_SIZE);
             this._loop(state.lastFrameTime);
 
-            console.log('[WebGL] Engine v2 initialized (initial tier ' + state.drsTier + ')');
+            console.log('[WebGL] Engine v3 initialized (initial tier ' + state.drsTier + ')');
         },
 
         destroy: function () {
@@ -111,7 +110,6 @@
             state.gl = null;
         },
 
-        /** Trigger a light sweep for section transitions */
         triggerLightSweep: function () {
             state.lightSweep = 0.01;
             state.lightSweepActive = true;
@@ -120,30 +118,33 @@
 
         // --- INTERNAL ---
 
-        _detectDRSTier: function () {
+        _detectInitialTier: function () {
             const ua = navigator.userAgent;
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-            if (isMobile && window.innerWidth < 768) return 4;
-            if (isMobile) return 3;
-            if (window.innerWidth < 1024) return 2;
-            // Check for low-end GPU via WebGL renderer hint
             const gl = state.gl;
+
+            if (isMobile && window.innerWidth < 768) return 0; // lowest
+            if (isMobile) return 1;
+            if (window.innerWidth < 1024) return 2;
+
+            // Check GPU
             if (gl) {
                 const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
                 if (debugInfo) {
                     const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-                    if (/intel (hd|uhd|iris) (4|5|6)\d{2}/.test(renderer) ||
+                    if (/intel (hd|uhd) (4|5|6)\d{2}/.test(renderer) ||
                         /swiftshader|llvmpipe|mali-4\d{2}|adreno (3|4)\d{2}/.test(renderer)) {
-                        return 1; // Lower desktop tier for integrated/low-end GPU
+                        return 3; // reduced desktop
                     }
                 }
             }
-            return 0;
+            return 4; // highest — desktop native
         },
 
         _resize: function () {
-            let scale = [1.0, 1.0, 0.8, 0.6, 0.5][state.drsTier];
-            if (state.adaptiveDownscale) scale *= ADAPTIVE_DOWNSCALE_FACTOR;
+            // DRSTier 4 = 1.0×DPR, 3 = 0.85×DPR, 2 = 0.7×DPR, 1 = 0.5×DPR, 0 = 0.4×DPR
+            const tierToScale = [0.4, 0.5, 0.7, 0.85, 1.0];
+            const scale = tierToScale[Math.min(state.drsTier, 4)];
 
             const dpr = window.devicePixelRatio || 1;
             const w = window.innerWidth;
@@ -173,10 +174,8 @@
                 '}'
             ].join('\n');
 
-            const fsSrc = scene.getFragmentShaderSource();
-
             const vs = this._compileShader(gl.VERTEX_SHADER, vsSrc);
-            const fs = this._compileShader(gl.FRAGMENT_SHADER, fsSrc);
+            const fs = this._compileShader(gl.FRAGMENT_SHADER, scene.getFragmentShaderSource());
             if (!vs || !fs) return false;
 
             const prog = gl.createProgram();
@@ -187,14 +186,13 @@
             gl.deleteShader(fs);
 
             if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-                console.error('[WebGL] Program link error:', gl.getProgramInfoLog(prog));
+                console.error('[WebGL] Link error:', gl.getProgramInfoLog(prog));
                 return false;
             }
 
             state.program = prog;
             gl.useProgram(prog);
             this._getUniforms(scene.getUniformNames());
-
             return true;
         },
 
@@ -205,8 +203,7 @@
             gl.compileShader(shader);
             if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
                 const log = gl.getShaderInfoLog(shader);
-                const label = type === gl.VERTEX_SHADER ? 'VERTEX' : 'FRAGMENT';
-                console.error('[WebGL] ' + label + ' shader compile error:', log);
+                console.error('[WebGL] ' + (type === gl.VERTEX_SHADER ? 'VERTEX' : 'FRAGMENT') + ' shader error:', log);
                 gl.deleteShader(shader);
                 return null;
             }
@@ -232,69 +229,38 @@
             gl.vertexAttribPointer(state.uLocs.a_position, 2, gl.FLOAT, false, 0, 0);
         },
 
-        /** GPU benchmark: run frames as fast as possible for 500ms, measure FPS */
         _startBenchmark: function (callback) {
             const startTime = performance.now();
             let frameCount = 0;
             const gl = state.gl;
 
-            function benchmarkFrame() {
+            function benchFrame() {
                 frameCount++;
                 const elapsed = performance.now() - startTime;
                 if (elapsed < 500) {
-                    // Render a test frame
                     gl.clearColor(0, 0, 0, 1);
                     gl.clear(gl.COLOR_BUFFER_BIT);
                     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                    requestAnimationFrame(benchmarkFrame);
+                    requestAnimationFrame(benchFrame);
                 } else {
-                    const fps = frameCount / (elapsed / 1000);
-                    callback(fps);
+                    callback(frameCount / (elapsed / 1000));
                 }
             }
-
-            requestAnimationFrame(benchmarkFrame);
+            requestAnimationFrame(benchFrame);
         },
 
         _loop: function (now) {
             if (!state.running) return;
             state.animFrameId = requestAnimationFrame(this._loop.bind(this));
 
-            // Frame timing
             const dt = (now - state.lastFrameTime) / 1000;
             state.lastFrameTime = now;
             state.frameCount++;
 
-            // Adaptive quality: monitor frame times
-            if (state.benchmarkComplete && state.frameCount > 60) {
-                state.frameTimes[state.frameTimeIndex] = dt * 1000; // ms
-                state.frameTimeIndex = (state.frameTimeIndex + 1) % FRAME_TIME_SAMPLE_SIZE;
-
-                if (state.frameCount % 60 === 0) {
-                    // Check average frame time
-                    let avg = 0;
-                    for (let i = 0; i < FRAME_TIME_SAMPLE_SIZE; i++) {
-                        avg += state.frameTimes[i];
-                    }
-                    avg /= FRAME_TIME_SAMPLE_SIZE;
-
-                    // Auto-downscale if consistently over budget
-                    if (avg > TARGET_FRAME_TIME_MS * 1.5 && !state.adaptiveDownscale) {
-                        state.adaptiveDownscale = true;
-                        this._resize();
-                        console.log('[WebGL] Adaptive downscale enabled (avg frame: ' + avg.toFixed(1) + 'ms)');
-                    } else if (avg < TARGET_FRAME_TIME_MS * 0.5 && state.adaptiveDownscale) {
-                        state.adaptiveDownscale = false;
-                        this._resize();
-                        console.log('[WebGL] Adaptive upscale restored (avg frame: ' + avg.toFixed(1) + 'ms)');
-                    }
-                }
-            }
-
             // Light sweep animation
             if (state.lightSweepActive) {
                 state.lightSweepTime += dt;
-                state.lightSweep = Math.min(1, state.lightSweepTime / 1.5);
+                state.lightSweep = Math.min(1, state.lightSweepTime / LIGHT_SWEEP_DURATION);
                 if (state.lightSweep >= 1) {
                     state.lightSweepActive = false;
                     state.lightSweep = 0;
@@ -303,10 +269,12 @@
 
             state.fps = dt > 0 ? Math.round(1 / dt) : 60;
 
-            // Get scene state
             const sceneState = window.MedPupScroll
                 ? window.MedPupScroll.getSceneState()
                 : this._defaultSceneState();
+
+            // Viscous scroll (momentum that decays)
+            state.viscousScroll += (sceneState.scrollVelocity - state.viscousScroll) * 0.08;
 
             this._updateUniforms(now, dt, sceneState);
             this._draw();
@@ -316,8 +284,8 @@
             return {
                 scroll: 0, scrollSmooth: 0, scrollVelocity: 0,
                 mood: 0, moodBlend: 0,
-                mouseX: 0, mouseY: 0,
-                camElevation: 0, camYaw: 0,
+                mouseX: 0.5, mouseY: 0.5,
+                camElevation: 0, camPitch: 0, camFOV: 1.0,
             };
         },
 
@@ -339,32 +307,40 @@
             // Scroll
             if (u.u_scroll) gl.uniform1f(u.u_scroll, ss.scroll);
             if (u.u_scrollSmooth) gl.uniform1f(u.u_scrollSmooth, ss.scrollSmooth);
-            if (u.u_scrollVelocity) gl.uniform1f(u.u_scrollVelocity, ss.scrollVelocity);
+            if (u.u_scrollVelocity) gl.uniform1f(u.u_scrollVelocity, state.viscousScroll);
 
-            // Camera
+            // Camera — 3D
             if (u.u_camElevation) gl.uniform1f(u.u_camElevation, ss.camElevation);
-            if (u.u_camFOV) gl.uniform1f(u.u_camFOV, ss.camFOV || 1.0);
-            if (u.u_camYaw) gl.uniform1f(u.u_camYaw, ss.camYaw || 0);
+            if (u.u_camPitch) gl.uniform1f(u.u_camPitch, ss.camPitch);
+            if (u.u_camFOV) gl.uniform1f(u.u_camFOV, ss.camFOV);
 
-            // Mouse
-            if (u.u_mouse) gl.uniform2f(u.u_mouse, ss.mouseX, ss.mouseY);
+            // Mouse — rahatil.co uses -1 to 1 range, Y×0.75
+            const mx = (ss.mouseX - 0.5) * 2.0;
+            const my = (0.5 - ss.mouseY) * 2.0 * 0.75; // invert Y
+            if (u.u_mouse) gl.uniform2f(u.u_mouse, mx, my);
 
             // Mood
             if (u.u_mood) gl.uniform1i(u.u_mood, ss.mood);
             if (u.u_moodBlend) gl.uniform1f(u.u_moodBlend, ss.moodBlend);
 
-            // Light sweep
-            if (u.u_lightSweep) gl.uniform1f(u.u_lightSweep, state.lightSweep);
+            // Warp intensity — passed through from mood config
+            if (u.u_warpIntensity) gl.uniform1f(u.u_warpIntensity, ss.warpIntensity || 0);
 
             // Scene-specific uniforms
             scene.setUniforms(gl, u, ss, now * 0.001);
 
-            // DRS
-            if (u.u_drsTier) gl.uniform1f(u.u_drsTier, state.drsTier);
+            // DRS tier — 4=highest, sent as 4.0 (high = more features)
+            if (u.u_drsTier) gl.uniform1f(u.u_drsTier, Math.max(0, state.drsTier));
 
-            // Startup warmup (first 2 seconds)
-            const warmup = Math.max(0, 1.0 - state.frameCount / 120);
-            if (u.u_warmup) gl.uniform1f(u.u_warmup, warmup);
+            // Warmup — 0 = startup (black), 1 = fully visible
+            // Use benchmark state: show black during bench, then fade in
+            if (state.benchmarkComplete) {
+                const fadeFrames = 90; // ~1.5s at 60fps
+                const warmup = Math.max(0, Math.min(1, (state.frameCount - 30) / fadeFrames));
+                if (u.u_warmup) gl.uniform1f(u.u_warmup, warmup);
+            } else {
+                if (u.u_warmup) gl.uniform1f(u.u_warmup, 0.0);
+            }
         },
 
         _draw: function () {
@@ -376,9 +352,9 @@
 
         _fallback: function () {
             document.body.classList.add('no-webgl');
-            const oldCanvas = document.getElementById('particle-canvas-fallback');
-            if (oldCanvas) oldCanvas.style.display = 'block';
-            console.log('[WebGL] Using CSS/Canvas2D fallback');
+            const fallback = document.getElementById('particle-canvas-fallback');
+            if (fallback) fallback.style.display = 'block';
+            console.log('[WebGL] Using Canvas2D fallback');
         },
     };
 

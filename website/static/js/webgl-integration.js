@@ -1,11 +1,10 @@
 // ============================================================
-// MedPup WebGL2 Scroll Integration — Section → Scene Mapping v2
-// Smooth scroll, mouse parallax, light sweep on transitions
+// MedPup WebGL2 Scroll Integration v3 — Water Horizon Scene
+// Camera path mapping, mouse→sun, smooth scroll
 // ============================================================
 (function () {
     'use strict';
 
-    // --- STATE ---
     const state = {
         scroll: 0,
         scrollSmooth: 0,
@@ -13,67 +12,70 @@
         prevScroll: 0,
         mouseX: 0.5,
         mouseY: 0.5,
+        targetMX: 0.5,
+        targetMY: 0.5,
         mood: 0,
         moodBlend: 0,
         moodTarget: 0,
         moodTransitioning: false,
-        lastMood: -1,
         camElevation: 0,
-        camYaw: 0,
+        camPitch: 0,
         camFOV: 1.0,
+        warpIntensity: 0,
         sections: [],
         ticking: false,
     };
 
     const LERP_SCROLL = 0.08;
-    const LERP_MOUSE = 0.05;
-    const VELOCITY_DECAY = 0.9;
+    const LERP_MOUSE = 0.08;
+    const VELOCITY_DECAY = 0.92;
     const MOOD_TRANSITION_SPEED = 0.008;
-    const MOUSE_PARALLAX_STRENGTH = 0.04;
+    const SCROLL_CAM_GAIN = 0.12;
 
-    // --- SECTION DEFINITIONS ---
+    // Section mood mapping
     const SECTION_MOOD_MAP = {
-        'hero': 0,
-        'intro': 1,
-        'steps': 2,
-        'calculator': 3,
-        'clinics': 4,
+        'hero': 0,        // Night
+        'intro': 1,       // Dawn
+        'steps': 2,       // Morning
+        'calculator': 3,  // Midday
+        'clinics': 4,     // Golden Hour
         'numbers': 4,
-        'trust': 5,
+        'trust': 5,       // Dusk
         'faq': 5,
         'cta': 5,
         'disclaimer': 5,
     };
 
-    // Section-based FOV (zoom feel)
-    const SECTION_FOV = {
-        0: 0.95,  // Night: slightly zoomed (intimate)
-        1: 1.05,  // Dawn: wider (horizon expanding)
-        2: 1.0,   // Morning: neutral
-        3: 1.1,   // Midday: widest (transparency)
-        4: 0.9,   // Golden hour: slightly zoomed (warm embrace)
-        5: 0.95,  // Dusk: intimate again
-    };
+    // Camera path: position, pitch, FOV per scroll section
+    // These create the feeling of camera movement through 3D space
+    function getCameraTargets(scroll) {
+        const s = Math.max(0, Math.min(1, scroll || 0));
+
+        // Camera elevation: rises and falls through the scene
+        const elevation = Math.sin(s * Math.PI * 1.5) * 0.15;
+
+        // Camera pitch: tilt slightly as we move (look down → level → look up)
+        const pitch = -0.02 + Math.sin(s * Math.PI * 1.2) * 0.015;
+
+        // FOV: slight breathing effect
+        const fov = 1.0 + Math.sin(s * Math.PI * 1.8) * 0.08;
+
+        return { elevation: elevation, pitch: pitch, fov: fov };
+    }
+
+    // Warp intensity per mood (controls sun movement smoothness)
+    const WARP_PER_MOOD = [0.3, 0.5, 0.6, 0.7, 0.5, 0.35];
 
     // --- INIT ---
     function init() {
         discoverSections();
 
         window.addEventListener('scroll', onScroll, { passive: true });
-
-        // Mouse tracking with smoother interpolation
-        document.addEventListener('mousemove', function (e) {
-            state.mouseX += ((e.clientX / window.innerWidth) - state.mouseX) * LERP_MOUSE;
-            state.mouseY += ((1.0 - (e.clientY / window.innerHeight)) - state.mouseY) * LERP_MOUSE;
-        }, { passive: true });
-
-        window.addEventListener('resize', function () {
-            discoverSections();
-        }, { passive: true });
+        window.addEventListener('mousemove', onMouse, { passive: true });
+        window.addEventListener('resize', function () { discoverSections(); }, { passive: true });
 
         onScroll();
-
-        console.log('[WebGL] Scroll integration v2 initialized (' + state.sections.length + ' sections)');
+        console.log('[WebGL] v3 integration initialized (' + state.sections.length + ' sections)');
     }
 
     function discoverSections() {
@@ -81,12 +83,12 @@
         var els = document.querySelectorAll('[data-section]');
         for (var i = 0; i < els.length; i++) {
             var el = els[i];
-            var sectionName = el.getAttribute('data-section');
-            var moodId = SECTION_MOOD_MAP[sectionName];
+            var name = el.getAttribute('data-section');
+            var moodId = SECTION_MOOD_MAP[name];
             if (moodId !== undefined) {
                 state.sections.push({
                     el: el,
-                    name: sectionName,
+                    name: name,
                     mood: moodId,
                     top: 0,
                     bottom: 0,
@@ -94,21 +96,16 @@
             }
         }
         state.sections.sort(function (a, b) {
-            var posA = Array.prototype.indexOf.call(a.el.parentNode.children, a.el);
-            var posB = Array.prototype.indexOf.call(b.el.parentNode.children, b.el);
-            return posA - posB;
+            return Array.prototype.indexOf.call(a.el.parentNode.children, a.el)
+                 - Array.prototype.indexOf.call(b.el.parentNode.children, b.el);
         });
         recalcPositions();
     }
 
     function recalcPositions() {
-        var totalHeight = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight
-        );
-        var viewportH = window.innerHeight;
-        var scrollable = Math.max(1, totalHeight - viewportH);
-
+        var th = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        var vh = window.innerHeight;
+        var scrollable = Math.max(1, th - vh);
         for (var i = 0; i < state.sections.length; i++) {
             var s = state.sections[i];
             var rect = s.el.getBoundingClientRect();
@@ -124,37 +121,38 @@
         }
     }
 
+    function onMouse(e) {
+        state.targetMX = e.clientX / window.innerWidth;
+        state.targetMY = e.clientY / window.innerHeight;
+    }
+
     function updateScroll() {
         state.ticking = false;
 
         var scrollY = window.pageYOffset || window.scrollY || 0;
-        var totalHeight = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight
-        );
-        var viewportH = window.innerHeight;
-        var scrollable = Math.max(1, totalHeight - viewportH);
+        var th = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        var vh = window.innerHeight;
+        var scrollable = Math.max(1, th - vh);
 
         state.scroll = scrollY / scrollable;
 
-        // Velocity
-        state.scrollVelocity = (state.scroll - state.prevScroll) * 10;
+        // Velocity with momentum
+        state.scrollVelocity = (state.scroll - state.prevScroll) * 8;
         state.scrollVelocity *= VELOCITY_DECAY;
         state.prevScroll = state.scroll;
 
         recalcPositions();
         updateMood();
 
-        // Camera elevation from scroll
-        state.camElevation = (state.scrollSmooth - 0.5) * 0.3;
-
-        // Camera yaw from mouse (subtle horizontal parallax)
-        state.camYaw = (state.mouseX - 0.5) * MOUSE_PARALLAX_STRENGTH;
+        // Camera from scroll — 3D path
+        var cam = getCameraTargets(state.scrollSmooth);
+        state.camElevation = cam.elevation;
+        state.camPitch = cam.pitch;
+        state.camFOV = cam.fov + SCROLL_CAM_GAIN * state.scrollVelocity * 0.5;
     }
 
     function updateMood() {
         var found = false;
-
         for (var i = 0; i < state.sections.length; i++) {
             var s = state.sections[i];
             if (state.scroll >= s.top && state.scroll <= s.bottom) {
@@ -165,25 +163,17 @@
         }
 
         if (!found) {
-            var nearestDist = Infinity;
+            var nd = Infinity;
             for (var i = 0; i < state.sections.length; i++) {
                 var s = state.sections[i];
-                var dist = Math.min(
-                    Math.abs(state.scroll - s.top),
-                    Math.abs(state.scroll - s.bottom)
-                );
-                if (dist < nearestDist) {
-                    nearestDist = dist;
-                    state.moodTarget = s.mood;
-                }
+                var d = Math.min(Math.abs(state.scroll - s.top), Math.abs(state.scroll - s.bottom));
+                if (d < nd) { nd = d; state.moodTarget = s.mood; }
             }
         }
 
-        // Detect mood change → trigger light sweep
+        // Trigger light sweep on mood change
         if (state.mood !== state.moodTarget && !state.moodTransitioning) {
-            if (window.MedPupWebGL) {
-                window.MedPupWebGL.triggerLightSweep();
-            }
+            if (window.MedPupWebGL) window.MedPupWebGL.triggerLightSweep();
         }
 
         // Smooth mood transition
@@ -201,20 +191,20 @@
             state.moodTransitioning = false;
         }
 
-        // Update FOV based on current mood
-        var fovMood = state.moodTransitioning ? state.moodTarget : state.mood;
-        state.camFOV = SECTION_FOV[fovMood] || 1.0;
-        if (state.moodTransitioning) {
-            var prevFov = SECTION_FOV[state.mood] || 1.0;
-            state.camFOV = prevFov + (state.camFOV - prevFov) * state.moodBlend;
-        }
+        // Warp intensity — follows current mood
+        var moodIdx = state.moodTransitioning ? state.moodTarget : state.mood;
+        state.warpIntensity = WARP_PER_MOOD[Math.min(moodIdx, WARP_PER_MOOD.length - 1)] || 0.5;
     }
 
     // --- PUBLIC API ---
     function getSceneState() {
-        // Smooth scroll interpolation
+        // Smooth scroll
         state.scrollSmooth += (state.scroll - state.scrollSmooth) * LERP_SCROLL;
         state.scrollSmooth = Math.max(0, Math.min(1, state.scrollSmooth));
+
+        // Smooth mouse
+        state.mouseX += (state.targetMX - state.mouseX) * LERP_MOUSE;
+        state.mouseY += (state.targetMY - state.mouseY) * LERP_MOUSE;
 
         return {
             scroll: state.scroll,
@@ -222,11 +212,13 @@
             scrollVelocity: state.scrollVelocity,
             mood: state.mood,
             moodBlend: state.moodBlend,
+            // Mouse in 0-1 range (engine converts to -1 to 1)
             mouseX: state.mouseX,
             mouseY: state.mouseY,
             camElevation: state.camElevation,
-            camYaw: state.camYaw,
+            camPitch: state.camPitch,
             camFOV: state.camFOV,
+            warpIntensity: state.warpIntensity,
         };
     }
 
@@ -246,7 +238,6 @@
         autoInit();
     }
 
-    // --- EXPOSE ---
     window.MedPupScroll = {
         init: init,
         getSceneState: getSceneState,
